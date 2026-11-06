@@ -17,6 +17,10 @@ button, input, select { font: inherit; color: inherit; }
 h1 { margin: 0; font-size: 28px; letter-spacing: -.015em; color: #fff; }
 .top p { margin: 0; color: #c6d6e6; max-width: 52rem; }
 .upd { font-size: 12px; color: #9fb3c4; margin-top: 6px; display: flex; align-items: center; gap: 8px; }
+.hact { margin-top: 10px; }
+.hbtn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; background: #dffbf2; color: #0b5a4c; font-weight: 650; text-decoration: none; font-size: 13px; }
+.hbtn span { font-weight: 500; opacity: .75; }
+.hbtn:hover { filter: brightness(1.04); }
 .upd i { width: 8px; height: 8px; border-radius: 50%; background: #19b89f; box-shadow: 0 0 0 3px rgba(25,184,159,.25); }
 main { max-width: 1280px; margin: 0 auto; padding: 20px 24px 40px; display: grid; gap: 16px; }
 .kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); margin-top: -36px; }
@@ -92,6 +96,7 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
 <h1>Adnan Habib · job search tracker</h1>
 <p>Senior Product Manager / Business Analyst roles across the UK, found and checked every morning. Sponsorship is checked against the advert and the Home Office register of licensed sponsors.</p>
 <div class="upd"><i></i><span id="upd">Loading…</span></div>
+<div class="hact"><a class="hbtn" href="https://claude.ai/artifact/7n5jH6cZvxWpZPEBzXk4Jq#add" target="_blank" rel="noopener" title="Opens Adnan's private dashboard. Only Adnan can add roles.">＋ Add a role <span>(Adnan only)</span></a></div>
 </div></header>
 <main>
 <div class="kpis" id="kpis"></div>
