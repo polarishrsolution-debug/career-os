@@ -39,7 +39,7 @@ select.sort { border-color: var(--acc); color: var(--acc); font-weight: 650; }
 .lbl { font-size: 12.5px; color: var(--mut); font-weight: 600; }
 .count { margin-left: auto; font-size: 12px; color: var(--mut); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
 .tw { overflow-x: auto; border-top: 1px solid var(--line); }
-table { width: 100%; min-width: 980px; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+table { width: 100%; min-width: 1240px; border-collapse: separate; border-spacing: 0; font-size: 13px; }
 th { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 650; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--soft); white-space: nowrap; cursor: pointer; user-select: none; }
 th::after { content: ' ↕'; opacity: .35; }
 th[aria-sort] { color: var(--acc); box-shadow: inset 0 -2px 0 var(--acc); }
@@ -108,12 +108,12 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
 </div>
 </div>
 <div class="tw"><table>
-<thead><tr><th data-k="deadline">Deadline</th><th data-k="org">Role</th><th data-k="stage">Stage</th><th data-k="fit">Fit</th><th data-k="sp">Sponsorship</th><th data-k="salary">Salary</th><th data-k="loc">Location</th><th data-k="added">Added</th><th>Advert</th></tr></thead>
-<tbody id="tb"><tr><td class="empty" colspan="9">Loading…</td></tr></tbody>
+<thead><tr><th data-k="deadline">Deadline</th><th data-k="org">Role</th><th data-k="stage">Stage</th><th data-k="fit">Fit</th><th data-k="sp">Sponsorship</th><th data-k="applied">Applied</th><th data-k="iv">Interview</th><th data-k="salary">Salary</th><th data-k="loc">Location</th><th data-k="added">Added</th><th>Advert</th></tr></thead>
+<tbody id="tb"><tr><td class="empty" colspan="11">Loading…</td></tr></tbody>
 </table></div>
 <div class="note">Scroll sideways for more columns · click a row for details</div>
 </section>
-<p class="foot">Sponsorship: Confirmed = the advert says it sponsors · Licensed = the employer holds a Home Office sponsor licence but the advert is silent · Not verified = licence not matched yet. A licence alone does not confirm sponsorship for a role. Updated automatically every morning.</p>
+<p class="foot">Sponsorship: Confirmed = the advert says it sponsors · Licensed = the employer holds a Home Office sponsor licence but the advert is silent · Not verified = licence not matched yet. A licence alone does not confirm sponsorship for a role. New roles are added every morning and changes sync every hour.</p>
 </main>
 <div class="drawer" id="dr" hidden><div class="dp" id="dp" role="dialog" aria-modal="true" aria-label="Role details"></div></div>
 <script>
@@ -121,7 +121,7 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
   var el = function (t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
   var S = { stage: '', q: '', sp: '', fit: '', sort: 'deadline', dir: 1 }, ROWS = [];
   var SP = { ok: ['Confirmed in advert', 'green'], warn: ['Licensed, not confirmed', 'blue'], unk: ['Licence not verified', 'amber'] };
-  var ST = { 'To apply': 'blue', 'Applied': 'purple', 'Interview': 'green', 'Offer': 'gold' };
+  var ST = { 'To apply': 'blue', 'Applied': 'purple', 'Interview': 'green', 'Offer': 'gold', 'Closed': '' };
   var HUES = ['#3b6fd8', '#12a28c', '#7c5cd6', '#d4703a', '#c2417a', '#2f8fbf', '#5b8c2a', '#b5672a', '#0f7c90', '#8a6d1c'];
   var hue = function (s) { var h = 7; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 9973; return HUES[h % HUES.length]; };
   var initials = function (s) { var w = s.replace(/[^A-Za-z0-9 ]/g, ' ').split(' ').filter(function (x) { return x && !/^(of|the|and|for|uk|ltd|plc|group|limited)$/i.test(x); }); return (((w[0] || '?')[0]) + ((w[1] || '')[0] || '')).toUpperCase(); };
@@ -133,7 +133,7 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
   var pill = function (t, c) { return el('span', 'pill ' + (c || ''), t); };
   var fitCell = function (f) { var v = fitNum(f), w = el('div', 'fitc'); w.append(el('b', null, v == null ? '—' : String(v))); var tr = el('div', 'tr'), i = el('i'); i.style.width = (v == null ? 0 : Math.min(v, 10) * 10) + '%'; i.style.background = v == null ? 'transparent' : v >= 8.5 ? 'var(--acc)' : v >= 7.5 ? 'var(--c1)' : 'var(--warn)'; tr.append(i); w.append(tr); return w; };
   var lowSal = function (s) { s = String(s || ''); if (/day|hour/i.test(s)) return 1; var m = s.replace(/,/g, '').match(/£ ?([0-9]+(?:\.[0-9]+)?) ?(k)?/i); if (!m) return 0; var v = Number(m[1]); if (m[2] || v < 1000) v *= 1000; return v; };
-  var ORDER = { 'Offer': 0, 'Interview': 1, 'Applied': 2, 'To apply': 3 };
+  var ORDER = { 'Offer': 0, 'Interview': 1, 'Applied': 2, 'To apply': 3, 'Closed': 4 };
   var SORT = {
     deadline: function (a, b) { var k = function (r) { var n = days(r.deadline); if (r.stage !== 'To apply') return 2e5 + ORDER[r.stage]; return n == null ? 1e5 : n < 0 ? 3e5 : n; }; return k(a) - k(b); },
     fit: function (a, b) { return (fitNum(b.fit) || -1) - (fitNum(a.fit) || -1); },
@@ -142,13 +142,15 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
     stage: function (a, b) { return ORDER[a.stage] - ORDER[b.stage]; },
     sp: function (a, b) { return ['ok', 'warn', 'unk'].indexOf(a.sponsorship) - ['ok', 'warn', 'unk'].indexOf(b.sponsorship); },
     salary: function (a, b) { return lowSal(b.salary) - lowSal(a.salary); },
-    loc: function (a, b) { return a.location.localeCompare(b.location); }
+    loc: function (a, b) { return a.location.localeCompare(b.location); },
+    applied: function (a, b) { return (b.applied_on || '').localeCompare(a.applied_on || ''); },
+    iv: function (a, b) { return (a.interview_datetime ? 0 : 1) - (b.interview_datetime ? 0 : 1); }
   };
   var pass = function (r, noStage) {
     if (!noStage && S.stage && r.stage !== S.stage) return false;
     if (S.sp && r.sponsorship !== S.sp) return false;
     if (S.fit) { var f = fitNum(r.fit); if (f == null || f < Number(S.fit)) return false; }
-    if (S.q) { var q = S.q.toLowerCase(); if ([r.organisation, r.role, r.location, r.focus, r.sector].join(' ').toLowerCase().indexOf(q) < 0) return false; }
+    if (S.q) { var q = S.q.toLowerCase(); if ([r.organisation, r.role, r.location, r.focus, r.sector, r.notes, r.interview_status].join(' ').toLowerCase().indexOf(q) < 0) return false; }
     return true;
   };
   var drawKpis = function () {
@@ -163,7 +165,7 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
   };
   var drawTabs = function () {
     var t = document.getElementById('tabs'); t.replaceChildren();
-    [['', 'All'], ['To apply', 'To apply'], ['Applied', 'Applied'], ['Interview', 'Interview'], ['Offer', 'Offer']].forEach(function (x) {
+    [['', 'All'], ['To apply', 'To apply'], ['Applied', 'Applied'], ['Interview', 'Interview'], ['Offer', 'Offer'], ['Closed', 'Closed']].forEach(function (x) {
       var b = el('button', null, x[1]); b.type = 'button'; b.setAttribute('aria-pressed', String(S.stage === x[0]));
       b.append(el('span', 'n', String(ROWS.filter(function (r) { return pass(r, true) && (!x[0] || r.stage === x[0]); }).length)));
       b.onclick = function () { S.stage = x[0]; draw(); }; t.append(b);
@@ -177,11 +179,13 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
     if (r.url) { var a = el('a', 'btn', 'Open the advert ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; dp.append(a); }
     var box = function (title, kids) { var b = el('div', 'box'); b.append(el('div', 't', title)); kids.forEach(function (k) { if (k) b.append(k); }); dp.append(b); };
     var kv = el('div', 'kv'); var add = function (a, v) { if (!v) return; var c = el('div'); c.append(el('span', null, a), el('span', null, v)); kv.append(c); };
-    add('Deadline', r.deadline ? fmt(r.deadline) : r.deadline_text || 'Open'); add('Sector', r.sector); add('Fit', r.fit ? r.fit + ' / 10' : ''); add('Added', r.added ? fmt(r.added) : '');
+    add('Deadline', r.deadline ? fmt(r.deadline) : r.deadline_text || 'Open'); add('Sector', r.sector); add('Fit', r.fit ? r.fit + ' / 10' : ''); add('Added', r.added ? fmt(r.added) : ''); add('Status', r.closed_reason || (r.stage !== 'To apply' ? r.alert : '')); add('Applied on', r.applied_on ? fmt(r.applied_on) : ''); add('Follow up', r.follow_up ? fmt(r.follow_up) : ''); add('Interview status', r.interview_status); add('Interview', r.interview_datetime); add('Round', r.round ? String(r.round) : ''); add('Found via', r.source);
     box('Key facts', [kv]);
-    box('Sponsorship', [el('div', null, r.sponsorship_note || SP[r.sponsorship][0])]);
+    box('Sponsorship', [el('div', null, r.sponsorship_note || SP[r.sponsorship][0]), (r.legal_entity || r.last_verified) ? el('div', 'small', [r.legal_entity ? 'Legal entity: ' + r.legal_entity : '', r.last_verified ? 'Last verified ' + r.last_verified : ''].filter(Boolean).join(' · ')) : null]);
+    if (r.notes) box('Notes', [el('div', null, r.notes)]);
     if (r.fit_reason) box('Why it fits', [el('div', null, r.fit_reason)]);
     if (r.focus) box('Job focus', [el('div', null, r.focus)]);
+    if (r.history && r.history.length) { var hl = r.history.slice().reverse().slice(0, 10).map(function (x) { var d = el('div', 'small'); d.textContent = (x.at ? new Date(x.at).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · ' : '') + (x.what || ''); return d; }); box('Activity', hl); }
     document.getElementById('dr').hidden = false; x.focus();
   };
   var close = function () { document.getElementById('dr').hidden = true; };
@@ -194,18 +198,19 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
     var rows = ROWS.filter(function (r) { return pass(r); }).sort(function (a, b) { return S.dir * s(a, b) || SORT.deadline(a, b); });
     document.getElementById('count').textContent = rows.length + ' of ' + ROWS.length + ' shown';
     document.querySelectorAll('th[data-k]').forEach(function (th) { if (th.dataset.k === S.sort) th.setAttribute('aria-sort', S.dir > 0 ? 'ascending' : 'descending'); else th.removeAttribute('aria-sort'); });
-    if (!rows.length) { var tr0 = el('tr'), td0 = el('td', 'empty', 'No roles match these filters.'); td0.colSpan = 9; tr0.append(td0); tb.append(tr0); return; }
+    if (!rows.length) { var tr0 = el('tr'), td0 = el('td', 'empty', 'No roles match these filters.'); td0.colSpan = 11; tr0.append(td0); tb.append(tr0); return; }
     rows.forEach(function (r) {
       var tr = el('tr'); tr.tabIndex = 0;
       var c1 = el('td'), n = days(r.deadline), openRole = r.stage === 'To apply';
       if (r.deadline) { var dd = el('div', 'dd' + (openRole && n <= 2 ? ' red' : openRole && n <= 7 ? ' amber' : '')); dd.append(el('b', null, fmt(r.deadline))); if (openRole) dd.append(el('span', null, n === 0 ? 'Closes today' : n + (n === 1 ? ' day left' : ' days left'))); c1.append(dd); } else c1.append(el('span', 'small', r.deadline_text && !/^(—|-)$/.test(r.deadline_text) ? r.deadline_text : 'Open'));
       var c2 = el('td'), rc = el('div', 'rc'), t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role)); rc.append(av(r.organisation), t); c2.append(rc);
-      var c3 = el('td'); c3.append(pill(r.stage, ST[r.stage])); if (r.new && r.added && days(r.added) >= -6) { c3.append(' '); c3.append(pill('New', 'gold')); }
+      var c3 = el('td'); c3.append(pill(r.stage, ST[r.stage])); if (r.new && r.added && days(r.added) >= -6) { c3.append(' '); c3.append(pill('New', 'gold')); } var sub = r.closed_reason || (r.stage !== 'To apply' ? r.alert : ''); if (sub) { c3.append(el('div', 'small', sub)); }
       var c4 = el('td'); c4.append(fitCell(r.fit));
       var c5 = el('td'); c5.append(pill(SP[r.sponsorship][0], SP[r.sponsorship][1]));
+      var ca = el('td', 'small nw', r.applied_on ? fmt(r.applied_on) : r.submission === 'Submitted' ? 'Submitted' : '—'), ci = el('td', 'small'); ci.append(el('div', null, r.interview_datetime || '—')); if (r.interview_status) ci.append(el('div', 'small', r.interview_status));
       var c6 = el('td', 'small', r.salary || '—'), c7 = el('td', 'small', r.location || '—'), c8 = el('td', 'small nw', r.added ? fmt(r.added) : '—');
       var c9 = el('td'); if (r.url) { var a = el('a', 'adv', 'Open ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.onclick = function (e) { e.stopPropagation(); }; c9.append(a); } else c9.append(el('span', 'small', '—'));
-      tr.append(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+      tr.append(c1, c2, c3, c4, c5, ca, ci, c6, c7, c8, c9);
       tr.onclick = function () { open(r); }; tr.onkeydown = function (e) { if (e.key === 'Enter') open(r); };
       tb.append(tr);
     });
@@ -217,11 +222,11 @@ a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: 
   document.getElementById('sort').addEventListener('change', function (e) { S.sort = e.target.value; S.dir = 1; draw(); });
   document.querySelectorAll('th[data-k]').forEach(function (th) { th.addEventListener('click', function () { var k = th.dataset.k; if (S.sort === k) S.dir = -S.dir; else { S.sort = k; S.dir = 1; } sync(); draw(); }); });
   fetch('data/jobs.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (doc) {
-    ROWS = (doc.rows || []).filter(function (r) { return r && r.organisation && r.role && ST[r.stage]; }).map(function (r) { if (!SP[r.sponsorship]) r.sponsorship = 'unk'; return r; });
+    ROWS = (doc.rows || []).filter(function (r) { return r && r.organisation && r.role && (r.stage in ST); }).map(function (r) { if (!SP[r.sponsorship]) r.sponsorship = 'unk'; return r; });
     var u = doc.updated ? new Date(doc.updated) : null;
-    document.getElementById('upd').textContent = u ? 'Updated ' + u.toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · refreshed every morning' : 'Refreshed every morning';
+    document.getElementById('upd').textContent = u ? 'Updated ' + u.toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · syncs every hour' : 'Refreshed every morning';
     drawKpis(); sync(); draw();
-  }).catch(function () { var tb = document.getElementById('tb'); tb.replaceChildren(); var tr = el('tr'), td = el('td', 'empty', 'The role list could not be loaded. Please refresh the page.'); td.colSpan = 9; tr.append(td); tb.append(tr); document.getElementById('upd').textContent = 'Could not load the latest data'; });
+  }).catch(function () { var tb = document.getElementById('tb'); tb.replaceChildren(); var tr = el('tr'), td = el('td', 'empty', 'The role list could not be loaded. Please refresh the page.'); td.colSpan = 11; tr.append(td); tb.append(tr); document.getElementById('upd').textContent = 'Could not load the latest data'; });
 })();
 </script>
 </body>

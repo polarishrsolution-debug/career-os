@@ -2,10 +2,9 @@
 
 Usage: python3 scripts/build_public.py path/to/tracker.json [data/jobs.json]
 
-Reads the full private tracker (from the Career OS dashboard) and writes only
-what is safe to show publicly. Left out on purpose: notes, interview dates and
-status details, history, preparation, applied/follow-up dates, and any role
-that was rejected, withdrawn or has closed.
+Reads the full tracker (from the Career OS dashboard) and writes every role
+with all of its details for the public site, as Adnan asked on 6 Nov 2026.
+Only the internal preparation checklist is left out.
 """
 import json, re, sys, datetime
 
@@ -29,7 +28,7 @@ def sp_kind(s):
 def public_stage(r):
     st = r.get('interview_status') or ''
     if r.get('stage') == 'Closed' or re.match(r'rejected', st, re.I) or re.match(r'withdrawn', r.get('submission') or '', re.I) or re.search(r'declined', st, re.I):
-        return None
+        return 'Closed'
     if re.search(r'offer', st, re.I):
         return 'Offer'
     if r.get('stage') == 'Interview stage':
@@ -37,6 +36,19 @@ def public_stage(r):
     if r.get('stage') == 'Applied' or r.get('submission') == 'Submitted':
         return 'Applied'
     return 'To apply'
+
+def closed_reason(r):
+    st = r.get('interview_status') or ''
+    if re.match(r'rejected', st, re.I): return 'Rejected'
+    if re.search(r'declined', st, re.I): return 'Offer declined'
+    if re.match(r'withdrawn', r.get('submission') or '', re.I): return 'Withdrawn' if r.get('applied_on') or re.search(r'interview|awaiting', st, re.I) else 'Not applying'
+    return 'Deadline passed'
+
+def arr(v):
+    if isinstance(v, str):
+        try: v = json.loads(v)
+        except Exception: v = []
+    return v if isinstance(v, list) else []
 
 def clean_sponsor(s):
     s = re.sub(r'^[^A-Za-z0-9]+', '', s or '').strip()
@@ -51,30 +63,39 @@ def main():
     pub = []
     for r in rows:
         stg = public_stage(r)
-        if not stg:
-            continue
-        deadline = r.get('deadline') or ''
-        if stg == 'To apply' and deadline and deadline < datetime.date.today().isoformat():
-            continue
+        hist = [h for h in arr(r.get('history')) if isinstance(h, dict)][-20:]
         pub.append({
             'id': r.get('id'),
             'organisation': r.get('organisation') or '',
             'role': r.get('role') or '',
             'stage': stg,
-            'watchlist': (r.get('sponsorship') or '').startswith('❔'),
+            'closed_reason': closed_reason(r) if stg == 'Closed' else '',
+            'alert': re.sub(r'^[^A-Za-z0-9]+', '', r.get('alert') or '').strip(),
+            'watchlist': (r.get('sponsorship') or '').startswith('\u2754'),
             'sector': r.get('sector') or '',
             'location': r.get('location') or '',
             'salary': '' if re.search(r'not stated', r.get('salary') or '', re.I) else (r.get('salary') or ''),
-            'deadline': deadline,
+            'deadline': r.get('deadline') or '',
             'deadline_text': r.get('deadline_text') or '',
             'sponsorship': sp_kind(r.get('sponsorship')),
             'sponsorship_note': clean_sponsor(r.get('sponsorship')),
+            'legal_entity': r.get('legal_entity') or '',
+            'last_verified': r.get('last_verified') or '',
             'fit': r.get('fit') or '',
             'fit_reason': r.get('fit_reason') or '',
             'focus': r.get('jd_focus') or '',
+            'notes': r.get('notes') or '',
+            'submission': r.get('submission') or '',
+            'applied_on': r.get('applied_on') or '',
+            'follow_up': r.get('follow_up') or '',
+            'interview_status': '' if (r.get('interview_status') or '') in ('', '\u2014', '-') else r.get('interview_status'),
+            'interview_datetime': r.get('interview_datetime') or '',
+            'round': r.get('round') or '',
+            'history': hist,
+            'source': r.get('source') or '',
             'url': r.get('url') if re.match(r'^https?://', r.get('url') or '') else '',
             'added': iso_added(r.get('added')),
-            'new': str(r.get('id') or '').startswith('N'),
+            'new': str(r.get('id') or '').startswith(('N', 'M')),
         })
     doc = {'updated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'rows': pub}
     with open(out, 'w', encoding='utf-8') as f:
