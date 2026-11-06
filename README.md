@@ -1,6 +1,7 @@
 # Career OS
 
-A view-only list of UK roles with Skilled Worker sponsorship, refreshed every morning.
+Public, view-only copy of Adnan Habib's Career OS dashboard: UK roles with Skilled Worker sponsorship.
 
-- `index.html` - the page (no build step).
-- `data/jobs.json` - the public data, made from the private tracker by `scripts/build_public.py`. Notes, interview details, history and closed or rejected roles are left out.
+- `index.html`, `app/core.js`, `app/ui.js` - the same dashboard as the private Claude version, run read-only.
+- `data/jobs.json` - every tracked role, synced from the dashboard every hour by `scripts/build_public.py`.
+- `data/criteria.json` - the search profile the daily search follows.

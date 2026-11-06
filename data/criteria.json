@@ -1,0 +1,254 @@
+[
+ {
+  "id": "c001",
+  "group": "Headline",
+  "label": "Non-university effort",
+  "value": "70%"
+ },
+ {
+  "id": "c002",
+  "group": "Headline",
+  "label": "University / HE effort",
+  "value": "30%"
+ },
+ {
+  "id": "c003",
+  "group": "Headline",
+  "label": "Preferred fit",
+  "value": "7/10"
+ },
+ {
+  "id": "c004",
+  "group": "Headline",
+  "label": "Posting look-back",
+  "value": "45–60 days"
+ },
+ {
+  "id": "c005",
+  "group": "Run",
+  "label": "Daily search time",
+  "value": "09:00 Europe/London"
+ },
+ {
+  "id": "c006",
+  "group": "Run",
+  "label": "Strong transferable fit",
+  "value": "6/10 considered, gaps flagged"
+ },
+ {
+  "id": "c007",
+  "group": "Run",
+  "label": "Geography",
+  "value": "Entire UK — England, Scotland, Wales, Northern Ireland"
+ },
+ {
+  "id": "c008",
+  "group": "Run",
+  "label": "Work modes",
+  "value": "Remote · Hybrid · On-site"
+ },
+ {
+  "id": "c009",
+  "group": "Run",
+  "label": "Employment types",
+  "value": "Permanent · Fixed-Term · Temporary · Contract"
+ },
+ {
+  "id": "c010",
+  "group": "Run",
+  "label": "Levels",
+  "value": "Junior · Associate · Mid · Senior · Lead · Manager"
+ },
+ {
+  "id": "c011",
+  "group": "Rules",
+  "label": "Official adverts only",
+  "value": "Final shortlist uses the official employer advert"
+ },
+ {
+  "id": "c012",
+  "group": "Rules",
+  "label": "Legal entity verified",
+  "value": "The actual employing entity must match the Home Office register"
+ },
+ {
+  "id": "c013",
+  "group": "Rules",
+  "label": "Skilled Worker licence",
+  "value": "Employer must hold a current Skilled Worker licence"
+ },
+ {
+  "id": "c014",
+  "group": "Rules",
+  "label": "Include",
+  "value": "Confirmed · Licensed — Unconfirmed"
+ },
+ {
+  "id": "c015",
+  "group": "Rules",
+  "label": "Exclude",
+  "value": "No Sponsorship · Licence Not Verified · Closed / Stale"
+ },
+ {
+  "id": "c016",
+  "group": "Rules",
+  "label": "Licensed is not confirmed",
+  "value": "A licence alone does not mean this vacancy is sponsored"
+ },
+ {
+  "id": "c017",
+  "group": "Sectors",
+  "label": "Very high",
+  "value": "Small companies (10–50) · SMEs (51–250) · Fintech / Banking / Insurance · Enterprise SaaS / AI · IT & Digital Consultancies · EdTech / Education Suppliers"
+ },
+ {
+  "id": "c018",
+  "group": "Sectors",
+  "label": "High",
+  "value": "Mid-size (251–1000) · Large employers (1000+) · Legal / Professional Services · Healthcare / HealthTech · Energy / Utilities · Retail / Transport / Logistics · Government / Councils · Schools / MATs / FE Colleges"
+ },
+ {
+  "id": "c019",
+  "group": "Sectors",
+  "label": "Medium–high",
+  "value": "Smaller Universities · Major Universities · Other Industries"
+ },
+ {
+  "id": "c020",
+  "group": "Role families",
+  "label": "Product Management",
+  "value": "Associate PM · Junior PM · Product Manager · Senior PM · Technical PM · Platform PM"
+ },
+ {
+  "id": "c021",
+  "group": "Role families",
+  "label": "Product Ownership",
+  "value": "Junior Product Owner · Product Owner · Senior Product Owner · Digital Product Owner"
+ },
+ {
+  "id": "c022",
+  "group": "Role families",
+  "label": "Business Analysis",
+  "value": "Junior BA · Associate BA · Business Analyst · Senior BA · Lead BA · Technical BA"
+ },
+ {
+  "id": "c023",
+  "group": "Role families",
+  "label": "Systems / Applications",
+  "value": "Systems Analyst · Applications Analyst · Business Systems Manager · Information Systems Specialist/Manager"
+ },
+ {
+  "id": "c024",
+  "group": "Role families",
+  "label": "CRM / Enterprise Platforms",
+  "value": "CRM Manager · CRM Analyst · CRM Product Owner · Salesforce / Enterprise Applications Manager"
+ },
+ {
+  "id": "c025",
+  "group": "Role families",
+  "label": "Technical / Integration",
+  "value": "Integration Analyst · Technical Solutions Analyst · Platform Analyst · API Integration Consultant"
+ },
+ {
+  "id": "c026",
+  "group": "Role families",
+  "label": "SaaS / Implementation",
+  "value": "Implementation Consultant · Implementation Manager · Deployment Specialist · Solutions Consultant"
+ },
+ {
+  "id": "c027",
+  "group": "Role families",
+  "label": "Project / Delivery",
+  "value": "Project Coordinator · IT Project Manager · Digital Delivery Manager · Agile Delivery Manager"
+ },
+ {
+  "id": "c028",
+  "group": "Role families",
+  "label": "Programme / Transformation",
+  "value": "Programme Manager · Business Change Manager · Digital Transformation Manager"
+ },
+ {
+  "id": "c029",
+  "group": "Role families",
+  "label": "Data / BI",
+  "value": "Junior Data Analyst · BI Analyst · Reporting Analyst · Insights Analyst · Data Product Manager"
+ },
+ {
+  "id": "c030",
+  "group": "Role families",
+  "label": "AI / Automation",
+  "value": "AI Product Manager · AI Business Analyst · Automation Specialist · AI Implementation Consultant"
+ },
+ {
+  "id": "c031",
+  "group": "Role families",
+  "label": "Alternative Titles",
+  "value": "Digital Services Manager · MIS Manager · Customer Systems Manager · Systems Delivery Lead"
+ },
+ {
+  "id": "c032",
+  "group": "Evidence",
+  "label": "Matched against",
+  "value": "SAMS Manage / Planner / Pay · Shikho / EdTech · Business Analysis · Product Ownership · SQL / API / Integration · Power BI / Analytics · AI / Automation · Agile / Jira / Confluence"
+ },
+ {
+  "id": "c033",
+  "group": "Methods",
+  "label": "",
+  "value": "Employer-first licensed employer careers directories"
+ },
+ {
+  "id": "c034",
+  "group": "Methods",
+  "label": "",
+  "value": "Broad title-first search"
+ },
+ {
+  "id": "c035",
+  "group": "Methods",
+  "label": "",
+  "value": "Responsibility-based matches"
+ },
+ {
+  "id": "c036",
+  "group": "Methods",
+  "label": "",
+  "value": "45–60 day rolling window plus older still-open jobs"
+ },
+ {
+  "id": "c037",
+  "group": "Methods",
+  "label": "",
+  "value": "Include previously missed vacancies"
+ },
+ {
+  "id": "c038",
+  "group": "Methods",
+  "label": "",
+  "value": "All relevant roles per employer"
+ },
+ {
+  "id": "c039",
+  "group": "Methods",
+  "label": "",
+  "value": "Deduplicate against existing tracker"
+ },
+ {
+  "id": "c040",
+  "group": "Methods",
+  "label": "",
+  "value": "Verify final vacancy against official employer page"
+ },
+ {
+  "id": "c041",
+  "group": "Sources",
+  "label": "Searched",
+  "value": "Indeed UK · LinkedIn Jobs · Hunt UK Visa Sponsors · jobs.ac.uk · NHS Jobs / NHS Trac · Civil Service Jobs · Council iTrent · TES · Official Employer Career Pages · Home Office Sponsor Register"
+ },
+ {
+  "id": "c042",
+  "group": "Checks",
+  "label": "Each role",
+  "value": "SOC code and occupation eligibility · Salary and going rate · Contract duration · Right-to-work restrictions · Security clearance and constraints · Employing legal entity · Date last verified"
+ }
+]

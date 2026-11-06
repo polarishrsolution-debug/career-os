@@ -1,238 +1,588 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Career OS · UK sponsored roles</title>
-<style>
-:root { --nav: #0f2537; --nav2: #173a69; --acc: #12a28c; --c1: #3b6fd8; --c2: #7c5cd6; --gold: #c98a12; --bad: #c8463d; --warn: #c27a12; --fg: #17222c; --mut: #5f6f7c; --line: #e3e8ec; --bg: #f5f7f9; --card: #fff; --soft: #f8fafb; }
-@media (prefers-color-scheme: dark) { :root { --fg: #e6edf2; --mut: #93a3b0; --line: #26323c; --bg: #0d151c; --card: #121c25; --soft: #16212b; } }
-* { box-sizing: border-box; }
-body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 14px; line-height: 1.45; color: var(--fg); background: var(--bg); }
-button, input, select { font: inherit; color: inherit; }
-.top { background: radial-gradient(120% 180% at 100% 0%, #2c5aa6 0%, var(--nav2) 45%, var(--nav) 100%); color: #e9f0f6; }
-.top .in { max-width: 1280px; margin: 0 auto; padding: 28px 24px 26px; display: grid; gap: 6px; }
-.eb { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #9cc0e6; }
-h1 { margin: 0; font-size: 28px; letter-spacing: -.015em; color: #fff; }
-.top p { margin: 0; color: #c6d6e6; max-width: 52rem; }
-.upd { font-size: 12px; color: #9fb3c4; margin-top: 6px; display: flex; align-items: center; gap: 8px; }
-.hact { margin-top: 10px; }
-.hbtn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; background: #dffbf2; color: #0b5a4c; font-weight: 650; text-decoration: none; font-size: 13px; }
-.hbtn span { font-weight: 500; opacity: .75; }
-.hbtn:hover { filter: brightness(1.04); }
-.upd i { width: 8px; height: 8px; border-radius: 50%; background: #19b89f; box-shadow: 0 0 0 3px rgba(25,184,159,.25); }
-main { max-width: 1280px; margin: 0 auto; padding: 20px 24px 40px; display: grid; gap: 16px; }
-.kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); margin-top: -36px; }
-.kpi { --t: var(--c1); background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--t); border-radius: 14px; padding: 14px 16px; display: grid; gap: 2px; text-align: left; cursor: pointer; box-shadow: 0 6px 18px -14px rgba(15,37,55,.5); }
-.kpi:hover { transform: translateY(-1px); }
-.kpi .k { font-size: 12px; color: var(--mut); }
-.kpi b { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; }
-.kpi.tg { --t: var(--acc); } .kpi.tp { --t: var(--c2); } .kpi.to { --t: var(--gold); } .kpi.ta { --t: var(--warn); }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; min-width: 0; overflow: hidden; }
-main > * { min-width: 0; }
-.tools { padding: 14px 16px; display: grid; gap: 10px; }
-.tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 12px; background: var(--soft); border: 1px solid var(--line); width: fit-content; max-width: 100%; }
-.tabs button { border: 0; background: transparent; padding: 6px 12px; border-radius: 9px; cursor: pointer; color: var(--mut); font-weight: 550; }
-.tabs button[aria-pressed=true] { background: var(--card); color: var(--fg); box-shadow: 0 1px 3px rgba(15,37,55,.15); }
-.tabs .n { font-size: 11px; margin-left: 4px; opacity: .8; }
-.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-input[type=search] { flex: 1 1 16rem; min-width: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
-select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); cursor: pointer; max-width: 100%; }
-select.sort { border-color: var(--acc); color: var(--acc); font-weight: 650; }
-.lbl { font-size: 12.5px; color: var(--mut); font-weight: 600; }
-.count { margin-left: auto; font-size: 12px; color: var(--mut); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
-.tw { overflow-x: auto; border-top: 1px solid var(--line); }
-table { width: 100%; min-width: 1240px; border-collapse: separate; border-spacing: 0; font-size: 13px; }
-th { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 650; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--soft); white-space: nowrap; cursor: pointer; user-select: none; }
-th::after { content: ' ↕'; opacity: .35; }
-th[aria-sort] { color: var(--acc); box-shadow: inset 0 -2px 0 var(--acc); }
-th[aria-sort=ascending]::after { content: ' ↑'; opacity: 1; } th[aria-sort=descending]::after { content: ' ↓'; opacity: 1; }
-td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; background: var(--card); }
-tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--fg) 2%, var(--card)); }
-tbody tr { cursor: pointer; } tbody tr:hover td { background: color-mix(in srgb, var(--c1) 6%, var(--card)); }
-th:first-child, td:first-child { position: sticky; left: 0; z-index: 1; width: 7.2rem; min-width: 7.2rem; max-width: 7.2rem; }
-th:nth-child(2), td:nth-child(2) { position: sticky; left: 7.2rem; z-index: 1; box-shadow: inset -1px 0 0 var(--line); }
-th:first-child, th:nth-child(2) { z-index: 2; }
-td.empty { position: static; width: auto; max-width: none; text-align: center; color: var(--mut); padding: 28px; }
-.dd { display: grid; white-space: nowrap; } .dd span { font-size: 11.5px; color: var(--mut); }
-.dd.red b { color: var(--bad); } .dd.amber b { color: var(--warn); }
-.rc { display: flex; gap: 10px; align-items: center; width: 16rem; }
-.rc > div { min-width: 0; }
-.av { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 11px; flex: none; }
-.o { font-weight: 650; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.r { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--mut); font-size: 12.5px; }
-.pill { display: inline-flex; font-size: 11.5px; line-height: 1.6; padding: 0 9px; border-radius: 999px; white-space: nowrap; font-weight: 550; color: var(--mut); background: color-mix(in srgb, var(--mut) 13%, transparent); }
-.pill.green { color: var(--acc); background: color-mix(in srgb, var(--acc) 13%, transparent); }
-.pill.blue { color: var(--c1); background: color-mix(in srgb, var(--c1) 12%, transparent); }
-.pill.amber { color: var(--warn); background: color-mix(in srgb, var(--warn) 13%, transparent); }
-.pill.purple { color: var(--c2); background: color-mix(in srgb, var(--c2) 12%, transparent); }
-.pill.gold { color: var(--gold); background: color-mix(in srgb, var(--gold) 14%, transparent); }
-.fitc { display: flex; align-items: center; gap: 8px; } .fitc b { min-width: 1.8rem; font-variant-numeric: tabular-nums; }
-.fitc .tr { width: 3rem; height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--mut) 18%, transparent); overflow: hidden; } .fitc .tr i { display: block; height: 100%; border-radius: 6px; }
-.small { font-size: 12px; color: var(--mut); } .nw { white-space: nowrap; }
-a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: nowrap; } a.adv:hover { text-decoration: underline; }
-.note { font-size: 12px; color: var(--mut); padding: 8px 14px; border-top: 1px solid var(--line); background: var(--soft); border-radius: 0 0 14px 14px; }
-.foot { font-size: 12px; color: var(--mut); }
-.drawer { position: fixed; inset: 0; background: rgba(10,20,30,.45); display: flex; justify-content: flex-end; z-index: 10; }
-.drawer[hidden] { display: none; }
-.dp { width: min(460px, 100%); height: 100%; overflow-y: auto; background: var(--card); padding: 18px 20px 28px; display: grid; gap: 14px; align-content: start; box-shadow: -12px 0 30px -20px rgba(0,0,0,.5); }
-.dh { display: flex; justify-content: space-between; align-items: center; }
-.x { width: 32px; height: 32px; border-radius: 9px; border: 1px solid var(--line); background: var(--card); cursor: pointer; font-size: 18px; color: var(--mut); }
-.pid { display: flex; gap: 14px; } .pid .av { width: 46px; height: 46px; border-radius: 12px; font-size: 15px; }
-.pid h2 { margin: 0; font-size: 18px; }
-.box { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--soft); display: grid; gap: 6px; }
-.t { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--mut); font-weight: 650; }
-.kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
-.kv div { display: grid; gap: 2px; } .kv span:first-child { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .04em; }
-.btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 10px; padding: 9px 14px; font-weight: 600; text-decoration: none; background: var(--acc); color: #fff; width: fit-content; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-@media (max-width: 640px) { main { padding: 16px; } .top .in { padding: 22px 16px; } th:first-child, td:first-child { width: 6.2rem; min-width: 6.2rem; max-width: 6.2rem; } th:nth-child(2), td:nth-child(2) { left: 6.2rem; } .rc { width: 11.5rem; } .rc .av { display: none; } }
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><meta name='robots' content='noindex, nofollow'><title>Career OS — Adnan Habib</title><style>:root { --font-anthropic-sans: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; --font-anthropic-serif: Georgia, serif;--color-fg: #1f1e1d; --color-fg-muted: #6b6862; --color-bg: #ffffff; --color-panel: #faf9f5; --color-border-line: #e6e3da; --color-ok: #2f7d4f; --color-warn: #b8650a; --color-bad: #c2410c; --cds-surface-popover: #fff; --cds-border: #e6e3da; } @media (prefers-color-scheme: dark) { :root { --color-fg: #f2f0ea; --color-fg-muted: #a7a49c; --color-bg: #1f1e1d; --color-panel: #262624; --color-border-line: #3a3936; --color-ok: #5fbf86; --color-warn: #e3a14a; --color-bad: #f07a55; --cds-surface-popover: #2b2a28; --cds-border: #3a3936; } }
+html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
+#dash-root { padding: 12px; }
+.webbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 12px; padding: 10px 14px; border-radius: 12px; font: 12.5px/1.4 var(--font-anthropic-sans); color: var(--color-fg-muted); background: var(--color-panel); border: 1px solid var(--color-border-line); }
+.webbar b { color: var(--color-fg); }
+.webbar a { font-weight: 650; border-radius: 10px; padding: 7px 13px; text-decoration: none; background: #12a28c; color: #fff; white-space: nowrap; }
+.webbar a span { font-weight: 500; opacity: .8; }
+.webload { padding: 40px; text-align: center; font: 14px var(--font-anthropic-sans); color: var(--color-fg-muted); }
+</style></head><body><div id='dash-root'><div class='webbar'><span><b>Career OS · public view</b> · updated <span id='webupd'>—</span> · syncs with Adnan&#39;s dashboard every hour</span><a href='https://claude.ai/artifact/7n5jH6cZvxWpZPEBzXk4Jq#add' target='_blank' rel='noopener' title='Opens Adnan&#39;s private dashboard. Only Adnan can add roles.'>＋ Add a role <span>(Adnan only)</span></a></div><div id='webload' class='webload'>Loading the latest roles…</div><div id='osroot' hidden><style>
+#dash-root { --dash-gutter: 0; }
+.os { --nav: #0f2537; --nav2: #15304a; --acc: #12a28c; --c1: #3b6fd8; --c2: #7c5cd6; --gold: #c98a12; --r: 14px; --line: var(--color-border-line); --mut: var(--color-fg-muted); --card: var(--color-bg); --soft: color-mix(in srgb, var(--color-fg) 3%, var(--color-bg)); container: os / inline-size; font-family: var(--font-anthropic-sans); color: var(--color-fg); font-size: 14px; line-height: 1.45; }
+.os *, .os *::before, .os *::after { box-sizing: border-box; }
+.os [hidden] { display: none !important; }
+.os button, .os input, .os select, .os textarea { font: inherit; color: inherit; }
+.os .app { display: grid; grid-template-columns: minmax(0, 1fr); border: 1px solid var(--line); border-radius: 16px; overflow: clip; background: var(--soft); min-height: 44rem; }
+.os .nav { background: linear-gradient(180deg, var(--nav), var(--nav2)); color: #dfe8ef; display: flex; align-items: center; gap: 4px; padding: 10px 12px; overflow-x: auto; scrollbar-width: none; }
+.os .brand { display: flex; align-items: center; gap: 10px; padding: 4px 8px 4px 2px; flex: none; }
+.os .logo { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #19b89f, #0e8a77); display: grid; place-items: center; flex: none; }
+.os .brand b { display: block; font-size: 14px; color: #fff; white-space: nowrap; }
+.os .brand span { display: block; font-size: 11px; color: #8fa7ba; }
+.os .nav .lbl { display: none; }
+.os .nav button { display: flex; align-items: center; gap: 9px; background: transparent; border: 0; color: #c4d2dd; padding: 8px 10px; border-radius: 9px; cursor: pointer; white-space: nowrap; flex: none; font-size: 13.5px; }
+.os .nav button:hover { background: rgba(255,255,255,.07); color: #fff; }
+.os .nav button[aria-current='page'] { background: rgba(25,184,159,.2); color: #fff; box-shadow: inset 3px 0 0 #19b89f; }
+.os .nav svg { width: 17px; height: 17px; flex: none; }
+.os .nav .cnt { margin-left: auto; font-size: 11px; background: rgba(255,255,255,.12); border-radius: 999px; padding: 0 7px; font-variant-numeric: tabular-nums; }
+.os .nav .side { display: none; }
+@container os (min-width: 1000px) {
+  .os .app { grid-template-columns: 228px minmax(0, 1fr); }
+  .os .nav { flex-direction: column; align-items: stretch; padding: 18px 14px; overflow: visible; position: static; }
+  .os .brand { padding: 0 6px 16px; }
+  .os .nav .lbl { display: block; font-size: 10px; letter-spacing: .14em; color: #6f8aa0; margin: 14px 10px 4px; }
+  .os .nav .side { display: grid; gap: 6px; margin-top: 18px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,.06); font-size: 12px; color: #9fb3c4; }
+  .os .nav .side b { color: #fff; font-weight: 600; }
+}
+.os .wrap { min-width: 0; display: grid; grid-template-rows: auto 1fr; }
+.os .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 14px 24px; border-bottom: 1px solid var(--line); background: var(--card); }
+.os .top .d { font-size: 12px; color: var(--mut); letter-spacing: .04em; }
+.os .fresh { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--mut); }
+.os .fresh i { width: 8px; height: 8px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--acc) 20%, transparent); }
+.os .fresh.old i { background: var(--color-warn); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-warn) 20%, transparent); }
+.os .ws { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; align-items: start; }
+.os .main { container: main / inline-size; padding: 24px; display: grid; gap: 18px; align-content: start; min-width: 0; }
+.os .panel { background: var(--card); border-left: 1px solid var(--line); min-width: 0; }
+@container os (min-width: 1320px) {
+  .os .ws.sel { grid-template-columns: minmax(0, 1fr) 430px; }
+  .os .ws.sel .panel { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; }
+  .os .ws.sel .main .opt { display: none; }
+  .os .pback { display: none !important; }
+}
+@container os (max-width: 1319px) { .os .ws.sel .main { display: none; } .os .panel { border-left: 0; } }
+@container os (max-width: 640px) { .os .main { padding: 16px; } .os .top { padding: 12px 16px; } }
+.os h1 { font-size: 24px; font-weight: 650; letter-spacing: -.015em; margin: 0; }
+.os h2 { font-size: 15px; font-weight: 650; margin: 0; }
+.os .ph { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+.os .sub { margin: 4px 0 0; color: var(--mut); max-width: 62rem; }
+.os .note { margin: 2px 0 12px; color: var(--mut); font-size: 12.5px; }
+.os .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; min-width: 0; position: relative; box-shadow: 0 1px 2px rgba(15,37,55,.04); }
+.os .card.flush { padding: 0; overflow: clip; }
+.os .ch { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.os .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.os .g2 { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@container main (min-width: 900px) { .os .g2 { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); } }
+.os .kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
+.os .kpi { --t: var(--c1); display: grid; gap: 2px; padding: 14px 16px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--t); cursor: pointer; text-align: left; transition: transform .15s, box-shadow .15s; }
+.os .kpi:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -18px var(--t); }
+.os .kpi .k { font-size: 12px; color: var(--mut); }
+.os .kpi b { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.15; min-height: 1.15em; }
+.os .kpi .m { font-size: 11.5px; color: var(--t); }
+.os .t-green { --t: var(--acc); } .os .t-purple { --t: var(--c2); } .os .t-red { --t: var(--color-bad); } .os .t-amber { --t: var(--color-warn); } .os .t-gold { --t: var(--gold); }
+.os .hero { border-radius: 18px; padding: 22px 24px; color: #e9f0f6; background: radial-gradient(120% 160% at 100% 0%, #2c5aa6 0%, #173a69 45%, #0f2537 100%); display: grid; gap: 6px; }
+.os .hero .eb { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #9cc0e6; }
+.os .hero h1 { color: #fff; font-size: 26px; }
+.os .hero p { margin: 0; color: #c6d6e6; max-width: 46rem; }
+.os .hero .acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.os .btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--color-fg); text-decoration: none; white-space: nowrap; }
+.os .btn:hover { border-color: var(--c1); }
+.os .btn.pri { background: var(--acc); border-color: var(--acc); color: #fff; }
+.os .btn.pri:hover { filter: brightness(1.06); }
+.os .btn.blue { background: var(--c1); border-color: var(--c1); color: #fff; }
+.os .btn.ghost { background: transparent; }
+.os .btn.sm { padding: 5px 10px; font-size: 12px; border-radius: 8px; }
+.os .btn.on-dark { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.3); color: #fff; }
+.os .btn.light { background: #dffbf2; border-color: #dffbf2; color: #0b5a4c; }
+.os .btn:disabled { opacity: .55; cursor: default; }
+.os .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; line-height: 1.6; padding: 0 9px; border-radius: 999px; white-space: nowrap; color: var(--mut); background: color-mix(in srgb, var(--color-fg-muted) 12%, transparent); font-weight: 550; }
+.os .pill.red { color: var(--color-bad); background: color-mix(in srgb, var(--color-bad) 12%, transparent); }
+.os .pill.amber { color: var(--color-warn); background: color-mix(in srgb, var(--color-warn) 13%, transparent); }
+.os .pill.green { color: var(--acc); background: color-mix(in srgb, var(--acc) 13%, transparent); }
+.os .pill.blue { color: var(--c1); background: color-mix(in srgb, var(--c1) 12%, transparent); }
+.os .pill.purple { color: var(--c2); background: color-mix(in srgb, var(--c2) 12%, transparent); }
+.os .pill.gold { color: var(--gold); background: color-mix(in srgb, var(--gold) 14%, transparent); }
+.os .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; display: inline-block; }
+.os .empty { color: var(--mut); font-size: 13px; padding: 18px; text-align: center; }
+.os .fail { color: var(--mut); font-size: 13px; padding: 14px; text-align: center; }
+.os .fail::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--color-bad); margin-right: 6px; vertical-align: 2px; }
+.os .alerts:empty { display: none; }
+.os .alerts { display: grid; gap: 10px; }
+.os .alert { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 12px 16px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--color-bad) 35%, transparent); background: color-mix(in srgb, var(--color-bad) 7%, var(--card)); }
+.os .alert .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--color-bad); color: #fff; flex: none; font-weight: 700; }
+.os .alert .tx { flex: 1 1 16rem; min-width: 0; }
+.os .alert b { display: block; }
+.os .alert span { color: var(--mut); font-size: 12.5px; }
+.os .alist { display: grid; gap: 2px; }
+.os .act { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 8px; border-radius: 10px; cursor: pointer; border: 0; background: transparent; text-align: left; width: 100%; }
+.os .act:hover { background: color-mix(in srgb, var(--c1) 6%, transparent); }
+.os .act .bar { width: 4px; align-self: stretch; border-radius: 4px; background: var(--u, var(--line)); }
+.os .act b { display: block; font-weight: 600; }
+.os .act .s { display: block; font-size: 12.5px; color: var(--mut); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.os .act .w { font-size: 12px; font-weight: 600; color: var(--u, var(--mut)); white-space: nowrap; }
+.os .u-red { --u: var(--color-bad); } .os .u-amber { --u: var(--color-warn); } .os .u-green { --u: var(--acc); } .os .u-blue { --u: var(--c1); } .os .u-grey { --u: color-mix(in srgb, var(--color-fg-muted) 50%, transparent); } .os .u-purple { --u: var(--c2); } .os .u-gold { --u: var(--gold); }
+.os .agenda { display: grid; gap: 14px; }
+.os .agenda .gh { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--mut); font-weight: 650; margin-bottom: 4px; display: flex; gap: 8px; align-items: center; }
+.os .agenda .gh span { background: color-mix(in srgb, var(--color-fg-muted) 14%, transparent); border-radius: 999px; padding: 0 7px; letter-spacing: 0; }
+.os .ev { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 8px; border-radius: 10px; cursor: pointer; border: 0; background: transparent; width: 100%; text-align: left; }
+.os .ev:hover { background: color-mix(in srgb, var(--c1) 6%, transparent); }
+.os .ev .dt { border-radius: 10px; text-align: center; padding: 5px 0; background: color-mix(in srgb, var(--u, var(--c1)) 12%, transparent); color: var(--u, var(--c1)); line-height: 1.1; }
+.os .ev .dt b { display: block; font-size: 17px; }
+.os .ev .dt span { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; }
+.os .ev .o { font-weight: 600; display: block; }
+.os .ev .s { font-size: 12.5px; color: var(--mut); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.os .pipe { display: flex; height: 14px; border-radius: 8px; overflow: hidden; gap: 2px; margin: 8px 0 12px; }
+.os .pipe i { display: block; min-width: 6px; }
+.os .plg { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); }
+.os .plg button { display: grid; gap: 0; text-align: left; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--card); cursor: pointer; }
+.os .plg button:hover { border-color: var(--c1); }
+.os .plg b { font-size: 18px; font-variant-numeric: tabular-nums; }
+.os .plg span { font-size: 12px; color: var(--mut); display: flex; align-items: center; gap: 6px; }
+.os .toolbar { display: grid; gap: 10px; }
+.os .tabs { display: flex; gap: 4px; flex-wrap: wrap; padding: 4px; border-radius: 12px; background: color-mix(in srgb, var(--color-fg-muted) 9%, transparent); width: fit-content; max-width: 100%; }
+.os .tabs button { border: 0; background: transparent; padding: 6px 12px; border-radius: 9px; cursor: pointer; font-size: 13px; color: var(--mut); font-weight: 550; display: inline-flex; gap: 6px; align-items: center; }
+.os .tabs button[aria-pressed='true'] { background: var(--card); color: var(--color-fg); box-shadow: 0 1px 3px rgba(15,37,55,.12); }
+.os .tabs .tc { font-size: 11px; font-variant-numeric: tabular-nums; color: var(--mut); }
+.os .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.os .search { flex: 1 1 15rem; min-width: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.os select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); cursor: pointer; font-size: 13px; max-width: 100%; }
+.os select.on { border-color: var(--acc); color: var(--acc); font-weight: 600; }
+.os .chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.os .chips .ql { font-size: 12px; color: var(--mut); margin-right: 2px; }
+.os .chips button { --q: var(--c1); border: 1px solid color-mix(in srgb, var(--q) 40%, transparent); color: var(--q); background: transparent; border-radius: 999px; padding: 4px 11px; font-size: 12.5px; cursor: pointer; font-weight: 550; }
+.os .chips button[aria-pressed='true'] { background: var(--q); border-color: var(--q); color: #fff; }
+.os .linkbtn { border: 0; background: none; color: var(--mut); text-decoration: underline; cursor: pointer; font-size: 12.5px; padding: 4px; }
+.os .chip { font-size: 12px; color: var(--mut); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; background: var(--card); white-space: nowrap; }
+.os .rc { display: flex; gap: 12px; align-items: center; min-width: 14rem; }
+.os .av { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; font-size: 12.5px; color: #fff; flex: none; letter-spacing: .02em; }
+.os .rc .o { font-weight: 600; display: block; }
+.os .rc .r { display: block; }
+.os .rc .m { display: block; font-size: 12px; color: var(--mut); }
+.os .na { display: grid; gap: 1px; min-width: 9rem; }
+.os .na b { font-size: 13px; font-weight: 600; color: var(--u, var(--color-fg)); }
+.os .na span { font-size: 12px; color: var(--mut); }
+.os .fitc { display: flex; align-items: center; gap: 8px; min-width: 5.5rem; }
+.os .fitc b { font-variant-numeric: tabular-nums; font-size: 13px; min-width: 1.8rem; }
+.os .fitc .tr { flex: 1; height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--color-fg-muted) 15%, transparent); overflow: hidden; min-width: 2.5rem; }
+.os .fitc .tr i { display: block; height: 100%; border-radius: 6px; }
+.os .nw { white-space: nowrap; }
+.os .tw { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.os table.jt { width: 100%; min-width: 1100px; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.os .jt th { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 650; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--soft); white-space: nowrap; }
+.os .jt th[data-sort] { cursor: pointer; user-select: none; }
+.os .jt th[data-sort]:hover { color: var(--color-fg); }
+.os .jt th[aria-sort='ascending']::after { content: ' ↑'; } .os .jt th[aria-sort='descending']::after { content: ' ↓'; }
+.os .jt td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; background: var(--card); }
+.os .jt tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--color-fg) 2%, var(--card)); }
+.os .jt td.sc { background: color-mix(in srgb, var(--acc) 6%, var(--card)); }
+.os .jt tbody tr:nth-child(even) td.sc { background: color-mix(in srgb, var(--acc) 8%, var(--card)); }
+.os .jt th[data-sort]:not([aria-sort])::after { content: ' ↕'; opacity: .35; }
+.os .jt th[aria-sort] { color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--soft)); box-shadow: inset 0 -2px 0 var(--acc); }
+.os .jt th[aria-sort]:nth-child(2) { box-shadow: inset 0 -2px 0 var(--acc), inset -1px 0 0 var(--line); }
+.os .phr { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.os .sortby { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--mut); font-weight: 600; }
+.os .sortby select { border-color: var(--acc); color: var(--acc); font-weight: 650; background: color-mix(in srgb, var(--acc) 6%, var(--card)); }
+.os .jt th + th, .os .jt td + td { border-left: 1px solid color-mix(in srgb, var(--line) 55%, transparent); }
+.os .jt th:first-child, .os .jt td:first-child { position: sticky; left: 0; z-index: 1; width: 7.5rem; min-width: 7.5rem; max-width: 7.5rem; }
+.os .jt th:nth-child(2), .os .jt td:nth-child(2) { position: sticky; left: 7.5rem; z-index: 1; box-shadow: inset -1px 0 0 var(--line); }
+.os .jt th:nth-child(2) { z-index: 2; }
+.os .jt td.erow { position: static; width: auto; min-width: 0; max-width: none; }
+.os .jt th:first-child { z-index: 2; }
+.os .jt tbody tr { cursor: pointer; }
+.os .jt tbody tr:hover td { background: color-mix(in srgb, var(--c1) 6%, var(--card)); }
+.os .jt tbody tr.sel td { background: color-mix(in srgb, var(--acc) 10%, var(--card)); }
+.os .jt tbody tr.sel td:first-child { box-shadow: inset 3px 0 0 var(--acc); }
+.os .jt tbody tr:last-child td { border-bottom: 0; }
+.os .jt .rc { display: flex; gap: 10px; align-items: center; width: 15.5rem; min-width: 0; }
+.os .jt .na { min-width: 12.5rem; }
+.os .jt .fitc { min-width: 4.8rem; } .os .jt .fitc .tr { max-width: 3rem; }
+.os .jt .dd b.dim { font-weight: 500; }
+.os .jt .rc .av { width: 30px; height: 30px; border-radius: 8px; font-size: 11px; }
+.os .jt .rc > div { min-width: 0; }
+.os .jt .rc .o { font-weight: 650; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.os .jt .rc .r { display: block; color: var(--mut); font-size: 12.5px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.os .jt .dd { display: grid; gap: 0; white-space: nowrap; }
+.os .jt .dd span { font-size: 11.5px; color: var(--mut); white-space: normal; max-width: 10rem; }
+.os .jt .dd.red b { color: var(--color-bad); } .os .jt .dd.amber b { color: var(--color-warn); }
+.os .jt .dim { color: var(--mut); }
+.os .jt .c-sal { max-width: 11rem; }
+.os .jt .c-loc { max-width: 11rem; }
+.os .notices:empty { display: none; }
+.os .notice { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 12px 14px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); background: color-mix(in srgb, var(--acc) 9%, var(--card)); box-shadow: 0 8px 22px -18px rgba(15,37,55,.5); }
+.os .notice.wait { border-color: color-mix(in srgb, var(--color-warn) 40%, transparent); background: color-mix(in srgb, var(--color-warn) 8%, var(--card)); }
+.os .notice.err { border-color: color-mix(in srgb, var(--color-bad) 45%, transparent); background: color-mix(in srgb, var(--color-bad) 8%, var(--card)); }
+.os .notice .ni { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--acc); color: #fff; font-weight: 700; flex: none; }
+.os .notice.wait .ni { background: var(--color-warn); } .os .notice.err .ni { background: var(--color-bad); }
+.os .notice .nt { flex: 1 1 18rem; min-width: 0; display: grid; gap: 2px; }
+.os .notice .nt span { font-size: 12.5px; color: var(--mut); }
+.os .notice .nt .nerr { color: var(--color-bad); }
+.os .xbtn.sm { width: 28px; height: 28px; font-size: 16px; }
+.os .prog2 { border: 1px solid color-mix(in srgb, var(--acc) 35%, var(--line)); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; background: color-mix(in srgb, var(--acc) 5%, var(--card)); }
+.os .prog2 > .t { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--acc); font-weight: 700; }
+.os .prog2 .q { font-size: 14px; font-weight: 650; }
+.os .agrid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); }
+.os .abtn { display: grid; gap: 2px; text-align: left; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); cursor: pointer; min-width: 0; }
+.os .abtn b { font-size: 13.5px; font-weight: 650; }
+.os .abtn span { font-size: 11.5px; color: var(--mut); }
+.os .abtn:hover { border-color: var(--acc); box-shadow: 0 6px 16px -14px rgba(15,37,55,.6); }
+.os .abtn.pri { grid-column: 1 / -1; background: var(--acc); border-color: var(--acc); color: #fff; }
+.os .abtn.pri span { color: rgba(255,255,255,.85); }
+.os .neg { display: flex; gap: 4px 10px; flex-wrap: wrap; align-items: center; font-size: 12.5px; color: var(--mut); }
+.os .linkbtn.danger { color: var(--color-bad); font-weight: 600; }
+.os details.more2 { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 8px; }
+.os details.more2 summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--mut); }
+.os details.more2[open] summary { color: var(--color-fg); }
+.os .msel { display: grid; gap: 4px; font-size: 12px; color: var(--mut); font-weight: 600; flex: 1 1 14rem; }
+.os .msel select { width: 100%; }
+.os .pid .adv { margin-top: 8px; }
+.os .notice.compact { padding: 10px 12px; gap: 6px 10px; display: grid; grid-template-columns: 22px minmax(0, 1fr); align-items: start; }
+.os .notice.compact .ni { width: 22px; height: 22px; font-size: 12px; }
+.os .notice.compact .nt b { font-size: 13.5px; }
+.os .notice.compact .pacts { grid-column: 2; }
+.os .stg { display: grid; gap: 3px; }
+.os .stg > span { font-size: 11.5px; color: var(--mut); }
+.os .bc .bs { font-size: 11.5px; color: var(--mut); }
+.os .ch.pad { padding: 14px 18px 4px; align-items: flex-start; }
+.os .ch.pad .note { margin-bottom: 6px; }
+.os .tnote { font-size: 12px; color: var(--mut); padding: 8px 14px; border-top: 1px solid var(--line); background: var(--soft); }
+@container main (max-width: 620px) {
+  .os .jt .rc { width: 11.5rem; }
+  .os .jt .rc .av { display: none; }
+  .os .jt td, .os .jt th { padding: 8px 10px; }
+  .os .jt th:first-child, .os .jt td:first-child { width: 6.4rem; min-width: 6.4rem; max-width: 6.4rem; }
+  .os .jt th:nth-child(2), .os .jt td:nth-child(2) { left: 6.4rem; }
+}
+@container os (max-width: 560px) { .os .st span { display: none; } .os .st.now span { display: inline; } }
+.os .pin > * { min-width: 0; }
+.os .page { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.os .board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(13.5rem, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; align-items: start; }
+.os .bcol { --b: var(--c1); border-radius: var(--r); background: color-mix(in srgb, var(--b) 6%, var(--card)); border: 1px solid color-mix(in srgb, var(--b) 22%, var(--line)); padding: 10px; display: grid; gap: 8px; align-content: start; min-height: 12rem; min-width: 0; transition: box-shadow .15s, background .15s; }
+.os .bcol.over { box-shadow: inset 0 0 0 2px var(--b); background: color-mix(in srgb, var(--b) 12%, var(--card)); }
+.os .bh { display: flex; justify-content: space-between; align-items: center; padding: 4px 4px 6px; font-weight: 650; }
+.os .bh .n { font-size: 11.5px; color: #fff; background: var(--b); border-radius: 999px; padding: 0 8px; font-variant-numeric: tabular-nums; }
+.os .bh small { display: block; font-weight: 400; font-size: 11.5px; color: var(--mut); }
+.os .bl { display: grid; gap: 8px; }
+.os .bc { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--u, var(--line)); border-radius: 10px; padding: 10px 11px; display: grid; gap: 6px; cursor: grab; min-width: 0; }
+.os .bc .o, .os .bc .r { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.os .bc .fitc { min-width: 4.5rem; flex: none; }
+.os .bc:hover { box-shadow: 0 8px 18px -14px rgba(15,37,55,.6); }
+.os .bc.sel { outline: 2px solid var(--acc); }
+.os .bc .o { font-weight: 600; font-size: 13px; }
+.os .bc .r { font-size: 12.5px; color: var(--mut); }
+.os .bc .ft { display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; min-width: 0; }
+.os .bc select { font-size: 12px; padding: 4px 8px; border-radius: 8px; width: 100%; }
+.os .more { border: 1px dashed var(--line); background: transparent; border-radius: 10px; padding: 8px; cursor: pointer; color: var(--mut); font-size: 12.5px; }
+.os .more:hover { color: var(--color-fg); border-color: var(--c1); }
+.os .ivg { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); }
+.os .ivc { display: grid; gap: 10px; border-top: 3px solid var(--u, var(--acc)); }
+.os .ivc .when { font-size: 18px; font-weight: 650; color: var(--u, var(--color-fg)); }
+.os .ivc .o { font-weight: 650; }
+.os .prog { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--mut); }
+.os .prog .tr { flex: 1; height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--color-fg-muted) 15%, transparent); overflow: hidden; }
+.os .prog .tr i { display: block; height: 100%; background: var(--acc); border-radius: 6px; }
+.os .ck { display: grid; gap: 4px; }
+.os .ck label { display: flex; gap: 8px; align-items: center; font-size: 13px; cursor: pointer; padding: 3px 0; }
+.os .ck input { width: 16px; height: 16px; accent-color: var(--acc); }
+.os .ck label.done span { color: var(--mut); text-decoration: line-through; }
+.os .bars { display: grid; gap: 10px; }
+.os .brow { display: grid; grid-template-columns: minmax(6rem, 10rem) minmax(0, 1fr) 3.4rem; gap: 10px; align-items: center; font-size: 12.5px; }
+.os .btrack { height: 10px; border-radius: 6px; background: color-mix(in srgb, var(--color-fg-muted) 12%, transparent); overflow: hidden; }
+.os .bfill { height: 100%; border-radius: 6px; }
+.os .bval { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.os .cols { display: flex; align-items: flex-end; gap: 8px; height: 11rem; padding-top: 1rem; }
+.os .cbar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; font-size: 12px; min-width: 0; }
+.os .cbar i { display: block; width: 100%; max-width: 34px; border-radius: 6px 6px 2px 2px; }
+.os .cbar span { color: var(--mut); white-space: nowrap; font-size: 11px; }
+.os .funnel { display: grid; gap: 8px; }
+.os .fs { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 7.5rem; gap: 10px; align-items: center; font-size: 12.5px; }
+.os .fs .btrack { height: 22px; border-radius: 7px; }
+.os .fs .bfill { border-radius: 7px; }
+.os .donut { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.os .legend { display: grid; gap: 6px; font-size: 12.5px; }
+.os .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 7px; }
+.os .tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover, var(--card)); border: 1px solid var(--cds-border, var(--line)); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 4px 8px; font-size: 12px; z-index: 5; white-space: nowrap; }
+.os .tiers { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.os .tier { border-left: 4px solid var(--u); display: grid; gap: 4px; }
+.os .tier .h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.os .tier .h b { font-size: 24px; font-variant-numeric: tabular-nums; color: var(--u); min-height: 1.1em; }
+.os .tier p { margin: 0; font-size: 12.5px; color: var(--mut); }
+.os .crit { display: grid; }
+.os .crow { display: grid; gap: 2px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.os .crow:last-child { border-bottom: 0; }
+.os .crow b { font-weight: 600; }
+.os .crow span { color: var(--mut); }
+.os .ticks { display: grid; gap: 8px; font-size: 13px; }
+.os .ticks div { display: flex; gap: 8px; }
+.os .ticks div::before { content: '✓'; flex: none; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; color: var(--acc); background: color-mix(in srgb, var(--acc) 15%, transparent); }
+.os .big2 { font-size: 24px; font-weight: 650; }
+.os .kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: 10px; }
+.os .kv div { display: grid; gap: 2px; font-size: 13px; }
+.os .kv span:first-child { font-size: 11.5px; color: var(--mut); text-transform: uppercase; letter-spacing: .04em; }
+.os .lists { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); font-size: 13px; }
+.os .lists ul { margin: 6px 0 0; padding-left: 18px; color: var(--mut); display: grid; gap: 4px; }
+.os .bk { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.os .bk:last-child { border-bottom: 0; }
+.os .bk span { color: var(--mut); font-size: 12px; display: block; }
+.os .msg { font-size: 12.5px; padding: 8px 12px; border-radius: 10px; background: color-mix(in srgb, var(--acc) 10%, transparent); color: var(--color-fg); }
+.os .msg.err { background: color-mix(in srgb, var(--color-bad) 10%, transparent); }
+.os .msg:empty { display: none; }
+.os .filebox { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.os .filebox input[type=file] { font-size: 12.5px; max-width: 100%; }
+.os .pin { display: grid; gap: 16px; padding: 18px 20px 28px; }
+.os .ptop { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--card); z-index: 2; }
+.os .xbtn { width: 32px; height: 32px; border-radius: 9px; border: 1px solid var(--line); background: var(--card); cursor: pointer; font-size: 18px; line-height: 1; color: var(--mut); }
+.os .xbtn:hover { color: var(--color-fg); border-color: var(--c1); }
+.os .pid { display: flex; gap: 14px; align-items: flex-start; }
+.os .pid .av { width: 48px; height: 48px; border-radius: 13px; font-size: 15px; }
+.os .pid h2 { font-size: 18px; }
+.os .pid .o { font-weight: 600; color: var(--mut); }
+.os .pid .m { font-size: 12.5px; color: var(--mut); }
+.os .nextbox { border-radius: 12px; padding: 12px 14px; background: color-mix(in srgb, var(--u, var(--c1)) 9%, var(--card)); border: 1px solid color-mix(in srgb, var(--u, var(--c1)) 30%, transparent); display: grid; gap: 2px; }
+.os .nextbox span { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--mut); font-weight: 650; }
+.os .nextbox b { color: var(--u, var(--color-fg)); font-size: 15px; }
+.os .pacts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.os .sec { display: grid; gap: 8px; }
+.os .sec > .t { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--mut); font-weight: 650; }
+.os .box { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 8px; background: var(--soft); }
+.os .fitbig { display: flex; align-items: center; gap: 12px; }
+.os .fitbig b { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.os .fitbig .tr { flex: 1; height: 8px; border-radius: 8px; background: color-mix(in srgb, var(--color-fg-muted) 15%, transparent); overflow: hidden; }
+.os .fitbig .tr i { display: block; height: 100%; border-radius: 8px; }
+.os .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.os .gap { font-size: 12.5px; color: var(--color-warn); }
+.os .small { font-size: 12px; color: var(--mut); }
+.os .hist { display: grid; gap: 6px; font-size: 12.5px; }
+.os .hist div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 8px; }
+.os .hist span:first-child { color: var(--mut); }
+.os .steps { display: flex; align-items: center; }
+.os .st { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mut); flex: 1; white-space: nowrap; }
+.os .st i { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-style: normal; font-size: 10px; font-weight: 700; flex: none; background: var(--card); }
+.os .st::after { content: ''; flex: 1; height: 2px; min-width: 8px; background: var(--line); border-radius: 2px; margin: 0 6px; }
+.os .st:last-child { flex: none; } .os .st:last-child::after { display: none; }
+.os .st.done i { background: var(--acc); border-color: var(--acc); color: #fff; } .os .st.done::after { background: var(--acc); }
+.os .st.now { color: var(--color-fg); font-weight: 650; } .os .st.now i { border-color: var(--acc); color: var(--acc); }
+.os .st.bad i { background: var(--color-bad); border-color: var(--color-bad); color: #fff; }
+.os .ef { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); }
+.os .ef label { display: grid; gap: 5px; font-size: 12px; color: var(--mut); font-weight: 600; }
+.os .ef .span { grid-column: 1 / -1; }
+.os .ef input, .os .ef select, .os .ef textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--card); font-weight: 400; font-size: 13.5px; color: var(--color-fg); }
+.os .ef textarea { min-height: 5rem; resize: vertical; }
+.os .ef input:focus, .os .ef select:focus, .os .ef textarea:focus, .os .search:focus { outline: 2px solid color-mix(in srgb, var(--acc) 50%, transparent); border-color: var(--acc); }
+.os .saving { font-size: 12px; font-weight: 600; }
+.os :focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.os .foot { font-size: 12px; color: var(--mut); }
+[data-dash-source-state=refreshing] { opacity: .55; transition: opacity .25s; }
+@media (prefers-reduced-motion: no-preference) { .os .page:not([hidden]) { animation: osIn .22s ease-out; } }
+@keyframes osIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
 </style>
-</head>
-<body>
-<header class="top"><div class="in">
-<div class="eb">Career OS · UK roles with Skilled Worker sponsorship</div>
-<h1>Adnan Habib · job search tracker</h1>
-<p>Senior Product Manager / Business Analyst roles across the UK, found and checked every morning. Sponsorship is checked against the advert and the Home Office register of licensed sponsors.</p>
-<div class="upd"><i></i><span id="upd">Loading…</span></div>
-<div class="hact"><a class="hbtn" href="https://claude.ai/artifact/7n5jH6cZvxWpZPEBzXk4Jq#add" target="_blank" rel="noopener" title="Opens Adnan's private dashboard. Only Adnan can add roles.">＋ Add a role <span>(Adnan only)</span></a></div>
-</div></header>
-<main>
-<div class="kpis" id="kpis"></div>
-<section class="card">
-<div class="tools">
-<div class="tabs" id="tabs"></div>
-<div class="row">
-<input type="search" id="q" placeholder="Search company, role or location" aria-label="Search">
-<select id="sp" aria-label="Sponsorship"><option value="">Any sponsorship</option><option value="ok">Confirmed in advert</option><option value="warn">Licensed, not confirmed</option><option value="unk">Licence not verified</option></select>
-<select id="fit" aria-label="Fit"><option value="">Any fit</option><option value="9">Fit 9+</option><option value="8">Fit 8+</option><option value="7">Fit 7+</option></select>
-<span class="lbl">Sort by</span>
-<select id="sort" class="sort" aria-label="Sort"><option value="deadline">Deadline · soonest first</option><option value="fit">Fit · highest first</option><option value="added">Newest added</option><option value="org">Company A–Z</option></select>
-<span class="count" id="count">—</span>
+
+<div class='os'>
+<div class='app'>
+<nav class='nav' aria-label='Sections'>
+<div class='brand'><div class='logo'><svg viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='#fff' stroke-width='2'><rect x='3' y='7' width='18' height='13' rx='2'/><path d='M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18'/></svg></div><div><b>Career OS</b><span>Adnan Habib</span></div></div>
+<div class='lbl'>WORKSPACE</div>
+<button type='button' data-page='today' aria-current='page'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/></svg>Today<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=actions'>—</span></button>
+<button type='button' data-page='apps'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01'/></svg>Applications<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=total'>—</span></button>
+<button type='button' data-page='board'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='4' width='5' height='16' rx='1.5'/><rect x='10' y='4' width='5' height='11' rx='1.5'/><rect x='17' y='4' width='4' height='7' rx='1.5'/></svg>Pipeline</button>
+<button type='button' data-page='interviews'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='5' width='18' height='16' rx='2'/><path d='M16 3v4M8 3v4M3 10h18'/></svg>Interviews &amp; deadlines<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=iv7'>—</span></button>
+<div class='lbl'>INTELLIGENCE</div>
+<button type='button' data-page='shortlist'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z'/><path d='M9 12l2 2 4-4'/></svg>Sponsored shortlist<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=shortlist'>—</span></button>
+<button type='button' data-page='new'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1'/></svg>New roles<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=new'>—</span></button>
+<button type='button' data-page='analytics'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M4 20V10M10 20V4M16 20v-7M22 20H2'/></svg>Analytics</button>
+<div class='lbl'>SYSTEM</div>
+<button type='button' data-page='criteria'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M3 5h18l-7 8v6l-4 2v-8z'/></svg>Search criteria</button>
+<button type='button' data-page='data'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><ellipse cx='12' cy='5' rx='8' ry='3'/><path d='M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6'/></svg>Data &amp; backups</button>
+<div class='side'><b>Daily search · 08:52 UK</b>Claude searches UK boards, checks sponsorship and adds roles here every morning.</div>
+</nav>
+
+<div class='wrap'>
+<div class='top'><span class='d' data-draw='today'>—</span><span class='fresh' data-draw='fresh' data-source='jobs'>—</span></div>
+<div class='ws'>
+<div class='main'>
+<div class='notices' data-draw='notice'></div>
+
+<section class='page' data-name='today' id='today'>
+<div class='hero'>
+<div class='eb' data-draw='todayLong'>—</div>
+<h1 data-draw='greet'>—</h1>
+<p>Your priorities first: interviews, closing deadlines and follow-ups. Claude adds and checks new sponsored roles every morning.</p>
+<div class='acts'><button type='button' class='btn light os-go' data-go='interviews'>Open interviews &amp; deadlines</button><button type='button' class='btn on-dark os-go' data-go='apps'>Open applications →</button><span data-draw='addBtn' data-tone='on-dark'></span></div>
 </div>
+<div class='kpis' style='margin-top: 16px'>
+<button type='button' class='kpi os-go' data-go='apps'><span class='k'>Tracked roles</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=total'>—</b><span class='m'>All applications</span></button>
+<button type='button' class='kpi t-green os-go' data-go='interviews'><span class='k'>Interviews · next 7 days</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=iv7'>—</b><span class='m'>See schedule</span></button>
+<button type='button' class='kpi t-red os-go' data-go='interviews'><span class='k'>Schedule conflicts</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=conflicts'>—</b><span class='m'>Resolve today</span></button>
+<button type='button' class='kpi t-amber os-go' data-go='apps' data-quick='urgent'><span class='k'>Closing in 7 days</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=closing7'>—</b><span class='m'>Apply first</span></button>
+<button type='button' class='kpi t-purple os-go' data-go='apps' data-quick='follow'><span class='k'>Follow-ups due</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=followups'>—</b><span class='m'>Chase employers</span></button>
+<button type='button' class='kpi t-gold os-go' data-go='new'><span class='k'>New today</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=today_new'>—</b><span class='m'>From the 08:52 search</span></button>
 </div>
-<div class="tw"><table>
-<thead><tr><th data-k="deadline">Deadline</th><th data-k="org">Role</th><th data-k="stage">Stage</th><th data-k="fit">Fit</th><th data-k="sp">Sponsorship</th><th data-k="applied">Applied</th><th data-k="iv">Interview</th><th data-k="salary">Salary</th><th data-k="loc">Location</th><th data-k="added">Added</th><th>Advert</th></tr></thead>
-<tbody id="tb"><tr><td class="empty" colspan="11">Loading…</td></tr></tbody>
-</table></div>
-<div class="note">Scroll sideways for more columns · click a row for details</div>
+<div class='alerts' style='margin-top: 16px' data-draw='conflicts' data-source='conflicts'></div>
+<div class='card flush' style='margin-top: 16px'><div class='ch pad'><div><h2>New from today&#39;s search · <span data-draw='kpi' data-source='summary' data-field='n' data-where='metric=today_new'>—</span></h2><p class='note'>Roles Claude found and verified this morning. Click one to see why it fits and to apply.</p></div><button type='button' class='linkbtn os-go' data-go='new'>All new roles</button></div><div class='tw'>
+<table class='jt' data-source='jobs'>
+<thead><tr><th data-sort='deadline'>Deadline</th><th data-sort='org'>Role</th><th data-sort='stage'>Stage</th><th data-sort='next'>Next action</th><th data-sort='fit'>Fit</th><th data-sort='spons' class='opt'>Sponsorship</th><th data-sort='applied'>Applied</th><th data-sort='interview'>Interview</th><th data-sort='salary' class='opt'>Salary</th><th data-sort='loc'>Location</th></tr></thead>
+<tbody data-draw='jtable' data-view='today'></tbody>
+</table>
+</div></div>
+<div class='g2' style='margin-top: 16px'>
+<div class='card'><div class='ch'><h2>Priority actions</h2><button type='button' class='linkbtn os-go' data-go='interviews'>Full schedule</button></div><p class='note'>Ranked by urgency. Click one to open the role.</p><div class='alist' data-draw='priorities' data-source='events conflicts jobs'></div></div>
+<div class='card'><div class='ch'><h2>This week</h2></div><p class='note'>Interviews, deadlines and follow-ups over the next 7 days.</p><div class='agenda' data-draw='agenda' data-range='7' data-source='events'></div></div>
+</div>
+<div class='grid' style='margin-top: 16px'>
+<div class='card'><div class='ch'><h2>Pipeline</h2><button type='button' class='linkbtn os-go' data-go='board'>Open board</button></div><p class='note'>Where every tracked role stands.</p><div data-draw='pipe' data-source='pipeline'></div></div>
+</div>
 </section>
-<p class="foot">Sponsorship: Confirmed = the advert says it sponsors · Licensed = the employer holds a Home Office sponsor licence but the advert is silent · Not verified = licence not matched yet. A licence alone does not confirm sponsorship for a role. New roles are added every morning and changes sync every hour.</p>
-</main>
-<div class="drawer" id="dr" hidden><div class="dp" id="dp" role="dialog" aria-modal="true" aria-label="Role details"></div></div>
-<script>
+
+<section class='page' data-name='apps' id='applications' hidden>
+<div class='ph'><div><h1>Applications</h1><p class='sub'>Every role from first look to outcome. Click a row to see the full details, edit the status or open the advert.</p></div><div class='phr'><span data-draw='addBtn'></span><label class='sortby'><span>Sort by</span><select class='os-sort' aria-label='Sort the list'><option value='deadline'>Deadline · soonest first</option><option value='next'>Next action · most urgent</option><option value='fit'>Fit · highest first</option><option value='added'>Newest added</option><option value='interview'>Interview date</option><option value='applied'>Applied date · latest</option><option value='salary'>Salary · highest</option><option value='org'>Company A–Z</option></select></label><span class='chip'><span data-draw='count' data-source='jobs'>—</span> shown</span></div></div>
+<div class='card toolbar'>
+<div class='tabs'>
+<button type='button' data-stage='' aria-pressed='true'>All<span class='tc' data-draw='tabcnt' data-col='' data-source='jobs'>—</span></button>
+<button type='button' data-stage='apply' aria-pressed='false'>To apply<span class='tc' data-draw='tabcnt' data-col='apply' data-source='jobs'>—</span></button>
+<button type='button' data-stage='applied' aria-pressed='false'>Applied<span class='tc' data-draw='tabcnt' data-col='applied' data-source='jobs'>—</span></button>
+<button type='button' data-stage='interview' aria-pressed='false'>Interview<span class='tc' data-draw='tabcnt' data-col='interview' data-source='jobs'>—</span></button>
+<button type='button' data-stage='offer' aria-pressed='false'>Offer<span class='tc' data-draw='tabcnt' data-col='offer' data-source='jobs'>—</span></button>
+<button type='button' data-stage='closed' aria-pressed='false'>Closed<span class='tc' data-draw='tabcnt' data-col='closed' data-source='jobs'>—</span></button>
+</div>
+<div class='filters'>
+<input type='search' class='search os-q' placeholder='Search company, role, location or keyword' aria-label='Search'>
+<select class='os-f' data-key='spons' aria-label='Sponsorship'><option value=''>Any sponsorship</option><option value='ok'>Confirmed in advert</option><option value='warn'>Licensed, not confirmed</option><option value='unk'>Licence unknown</option></select>
+<select class='os-f' data-key='sector' aria-label='Sector'><option value=''>All sectors</option><option value='Non-university'>Non-university</option><option value='University'>University</option></select>
+<select class='os-f' data-key='fit' aria-label='Fit'><option value=''>Any fit</option><option value='9'>Fit 9+</option><option value='8'>Fit 8+</option><option value='7'>Fit 7+</option></select>
+<select class='os-f' data-key='region' aria-label='Region'><option value=''>All UK</option><option value='north'>North &amp; Yorkshire</option><option value='midlands'>Midlands</option><option value='london'>London</option><option value='south'>South &amp; East</option><option value='scotland'>Scotland</option><option value='wales'>Wales</option><option value='remote'>Remote / multi-site</option></select>
+<select class='os-f' data-key='family' aria-label='Role type'><option value=''>All role types</option><option value='pm'>Product Manager</option><option value='po'>Product Owner</option><option value='ba'>Business / Systems Analyst</option><option value='delivery'>Project / Delivery / Change</option><option value='data'>Data / BI / AI</option><option value='impl'>Implementation / CRM</option></select>
+<button type='button' class='linkbtn os-clear'>Clear all</button>
+</div>
+<div class='chips'><span class='ql'>Quick views</span>
+<button type='button' class='os-quick' data-quick='urgent' aria-pressed='false' style='--q: var(--color-bad)'>Act this week</button>
+<button type='button' class='os-quick' data-quick='follow' aria-pressed='false' style='--q: var(--c2)'>Follow-ups due</button>
+<button type='button' class='os-quick' data-quick='sponsored' aria-pressed='false' style='--q: var(--acc)'>Sponsorship confirmed</button>
+<button type='button' class='os-quick' data-quick='fit8' aria-pressed='false' style='--q: var(--c1)'>Fit 8+</button>
+<button type='button' class='os-quick' data-quick='new' aria-pressed='false' style='--q: var(--gold)'>New from Claude</button>
+</div>
+</div>
+<div class='card flush'><div class='tw'>
+<table class='jt' data-source='jobs'>
+<thead><tr><th data-sort='deadline'>Deadline</th><th data-sort='org'>Role</th><th data-sort='stage'>Stage</th><th data-sort='next'>Next action</th><th data-sort='fit'>Fit</th><th data-sort='spons' class='opt'>Sponsorship</th><th data-sort='applied'>Applied</th><th data-sort='interview'>Interview</th><th data-sort='salary' class='opt'>Salary</th><th data-sort='loc'>Location</th></tr></thead>
+<tbody data-draw='jtable' data-view='all'></tbody>
+</table>
+</div><div class='tnote'>Scroll sideways for more columns · click any row for full details and editing</div></div>
+</section>
+
+<section class='page' data-name='board' id='pipeline' hidden>
+<div class='ph'><div><h1>Pipeline</h1><p class='sub'>Drag a card to another column, or use its menu, to change the stage. Click a card for details.</p></div><span class='saving' data-draw='saveState'>—</span></div>
+<div class='board'>
+<div class='bcol os-drop' data-col='apply' style='--b: var(--c1)'><div class='bh'><div>To apply<small>Not yet submitted</small></div><span class='n' data-draw='bcnt' data-col='apply' data-source='jobs'>—</span></div><div class='bl' data-draw='bcol' data-col='apply' data-source='jobs'></div></div>
+<div class='bcol os-drop' data-col='applied' style='--b: var(--c2)'><div class='bh'><div>Applied<small>Waiting to hear back</small></div><span class='n' data-draw='bcnt' data-col='applied' data-source='jobs'>—</span></div><div class='bl' data-draw='bcol' data-col='applied' data-source='jobs'></div></div>
+<div class='bcol os-drop' data-col='interview' style='--b: var(--acc)'><div class='bh'><div>Interview<small>Invited, booked or done</small></div><span class='n' data-draw='bcnt' data-col='interview' data-source='jobs'>—</span></div><div class='bl' data-draw='bcol' data-col='interview' data-source='jobs'></div></div>
+<div class='bcol os-drop' data-col='offer' style='--b: var(--gold)'><div class='bh'><div>Offer<small>Respond and negotiate</small></div><span class='n' data-draw='bcnt' data-col='offer' data-source='jobs'>—</span></div><div class='bl' data-draw='bcol' data-col='offer' data-source='jobs'></div></div>
+<div class='bcol os-drop' data-col='closed' style='--b: var(--color-fg-muted)'><div class='bh'><div>Rejected / closed<small>Rejected, withdrawn or expired</small></div><span class='n' data-draw='bcnt' data-col='closed' data-source='jobs'>—</span></div><div class='bl' data-draw='bcol' data-col='closed' data-source='jobs'></div></div>
+</div>
+</section>
+
+<section class='page' data-name='interviews' id='interviews' hidden>
+<div class='ph'><div><h1>Interviews &amp; deadlines</h1><p class='sub'>Every interview, deadline and follow-up in one schedule, with clashes flagged and a preparation checklist for each interview.</p></div></div>
+<div class='alerts' data-draw='conflicts' data-source='conflicts'></div>
+<div><div class='ch'><h2>Interviews</h2></div><p class='note'>Tick the checklist as you prepare; progress is saved to the role.</p><div class='ivg' data-draw='ivcards' data-source='jobs'></div></div>
+<div class='card'><div class='ch'><h2>Schedule</h2></div><p class='note'>Today, tomorrow, this week and later. Dates still to confirm are listed last.</p><div class='agenda' data-draw='agenda' data-range='90' data-source='events'></div></div>
+</section>
+
+<section class='page' data-name='shortlist' id='shortlist' hidden>
+<div class='ph'><div><h1>Sponsored shortlist</h1><p class='sub'>Roles not yet applied to where Skilled Worker sponsorship is confirmed in the advert or the employing entity holds a licence. Earliest deadline first.</p></div><div class='phr'><label class='sortby'><span>Sort by</span><select class='os-sort' aria-label='Sort the list'><option value='deadline'>Deadline · soonest first</option><option value='next'>Next action · most urgent</option><option value='fit'>Fit · highest first</option><option value='added'>Newest added</option><option value='interview'>Interview date</option><option value='applied'>Applied date · latest</option><option value='salary'>Salary · highest</option><option value='org'>Company A–Z</option></select></label></div></div>
+<div class='tiers'>
+<div class='card tier u-green'><div class='h'><h2>Confirmed in advert</h2><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=sp_ok'>—</b></div><p>The advert itself says it offers, welcomes or considers Skilled Worker sponsorship. Strongest evidence.</p></div>
+<div class='card tier u-blue'><div class='h'><h2>Licensed, not confirmed</h2><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=sp_warn'>—</b></div><p>The employing legal entity is on the Home Office register, but the advert is silent. Ask before investing time.</p></div>
+<div class='card tier u-amber'><div class='h'><h2>Licence unknown</h2><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=sp_unk'>—</b></div><p>The legal entity could not be matched to the register yet. Kept on the watchlist, never in the shortlist.</p></div>
+</div>
+<div class='card flush'><div class='tw'>
+<table class='jt' data-source='jobs'>
+<thead><tr><th data-sort='deadline'>Deadline</th><th data-sort='org'>Role</th><th data-sort='stage'>Stage</th><th data-sort='next'>Next action</th><th data-sort='fit'>Fit</th><th data-sort='spons' class='opt'>Sponsorship</th><th data-sort='applied'>Applied</th><th data-sort='interview'>Interview</th><th data-sort='salary' class='opt'>Salary</th><th data-sort='loc'>Location</th></tr></thead>
+<tbody data-draw='jtable' data-view='shortlist'></tbody>
+</table>
+</div><div class='tnote'>Scroll sideways for more columns · click any row for full details and editing</div></div>
+</section>
+
+<section class='page' data-name='new' id='new-roles' hidden>
+<div class='ph'><div><h1>New roles from Claude</h1><p class='sub'>Found by the daily search and checked on the employer's own advert. Newest first. Always confirm sponsorship before applying.</p></div><div class='phr'><label class='sortby'><span>Sort by</span><select class='os-sort' aria-label='Sort the list'><option value='deadline'>Deadline · soonest first</option><option value='next'>Next action · most urgent</option><option value='fit'>Fit · highest first</option><option value='added'>Newest added</option><option value='interview'>Interview date</option><option value='applied'>Applied date · latest</option><option value='salary'>Salary · highest</option><option value='org'>Company A–Z</option></select></label></div></div>
+<div class='card flush'><div class='tw'>
+<table class='jt' data-source='jobs'>
+<thead><tr><th data-sort='deadline'>Deadline</th><th data-sort='org'>Role</th><th data-sort='stage'>Stage</th><th data-sort='next'>Next action</th><th data-sort='fit'>Fit</th><th data-sort='spons' class='opt'>Sponsorship</th><th data-sort='applied'>Applied</th><th data-sort='interview'>Interview</th><th data-sort='salary' class='opt'>Salary</th><th data-sort='loc'>Location</th></tr></thead>
+<tbody data-draw='jtable' data-view='new'></tbody>
+</table>
+</div><div class='tnote'>Scroll sideways for more columns · click any row for full details and editing</div></div>
+</section>
+
+<section class='page' data-name='analytics' id='analytics' hidden>
+<div class='ph'><div><h1>Analytics</h1><p class='sub'>How applications convert, where responses come from and what kinds of roles you are seeing.</p></div></div>
+<div class='kpis'>
+<div class='kpi t-purple'><span class='k'>Applications sent</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=applied'>—</b></div>
+<div class='kpi t-green'><span class='k'>Response rate</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=response'>—</b></div>
+<div class='kpi'><span class='k'>Interview rate</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=rate'>—</b></div>
+<div class='kpi t-red'><span class='k'>Rejections</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=rejected'>—</b></div>
+</div>
+<div class='grid'>
+<div class='card'><h2>Conversion funnel</h2><p class='note'>Tracked roles to offers, with the share kept at each step.</p><div class='funnel' data-draw='funnel' data-source='funnel'></div></div>
+<div class='card'><h2>What happened to applications</h2><p class='note'>Every submitted application by its latest outcome.</p><div class='donut' data-draw='donut' data-source='outcomes'></div></div>
+<div class='card'><h2>Interview rate by sector</h2><p class='note'>Share of applications that reached interview.</p><div class='bars' data-draw='bars' data-source='bySector' data-key='sector' data-val='rate' data-fmt='pct'></div></div>
+<div class='card'><h2>Rejections by role type</h2><p class='note'>Where rejections have come from so far.</p><div class='bars' data-draw='bars' data-source='rejBy' data-key='label' data-val='n' data-fmt='int'></div></div>
+<div class='card'><h2>Fit distribution</h2><p class='note'>Roles by fit score out of 10.</p><div class='cols' data-draw='colsgen' data-source='fitDist'></div></div>
+<div class='card'><h2>Salary range</h2><p class='note'>By the bottom of the advertised range.</p><div class='cols' data-draw='colsgen' data-source='salaryDist'></div></div>
+<div class='card'><h2>Roles by type</h2><p class='note'>A role can count in more than one type.</p><div class='bars' data-draw='bars' data-source='byFamily' data-key='label' data-val='n' data-fmt='int'></div></div>
+<div class='card'><h2>Roles by region</h2><p class='note'>From the advert location.</p><div class='bars' data-draw='bars' data-source='byRegion' data-key='label' data-val='n' data-fmt='int'></div></div>
+</div>
+</section>
+
+<section class='page' data-name='criteria' id='criteria' hidden>
+<div class='ph'><div><h1>Search criteria</h1><p class='sub'>The CareerOS 4.1 profile Claude follows every morning. To change anything, tell Claude in chat.</p></div><span class='chip'>Daily · 08:52 Europe/London</span></div>
+<div class='kpis' data-draw='critkpis' data-source='criteria'></div>
+<div class='grid'>
+<div class='card'><h2>Rules for the shortlist</h2><p class='note'>Every role must pass these.</p><div class='ticks' data-draw='critlist' data-group='Rules' data-source='criteria'></div></div>
+<div class='card'><h2>Search set-up</h2><p class='note'>When, where and what kind of roles.</p><div class='crit' data-draw='critrows' data-group='Run' data-source='criteria'></div></div>
+<div class='card'><h2>Role families</h2><p class='note'>Responsibilities count even when the title differs.</p><div class='crit' data-draw='critrows' data-group='Role families' data-source='criteria'></div></div>
+<div class='card'><h2>Sector priority</h2><p class='note'>Where search effort goes first.</p><div class='crit' data-draw='critrows' data-group='Sectors' data-source='criteria'></div></div>
+<div class='card'><h2>Method</h2><p class='note'>How each morning's search runs.</p><div class='ticks' data-draw='critlist' data-group='Methods' data-source='criteria'></div></div>
+<div class='card'><h2>Sources &amp; checks</h2><p class='note'>Where Claude looks and what it checks.</p><div class='crit' data-draw='critrows' data-group='Sources|Checks|Evidence' data-source='criteria'></div></div>
+</div>
+</section>
+
+<section class='page' data-name='data' id='data' hidden>
+<div class='ph'><div><h1>Data &amp; backups</h1><p class='sub'>Where your data lives, how fresh it is, and how to export, import or roll back.</p></div></div>
+<div class='grid'>
+<div class='card'><h2>Freshness</h2><p class='note'>Every save, by you or the daily search, creates a new version of the tracker.</p><div class='kv' data-draw='freshDetail' data-source='jobs'></div></div>
+<div class='card'><h2>What updates on its own</h2><div class='lists'>
+<div><b>Automatic</b><ul><li>New sponsored roles: daily search at 08:52 UK</li><li>Sponsorship and licence checks, last verified date</li><li>Alerts, stages and deadline countdowns</li><li>Roles closed when the advert is gone</li></ul></div>
+<div><b>You update</b><ul><li>Submission, applied date and follow-up date</li><li>Interview status, date, time and place</li><li>Preparation checklist and notes</li><li>Your own fit score, if you disagree</li></ul></div>
+</div></div>
+</div>
+<div class='grid'>
+<div class='card'><h2>Export</h2><p class='note'>Download everything as JSON (full backup) or CSV (opens in Excel).</p><div class='pacts'><button type='button' class='btn pri os-export' data-fmt='json'>Download JSON</button><button type='button' class='btn os-export' data-fmt='csv'>Download CSV</button></div><div class='msg' data-draw='dataMsg' style='margin-top: 10px'></div></div>
+<div class='card'><h2>Import</h2><p class='note'>Load a JSON file exported from Career OS. Roles are matched by id: existing roles are updated, new ones are added, nothing is deleted.</p><div class='filebox'><input type='file' accept='.json,application/json' class='os-file' aria-label='Choose a JSON file'></div><div data-draw='importPrev' style='margin-top: 10px'></div></div>
+</div>
+<div class='card'><h2>Backups</h2><p class='note'>Earlier versions of the tracker, newest first. Restoring makes that version current; nothing is deleted.</p><div data-draw='backups' data-source='jobs'></div></div>
+</section>
+
+<p class='foot'>Sponsorship: Confirmed = stated in the advert · Licensed = employer on the Home Office register, advert silent · Unknown = licence not matched yet. Data updates each morning; your edits save straight to the tracker.</p>
+</div>
+<aside class='panel' hidden aria-label='Role details'>
+<div class='ptop'><button type='button' class='btn sm ghost pback os-close'>← Back</button><span class='small'>Role details</span><button type='button' class='xbtn os-close' aria-label='Close'>×</button></div>
+<div class='pin' data-draw='panel' data-source='jobs'></div>
+</aside>
+</div>
+</div>
+</div>
+</div>
+
+</div></div><script>
 (function () {
-  var el = function (t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
-  var S = { stage: '', q: '', sp: '', fit: '', sort: 'deadline', dir: 1 }, ROWS = [];
-  var SP = { ok: ['Confirmed in advert', 'green'], warn: ['Licensed, not confirmed', 'blue'], unk: ['Licence not verified', 'amber'] };
-  var ST = { 'To apply': 'blue', 'Applied': 'purple', 'Interview': 'green', 'Offer': 'gold', 'Closed': '' };
-  var HUES = ['#3b6fd8', '#12a28c', '#7c5cd6', '#d4703a', '#c2417a', '#2f8fbf', '#5b8c2a', '#b5672a', '#0f7c90', '#8a6d1c'];
-  var hue = function (s) { var h = 7; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 9973; return HUES[h % HUES.length]; };
-  var initials = function (s) { var w = s.replace(/[^A-Za-z0-9 ]/g, ' ').split(' ').filter(function (x) { return x && !/^(of|the|and|for|uk|ltd|plc|group|limited)$/i.test(x); }); return (((w[0] || '?')[0]) + ((w[1] || '')[0] || '')).toUpperCase(); };
-  var av = function (org) { var a = el('div', 'av', initials(org)); a.style.background = 'linear-gradient(135deg,' + hue(org) + ', color-mix(in srgb,' + hue(org) + ' 65%, #0f2537))'; return a; };
-  var fitNum = function (f) { var m = String(f || '').match(/([0-9]+(?:\.[0-9]+)?)/); if (!m) return null; var v = parseFloat(m[1]); return /\/100/.test(f) || v > 10 ? v / 10 : v; };
-  var today = function () { var n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); };
-  var days = function (iso) { return iso ? Math.round((Date.parse(iso + 'T00:00:00Z') - today()) / 864e5) : null; };
-  var fmt = function (iso) { return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }); };
-  var pill = function (t, c) { return el('span', 'pill ' + (c || ''), t); };
-  var fitCell = function (f) { var v = fitNum(f), w = el('div', 'fitc'); w.append(el('b', null, v == null ? '—' : String(v))); var tr = el('div', 'tr'), i = el('i'); i.style.width = (v == null ? 0 : Math.min(v, 10) * 10) + '%'; i.style.background = v == null ? 'transparent' : v >= 8.5 ? 'var(--acc)' : v >= 7.5 ? 'var(--c1)' : 'var(--warn)'; tr.append(i); w.append(tr); return w; };
-  var lowSal = function (s) { s = String(s || ''); if (/day|hour/i.test(s)) return 1; var m = s.replace(/,/g, '').match(/£ ?([0-9]+(?:\.[0-9]+)?) ?(k)?/i); if (!m) return 0; var v = Number(m[1]); if (m[2] || v < 1000) v *= 1000; return v; };
-  var ORDER = { 'Offer': 0, 'Interview': 1, 'Applied': 2, 'To apply': 3, 'Closed': 4 };
-  var SORT = {
-    deadline: function (a, b) { var k = function (r) { var n = days(r.deadline); if (r.stage !== 'To apply') return 2e5 + ORDER[r.stage]; return n == null ? 1e5 : n < 0 ? 3e5 : n; }; return k(a) - k(b); },
-    fit: function (a, b) { return (fitNum(b.fit) || -1) - (fitNum(a.fit) || -1); },
-    added: function (a, b) { return (b.added || '').localeCompare(a.added || ''); },
-    org: function (a, b) { return a.organisation.localeCompare(b.organisation); },
-    stage: function (a, b) { return ORDER[a.stage] - ORDER[b.stage]; },
-    sp: function (a, b) { return ['ok', 'warn', 'unk'].indexOf(a.sponsorship) - ['ok', 'warn', 'unk'].indexOf(b.sponsorship); },
-    salary: function (a, b) { return lowSal(b.salary) - lowSal(a.salary); },
-    loc: function (a, b) { return a.location.localeCompare(b.location); },
-    applied: function (a, b) { return (b.applied_on || '').localeCompare(a.applied_on || ''); },
-    iv: function (a, b) { return (a.interview_datetime ? 0 : 1) - (b.interview_datetime ? 0 : 1); }
-  };
-  var pass = function (r, noStage) {
-    if (!noStage && S.stage && r.stage !== S.stage) return false;
-    if (S.sp && r.sponsorship !== S.sp) return false;
-    if (S.fit) { var f = fitNum(r.fit); if (f == null || f < Number(S.fit)) return false; }
-    if (S.q) { var q = S.q.toLowerCase(); if ([r.organisation, r.role, r.location, r.focus, r.sector, r.notes, r.interview_status].join(' ').toLowerCase().indexOf(q) < 0) return false; }
-    return true;
-  };
-  var drawKpis = function () {
-    var k = document.getElementById('kpis'); k.replaceChildren();
-    var todayIso = new Date(today()).toISOString().slice(0, 10), wk = new Date(today() - 6 * 864e5).toISOString().slice(0, 10);
-    var items = [['', 'Roles tracked', ROWS.length, ''], ['To apply', 'Open to apply', ROWS.filter(function (r) { return r.stage === 'To apply'; }).length, 'ta'], ['ok', 'Sponsorship confirmed', ROWS.filter(function (r) { return r.sponsorship === 'ok'; }).length, 'tg'], ['Applied', 'Applied', ROWS.filter(function (r) { return r.stage === 'Applied'; }).length, 'tp'], ['Interview', 'At interview', ROWS.filter(function (r) { return r.stage === 'Interview' || r.stage === 'Offer'; }).length, ''], ['new', 'New this week', ROWS.filter(function (r) { return r.added && r.added >= wk; }).length, 'to']];
-    items.forEach(function (it) {
-      var b = el('button', 'kpi ' + it[3]); b.type = 'button'; b.append(el('span', 'k', it[1]), el('b', null, String(it[2])));
-      b.onclick = function () { if (it[0] === 'ok') { S.sp = 'ok'; S.stage = ''; } else if (it[0] === 'new') { S.sort = 'added'; S.stage = ''; } else { S.stage = it[0]; } sync(); draw(); document.getElementById('tabs').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
-      k.append(b);
-    });
-  };
-  var drawTabs = function () {
-    var t = document.getElementById('tabs'); t.replaceChildren();
-    [['', 'All'], ['To apply', 'To apply'], ['Applied', 'Applied'], ['Interview', 'Interview'], ['Offer', 'Offer'], ['Closed', 'Closed']].forEach(function (x) {
-      var b = el('button', null, x[1]); b.type = 'button'; b.setAttribute('aria-pressed', String(S.stage === x[0]));
-      b.append(el('span', 'n', String(ROWS.filter(function (r) { return pass(r, true) && (!x[0] || r.stage === x[0]); }).length)));
-      b.onclick = function () { S.stage = x[0]; draw(); }; t.append(b);
-    });
-  };
-  var open = function (r) {
-    var dp = document.getElementById('dp'); dp.replaceChildren();
-    var h = el('div', 'dh'); h.append(el('span', 'small', 'Role details')); var x = el('button', 'x', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close'); x.onclick = close; h.append(x); dp.append(h);
-    var id = el('div', 'pid'), t = el('div'); t.append(el('h2', null, r.role), el('div', 'small', r.organisation), el('div', 'small', [r.location, r.salary].filter(Boolean).join(' · '))); id.append(av(r.organisation), t); dp.append(id);
-    var tags = el('div', 'tags'); tags.append(pill(r.stage, ST[r.stage]), pill(SP[r.sponsorship][0], SP[r.sponsorship][1])); if (r.new) tags.append(pill('Found by the daily search', 'gold')); dp.append(tags);
-    if (r.url) { var a = el('a', 'btn', 'Open the advert ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; dp.append(a); }
-    var box = function (title, kids) { var b = el('div', 'box'); b.append(el('div', 't', title)); kids.forEach(function (k) { if (k) b.append(k); }); dp.append(b); };
-    var kv = el('div', 'kv'); var add = function (a, v) { if (!v) return; var c = el('div'); c.append(el('span', null, a), el('span', null, v)); kv.append(c); };
-    add('Deadline', r.deadline ? fmt(r.deadline) : r.deadline_text || 'Open'); add('Sector', r.sector); add('Fit', r.fit ? r.fit + ' / 10' : ''); add('Added', r.added ? fmt(r.added) : ''); add('Status', r.closed_reason || (r.stage !== 'To apply' ? r.alert : '')); add('Applied on', r.applied_on ? fmt(r.applied_on) : ''); add('Follow up', r.follow_up ? fmt(r.follow_up) : ''); add('Interview status', r.interview_status); add('Interview', r.interview_datetime); add('Round', r.round ? String(r.round) : ''); add('Found via', r.source);
-    box('Key facts', [kv]);
-    box('Sponsorship', [el('div', null, r.sponsorship_note || SP[r.sponsorship][0]), (r.legal_entity || r.last_verified) ? el('div', 'small', [r.legal_entity ? 'Legal entity: ' + r.legal_entity : '', r.last_verified ? 'Last verified ' + r.last_verified : ''].filter(Boolean).join(' · ')) : null]);
-    if (r.notes) box('Notes', [el('div', null, r.notes)]);
-    if (r.fit_reason) box('Why it fits', [el('div', null, r.fit_reason)]);
-    if (r.focus) box('Job focus', [el('div', null, r.focus)]);
-    if (r.history && r.history.length) { var hl = r.history.slice().reverse().slice(0, 10).map(function (x) { var d = el('div', 'small'); d.textContent = (x.at ? new Date(x.at).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · ' : '') + (x.what || ''); return d; }); box('Activity', hl); }
-    document.getElementById('dr').hidden = false; x.focus();
-  };
-  var close = function () { document.getElementById('dr').hidden = true; };
-  document.getElementById('dr').addEventListener('click', function (e) { if (e.target.id === 'dr') close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-  var draw = function () {
-    drawTabs();
-    var tb = document.getElementById('tb'); tb.replaceChildren();
-    var s = SORT[S.sort] || SORT.deadline;
-    var rows = ROWS.filter(function (r) { return pass(r); }).sort(function (a, b) { return S.dir * s(a, b) || SORT.deadline(a, b); });
-    document.getElementById('count').textContent = rows.length + ' of ' + ROWS.length + ' shown';
-    document.querySelectorAll('th[data-k]').forEach(function (th) { if (th.dataset.k === S.sort) th.setAttribute('aria-sort', S.dir > 0 ? 'ascending' : 'descending'); else th.removeAttribute('aria-sort'); });
-    if (!rows.length) { var tr0 = el('tr'), td0 = el('td', 'empty', 'No roles match these filters.'); td0.colSpan = 11; tr0.append(td0); tb.append(tr0); return; }
-    rows.forEach(function (r) {
-      var tr = el('tr'); tr.tabIndex = 0;
-      var c1 = el('td'), n = days(r.deadline), openRole = r.stage === 'To apply';
-      if (r.deadline) { var dd = el('div', 'dd' + (openRole && n <= 2 ? ' red' : openRole && n <= 7 ? ' amber' : '')); dd.append(el('b', null, fmt(r.deadline))); if (openRole) dd.append(el('span', null, n === 0 ? 'Closes today' : n + (n === 1 ? ' day left' : ' days left'))); c1.append(dd); } else c1.append(el('span', 'small', r.deadline_text && !/^(—|-)$/.test(r.deadline_text) ? r.deadline_text : 'Open'));
-      var c2 = el('td'), rc = el('div', 'rc'), t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role)); rc.append(av(r.organisation), t); c2.append(rc);
-      var c3 = el('td'); c3.append(pill(r.stage, ST[r.stage])); if (r.new && r.added && days(r.added) >= -6) { c3.append(' '); c3.append(pill('New', 'gold')); } var sub = r.closed_reason || (r.stage !== 'To apply' ? r.alert : ''); if (sub) { c3.append(el('div', 'small', sub)); }
-      var c4 = el('td'); c4.append(fitCell(r.fit));
-      var c5 = el('td'); c5.append(pill(SP[r.sponsorship][0], SP[r.sponsorship][1]));
-      var ca = el('td', 'small nw', r.applied_on ? fmt(r.applied_on) : r.submission === 'Submitted' ? 'Submitted' : '—'), ci = el('td', 'small'); ci.append(el('div', null, r.interview_datetime || '—')); if (r.interview_status) ci.append(el('div', 'small', r.interview_status));
-      var c6 = el('td', 'small', r.salary || '—'), c7 = el('td', 'small', r.location || '—'), c8 = el('td', 'small nw', r.added ? fmt(r.added) : '—');
-      var c9 = el('td'); if (r.url) { var a = el('a', 'adv', 'Open ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.onclick = function (e) { e.stopPropagation(); }; c9.append(a); } else c9.append(el('span', 'small', '—'));
-      tr.append(c1, c2, c3, c4, c5, ca, ci, c6, c7, c8, c9);
-      tr.onclick = function () { open(r); }; tr.onkeydown = function (e) { if (e.key === 'Enter') open(r); };
-      tb.append(tr);
-    });
-  };
-  var sync = function () { document.getElementById('sp').value = S.sp; document.getElementById('fit').value = S.fit; document.getElementById('sort').value = SORT[S.sort] ? S.sort : 'deadline'; };
-  document.getElementById('q').addEventListener('input', function (e) { S.q = e.target.value.trim(); draw(); });
-  document.getElementById('sp').addEventListener('change', function (e) { S.sp = e.target.value; draw(); });
-  document.getElementById('fit').addEventListener('change', function (e) { S.fit = e.target.value; draw(); });
-  document.getElementById('sort').addEventListener('change', function (e) { S.sort = e.target.value; S.dir = 1; draw(); });
-  document.querySelectorAll('th[data-k]').forEach(function (th) { th.addEventListener('click', function () { var k = th.dataset.k; if (S.sort === k) S.dir = -S.dir; else { S.sort = k; S.dir = 1; } sync(); draw(); }); });
-  fetch('data/jobs.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (doc) {
-    ROWS = (doc.rows || []).filter(function (r) { return r && r.organisation && r.role && (r.stage in ST); }).map(function (r) { if (!SP[r.sponsorship]) r.sponsorship = 'unk'; return r; });
-    var u = doc.updated ? new Date(doc.updated) : null;
-    document.getElementById('upd').textContent = u ? 'Updated ' + u.toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · syncs every hour' : 'Refreshed every morning';
-    drawKpis(); sync(); draw();
-  }).catch(function () { var tb = document.getElementById('tb'); tb.replaceChildren(); var tr = el('tr'), td = el('td', 'empty', 'The role list could not be loaded. Please refresh the page.'); td.colSpan = 11; tr.append(td); tb.append(tr); document.getElementById('upd').textContent = 'Could not load the latest data'; });
+var ROWS = [], CRIT = [], META = {at: '', by: 'Claude (hourly sync)', url: ''};
+var calcs = {}, draws = {};
+var run = function (k) { document.querySelectorAll('[data-draw=' + JSON.stringify(k) + ']').forEach(function (el) { if (!el.closest('[hidden]') && draws[k]) { try { draws[k](el); } catch (e) { console.error(k, e); } } }); };
+var data = function (id) { if (id === 'jobs') return {status: 'ok', data: ROWS}; if (id === 'criteria') return {status: 'ok', data: CRIT}; var c = calcs[id]; if (!c) return {status: 'missing', data: []}; return {status: 'ok', data: c.fn.apply(null, c.inputs.map(function (i) { return data(i).data; }))}; };
+window.dash = {
+  colors: ['#3b6fd8', '#d4703a', '#2f9e6e', '#8a5cd0', '#c2417a', '#2f8fbf', '#b5672a', '#5b8c2a'],
+  calc: function (id, o) { calcs[id] = o; }, data: data,
+  draw: function (k, f) { if (f) { draws[k] = f; setTimeout(function () { run(k); }, 0); } else run(k); },
+  refresh: function () {}, onData: function (f) { f(); }, params: function () { return {}; }, setParams: function () {},
+  setLink: function (id) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+};
+var db = { doc: function () { return { onSnapshot: function (cb) { setTimeout(function () { cb({exists: true, data: function () { return {updated: {at: META.at, by: META.by}, source: {url: META.url}}; }}); }, 10); return function () {}; } }; } };
+window.claude = { use: function (k) { return Promise.resolve(k === 'db' ? db : null); } };
+window.CAREER_OS_RO = 'This is the public, view-only copy. It syncs with Adnan' + String.fromCharCode(39) + 's dashboard every hour.';
+var load = function (src) { return new Promise(function (ok, bad) { var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = bad; document.body.append(s); }); };
+var get = function (u) { return fetch(u, {cache: 'no-store'}).then(function (r) { if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }); };
+Promise.all([get('data/jobs.json'), get('data/criteria.json')]).then(function (res) {
+  ROWS = res[0].rows || []; CRIT = res[1] || []; META.at = res[0].updated || '';
+  var t = document.getElementById('webupd'); if (t && META.at) t.textContent = new Date(META.at).toLocaleString('en-GB', {weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'});
+  var w = document.getElementById('webload'); if (w) w.remove();
+  document.getElementById('osroot').hidden = false;
+  return load('assets/d3.min.js').then(function () { return load('app/core.js'); }).then(function () { return load('app/ui.js'); });
+}).catch(function (e) { var w = document.getElementById('webload'); if (w) w.textContent = 'Could not load the latest data. Please refresh the page.'; console.error(e); });
 })();
-</script>
-</body>
-</html>
+</script></body></html>
