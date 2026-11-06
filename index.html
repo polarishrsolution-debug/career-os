@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career OS · UK sponsored roles</title>
+<style>
+:root { --nav: #0f2537; --nav2: #173a69; --acc: #12a28c; --c1: #3b6fd8; --c2: #7c5cd6; --gold: #c98a12; --bad: #c8463d; --warn: #c27a12; --fg: #17222c; --mut: #5f6f7c; --line: #e3e8ec; --bg: #f5f7f9; --card: #fff; --soft: #f8fafb; }
+@media (prefers-color-scheme: dark) { :root { --fg: #e6edf2; --mut: #93a3b0; --line: #26323c; --bg: #0d151c; --card: #121c25; --soft: #16212b; } }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 14px; line-height: 1.45; color: var(--fg); background: var(--bg); }
+button, input, select { font: inherit; color: inherit; }
+.top { background: radial-gradient(120% 180% at 100% 0%, #2c5aa6 0%, var(--nav2) 45%, var(--nav) 100%); color: #e9f0f6; }
+.top .in { max-width: 1280px; margin: 0 auto; padding: 28px 24px 26px; display: grid; gap: 6px; }
+.eb { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #9cc0e6; }
+h1 { margin: 0; font-size: 28px; letter-spacing: -.015em; color: #fff; }
+.top p { margin: 0; color: #c6d6e6; max-width: 52rem; }
+.upd { font-size: 12px; color: #9fb3c4; margin-top: 6px; display: flex; align-items: center; gap: 8px; }
+.upd i { width: 8px; height: 8px; border-radius: 50%; background: #19b89f; box-shadow: 0 0 0 3px rgba(25,184,159,.25); }
+main { max-width: 1280px; margin: 0 auto; padding: 20px 24px 40px; display: grid; gap: 16px; }
+.kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); margin-top: -36px; }
+.kpi { --t: var(--c1); background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--t); border-radius: 14px; padding: 14px 16px; display: grid; gap: 2px; text-align: left; cursor: pointer; box-shadow: 0 6px 18px -14px rgba(15,37,55,.5); }
+.kpi:hover { transform: translateY(-1px); }
+.kpi .k { font-size: 12px; color: var(--mut); }
+.kpi b { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.kpi.tg { --t: var(--acc); } .kpi.tp { --t: var(--c2); } .kpi.to { --t: var(--gold); } .kpi.ta { --t: var(--warn); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; min-width: 0; overflow: hidden; }
+main > * { min-width: 0; }
+.tools { padding: 14px 16px; display: grid; gap: 10px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 12px; background: var(--soft); border: 1px solid var(--line); width: fit-content; max-width: 100%; }
+.tabs button { border: 0; background: transparent; padding: 6px 12px; border-radius: 9px; cursor: pointer; color: var(--mut); font-weight: 550; }
+.tabs button[aria-pressed=true] { background: var(--card); color: var(--fg); box-shadow: 0 1px 3px rgba(15,37,55,.15); }
+.tabs .n { font-size: 11px; margin-left: 4px; opacity: .8; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+input[type=search] { flex: 1 1 16rem; min-width: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); cursor: pointer; max-width: 100%; }
+select.sort { border-color: var(--acc); color: var(--acc); font-weight: 650; }
+.lbl { font-size: 12.5px; color: var(--mut); font-weight: 600; }
+.count { margin-left: auto; font-size: 12px; color: var(--mut); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+.tw { overflow-x: auto; border-top: 1px solid var(--line); }
+table { width: 100%; min-width: 980px; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+th { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 650; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--soft); white-space: nowrap; cursor: pointer; user-select: none; }
+th::after { content: ' ↕'; opacity: .35; }
+th[aria-sort] { color: var(--acc); box-shadow: inset 0 -2px 0 var(--acc); }
+th[aria-sort=ascending]::after { content: ' ↑'; opacity: 1; } th[aria-sort=descending]::after { content: ' ↓'; opacity: 1; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; background: var(--card); }
+tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--fg) 2%, var(--card)); }
+tbody tr { cursor: pointer; } tbody tr:hover td { background: color-mix(in srgb, var(--c1) 6%, var(--card)); }
+th:first-child, td:first-child { position: sticky; left: 0; z-index: 1; width: 7.2rem; min-width: 7.2rem; max-width: 7.2rem; }
+th:nth-child(2), td:nth-child(2) { position: sticky; left: 7.2rem; z-index: 1; box-shadow: inset -1px 0 0 var(--line); }
+th:first-child, th:nth-child(2) { z-index: 2; }
+td.empty { position: static; width: auto; max-width: none; text-align: center; color: var(--mut); padding: 28px; }
+.dd { display: grid; white-space: nowrap; } .dd span { font-size: 11.5px; color: var(--mut); }
+.dd.red b { color: var(--bad); } .dd.amber b { color: var(--warn); }
+.rc { display: flex; gap: 10px; align-items: center; width: 16rem; }
+.rc > div { min-width: 0; }
+.av { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 11px; flex: none; }
+.o { font-weight: 650; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.r { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--mut); font-size: 12.5px; }
+.pill { display: inline-flex; font-size: 11.5px; line-height: 1.6; padding: 0 9px; border-radius: 999px; white-space: nowrap; font-weight: 550; color: var(--mut); background: color-mix(in srgb, var(--mut) 13%, transparent); }
+.pill.green { color: var(--acc); background: color-mix(in srgb, var(--acc) 13%, transparent); }
+.pill.blue { color: var(--c1); background: color-mix(in srgb, var(--c1) 12%, transparent); }
+.pill.amber { color: var(--warn); background: color-mix(in srgb, var(--warn) 13%, transparent); }
+.pill.purple { color: var(--c2); background: color-mix(in srgb, var(--c2) 12%, transparent); }
+.pill.gold { color: var(--gold); background: color-mix(in srgb, var(--gold) 14%, transparent); }
+.fitc { display: flex; align-items: center; gap: 8px; } .fitc b { min-width: 1.8rem; font-variant-numeric: tabular-nums; }
+.fitc .tr { width: 3rem; height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--mut) 18%, transparent); overflow: hidden; } .fitc .tr i { display: block; height: 100%; border-radius: 6px; }
+.small { font-size: 12px; color: var(--mut); } .nw { white-space: nowrap; }
+a.adv { color: var(--c1); font-weight: 600; text-decoration: none; white-space: nowrap; } a.adv:hover { text-decoration: underline; }
+.note { font-size: 12px; color: var(--mut); padding: 8px 14px; border-top: 1px solid var(--line); background: var(--soft); border-radius: 0 0 14px 14px; }
+.foot { font-size: 12px; color: var(--mut); }
+.drawer { position: fixed; inset: 0; background: rgba(10,20,30,.45); display: flex; justify-content: flex-end; z-index: 10; }
+.drawer[hidden] { display: none; }
+.dp { width: min(460px, 100%); height: 100%; overflow-y: auto; background: var(--card); padding: 18px 20px 28px; display: grid; gap: 14px; align-content: start; box-shadow: -12px 0 30px -20px rgba(0,0,0,.5); }
+.dh { display: flex; justify-content: space-between; align-items: center; }
+.x { width: 32px; height: 32px; border-radius: 9px; border: 1px solid var(--line); background: var(--card); cursor: pointer; font-size: 18px; color: var(--mut); }
+.pid { display: flex; gap: 14px; } .pid .av { width: 46px; height: 46px; border-radius: 12px; font-size: 15px; }
+.pid h2 { margin: 0; font-size: 18px; }
+.box { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--soft); display: grid; gap: 6px; }
+.t { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--mut); font-weight: 650; }
+.kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.kv div { display: grid; gap: 2px; } .kv span:first-child { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .04em; }
+.btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 10px; padding: 9px 14px; font-weight: 600; text-decoration: none; background: var(--acc); color: #fff; width: fit-content; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 640px) { main { padding: 16px; } .top .in { padding: 22px 16px; } th:first-child, td:first-child { width: 6.2rem; min-width: 6.2rem; max-width: 6.2rem; } th:nth-child(2), td:nth-child(2) { left: 6.2rem; } .rc { width: 11.5rem; } .rc .av { display: none; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+<div class="eb">Career OS · UK roles with Skilled Worker sponsorship</div>
+<h1>Adnan Habib · job search tracker</h1>
+<p>Senior Product Manager / Business Analyst roles across the UK, found and checked every morning. Sponsorship is checked against the advert and the Home Office register of licensed sponsors.</p>
+<div class="upd"><i></i><span id="upd">Loading…</span></div>
+</div></header>
+<main>
+<div class="kpis" id="kpis"></div>
+<section class="card">
+<div class="tools">
+<div class="tabs" id="tabs"></div>
+<div class="row">
+<input type="search" id="q" placeholder="Search company, role or location" aria-label="Search">
+<select id="sp" aria-label="Sponsorship"><option value="">Any sponsorship</option><option value="ok">Confirmed in advert</option><option value="warn">Licensed, not confirmed</option><option value="unk">Licence not verified</option></select>
+<select id="fit" aria-label="Fit"><option value="">Any fit</option><option value="9">Fit 9+</option><option value="8">Fit 8+</option><option value="7">Fit 7+</option></select>
+<span class="lbl">Sort by</span>
+<select id="sort" class="sort" aria-label="Sort"><option value="deadline">Deadline · soonest first</option><option value="fit">Fit · highest first</option><option value="added">Newest added</option><option value="org">Company A–Z</option></select>
+<span class="count" id="count">—</span>
+</div>
+</div>
+<div class="tw"><table>
+<thead><tr><th data-k="deadline">Deadline</th><th data-k="org">Role</th><th data-k="stage">Stage</th><th data-k="fit">Fit</th><th data-k="sp">Sponsorship</th><th data-k="salary">Salary</th><th data-k="loc">Location</th><th data-k="added">Added</th><th>Advert</th></tr></thead>
+<tbody id="tb"><tr><td class="empty" colspan="9">Loading…</td></tr></tbody>
+</table></div>
+<div class="note">Scroll sideways for more columns · click a row for details</div>
+</section>
+<p class="foot">Sponsorship: Confirmed = the advert says it sponsors · Licensed = the employer holds a Home Office sponsor licence but the advert is silent · Not verified = licence not matched yet. A licence alone does not confirm sponsorship for a role. Updated automatically every morning.</p>
+</main>
+<div class="drawer" id="dr" hidden><div class="dp" id="dp" role="dialog" aria-modal="true" aria-label="Role details"></div></div>
+<script>
+(function () {
+  var el = function (t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  var S = { stage: '', q: '', sp: '', fit: '', sort: 'deadline', dir: 1 }, ROWS = [];
+  var SP = { ok: ['Confirmed in advert', 'green'], warn: ['Licensed, not confirmed', 'blue'], unk: ['Licence not verified', 'amber'] };
+  var ST = { 'To apply': 'blue', 'Applied': 'purple', 'Interview': 'green', 'Offer': 'gold' };
+  var HUES = ['#3b6fd8', '#12a28c', '#7c5cd6', '#d4703a', '#c2417a', '#2f8fbf', '#5b8c2a', '#b5672a', '#0f7c90', '#8a6d1c'];
+  var hue = function (s) { var h = 7; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 9973; return HUES[h % HUES.length]; };
+  var initials = function (s) { var w = s.replace(/[^A-Za-z0-9 ]/g, ' ').split(' ').filter(function (x) { return x && !/^(of|the|and|for|uk|ltd|plc|group|limited)$/i.test(x); }); return (((w[0] || '?')[0]) + ((w[1] || '')[0] || '')).toUpperCase(); };
+  var av = function (org) { var a = el('div', 'av', initials(org)); a.style.background = 'linear-gradient(135deg,' + hue(org) + ', color-mix(in srgb,' + hue(org) + ' 65%, #0f2537))'; return a; };
+  var fitNum = function (f) { var m = String(f || '').match(/([0-9]+(?:\.[0-9]+)?)/); if (!m) return null; var v = parseFloat(m[1]); return /\/100/.test(f) || v > 10 ? v / 10 : v; };
+  var today = function () { var n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); };
+  var days = function (iso) { return iso ? Math.round((Date.parse(iso + 'T00:00:00Z') - today()) / 864e5) : null; };
+  var fmt = function (iso) { return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }); };
+  var pill = function (t, c) { return el('span', 'pill ' + (c || ''), t); };
+  var fitCell = function (f) { var v = fitNum(f), w = el('div', 'fitc'); w.append(el('b', null, v == null ? '—' : String(v))); var tr = el('div', 'tr'), i = el('i'); i.style.width = (v == null ? 0 : Math.min(v, 10) * 10) + '%'; i.style.background = v == null ? 'transparent' : v >= 8.5 ? 'var(--acc)' : v >= 7.5 ? 'var(--c1)' : 'var(--warn)'; tr.append(i); w.append(tr); return w; };
+  var lowSal = function (s) { s = String(s || ''); if (/day|hour/i.test(s)) return 1; var m = s.replace(/,/g, '').match(/£ ?([0-9]+(?:\.[0-9]+)?) ?(k)?/i); if (!m) return 0; var v = Number(m[1]); if (m[2] || v < 1000) v *= 1000; return v; };
+  var ORDER = { 'Offer': 0, 'Interview': 1, 'Applied': 2, 'To apply': 3 };
+  var SORT = {
+    deadline: function (a, b) { var k = function (r) { var n = days(r.deadline); if (r.stage !== 'To apply') return 2e5 + ORDER[r.stage]; return n == null ? 1e5 : n < 0 ? 3e5 : n; }; return k(a) - k(b); },
+    fit: function (a, b) { return (fitNum(b.fit) || -1) - (fitNum(a.fit) || -1); },
+    added: function (a, b) { return (b.added || '').localeCompare(a.added || ''); },
+    org: function (a, b) { return a.organisation.localeCompare(b.organisation); },
+    stage: function (a, b) { return ORDER[a.stage] - ORDER[b.stage]; },
+    sp: function (a, b) { return ['ok', 'warn', 'unk'].indexOf(a.sponsorship) - ['ok', 'warn', 'unk'].indexOf(b.sponsorship); },
+    salary: function (a, b) { return lowSal(b.salary) - lowSal(a.salary); },
+    loc: function (a, b) { return a.location.localeCompare(b.location); }
+  };
+  var pass = function (r, noStage) {
+    if (!noStage && S.stage && r.stage !== S.stage) return false;
+    if (S.sp && r.sponsorship !== S.sp) return false;
+    if (S.fit) { var f = fitNum(r.fit); if (f == null || f < Number(S.fit)) return false; }
+    if (S.q) { var q = S.q.toLowerCase(); if ([r.organisation, r.role, r.location, r.focus, r.sector].join(' ').toLowerCase().indexOf(q) < 0) return false; }
+    return true;
+  };
+  var drawKpis = function () {
+    var k = document.getElementById('kpis'); k.replaceChildren();
+    var todayIso = new Date(today()).toISOString().slice(0, 10), wk = new Date(today() - 6 * 864e5).toISOString().slice(0, 10);
+    var items = [['', 'Roles tracked', ROWS.length, ''], ['To apply', 'Open to apply', ROWS.filter(function (r) { return r.stage === 'To apply'; }).length, 'ta'], ['ok', 'Sponsorship confirmed', ROWS.filter(function (r) { return r.sponsorship === 'ok'; }).length, 'tg'], ['Applied', 'Applied', ROWS.filter(function (r) { return r.stage === 'Applied'; }).length, 'tp'], ['Interview', 'At interview', ROWS.filter(function (r) { return r.stage === 'Interview' || r.stage === 'Offer'; }).length, ''], ['new', 'New this week', ROWS.filter(function (r) { return r.added && r.added >= wk; }).length, 'to']];
+    items.forEach(function (it) {
+      var b = el('button', 'kpi ' + it[3]); b.type = 'button'; b.append(el('span', 'k', it[1]), el('b', null, String(it[2])));
+      b.onclick = function () { if (it[0] === 'ok') { S.sp = 'ok'; S.stage = ''; } else if (it[0] === 'new') { S.sort = 'added'; S.stage = ''; } else { S.stage = it[0]; } sync(); draw(); document.getElementById('tabs').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+      k.append(b);
+    });
+  };
+  var drawTabs = function () {
+    var t = document.getElementById('tabs'); t.replaceChildren();
+    [['', 'All'], ['To apply', 'To apply'], ['Applied', 'Applied'], ['Interview', 'Interview'], ['Offer', 'Offer']].forEach(function (x) {
+      var b = el('button', null, x[1]); b.type = 'button'; b.setAttribute('aria-pressed', String(S.stage === x[0]));
+      b.append(el('span', 'n', String(ROWS.filter(function (r) { return pass(r, true) && (!x[0] || r.stage === x[0]); }).length)));
+      b.onclick = function () { S.stage = x[0]; draw(); }; t.append(b);
+    });
+  };
+  var open = function (r) {
+    var dp = document.getElementById('dp'); dp.replaceChildren();
+    var h = el('div', 'dh'); h.append(el('span', 'small', 'Role details')); var x = el('button', 'x', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close'); x.onclick = close; h.append(x); dp.append(h);
+    var id = el('div', 'pid'), t = el('div'); t.append(el('h2', null, r.role), el('div', 'small', r.organisation), el('div', 'small', [r.location, r.salary].filter(Boolean).join(' · '))); id.append(av(r.organisation), t); dp.append(id);
+    var tags = el('div', 'tags'); tags.append(pill(r.stage, ST[r.stage]), pill(SP[r.sponsorship][0], SP[r.sponsorship][1])); if (r.new) tags.append(pill('Found by the daily search', 'gold')); dp.append(tags);
+    if (r.url) { var a = el('a', 'btn', 'Open the advert ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; dp.append(a); }
+    var box = function (title, kids) { var b = el('div', 'box'); b.append(el('div', 't', title)); kids.forEach(function (k) { if (k) b.append(k); }); dp.append(b); };
+    var kv = el('div', 'kv'); var add = function (a, v) { if (!v) return; var c = el('div'); c.append(el('span', null, a), el('span', null, v)); kv.append(c); };
+    add('Deadline', r.deadline ? fmt(r.deadline) : r.deadline_text || 'Open'); add('Sector', r.sector); add('Fit', r.fit ? r.fit + ' / 10' : ''); add('Added', r.added ? fmt(r.added) : '');
+    box('Key facts', [kv]);
+    box('Sponsorship', [el('div', null, r.sponsorship_note || SP[r.sponsorship][0])]);
+    if (r.fit_reason) box('Why it fits', [el('div', null, r.fit_reason)]);
+    if (r.focus) box('Job focus', [el('div', null, r.focus)]);
+    document.getElementById('dr').hidden = false; x.focus();
+  };
+  var close = function () { document.getElementById('dr').hidden = true; };
+  document.getElementById('dr').addEventListener('click', function (e) { if (e.target.id === 'dr') close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  var draw = function () {
+    drawTabs();
+    var tb = document.getElementById('tb'); tb.replaceChildren();
+    var s = SORT[S.sort] || SORT.deadline;
+    var rows = ROWS.filter(function (r) { return pass(r); }).sort(function (a, b) { return S.dir * s(a, b) || SORT.deadline(a, b); });
+    document.getElementById('count').textContent = rows.length + ' of ' + ROWS.length + ' shown';
+    document.querySelectorAll('th[data-k]').forEach(function (th) { if (th.dataset.k === S.sort) th.setAttribute('aria-sort', S.dir > 0 ? 'ascending' : 'descending'); else th.removeAttribute('aria-sort'); });
+    if (!rows.length) { var tr0 = el('tr'), td0 = el('td', 'empty', 'No roles match these filters.'); td0.colSpan = 9; tr0.append(td0); tb.append(tr0); return; }
+    rows.forEach(function (r) {
+      var tr = el('tr'); tr.tabIndex = 0;
+      var c1 = el('td'), n = days(r.deadline), openRole = r.stage === 'To apply';
+      if (r.deadline) { var dd = el('div', 'dd' + (openRole && n <= 2 ? ' red' : openRole && n <= 7 ? ' amber' : '')); dd.append(el('b', null, fmt(r.deadline))); if (openRole) dd.append(el('span', null, n === 0 ? 'Closes today' : n + (n === 1 ? ' day left' : ' days left'))); c1.append(dd); } else c1.append(el('span', 'small', r.deadline_text && !/^(—|-)$/.test(r.deadline_text) ? r.deadline_text : 'Open'));
+      var c2 = el('td'), rc = el('div', 'rc'), t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role)); rc.append(av(r.organisation), t); c2.append(rc);
+      var c3 = el('td'); c3.append(pill(r.stage, ST[r.stage])); if (r.new && r.added && days(r.added) >= -6) { c3.append(' '); c3.append(pill('New', 'gold')); }
+      var c4 = el('td'); c4.append(fitCell(r.fit));
+      var c5 = el('td'); c5.append(pill(SP[r.sponsorship][0], SP[r.sponsorship][1]));
+      var c6 = el('td', 'small', r.salary || '—'), c7 = el('td', 'small', r.location || '—'), c8 = el('td', 'small nw', r.added ? fmt(r.added) : '—');
+      var c9 = el('td'); if (r.url) { var a = el('a', 'adv', 'Open ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.onclick = function (e) { e.stopPropagation(); }; c9.append(a); } else c9.append(el('span', 'small', '—'));
+      tr.append(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+      tr.onclick = function () { open(r); }; tr.onkeydown = function (e) { if (e.key === 'Enter') open(r); };
+      tb.append(tr);
+    });
+  };
+  var sync = function () { document.getElementById('sp').value = S.sp; document.getElementById('fit').value = S.fit; document.getElementById('sort').value = SORT[S.sort] ? S.sort : 'deadline'; };
+  document.getElementById('q').addEventListener('input', function (e) { S.q = e.target.value.trim(); draw(); });
+  document.getElementById('sp').addEventListener('change', function (e) { S.sp = e.target.value; draw(); });
+  document.getElementById('fit').addEventListener('change', function (e) { S.fit = e.target.value; draw(); });
+  document.getElementById('sort').addEventListener('change', function (e) { S.sort = e.target.value; S.dir = 1; draw(); });
+  document.querySelectorAll('th[data-k]').forEach(function (th) { th.addEventListener('click', function () { var k = th.dataset.k; if (S.sort === k) S.dir = -S.dir; else { S.sort = k; S.dir = 1; } sync(); draw(); }); });
+  fetch('data/jobs.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (doc) {
+    ROWS = (doc.rows || []).filter(function (r) { return r && r.organisation && r.role && ST[r.stage]; }).map(function (r) { if (!SP[r.sponsorship]) r.sponsorship = 'unk'; return r; });
+    var u = doc.updated ? new Date(doc.updated) : null;
+    document.getElementById('upd').textContent = u ? 'Updated ' + u.toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · refreshed every morning' : 'Refreshed every morning';
+    drawKpis(); sync(); draw();
+  }).catch(function () { var tb = document.getElementById('tb'); tb.replaceChildren(); var tr = el('tr'), td = el('td', 'empty', 'The role list could not be loaded. Please refresh the page.'); td.colSpan = 9; tr.append(td); tb.append(tr); document.getElementById('upd').textContent = 'Could not load the latest data'; });
+})();
+</script>
+</body>
+</html>
