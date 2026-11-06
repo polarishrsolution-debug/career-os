@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T15:40:12Z",
+ "updated": "2026-11-06T16:40:00Z",
  "rows": [
   {
    "id": "T001",
@@ -2263,8 +2263,8 @@
   },
   {
    "id": "N004",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Royal Mail",
    "role": "Product Owner – Salesforce Service Cloud",
    "sector": "Non-university",
@@ -2274,7 +2274,7 @@
    "deadline_text": "07 Nov 2026",
    "sponsorship": "⚠️ Licensed — unconfirmed",
    "fit": "6.5",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Backlog for agent-facing Service Cloud features: case mgmt, routing, workflow automation",
@@ -2286,7 +2286,12 @@
    "last_verified": "4 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T16:19:40.972Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
