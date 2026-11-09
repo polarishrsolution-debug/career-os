@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T12:40:25Z",
+ "updated": "2026-11-09T15:40:08Z",
  "rows": [
   {
    "id": "T001",
@@ -1148,8 +1148,8 @@
   },
   {
    "id": "T034",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Asda / George Technology",
    "role": "Product Manager – George Technology",
    "sector": "Non-university",
@@ -1178,7 +1178,7 @@
   {
    "id": "T035",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Aviva",
    "role": "Senior Digital Product Owner",
    "sector": "Non-university",
@@ -1207,7 +1207,7 @@
   {
    "id": "T036",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Robert Walters",
    "role": "AI Business Analyst – Law Firm",
    "sector": "Non-university",
@@ -1236,7 +1236,7 @@
   {
    "id": "T037",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Thames Water",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -1265,7 +1265,7 @@
   {
    "id": "T038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Morgan McKinley",
    "role": "Customer Service CRM Product Owner",
    "sector": "Non-university",
@@ -1294,7 +1294,7 @@
   {
    "id": "T039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Westminster",
    "role": "Business Intelligence and Insight Analyst",
    "sector": "University",
@@ -1352,7 +1352,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1381,7 +1381,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 30 days",
+   "alert": "🟡 Closes in 27 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2227,7 +2227,7 @@
   {
    "id": "N001",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "British Business Bank",
    "role": "Manager M1 – Analytics, AI & Automation (maternity cover)",
    "sector": "Non-university",
@@ -2406,7 +2406,7 @@
   {
    "id": "N007",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "ScottishPower",
    "role": "Technical Business Analyst – Customer Business CoE",
    "sector": "Non-university",
@@ -2551,7 +2551,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 17 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2580,7 +2580,7 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🟡 Closes in 17 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2609,7 +2609,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2638,7 +2638,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2667,7 +2667,7 @@
   {
    "id": "N016",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of East London",
    "role": "Business Intelligence Analyst",
    "sector": "University",
@@ -2754,7 +2754,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟡 Closes in 15 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -2787,8 +2787,8 @@
   },
   {
    "id": "N020",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Tribal Group",
    "role": "Customer Advisory Consultant (SITS) — ref RAF-3026-26",
    "sector": "Non-university",
@@ -2924,6 +2924,142 @@
    ],
    "prep": [],
    "fit_reason": "6.5: strong PO/backlog and API integration skills; gap: no open-banking/PSD2 payments domain experience"
+  },
+  {
+   "id": "N024",
+   "stage": "To apply",
+   "alert": "🔴 Closes in 0 days",
+   "organisation": "Heriot-Watt University",
+   "role": "Business Analyst (Global PMO, 3 posts)",
+   "sector": "University",
+   "location": "Edinburgh — hybrid",
+   "salary": "£38,448–£48,337 (Grade 7)",
+   "deadline": "2026-11-09",
+   "deadline_text": "Closes 9 Nov 2026, 23:55 (may close early)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Requirements elicitation & workshops, process analysis/future-state design, UAT, implementation & benefits tracking",
+   "notes": "Advert on Heriot-Watt Oracle careers site (details read from advert copies; official page rendered without text). Open-ended, full time 35h. Advert silent on sponsorship. Heriot-Watt University shown A-rated Skilled Worker sponsor (tarve register mirror, 31 Oct 2026). SOC 2431 BA: going rate ~£50.2k — lower/mid band may NOT meet threshold; ask for top of band or check new-entrant rules. No clearance stated. CLOSES TONIGHT.",
+   "url": "https://enzj.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/5071",
+   "source": "4dayweek/freehire → official Heriot-Watt careers",
+   "added": "2026-11-09",
+   "legal_entity": "Heriot-Watt University",
+   "last_verified": "9 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-09T15:13:13Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: HE BA work (workshops, process redesign, UAT) is a direct match; gap: salary band below SOC 2431 going rate"
+  },
+  {
+   "id": "N025",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Planhat",
+   "role": "Implementation Manager – EMEA",
+   "sector": "Non-university",
+   "location": "London — on-site 5 days, travel",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date (rolling)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead enterprise rollouts kickoff→go-live; design data architecture, integrations & workflows; enablement for admins/users",
+   "notes": "Official Planhat careers advert live 9 Nov 2026 (full time). Advert silent; application form asks 'Will you now or in the future require visa sponsorship?'. Planhat Ltd A-rated Skilled Worker + GBM (tarve). SOC 2131/2134-type; salary not stated — check vs going rate (~£58.2k quoted for 2131). 5 days in office London. Different role from T063 (Deployment Specialist).",
+   "url": "https://www.planhat.com/careers/355f1192-9e5c-4617-8f84-76ff5524b4e7",
+   "source": "Tarve → official Planhat careers",
+   "added": "2026-11-09",
+   "legal_entity": "Planhat Ltd",
+   "last_verified": "9 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-09T15:13:13Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: SaaS rollouts, integrations and client enablement match SAMS360 delivery; gap: no CS-platform (Planhat/Gainsight) domain"
+  },
+  {
+   "id": "N026",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Exiger",
+   "role": "Implementation Manager (London)",
+   "sector": "Non-university",
+   "location": "London — hybrid",
+   "salary": "Not stated (competitive)",
+   "deadline": "",
+   "deadline_text": "No closing date (posted May 2026, updated 29 Sep, still live)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Run client implementations of risk-intelligence SaaS (onboarding, configuration, go-live); improve implementation process",
+   "notes": "Official Greenhouse advert live 9 Nov 2026; mid-level (3–5 yrs). Advert silent on sponsorship. Exiger Limited A-rated Skilled Worker + GBM (tarve, sponsorlist); hunt notes few recent visas. SOC 2131-type; salary not stated — check vs going rate. Older posting — confirm still hiring. Gap: supply-chain risk domain.",
+   "url": "https://www.exiger.com/careers/5991293004?gh_jid=5991293004",
+   "source": "Tarve → official Greenhouse",
+   "added": "2026-11-09",
+   "legal_entity": "Exiger Limited",
+   "last_verified": "9 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-09T15:13:13Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: SaaS implementation, configuration and go-live leadership match; gap: no supply-chain risk/compliance domain"
+  },
+  {
+   "id": "N027",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Zen Educate",
+   "role": "Principal Product Manager (IC)",
+   "sector": "Non-university",
+   "location": "London (Oval) — hybrid 3 days",
+   "salary": "Not stated (competitive + stock options)",
+   "deadline": "",
+   "deadline_text": "No closing date on Lever (tarve estimate 9 Dec)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Principal IC PM in edtech marketplace: frame problems, mix qual/quant insight to prioritise, ship with design/eng/ops",
+   "notes": "Official Lever advert live 9 Nov 2026 (full time). Advert silent on sponsorship. Zen Educate Limited A-rated Skilled Worker (tarve, 31 Oct 2026). SOC 2134; no salary published — check vs going rate. Mandatory gap: asks 10+ yrs product experience, ideally marketplace — stretch on seniority.",
+   "url": "https://jobs.lever.co/zeneducate/907d5d04-81f0-499d-bcee-242812d821fa",
+   "source": "Tarve → official Lever",
+   "added": "2026-11-09",
+   "legal_entity": "Zen Educate Limited",
+   "last_verified": "9 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-09T15:13:13Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: edtech PM with research/A-B testing and data-led prioritisation fits; gap: 10+ yrs/principal-level and marketplace experience"
   }
  ]
 }
