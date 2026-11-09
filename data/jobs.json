@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T16:40:00Z",
+ "updated": "2026-11-09T12:40:25Z",
  "rows": [
   {
    "id": "T001",
@@ -119,8 +119,8 @@
   },
   {
    "id": "T005",
-   "stage": "Applied",
-   "alert": "🔵 Awaiting response",
+   "stage": "Closed",
+   "alert": "⚫ Closed — rejected",
    "organisation": "University of Sheffield",
    "role": "Programme Manager – IT Services",
    "sector": "University",
@@ -131,7 +131,7 @@
    "sponsorship": "⚠️ Vacancy sponsorship unconfirmed",
    "fit": "8.6",
    "submission": "Submitted",
-   "interview_status": "Awaiting response",
+   "interview_status": "Rejected",
    "interview_datetime": "",
    "jd_focus": "IT programme delivery, governance, portfolio",
    "notes": "Strong",
@@ -142,7 +142,12 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-08T20:06:42.180Z",
+     "what": "Rejected"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -558,8 +563,8 @@
   },
   {
    "id": "T016",
-   "stage": "Applied",
-   "alert": "🔵 Awaiting response",
+   "stage": "Closed",
+   "alert": "⚫ Closed — rejected",
    "organisation": "DWP Digital",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -570,7 +575,7 @@
    "sponsorship": "✅ Sponsorship considered",
    "fit": "9.2",
    "submission": "Submitted",
-   "interview_status": "Awaiting response",
+   "interview_status": "Rejected",
    "interview_datetime": "",
    "jd_focus": "Digital BA, user needs, agile government services",
    "notes": "15 vacancies; sponsorship not guaranteed",
@@ -581,7 +586,12 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-08T20:06:53.462Z",
+     "what": "Rejected"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -866,8 +876,8 @@
   },
   {
    "id": "T026",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Teya",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -877,7 +887,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8.8",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Fintech transformation BA",
@@ -889,14 +899,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:54:01.107Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T027",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "ALTEN",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -906,7 +921,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8.6",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "BA for technology consultancy clients",
@@ -918,14 +933,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:54:03.853Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T028",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Kaluza",
    "role": "Delivery Manager",
    "sector": "Non-university",
@@ -935,7 +955,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8.5",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Agile delivery management, energy tech",
@@ -947,14 +967,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:54:08.669Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T029",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Advania UK",
    "role": "Project Manager",
    "sector": "Non-university",
@@ -964,7 +989,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8.3",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Technology project management",
@@ -976,14 +1001,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:54:18.402Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T030",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Genomics England",
    "role": "Product Manager – Data & Analytics",
    "sector": "Non-university",
@@ -993,7 +1023,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8.6",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Data & analytics product, genomics data",
@@ -1005,14 +1035,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:55:27.338Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T031",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Spotify",
    "role": "Product Manager – Customer Service Platform",
    "sector": "Non-university",
@@ -1022,7 +1057,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Customer service platform product",
@@ -1034,14 +1069,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:54:29.185Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T032",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Ema",
    "role": "Product Manager – UK",
    "sector": "Non-university",
@@ -1051,7 +1091,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Entity verify",
    "fit": "8.4",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Enterprise AI product (agents)",
@@ -1063,14 +1103,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:56:09.919Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T033",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Acturis",
    "role": "Project Manager – Insurance Software",
    "sector": "Non-university",
@@ -1080,7 +1125,7 @@
    "deadline_text": "06 Nov 2026",
    "sponsorship": "⚠️ Licensed sponsor; vacancy-level unconfirmed",
    "fit": "8.4",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Insurance software project delivery",
@@ -1092,7 +1137,12 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-06T23:55:51.703Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
