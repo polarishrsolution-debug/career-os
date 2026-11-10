@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T09:43:06Z",
+ "updated": "2026-11-10T18:43:07Z",
  "rows": [
   {
    "id": "T001",
@@ -192,7 +192,7 @@
   {
    "id": "T007",
    "stage": "Interview stage",
-   "alert": "🔵 Chase outcome",
+   "alert": "🟢 Offer accepted",
    "organisation": "Oxfordshire County Council",
    "role": "Senior Technical Officer – Data & Insights Specialist",
    "sector": "Non-university",
@@ -203,7 +203,7 @@
    "sponsorship": "⚠️ Sponsor-capable",
    "fit": "8.6",
    "submission": "Submitted",
-   "interview_status": "Interviewed — awaiting outcome",
+   "interview_status": "Offer accepted",
    "interview_datetime": "Wed 4 Nov 2026, 03:30 — Teams",
    "jd_focus": "Power BI dashboards, data & insights, resourcing/budget",
    "notes": "Vacancy-level CoS confirm Power BI task submitted 2 Nov; 10-min presentation at interview (Innovate Oxfordshire).",
@@ -258,6 +258,14 @@
     {
      "at": "2026-11-05T21:40:00Z",
      "what": "Restored status: Interviewed — awaiting outcome (lost when the card was moved Applied → Interview)"
+    },
+    {
+     "at": "2026-11-10T17:49:29.434Z",
+     "what": "Offer received"
+    },
+    {
+     "at": "2026-11-10T17:49:36.651Z",
+     "what": "Offer accepted"
     }
    ],
    "prep": [
