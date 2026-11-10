@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T15:40:08Z",
+ "updated": "2026-11-10T09:43:06Z",
  "rows": [
   {
    "id": "T001",
@@ -685,7 +685,7 @@
   {
    "id": "T020",
    "stage": "Interview stage",
-   "alert": "🔵 Interview booked",
+   "alert": "🔴 Interview tomorrow",
    "organisation": "University of East London",
    "role": "CRM Recruit Product Manager",
    "sector": "University",
@@ -1178,7 +1178,7 @@
   {
    "id": "T035",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Aviva",
    "role": "Senior Digital Product Owner",
    "sector": "Non-university",
@@ -1207,7 +1207,7 @@
   {
    "id": "T036",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Robert Walters",
    "role": "AI Business Analyst – Law Firm",
    "sector": "Non-university",
@@ -1236,7 +1236,7 @@
   {
    "id": "T037",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Thames Water",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -1265,7 +1265,7 @@
   {
    "id": "T038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Morgan McKinley",
    "role": "Customer Service CRM Product Owner",
    "sector": "Non-university",
@@ -1294,7 +1294,7 @@
   {
    "id": "T039",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Westminster",
    "role": "Business Intelligence and Insight Analyst",
    "sector": "University",
@@ -1352,7 +1352,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1381,7 +1381,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 27 days",
+   "alert": "🟡 Closes in 26 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2227,7 +2227,7 @@
   {
    "id": "N001",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "British Business Bank",
    "role": "Manager M1 – Analytics, AI & Automation (maternity cover)",
    "sector": "Non-university",
@@ -2406,7 +2406,7 @@
   {
    "id": "N007",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "ScottishPower",
    "role": "Technical Business Analyst – Customer Business CoE",
    "sector": "Non-university",
@@ -2551,7 +2551,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 13 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2580,7 +2580,7 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 13 days",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2609,7 +2609,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2638,7 +2638,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2667,7 +2667,7 @@
   {
    "id": "N016",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of East London",
    "role": "Business Intelligence Analyst",
    "sector": "University",
@@ -2754,7 +2754,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -2927,8 +2927,8 @@
   },
   {
    "id": "N024",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Heriot-Watt University",
    "role": "Business Analyst (Global PMO, 3 posts)",
    "sector": "University",
@@ -2942,7 +2942,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Requirements elicitation & workshops, process analysis/future-state design, UAT, implementation & benefits tracking",
-   "notes": "Advert on Heriot-Watt Oracle careers site (details read from advert copies; official page rendered without text). Open-ended, full time 35h. Advert silent on sponsorship. Heriot-Watt University shown A-rated Skilled Worker sponsor (tarve register mirror, 31 Oct 2026). SOC 2431 BA: going rate ~£50.2k — lower/mid band may NOT meet threshold; ask for top of band or check new-entrant rules. No clearance stated. CLOSES TONIGHT.",
+   "notes": "Advert on Heriot-Watt Oracle careers site (details read from advert copies; official page rendered without text). Open-ended, full time 35h. Advert silent on sponsorship. Heriot-Watt University shown A-rated Skilled Worker sponsor (tarve register mirror, 31 Oct 2026). SOC 2431 BA: going rate ~£50.2k — lower/mid band may NOT meet threshold; ask for top of band or check new-entrant rules. No clearance stated. CLOSES TONIGHT. | Closed: deadline 2026-11-09 passed (daily search 10 Nov 2026).",
    "url": "https://enzj.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/5071",
    "source": "4dayweek/freehire → official Heriot-Watt careers",
    "added": "2026-11-09",
@@ -2954,6 +2954,10 @@
     {
      "at": "2026-11-09T15:13:13Z",
      "what": "Daily search: added (official advert verified open)"
+    },
+    {
+     "at": "2026-11-10T08:58:27Z",
+     "what": "Daily search: closing date passed — marked closed"
     }
    ],
    "prep": [],
@@ -3060,6 +3064,142 @@
    ],
    "prep": [],
    "fit_reason": "6.5: edtech PM with research/A-B testing and data-led prioritisation fits; gap: 10+ yrs/principal-level and marketplace experience"
+  },
+  {
+   "id": "N028",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Asana",
+   "role": "Implementation Manager (Asana AI)",
+   "sector": "Non-university",
+   "location": "London — hybrid (Mon/Tue/Thu in office)",
+   "salary": "£93,000–£119,000 base (est.) + equity",
+   "deadline": "",
+   "deadline_text": "No closing date (posted 27 Oct 2026, live)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead enterprise onboarding/deployment of Asana AI: workflow design, process mapping, config, UAT, adoption roadmaps",
+   "notes": "Official Asana careers advert live 10 Nov 2026; advert silent on sponsorship. Asana Software UK Limited shown Active (Skilled Worker) on register mirror (Hunt UK Visa Sponsors); no recent CoS issuance reported — ask early. SOC likely 2131 (going rate £58,200) — salary clears. Permanent, no clearance stated. Gap: customer-facing enterprise SaaS implementation at scale; senior pay band suggests they expect deep enterprise AI deployment record.",
+   "url": "https://asana.com/jobs/apply/8304535",
+   "source": "Hunt UK Visa Sponsors → official Asana careers",
+   "added": "2026-11-10",
+   "legal_entity": "Asana Software UK Limited",
+   "last_verified": "10 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-10T08:58:27Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: SaaS implementation, process mapping, UAT and AI-agent work map well; gap: no enterprise customer-facing deployment role at Asana-scale clients"
+  },
+  {
+   "id": "N029",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Bromcom",
+   "role": "Onboarding Project Manager",
+   "sector": "Non-university",
+   "location": "Bromley — on-site/hybrid/remote options listed",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Not advertised",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Edtech school MIS: run customer onboarding from sale to go-live — discovery, project plans, data migration, training, handover",
+   "notes": "Official Bromcom careers page live 10 Nov 2026 (posting date not shown); advert silent on sponsorship. Bromcom Computers Plc, Bromley — A-rated Skilled Worker (register mirror Tarve, checked 31 Oct 2026). SOC likely 2131/3544; no salary published — must meet going rate (£41,700 general floor / SOC rate) — ask before applying. Permanent, no clearance stated. Gap: schools (not HE) MIS context.",
+   "url": "https://careers.bromcom.com/o/onboarding-project-manager",
+   "source": "Official employer careers page",
+   "added": "2026-11-10",
+   "legal_entity": "Bromcom Computers Plc",
+   "last_verified": "10 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-10T08:58:27Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: edtech SaaS onboarding, data migration and SAMS client go-lives match; gap: schools MIS rather than HE, salary unknown vs going rate"
+  },
+  {
+   "id": "N030",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "MHR",
+   "role": "Product Owner – Finance",
+   "sector": "Non-university",
+   "location": "Newcastle upon Tyne",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date (posted 9 Nov 2026; may close early on high volume)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Finance-product PO for HR/payroll SaaS: epics & acceptance criteria, backlog, UAT sign-off, sprint ceremonies, delivery metrics",
+   "notes": "Found on Hunt UK Visa Sponsors (posted 9 Nov, live); MHR People First job board did not render — open the official MHR advert to confirm before applying. MHR International UK Limited shown as licensed sponsor (Hunt). SOC likely 2133 (going rate £54,900) — no salary published, check. Gap: finance-module domain (payments/Pay experience helps).",
+   "url": "https://mhruk.jobs.people-first.com/",
+   "source": "Hunt UK Visa Sponsors (official advert to verify)",
+   "added": "2026-11-10",
+   "legal_entity": "MHR International UK Limited",
+   "last_verified": "10 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-10T08:58:27Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: SaaS product ownership, backlog/UAT and SAMS Pay finance flows fit; gap: no HR/payroll finance-module experience, salary unknown"
+  },
+  {
+   "id": "N031",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Capita (TV Licensing)",
+   "role": "Senior Product Owner – Digital",
+   "sector": "Non-university",
+   "location": "Darwen — hybrid",
+   "salary": "£60k DOE",
+   "deadline": "",
+   "deadline_text": "Not advertised",
+   "sponsorship": "❔ Licence not verified",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own TV Licensing digital strategy and roadmap: prioritise digital/business change, benefit cases with Finance, senior stakeholders",
+   "notes": "Official Capita advert (ID 10100962) shows Apply; 18-month fixed term. Advert silent on sponsorship. Register shows Capita Plc (London, A-rated, Skilled Worker) but the employing entity for the TV Licensing contract is not stated — confirm entity before applying. SOC likely 2133 (£54,900) — £60k clears; 18-month FTC fine for SW. Gap: public-facing consumer web/digital ops at scale.",
+   "url": "https://capita.com/careers/all-roles/senior-product-owner-digital-10100962",
+   "source": "Official Capita careers",
+   "added": "2026-11-10",
+   "legal_entity": "Capita Plc (register) — employing entity unconfirmed",
+   "last_verified": "10 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-10T08:58:27Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: digital product ownership, benefits cases and stakeholder lead fit; gap: consumer web operations; employing entity unverified"
   }
  ]
 }
