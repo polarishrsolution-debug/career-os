@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T09:40:01Z",
+ "updated": "2026-11-11T12:40:25Z",
  "rows": [
   {
    "id": "T001",
@@ -281,8 +281,8 @@
   },
   {
    "id": "T008",
-   "stage": "Interview stage",
-   "alert": "🔵 Chase outcome",
+   "stage": "Closed",
+   "alert": "⚫ Closed — rejected",
    "organisation": "Durham University",
    "role": "Senior Finance & Procurement Transformation & Change Manager",
    "sector": "University",
@@ -293,7 +293,7 @@
    "sponsorship": "⚠️ UKVI sponsor; role eligibility unconfirmed",
    "fit": "8.8",
    "submission": "Submitted",
-   "interview_status": "Interviewed — awaiting outcome",
+   "interview_status": "Rejected",
    "interview_datetime": "Fri 6 Nov 2026, 09:00 — Boldon House",
    "jd_focus": "Finance & procurement transformation, systems, automation/AI",
    "notes": "Finance transformation, systems, data, automation/AI 15-min presentation 'Managing Transformation in a University'. CLASHES with Lancashire (11:50 Preston) — resolve today.",
@@ -348,6 +348,10 @@
     {
      "at": "2026-11-06T14:12:59.811Z",
      "what": "Preparation: Send a thank-you note afterwards done"
+    },
+    {
+     "at": "2026-11-11T12:33:15.659Z",
+     "what": "Rejected"
     }
    ],
    "prep": [
@@ -693,7 +697,7 @@
   {
    "id": "T020",
    "stage": "Interview stage",
-   "alert": "🔴 Interview today",
+   "alert": "🔵 Chase outcome",
    "organisation": "University of East London",
    "role": "CRM Recruit Product Manager",
    "sector": "University",
@@ -704,7 +708,7 @@
    "sponsorship": "⚠️ Vacancy-level unconfirmed",
    "fit": "9/10",
    "submission": "Submitted",
-   "interview_status": "Interview booked",
+   "interview_status": "Interviewed — awaiting outcome",
    "interview_datetime": "Wed 11 Nov 2026, 09:15",
    "jd_focus": "CRM Recruit (student recruitment CRM) product",
    "notes": "Source: Official careers listing",
@@ -723,6 +727,10 @@
     {
      "at": "2026-11-05T13:36:28.831Z",
      "what": "Interview date: Wed 11 Nov 2026, 09:15"
+    },
+    {
+     "at": "2026-11-11T12:27:10.081Z",
+     "what": "Interview done · awaiting outcome"
     }
    ],
    "prep": [],
@@ -2849,8 +2857,8 @@
   },
   {
    "id": "N021",
-   "stage": "Applied",
-   "alert": "🔵 Awaiting response",
+   "stage": "Closed",
+   "alert": "⚫ Closed — rejected",
    "organisation": "Arden University",
    "role": "Senior Business Data Analyst (Learning Systems)",
    "sector": "University",
@@ -2861,7 +2869,7 @@
    "sponsorship": "✅ Confirmed — 'we welcome applications from candidates who do not currently have the right to work in the UK'",
    "fit": "7.5",
    "submission": "Submitted",
-   "interview_status": "Awaiting response",
+   "interview_status": "Rejected",
    "interview_datetime": "",
    "jd_focus": "Data, reporting and integrations across Moodle/Accipio/Zoom/PMA; dashboards, data quality, BA standards",
    "notes": "Official advert live on careers.arden.ac.uk (permanent, 37h). Wording also warns 'some roles may not meet the points requirement' — confirm with Arden HR that this role can be sponsored. Arden University on GOV.UK register (5 Nov 2026 CSV): Worker A-rated, Skilled Worker. Likely SOC 3544/2425-type data analyst role; salary well above going rate. No clearance stated.",
@@ -2880,6 +2888,10 @@
     {
      "at": "2026-11-06T14:59:00.381Z",
      "what": "Applied · follow-up set for Mon 16 Nov"
+    },
+    {
+     "at": "2026-11-11T12:27:01.197Z",
+     "what": "Rejected"
     }
    ],
    "prep": [],
