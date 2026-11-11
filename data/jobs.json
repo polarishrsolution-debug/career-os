@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T12:40:25Z",
+ "updated": "2026-11-11T13:40:29Z",
  "rows": [
   {
    "id": "T001",
@@ -697,7 +697,7 @@
   {
    "id": "T020",
    "stage": "Interview stage",
-   "alert": "🔵 Chase outcome",
+   "alert": "🟢 Offer — respond",
    "organisation": "University of East London",
    "role": "CRM Recruit Product Manager",
    "sector": "University",
@@ -708,7 +708,7 @@
    "sponsorship": "⚠️ Vacancy-level unconfirmed",
    "fit": "9/10",
    "submission": "Submitted",
-   "interview_status": "Interviewed — awaiting outcome",
+   "interview_status": "Offer received",
    "interview_datetime": "Wed 11 Nov 2026, 09:15",
    "jd_focus": "CRM Recruit (student recruitment CRM) product",
    "notes": "Source: Official careers listing",
@@ -731,6 +731,10 @@
     {
      "at": "2026-11-11T12:27:10.081Z",
      "what": "Interview done · awaiting outcome"
+    },
+    {
+     "at": "2026-11-11T13:26:57.066Z",
+     "what": "Offer received"
     }
    ],
    "prep": [],
