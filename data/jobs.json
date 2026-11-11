@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T13:40:29Z",
+ "updated": "2026-11-11T14:40:26Z",
  "rows": [
   {
    "id": "T001",
@@ -609,8 +609,8 @@
   },
   {
    "id": "T017",
-   "stage": "Applied",
-   "alert": "🔵 Awaiting response",
+   "stage": "Closed",
+   "alert": "⚫ Closed — rejected",
    "organisation": "University of Liverpool",
    "role": "Product and Service Owner",
    "sector": "University",
@@ -621,7 +621,7 @@
    "sponsorship": "⚠️ Licensed",
    "fit": "—",
    "submission": "Submitted",
-   "interview_status": "Awaiting response",
+   "interview_status": "Rejected",
    "interview_datetime": "",
    "jd_focus": "Product & service ownership for university IT services",
    "notes": "",
@@ -632,7 +632,12 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-11T13:49:56.214Z",
+     "what": "Rejected"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
