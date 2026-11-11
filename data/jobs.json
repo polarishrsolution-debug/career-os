@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T18:43:07Z",
+ "updated": "2026-11-11T09:40:01Z",
  "rows": [
   {
    "id": "T001",
@@ -693,7 +693,7 @@
   {
    "id": "T020",
    "stage": "Interview stage",
-   "alert": "🔴 Interview tomorrow",
+   "alert": "🔴 Interview today",
    "organisation": "University of East London",
    "role": "CRM Recruit Product Manager",
    "sector": "University",
@@ -1185,8 +1185,8 @@
   },
   {
    "id": "T035",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Aviva",
    "role": "Senior Digital Product Owner",
    "sector": "Non-university",
@@ -1208,14 +1208,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-11T08:57:36Z",
+     "what": "Daily search: ⚫ Deadline passed — moved to Closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T036",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Robert Walters",
    "role": "AI Business Analyst – Law Firm",
    "sector": "Non-university",
@@ -1237,14 +1242,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-11T08:57:36Z",
+     "what": "Daily search: ⚫ Deadline passed — moved to Closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T037",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Thames Water",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -1273,7 +1283,7 @@
   {
    "id": "T038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Morgan McKinley",
    "role": "Customer Service CRM Product Owner",
    "sector": "Non-university",
@@ -1302,7 +1312,7 @@
   {
    "id": "T039",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Westminster",
    "role": "Business Intelligence and Insight Analyst",
    "sector": "University",
@@ -1360,7 +1370,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1389,7 +1399,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 26 days",
+   "alert": "🟡 Closes in 25 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2234,8 +2244,8 @@
   },
   {
    "id": "N001",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "British Business Bank",
    "role": "Manager M1 – Analytics, AI & Automation (maternity cover)",
    "sector": "Non-university",
@@ -2257,7 +2267,12 @@
    "last_verified": "4 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-11T08:57:36Z",
+     "what": "Daily search: ⚫ Deadline passed — moved to Closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -2413,8 +2428,8 @@
   },
   {
    "id": "N007",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "ScottishPower",
    "role": "Technical Business Analyst – Customer Business CoE",
    "sector": "Non-university",
@@ -2436,7 +2451,12 @@
    "last_verified": "4 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-11T08:57:36Z",
+     "what": "Daily search: ⚫ Deadline passed — moved to Closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -2559,7 +2579,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2588,7 +2608,7 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2617,7 +2637,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2646,7 +2666,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2675,7 +2695,7 @@
   {
    "id": "N016",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of East London",
    "role": "Business Intelligence Analyst",
    "sector": "University",
@@ -2762,7 +2782,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3208,6 +3228,74 @@
    ],
    "prep": [],
    "fit_reason": "7.5: digital product ownership, benefits cases and stakeholder lead fit; gap: consumer web operations; employing entity unverified"
+  },
+  {
+   "id": "N032",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "TPXimpact",
+   "role": "Senior Business Analyst",
+   "sector": "Non-university",
+   "location": "UK-wide (hybrid / client sites)",
+   "salary": "£50,000–£60,000",
+   "deadline": "",
+   "deadline_text": "No closing date shown",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Digital-transformation consultancy BA: map business needs, define requirements, lead smaller projects, line-manage/coach BAs, manage client stakeholders",
+   "notes": "Official TPXimpact careers advert (vacancy 538) appears open; advert silent on sponsorship. TPXimpact Limited shown as licensed sponsor (Hunt register mirror) — state you need Skilled Worker sponsorship when applying. SOC likely 2431 (going rate ~£50,200) — £50–60k clears at the upper part of the band, negotiate ≥£50.2k. Permanent. Much public-sector client work: check whether any client needs SC/BPSS clearance (SC usually needs UK residence history). Gap: consultancy/billable client delivery and public-sector frameworks.",
+   "url": "https://careers.tpximpact.com/vacancies/538/senior-business-analyst.html",
+   "source": "Official TPXimpact careers",
+   "added": "2026-11-11",
+   "legal_entity": "TPXimpact Limited",
+   "last_verified": "11 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-11T08:57:36Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: senior BA with line management, requirements and stakeholder leadership match SAMS team lead; gap: consultancy client delivery, possible clearance on public-sector clients"
+  },
+  {
+   "id": "N033",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Jisc",
+   "role": "Senior Product Owner – Web Estate",
+   "sector": "Non-university",
+   "location": "Manchester, London, Bristol or Harwell (hybrid)",
+   "salary": "c. £45,000",
+   "deadline": "",
+   "deadline_text": "No closing date (Jisc doesn't use closing dates — may close early)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own Jisc's web estate products (incl. jisc.ac.uk): vision, stakeholder/customer alignment, backlog prioritisation with developers and suppliers",
+   "notes": "Official Jisc recruitment advert (ApplyNow 29mCLOpLwP8), permanent, 35 hrs. Advert silent on sponsorship/right to work. 'Jisc' (Bristol) is on the register with an active Skilled Worker licence (Hunt mirror). SALARY RISK: c.£45k is below the likely going rate (SOC 2133 ~£54,900 / 2134 similar) — only works if Jisc pays more or a lower rate applies; ask before investing time. HE-sector supplier (edtech) — strong sector match. Gap: CMS/public website product ownership.",
+   "url": "https://jobs.jisc.ac.uk/Jisc/ApplyNow/29mCLOpLwP8",
+   "source": "Official Jisc careers",
+   "added": "2026-11-11",
+   "legal_entity": "Jisc",
+   "last_verified": "11 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-11T08:57:36Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7: HE-sector digital product ownership and supplier/stakeholder management fit; gaps: web/CMS estate focus and salary likely below going rate"
   }
  ]
 }
