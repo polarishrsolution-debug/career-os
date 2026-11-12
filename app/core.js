@@ -160,7 +160,7 @@ fn: (jobs) => [
 
 (() => {
 const CO = window.CO = {};
-CO.os = window.os = {page: 'today', stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', quick: '', sort: 'deadline', dir: 1, sel: '', edit: false, draft: null};
+CO.os = window.os = {page: 'today', stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', quick: '', orgtype: '', group: 'type', sort: 'deadline', dir: 1, sel: '', edit: false, draft: null};
 CO.REG = {
 london: /london|farringdon|waterloo|docklands|canary wharf/i, north: /sheffield|leeds|manchester|york|bradford|hull|durham|lancaster|preston|chester|newcastle|liverpool|northallerton|knutsford|blackpool|barnsley|rotherham|salford|horsforth/i,
 midlands: /birmingham|nottingham|leicester|lutterworth|northampton|milton keynes|coventry|derby/i, south: /oxford|bath|bristol|reading|bognor|swindon|gloucester|watford|cambridge|hove|woking|norwich|egham|uxbridge/i,
@@ -208,6 +208,25 @@ if (c === 'applied') return r.follow_up && CO.daysTo(r.follow_up) <= 0 ? 'Follow
 if (c === 'closed') return /^rejected/i.test(st) ? 'Rejected' : /declined/i.test(st) ? 'Offer declined' : /^withdrawn/i.test(r.submission || '') ? (r.applied_on || /interview|offer|awaiting/i.test(st) ? 'Withdrawn' : 'Not applying') : 'Deadline passed';
 if ((r.sponsorship || '').startsWith('❔')) return 'Watchlist';
 return 'Not applied yet';
+};
+CO.ORGS = ['University & HE', 'NHS & health', 'Council', 'Government & public bodies', 'Schools & colleges', 'Edtech & HE suppliers', 'Charity & housing', 'Banks & finance', 'Consultancy, legal & recruitment', 'Other companies'];
+const ORG_RE = [
+['NHS & health', /[^a-z]nhs[^a-z]|hospital|ambulance|integrated care|[^a-z]icb[^a-z]|health board|healthcare trust|mental health|community health/i],
+['Council', /council|borough|combined authority|county hall|[^a-z]gla[^a-z]|greater london authority/i],
+['Government & public bodies', /department for|ministry|[^a-z]dwp[^a-z]|hmrc|home office|cabinet office|civil service|government|[^a-z]gds[^a-z]|bank of england|british business bank|genomics england|police|fire and rescue|dvla|ofsted|ofgem|ofcom|ofwat|met office|[^a-z]hm [a-z]|agency|parliament|national audit|land registry|companies house|ordnance survey/i],
+['University & HE', /universit|higher education|[^a-z]ucl[^a-z]|imperial college|king.s college|london school of|[^a-z]lse[^a-z]|uwtsd|[^a-z]jisc[^a-z]|[^a-z]ucas[^a-z]|institute of technology/i],
+['Schools & colleges', /academy trust|academies|multi.academy|[^a-z]mat[^a-z]|school|sixth form|further education|college/i],
+['Edtech & HE suppliers', /tribal|tes global|planet education|pen group|ellucian|unit4|edtech|studyportals|kortext|anthology|blackboard|instructure|pearson/i],
+['Charity & housing', /charity|housing association|housing group|[^a-z]homes[^a-z]|[^a-z]cic[^a-z]|foundation[^a-z]*$/i],
+['Banks & finance', /bank|building society|insur|aviva|barclays|lloyds|natwest|hsbc|santander|nationwide|lendable|experian|equifax|flywire|yapily|taptap|incard|teya|payment|fintech|credit|capital|finance|wise[^a-z]|monzo|revolut|starling|zopa/i],
+['Consultancy, legal & recruitment', /consult|capgemini|accenture|deloitte|[^a-z]pwc[^a-z]|kpmg|[^a-z]ey[^a-z]|robert walters|morgan mckinley|investigo|[^a-z]fdm[^a-z]|netcompany|alten|advania|lorien|recruit|scrumconnect|hays|freshfields|dla piper|solicitor|[^a-z]law[^a-z]|[^a-z]llp[^a-z]|via [a-z]/i],
+];
+CO.orgType = (r) => {
+if (r.org_type && CO.ORGS.includes(r.org_type)) return r.org_type;
+const txt = ' ' + [r.organisation, r.legal_entity].join(' ') + ' ';
+for (const [k, re] of ORG_RE) if (re.test(txt)) return k;
+if (r.sector === 'University') return 'University & HE';
+return 'Other companies';
 };
 CO.label = (r) => CO.COLS[CO.colOf(r)][0] + ' · ' + CO.sub(r);
 CO.actions = (r) => {

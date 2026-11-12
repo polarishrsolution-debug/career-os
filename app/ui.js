@@ -33,6 +33,7 @@ if (os.spons && CO.spKind(r.sponsorship) !== os.spons) return false;
 if (os.fit) { const f = CO.fitNum(r.fit); if (f == null || f < Number(os.fit)) return false; }
 if (os.region && !CO.REG[os.region].test(r.location || '')) return false;
 if (os.family && !CO.FAM[os.family].test(' ' + r.role + ' ')) return false;
+if (os.orgtype && CO.orgType(r) !== os.orgtype) return false;
 if (os.q) { const n = os.q.trim().toLowerCase(); if (n && !Object.values(r).join(' ').toLowerCase().includes(n)) return false; }
 return true;
 };
@@ -60,7 +61,7 @@ return data.filter((r) => pass(r)).sort(srt);
 const trow = (r) => {
 const n = CO.next(r);
 const tr = el('tr'); tr.dataset.key = r.id; tr.tabIndex = 0; if (os.sel === r.id) tr.className = 'sel';
-const c1 = el('td', 'c-role'); const rc = el('div', 'rc'); rc.append(CO.av(r.organisation)); const t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role));
+const c1 = el('td', 'c-role'); const rc = el('div', 'rc'); rc.append(CO.av(r.organisation)); const t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role), el('span', 'ot', CO.orgType(r)));
 const sp = savePill(r.id); if (sp) t.append(sp);
 rc.append(t); c1.append(rc);
 const c2 = el('td', 'nw'); const sg = el('div', 'stg'); const sl = el('div'); sl.append(colPill(r)); if (r.id.startsWith('N')) { sl.append(' '); sl.append(pill(CO.addedIso(r) === CO.todayIso() ? 'New today' : 'New', 'gold')); } sg.append(sl, el('span', null, CO.sub(r))); c2.append(sg);
@@ -92,7 +93,23 @@ if (d.status !== 'ok') return;
 let rows = rowsFor(tb.dataset.view, d.data);
 if (tb.dataset.view === 'today' && !rows.length) { emptyRow((td) => td.append(el('div', 'empty', 'No new roles from today' + String.fromCharCode(39) + 's search yet (it runs at 08:52). Newest roles below.'))); rows = d.data.filter((r) => r.id.startsWith('N')).sort(SORTS.added).slice(0, 5); }
 if (!rows.length) { emptyRow((td) => td.append(el('div', 'empty', tb.dataset.view === 'all' ? 'No roles match these filters. Try Clear all.' : 'Nothing here yet.'))); return; }
-for (const r of rows) tb.append(trow(r));
+const grouped = os.group === 'type' && ['all', 'new', 'shortlist'].includes(tb.dataset.view);
+if (!grouped) { for (const r of rows) tb.append(trow(r)); return; }
+CO.shut = CO.shut || {};
+for (const g of CO.ORGS) {
+const list = rows.filter((r) => CO.orgType(r) === g);
+if (!list.length) continue;
+const key = tb.dataset.view + ':' + g, shut = !!CO.shut[key];
+const hr = el('tr', 'grp'); const td = el('td', 'erow'); td.colSpan = 10;
+const lab = el('div', 'gl'); lab.append(el('span', 'gc', shut ? '▸' : '▾'), el('b', null, g), el('span', 'gn', String(list.length)));
+const ap = list.filter((r) => CO.colOf(r) === 'apply').length, iv = list.filter((r) => ['interview', 'offer'].includes(CO.colOf(r))).length;
+lab.append(el('span', 'gs', [ap ? ap + ' to apply' : '', iv ? iv + ' at interview' : ''].filter(Boolean).join(' · ')));
+td.append(lab); hr.append(td); hr.tabIndex = 0;
+hr.onclick = () => { CO.shut[key] = !shut; dash.draw('jtable'); };
+hr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hr.onclick(); } };
+tb.append(hr);
+if (!shut) for (const r of list) tb.append(trow(r));
+}
 });
 dash.draw('count', (s) => { const d = CO.jobsNow(); s.textContent = d.status === 'ok' ? rowsFor('all', d.data).length + ' of ' + d.data.length : '—'; });
 dash.draw('tabcnt', (s) => { const d = CO.jobsNow(); if (d.status !== 'ok') { s.textContent = '—'; return; } const c = s.dataset.col || ''; s.textContent = String(d.data.filter((r) => pass(r, true) && (!c || CO.colOf(r) === c)).length); });
@@ -666,6 +683,7 @@ document.querySelectorAll('.os-quick').forEach((b) => b.setAttribute('aria-press
 document.querySelectorAll('.os .jt th[data-sort]').forEach((th) => { if (th.dataset.sort === os.sort) th.setAttribute('aria-sort', os.dir > 0 ? 'ascending' : 'descending'); else th.removeAttribute('aria-sort'); });
 document.querySelectorAll('.os-q').forEach((i) => { if (i !== document.activeElement) i.value = os.q; });
 document.querySelectorAll('.os-sort').forEach((x) => { x.value = SORTS[os.sort] ? os.sort : 'deadline'; });
+document.querySelectorAll('.os-group').forEach((x) => { x.value = os.group; });
 };
 CO.go = (page, opts) => {
 os.page = page;
@@ -678,9 +696,10 @@ document.querySelectorAll('.os .tabs button').forEach((b) => b.addEventListener(
 document.querySelectorAll('.os-quick').forEach((b) => b.addEventListener('click', () => { os.quick = os.quick === b.dataset.quick ? '' : b.dataset.quick; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-f').forEach((x) => x.addEventListener('change', () => { os[x.dataset.key] = x.value; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-q').forEach((i) => i.addEventListener('input', () => { os.q = i.value; CO.redrawAll(); }));
-document.querySelectorAll('.os-clear').forEach((b) => b.addEventListener('click', () => { Object.assign(os, {stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', quick: '', sort: 'deadline', dir: 1}); syncFilters(); CO.redrawAll(); }));
+document.querySelectorAll('.os-clear').forEach((b) => b.addEventListener('click', () => { Object.assign(os, {stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', orgtype: '', quick: '', sort: 'deadline', dir: 1}); syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os .jt th[data-sort]').forEach((th) => th.addEventListener('click', () => { const k = th.dataset.sort; if (os.sort === k) os.dir = -os.dir; else { os.sort = k; os.dir = 1; } syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-sort').forEach((x) => x.addEventListener('change', () => { os.sort = x.value; os.dir = 1; syncFilters(); CO.redrawAll(); }));
+document.querySelectorAll('.os-group').forEach((x) => x.addEventListener('change', () => { os.group = x.value; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-close').forEach((b) => b.addEventListener('click', () => CO.close()));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && os.sel) { if (os.edit) { os.edit = false; os.draft = null; CO.redrawAll(); } else CO.close(); } });
 document.querySelectorAll('.os-drop').forEach((col) => {
