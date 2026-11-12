@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T14:40:26Z",
+ "updated": "2026-11-12T09:45:47Z",
  "rows": [
   {
    "id": "T001",
@@ -1270,8 +1270,8 @@
   },
   {
    "id": "T037",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Thames Water",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -1285,7 +1285,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "BA for water utility change",
-   "notes": "Source: Official advert jobs.thameswater.co.uk",
+   "notes": "Source: Official advert jobs.thameswater.co.uk | Marked closed 12 Nov 2026: deadline passed.",
    "url": "",
    "source": "Your manual tracker",
    "added": "Before 4 Nov 2026",
@@ -1293,14 +1293,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-12T09:00:50Z",
+     "what": "Daily search: deadline passed — marked closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T038",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Morgan McKinley",
    "role": "Customer Service CRM Product Owner",
    "sector": "Non-university",
@@ -1329,7 +1334,7 @@
   {
    "id": "T039",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Westminster",
    "role": "Business Intelligence and Insight Analyst",
    "sector": "University",
@@ -1387,7 +1392,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1416,7 +1421,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 25 days",
+   "alert": "🟡 Closes in 24 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2596,7 +2601,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2625,7 +2630,7 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2654,7 +2659,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2683,7 +2688,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2712,7 +2717,7 @@
   {
    "id": "N016",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of East London",
    "role": "Business Intelligence Analyst",
    "sector": "University",
@@ -2799,7 +2804,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3317,6 +3322,40 @@
    ],
    "prep": [],
    "fit_reason": "7: HE-sector digital product ownership and supplier/stakeholder management fit; gaps: web/CMS estate focus and salary likely below going rate"
+  },
+  {
+   "id": "N034",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Keyloop",
+   "role": "Product Operations Specialist – Business Systems Analyst (9-month FTC)",
+   "sector": "Non-university",
+   "location": "Reading (hybrid)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date on advert (may close early)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "BA for product catalogue, SKUs and pricing configuration in enterprise apps: requirements, multi-market rollouts, UAT, data quality, Jira/Confluence, AI tools",
+   "notes": "Official Keyloop Lever advert (live, 9-month fixed term, Reading hybrid). Advert silent on sponsorship/right to work. Keyloop (UK) Limited (Reading) shown as a live Skilled Worker sponsor (Tarve register check, verified 12 Nov 2026). SOC likely 2133 (going rate ~£54,900) — SALARY RISK: salary not stated and 2–4 yrs experience asked, so pay may sit below going rate; ask recruiter before investing time. 9-month FTC is fine for a CoS but short. Automotive SaaS (enterprise SaaS sector). Gaps: CPQ/pricing catalogue tools, Salesforce/NetSuite admin, automotive domain.",
+   "url": "https://jobs.lever.co/keyloop/6a505874-c618-4b19-b7f9-afe2695fe9ec",
+   "source": "Official Keyloop careers (Lever); found via Tarve",
+   "added": "2026-11-12",
+   "legal_entity": "Keyloop (UK) Limited",
+   "last_verified": "12 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-12T09:00:50Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: strong BA/requirements, UAT, Jira/Confluence, AI-tool and Power BI match in enterprise SaaS; gaps: CPQ/pricing catalogue, Salesforce/NetSuite, automotive, possibly low salary"
   }
  ]
 }
