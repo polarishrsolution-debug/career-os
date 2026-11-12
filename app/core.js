@@ -216,9 +216,9 @@ const ORG_RE = [
 ['Government & public bodies', /department for|ministry|[^a-z]dwp[^a-z]|hmrc|home office|cabinet office|civil service|government|[^a-z]gds[^a-z]|bank of england|british business bank|genomics england|police|fire and rescue|dvla|ofsted|ofgem|ofcom|ofwat|met office|[^a-z]hm [a-z]|agency|parliament|national audit|land registry|companies house|ordnance survey/i],
 ['University & HE', /universit|higher education|[^a-z]ucl[^a-z]|imperial college|king.s college|london school of|[^a-z]lse[^a-z]|uwtsd|[^a-z]jisc[^a-z]|[^a-z]ucas[^a-z]|institute of technology/i],
 ['Schools & colleges', /academy trust|academies|multi.academy|[^a-z]mat[^a-z]|school|sixth form|further education|college/i],
-['Edtech & HE suppliers', /tribal|tes global|planet education|pen group|ellucian|unit4|edtech|studyportals|kortext|anthology|blackboard|instructure|pearson/i],
+['Edtech & HE suppliers', /tribal|tes global|planet education|pen group|ellucian|unit4|edtech|studyportals|kortext|anthology|blackboard|instructure|pearson|zen educate|bromcom|parentpay|up learn|[^a-z]arbor[^a-z]|satchel|seneca|oak national|educate/i],
 ['Charity & housing', /charity|housing association|housing group|[^a-z]homes[^a-z]|[^a-z]cic[^a-z]|foundation[^a-z]*$/i],
-['Banks & finance', /bank|building society|insur|aviva|barclays|lloyds|natwest|hsbc|santander|nationwide|lendable|experian|equifax|flywire|yapily|taptap|incard|teya|payment|fintech|credit|capital|finance|wise[^a-z]|monzo|revolut|starling|zopa/i],
+['Banks & finance', /bank|building society|insur|aviva|barclays|lloyds|natwest|hsbc|santander|nationwide|lendable|experian|equifax|flywire|yapily|taptap|incard|teya|payment|fintech|credit|capital|finance|wise[^a-z]|monzo|revolut|starling|zopa|gocardless|airwallex|quilter|stripe|klarna|checkout\.com|moneybox|hargreaves/i],
 ['Consultancy, legal & recruitment', /consult|capgemini|accenture|deloitte|[^a-z]pwc[^a-z]|kpmg|[^a-z]ey[^a-z]|robert walters|morgan mckinley|investigo|[^a-z]fdm[^a-z]|netcompany|alten|advania|lorien|recruit|scrumconnect|hays|freshfields|dla piper|solicitor|[^a-z]law[^a-z]|[^a-z]llp[^a-z]|via [a-z]/i],
 ];
 CO.orgType = (r) => {
