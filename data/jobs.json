@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T09:45:47Z",
+ "updated": "2026-11-12T13:40:38Z",
  "rows": [
   {
    "id": "T001",
@@ -1333,8 +1333,8 @@
   },
   {
    "id": "T039",
-   "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "stage": "Applied",
+   "alert": "🔵 Awaiting response",
    "organisation": "University of Westminster",
    "role": "Business Intelligence and Insight Analyst",
    "sector": "University",
@@ -1344,8 +1344,8 @@
    "deadline_text": "15 Nov 2026",
    "sponsorship": "⚠️ Licensed; unconfirmed",
    "fit": "Good",
-   "submission": "Not started",
-   "interview_status": "—",
+   "submission": "Submitted",
+   "interview_status": "Awaiting response",
    "interview_datetime": "",
    "jd_focus": "BI & insight analysis, reporting",
    "notes": "Source: Official advert UoW",
@@ -1354,9 +1354,14 @@
    "added": "Before 4 Nov 2026",
    "legal_entity": "",
    "last_verified": "",
-   "applied_on": null,
-   "follow_up": null,
-   "history": [],
+   "applied_on": "2026-11-12",
+   "follow_up": "2026-11-22",
+   "history": [
+    {
+     "at": "2026-11-12T12:58:06.525Z",
+     "what": "Applied · follow-up set for Sun 22 Nov"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -2716,8 +2721,8 @@
   },
   {
    "id": "N016",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "University of East London",
    "role": "Business Intelligence Analyst",
    "sector": "University",
@@ -2727,7 +2732,7 @@
    "deadline_text": "12 Nov 2026",
    "sponsorship": "⚠️ Licensed — unconfirmed",
    "fit": "7",
-   "submission": "Not started",
+   "submission": "Withdrawn",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "BI reporting & dashboards (Power BI/SQL) for the BI Directorate",
@@ -2739,7 +2744,12 @@
    "last_verified": "4 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-12T12:45:29.818Z",
+     "what": "Not applying"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -3356,6 +3366,40 @@
    ],
    "prep": [],
    "fit_reason": "6.5: strong BA/requirements, UAT, Jira/Confluence, AI-tool and Power BI match in enterprise SaaS; gaps: CPQ/pricing catalogue, Salesforce/NetSuite, automotive, possibly low salary"
+  },
+  {
+   "id": "N035",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 57 days",
+   "organisation": "University of Sheffield (IT Services)",
+   "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
+   "sector": "University",
+   "location": "Sheffield, hybrid",
+   "salary": "£49,798–£59,390 (Grade 8; up to £66,819 in exceptional cases)",
+   "deadline": "2027-01-08",
+   "deadline_text": "08 Jan 2027",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "8.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own research & innovation digital products (research skills / research practice) in University IT Services",
+   "notes": "Added on Adnan's request (missed by daily search). jobs.ac.uk ref 3371, placed 11 Nov 2026, permanent, full time. Advert silent on sponsorship/right to work. University of Sheffield is a licensed Skilled Worker sponsor (Hunt UK Visa Sponsors: licence active; UoS staff pages say it assigns a CoS for eligible roles) — gov.uk register not checked directly. SOC likely 2133/3544-type IT product role; Grade 8 salary should clear going rate — confirm. Informal contact: Saul Cozens, Head of Product for Research and Innovation. Local to Sheffield, HE systems background is a direct match.",
+   "url": "https://www.jobs.ac.uk/job/DTP708/product-manager",
+   "source": "jobs.ac.uk (added manually by Claude on request)",
+   "added": "2026-11-12",
+   "legal_entity": "The University of Sheffield",
+   "last_verified": "12 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-12T12:49:59Z",
+     "what": "Added on Adnan's request (missed by daily search)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "8.5: HE product management in Sheffield, university systems and stakeholder work match; gap: research-domain products (research skills/practice) less direct"
   }
  ]
 }
