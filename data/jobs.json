@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T14:40:30Z",
+ "updated": "2026-11-13T09:39:43Z",
  "rows": [
   {
    "id": "T001",
@@ -1305,7 +1305,7 @@
   {
    "id": "T038",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Morgan McKinley",
    "role": "Customer Service CRM Product Owner",
    "sector": "Non-university",
@@ -1397,7 +1397,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1426,7 +1426,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 24 days",
+   "alert": "🟡 Closes in 23 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2606,7 +2606,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2635,7 +2635,7 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2664,7 +2664,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2693,7 +2693,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2814,7 +2814,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3370,7 +3370,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 57 days",
+   "alert": "🟡 Closes in 56 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3404,7 +3404,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3438,7 +3438,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3472,7 +3472,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3506,7 +3506,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3540,7 +3540,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 17 days",
+   "alert": "🟡 Closes in 16 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3574,7 +3574,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3608,7 +3608,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3642,7 +3642,7 @@
   {
    "id": "N043",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Leeds Teaching Hospitals NHS Trust",
    "role": "Product Owner (Digital / Head of Product Ownership team)",
    "sector": "Non-university",
@@ -3676,7 +3676,7 @@
   {
    "id": "N044",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Sheffield",
    "role": "Head of Business Intelligence and Reporting",
    "sector": "University",
@@ -3710,7 +3710,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4318,6 +4318,380 @@
    ],
    "prep": [],
    "fit_reason": "Integrations/API-heavy product ownership (SITS/Banner/UCAS, DocuSign, TransferMate) fits; gaps: Azure APIM/OpenAPI, FNZ platform, FCA-regulated wealth experience preferred"
+  },
+  {
+   "id": "N063",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 12 days",
+   "organisation": "Imperial College London",
+   "role": "Principal Product Manager – AI (central AI capability, ICT)",
+   "sector": "University",
+   "location": "London, White City (flexible working)",
+   "salary": "£71,793–£82,032",
+   "deadline": "2026-11-25",
+   "deadline_text": "Closes 25 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own vision/roadmap for Imperial's central AI tools (dAIsy, M365 Copilot, GitHub Copilot), demand intake, ROI, AI governance forums, mentor PMs",
+   "notes": "Daily search 13 Nov 2026. jobs.ac.uk DTO142, ref COO01469, placed 5 Nov. Advert silent on sponsorship. SOC 2133/2134 likely eligible; salary well above going rate; permanent full-time; no clearance mentioned. Senior/principal level — stretch.",
+   "url": "https://www.imperial.ac.uk/jobs/search-jobs/description/index.php?nPostingId=18529&nPostingTargetId=29873&id=PMMFK026203F3VBQB8NLOV4CQ&LG=UK&languageSelect=UK&mask=ext",
+   "source": "jobs.ac.uk / Imperial jobs",
+   "added": "2026-11-13",
+   "legal_entity": "Imperial College of Science, Technology and Medicine (well-known licensed sponsor)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: product lead with hands-on AI agents (Claude/Lovable), user research and HE context; gap: enterprise-scale AI product strategy and AI governance at principal level"
+  },
+  {
+   "id": "N064",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 16 days",
+   "organisation": "Swansea University",
+   "role": "Project Manager (Online Learning)",
+   "sector": "University",
+   "location": "Swansea",
+   "salary": "£39,906–£46,049",
+   "deadline": "2026-11-29",
+   "deadline_text": "Closes 29 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Deliver online learning portfolio with Head of Online Learning and two external commercial (OPM) suppliers",
+   "notes": "Daily search 13 Nov 2026. jobs.ac.uk DTQ138, placed 12 Nov. Fixed-term (length not stated — check, affects CoS). Welsh Level 1 only (~1h training). SOC 2440/2424 — check salary vs going rate (bottom of range may sit below £44–47k going rates). Advert silent on sponsorship. CV + cover letter.",
+   "url": "https://www.swansea.ac.uk/jobs-at-swansea/current-vacancies/details/?opening-id=11481",
+   "source": "jobs.ac.uk / Swansea careers",
+   "added": "2026-11-13",
+   "legal_entity": "Swansea University (licensed sponsor)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: Shikho online learning delivery + HE SaaS supplier/stakeholder work fit; gap: formal PM certification, salary/going-rate risk on FTC"
+  },
+  {
+   "id": "N065",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "London Business School",
+   "role": "Product Owner – Communication & Collaboration (M365)",
+   "sector": "University",
+   "location": "London (hybrid, 2 days on campus)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date stated (aggregator posted 5 Nov 2026)",
+   "sponsorship": "✅ Confirmed — 'Candidates needing sponsorship should assess their eligibility for a Certificate of Sponsorship'",
+   "fit": "6.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own roadmap/backlog for Microsoft 365 collaboration platforms (Teams, SharePoint, OneDrive, Exchange) in Azure DevOps; governance, security, compliance",
+   "notes": "Daily search 13 Nov 2026. Official advert jobsearch.london.edu #1683, Apply button live. SOC 2133 going rate ~£54,900 — salary unstated, confirm. Permanent (assumed). Strong transferable only: mandatory gaps = hands-on M365 platform/infra ownership and Azure DevOps.",
+   "url": "https://jobsearch.london.edu/jobs/job/Product-Owner-Communication-Collaboration/1683",
+   "source": "huntukvisasponsors → LBS official",
+   "added": "2026-11-13",
+   "legal_entity": "London Business School (licensed per huntukvisasponsors)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.0: product ownership, backlog and HE stakeholder skills transfer; gap: no M365/infra platform or Azure DevOps ownership"
+  },
+  {
+   "id": "N066",
+   "stage": "To apply",
+   "alert": "🟠 Closes in 6 days",
+   "organisation": "NatWest Group (Mettle)",
+   "role": "Product Owner – small business banking app (Mettle)",
+   "sector": "Non-university",
+   "location": "London, 250 Bishopsgate (hybrid)",
+   "salary": "Not stated",
+   "deadline": "2026-11-19",
+   "deadline_text": "Closes 19 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own product area roadmap in agile squad; customer research, prototype/validate, Jira backlog; partner/third-party integrated experiences; risk & regulatory",
+   "notes": "Daily search 13 Nov 2026. Seen on builtinlondon (posted ~11 Nov) and huntukvisasponsors; official NatWest careers page not reached. SOC 2133 going rate £54,900 — salary unstated. Permanent, 35h. Advert silent on sponsorship.",
+   "url": "https://builtinlondon.uk/job/product-owner/12113889",
+   "source": "builtinlondon.uk / huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "NatWest Group plc (licensed per huntukvisasponsors; employing entity likely National Westminster Bank plc — confirm)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: B2B SaaS product ownership, partner integrations (TransferMate, DocuSign) and user research fit; gap: banking/SME deposit products experience"
+  },
+  {
+   "id": "N067",
+   "stage": "To apply",
+   "alert": "🟠 Closes in 6 days",
+   "organisation": "NatWest Group",
+   "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
+   "sector": "Non-university",
+   "location": "London (hybrid)",
+   "salary": "Not stated",
+   "deadline": "2026-11-19",
+   "deadline_text": "Closes 19 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Roadmap/backlog for interbank payments, scheme compliance, third-party provider escalations, incident management",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 11 Nov, live); official NatWest page not reached. SOC 2440 or 2133 — going rate £54.9–56.5k, salary unstated. Permanent, 35h. Advert silent on sponsorship.",
+   "url": "https://huntukvisasponsors.com/job/product-owner-interbank-payments-k1l0b14tltsm",
+   "source": "huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "NatWest Group plc (licensed per huntukvisasponsors — confirm entity)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: SAMS Pay → TransferMate payment flows and dispute management fit; gap: UK payment schemes (FPS/BACS/CHAPS) governance"
+  },
+  {
+   "id": "N068",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 11 days",
+   "organisation": "Allianz UK",
+   "role": "Senior Business Analyst",
+   "sector": "Non-university",
+   "location": "Birmingham or Guildford (hybrid, 2–16 office days/month)",
+   "salary": "Circa £60,000–£70,000",
+   "deadline": "2026-11-24",
+   "deadline_text": "Closes 24 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead BA approach on complex technical change, business cases, requirements traceability, supplier solutions, mentor BAs",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 10 Nov, live); official Allianz careers page not located — two similar Allianz BA links checked are expired. SOC 2133 going rate £54,900 — salary clears. Permanent. Advert silent on sponsorship.",
+   "url": "https://huntukvisasponsors.com/job/senior-business-analyst-at-allianz-uk-hjrhids7xsgh",
+   "source": "huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "Allianz Insurance plc (licensed per huntukvisasponsors)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: senior BA leading a team, workshops, integrations; gap: insurance domain, BPMN/data modelling depth"
+  },
+  {
+   "id": "N069",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Bupa UK",
+   "role": "Senior Salesforce Product Owner (12-month FTC / secondment)",
+   "sector": "Non-university",
+   "location": "Salford Quays (hybrid, 2 days office)",
+   "salary": "£67,200–£77,000 + 10% bonus",
+   "deadline": "",
+   "deadline_text": "No closing date stated (added 12 Nov 2026)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead Salesforce Sales Cloud CRM for B2B & Health Services: CRM strategy, adoption, budgets, automation, lead admin/consultant team",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 12 Nov, live); official Bupa page not reached. SOC 2132/2133 — salary well above going rate. 12-month fixed term — check CoS length. Strong transferable only: mandatory gaps = hands-on Salesforce (essential), PMI/healthcare sector.",
+   "url": "https://huntukvisasponsors.com/job/senior-salesforce-product-owner-sec-at-bupa-uk-vmp5tgy03ox",
+   "source": "huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "Bupa Insurance Services Ltd / Bupa UK (licensed per huntukvisasponsors — confirm entity)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.0: CRM product leadership (built a live CRM, SAMS CRM) and team lead fit; gap: no hands-on Salesforce admin or certification"
+  },
+  {
+   "id": "N070",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Royal Borough of Greenwich",
+   "role": "Product Manager (Digital — housing repairs, website, AI & automation)",
+   "sector": "Non-university",
+   "location": "Woolwich (hybrid, ~1 day/week office)",
+   "salary": "£53,919–£57,150 (PO5)",
+   "deadline": "",
+   "deadline_text": "No fixed date — may close early (added 11 Nov 2026)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead multidisciplinary teams on resident/staff products; user research, product vision; workstreams incl. housing repairs, council website, AI & automation",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 11 Nov, live); official council iTrent page not reached. SOC 2133 going rate £54,900 — bottom of range below it, needs offer ≥ £54,900. Permanent, 35h. CV + supporting statement. Advert silent on sponsorship.",
+   "url": "https://huntukvisasponsors.com/job/product-manager-yojm3oo2tt8t",
+   "source": "huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "Royal Borough of Greenwich (licensed per huntukvisasponsors)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: product lead with people management, AI/automation builds and user research; gap: GDS/public-sector service standard experience"
+  },
+  {
+   "id": "N071",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "TEG.tech (Transport Exchange Group)",
+   "role": "Product Manager – Exchange",
+   "sector": "Non-university",
+   "location": "London, King's Cross (on-site)",
+   "salary": "Up to £70,000",
+   "deadline": "",
+   "deadline_text": "No closing date stated (added 11 Nov 2026)",
+   "sponsorship": "❔ Licence not verified",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own Exchange marketplace features, backlog, requirements/acceptance criteria with Engineering/QA/BAs, product data",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors says 'TEG.tech holds a sponsor licence' but registered legal entity not matched — watchlist until register checked. SOC 2133 going rate £54,900 — salary clears. Advert silent on sponsorship.",
+   "url": "https://huntukvisasponsors.com/job/product-manager-at-teg-tech-mxukhxsjpxsk",
+   "source": "huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "Not matched (Transport Exchange Group Ltd? — verify on register)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: SaaS PM owning backlog with engineering/QA/BAs matches SAMS360 work; gap: logistics/transport marketplace domain"
+  },
+  {
+   "id": "N072",
+   "stage": "To apply",
+   "alert": "🔴 Closes in 2 days",
+   "organisation": "Anglian Water Services",
+   "role": "Business Analyst",
+   "sector": "Non-university",
+   "location": "Huntingdon or Lincoln (hybrid)",
+   "salary": "From £45,500 (depending on experience)",
+   "deadline": "2026-11-15",
+   "deadline_text": "Closes 15 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Waterfall BA: detailed upfront requirements, traceability, BPMN 2.0 AS-IS/TO-BE, NFRs, design validation, UAT",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 2 Nov, live). SALARY RISK: SOC 2431 going rate £50,200 — offer must reach it. Permanent, 37h. BCS desirable only (do not claim). Strong transferable with gaps: waterfall/BPMN, utilities.",
+   "url": "https://huntukvisasponsors.com/job/business-analyst-at-anglian-water-services-otwzifzwzjsx",
+   "source": "huntukvisasponsors",
+   "added": "2026-11-13",
+   "legal_entity": "Anglian Water Services Ltd (licensed per huntukvisasponsors)",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: solid BA/requirements/UAT experience; gaps: waterfall-heavy BPMN 2.0 documentation, utilities sector, salary below going rate at bottom"
+  },
+  {
+   "id": "N073",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟡 Closes in 16 days",
+   "organisation": "Coventry University Group (CU Corporate Services Ltd)",
+   "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
+   "sector": "University",
+   "location": "Coventry",
+   "salary": "£36,072–£41,001",
+   "deadline": "2026-11-29",
+   "deadline_text": "Closes 29 Nov 2026",
+   "sponsorship": "❔ Licence not verified",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Manage/analyse complex datasets with ETL tools; surveys, dashboards and insight for strategic planning; data quality and literacy",
+   "notes": "Daily search 13 Nov 2026. jobs.ac.uk DTQ084, placed 12 Nov. Employing entity is CU Corporate Services Limited (sister company) — not matched on register; Coventry University itself is licensed. SALARY RISK: SOC 3544/2425 going rate may exceed top of range. 12-month FTC.",
+   "url": "https://cugcareers.coventry.ac.uk/job-invite/3947/",
+   "source": "jobs.ac.uk",
+   "added": "2026-11-13",
+   "legal_entity": "CU Corporate Services Limited — not matched",
+   "last_verified": "13 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-13T08:59:43Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: SQL/Power BI reporting and MSc Data Science fit; gaps: Tableau/ETL tooling, salary vs going rate, sister-company licence"
   }
  ]
 }
