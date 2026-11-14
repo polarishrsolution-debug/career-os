@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T09:39:43Z",
+ "updated": "2026-11-14T09:40:04Z",
  "rows": [
   {
    "id": "T001",
@@ -1304,8 +1304,8 @@
   },
   {
    "id": "T038",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Morgan McKinley",
    "role": "Customer Service CRM Product Owner",
    "sector": "Non-university",
@@ -1397,7 +1397,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1426,7 +1426,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 23 days",
+   "alert": "🟡 Closes in 22 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2606,7 +2606,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2635,36 +2635,41 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
    "location": "London, hybrid",
    "salary": "£45,829–£53,462 (incl. LW)",
-   "deadline": "2026-11-23",
-   "deadline_text": "23 Nov 2026",
+   "deadline": "2026-11-15",
+   "deadline_text": "Closes 15 Nov 2026",
    "sponsorship": "⚠️ Licensed — unconfirmed",
    "fit": "8",
    "submission": "Not started",
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Business analysis & benefits tracking for a transformation portfolio",
-   "notes": "",
+   "notes": "Daily search 14 Nov 2026: jobs.ac.uk listing DTN086 now shows closing date 15 Nov (earlier recorded 23 Nov) — deadline corrected; confirm on KCL portal.",
    "url": "https://www.jobs.ac.uk/job/DTN086/business-and-benefits-analyst",
    "source": "jobs.ac.uk",
    "added": "4 Nov 2026",
    "legal_entity": "",
-   "last_verified": "4 Nov 2026",
+   "last_verified": "14 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-14T08:58:19Z",
+     "what": "Daily search: deadline corrected to 15 Nov per jobs.ac.uk listing"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2693,7 +2698,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2814,7 +2819,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3370,7 +3375,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 56 days",
+   "alert": "🟡 Closes in 55 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3404,7 +3409,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3438,7 +3443,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3472,7 +3477,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3506,7 +3511,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3540,7 +3545,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 16 days",
+   "alert": "🟡 Closes in 15 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3574,7 +3579,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3608,7 +3613,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3642,7 +3647,7 @@
   {
    "id": "N043",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Leeds Teaching Hospitals NHS Trust",
    "role": "Product Owner (Digital / Head of Product Ownership team)",
    "sector": "Non-university",
@@ -3676,7 +3681,7 @@
   {
    "id": "N044",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Sheffield",
    "role": "Head of Business Intelligence and Reporting",
    "sector": "University",
@@ -3710,7 +3715,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4322,7 +4327,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4356,7 +4361,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 16 days",
+   "alert": "🟡 Closes in 15 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4424,7 +4429,7 @@
   {
    "id": "N066",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "NatWest Group (Mettle)",
    "role": "Product Owner – small business banking app (Mettle)",
    "sector": "Non-university",
@@ -4458,7 +4463,7 @@
   {
    "id": "N067",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "NatWest Group",
    "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
    "sector": "Non-university",
@@ -4492,7 +4497,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4628,7 +4633,7 @@
   {
    "id": "N072",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Anglian Water Services",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -4662,7 +4667,7 @@
   {
    "id": "N073",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 16 days",
+   "alert": "🟡 Closes in 15 days",
    "organisation": "Coventry University Group (CU Corporate Services Ltd)",
    "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
    "sector": "University",
@@ -4692,6 +4697,74 @@
    ],
    "prep": [],
    "fit_reason": "6.5: SQL/Power BI reporting and MSc Data Science fit; gaps: Tableau/ETL tooling, salary vs going rate, sister-company licence"
+  },
+  {
+   "id": "N074",
+   "stage": "To apply",
+   "alert": "🟠 Closes in 6 days",
+   "organisation": "Lloyds Banking Group (Lloyds Bank)",
+   "role": "Lead Product Owner – Operational Workflow",
+   "sector": "Non-university",
+   "location": "Leeds or Edinburgh (hybrid, 2 days/wk office)",
+   "salary": "£78,000–£91,800 + benefits",
+   "deadline": "2026-11-20",
+   "deadline_text": "Closes 20 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own vision, roadmap and backlog for the W&I Operational Workflow product (Colleague & Customer Service Platform); lead feature teams through cloud migration; OKRs and investment cases",
+   "notes": "Daily search 14 Nov 2026. Official Workday advert (ref 165510) open, end date Fri 20 Nov 2026; posted ~6 Nov. Advert silent on sponsorship. Lloyds Bank plc is a well-known licensed sponsor (register not re-downloaded this run — recheck entity before applying). SOC likely 2134/2133 — salary far above going rate. Permanent, full-time. Lead level: stretch on leading several feature teams in a large bank.",
+   "url": "https://lbg.wd3.myworkdayjobs.com/LBG_Careers/job/Leeds/Lead-Product-Owner---Operational-Workflow_165510-1",
+   "source": "freehire.me → Lloyds Workday",
+   "added": "2026-11-14",
+   "legal_entity": "Lloyds Bank plc (Lloyds Banking Group)",
+   "last_verified": "14 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-14T08:58:19Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7: product ownership, backlog/roadmap and workflow/process platforms at SAMS match; gaps: lead-level PO across multiple teams in banking ops, cloud migration"
+  },
+  {
+   "id": "N075",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 19 days",
+   "organisation": "UCL",
+   "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
+   "sector": "University",
+   "location": "London, hybrid",
+   "salary": "£44,861–£55,099",
+   "deadline": "2026-12-03",
+   "deadline_text": "Closes 3 Dec 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Implement Civica 'G2' occupational health system with ISD and suppliers; MI, dashboards and data analysis; testing and business readiness",
+   "notes": "Daily search 14 Nov 2026. jobs.ac.uk DTQ567, placed 13 Nov; apply via UCL AplitTrak form (link in advert). Advert silent on sponsorship; UCL (University College London) is a licensed sponsor. Fixed-term — duration not stated in listing, check before applying. SOC likely 2133/3544 — salary above threshold for both. Do not claim NHS clinical systems experience.",
+   "url": "https://www.jobs.ac.uk/job/DTQ567/business-systems-and-data-manager",
+   "source": "jobs.ac.uk",
+   "added": "2026-11-14",
+   "legal_entity": "University College London",
+   "last_verified": "14 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-14T08:58:19Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: SaaS implementation, Power BI/SQL MI and stakeholder/testing delivery match; gaps: occupational health domain, Civica product, fixed-term length unknown"
   }
  ]
 }
