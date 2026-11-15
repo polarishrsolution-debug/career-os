@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T21:01:37Z",
+ "updated": "2026-11-15T23:40:17Z",
  "rows": [
   {
    "id": "T001",
@@ -2634,8 +2634,8 @@
   },
   {
    "id": "N013",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Applied",
+   "alert": "🔵 Awaiting response",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2645,8 +2645,8 @@
    "deadline_text": "Closes 15 Nov 2026",
    "sponsorship": "⚠️ Licensed — unconfirmed",
    "fit": "8",
-   "submission": "Not started",
-   "interview_status": "—",
+   "submission": "Submitted",
+   "interview_status": "Awaiting response",
    "interview_datetime": "",
    "jd_focus": "Business analysis & benefits tracking for a transformation portfolio",
    "notes": "Daily search 14 Nov 2026: jobs.ac.uk listing DTN086 now shows closing date 15 Nov (earlier recorded 23 Nov) — deadline corrected; confirm on KCL portal.",
@@ -2655,12 +2655,16 @@
    "added": "4 Nov 2026",
    "legal_entity": "",
    "last_verified": "14 Nov 2026",
-   "applied_on": null,
-   "follow_up": null,
+   "applied_on": "2026-11-15",
+   "follow_up": "2026-11-25",
    "history": [
     {
      "at": "2026-11-14T08:58:19Z",
      "what": "Daily search: deadline corrected to 15 Nov per jobs.ac.uk listing"
+    },
+    {
+     "at": "2026-11-15T23:34:56.075Z",
+     "what": "Applied · follow-up set for Wed 25 Nov"
     }
    ],
    "prep": [],
