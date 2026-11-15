@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T09:40:04Z",
+ "updated": "2026-11-15T09:40:23Z",
  "rows": [
   {
    "id": "T001",
@@ -1397,7 +1397,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1426,7 +1426,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 22 days",
+   "alert": "🟡 Closes in 21 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2606,7 +2606,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2635,7 +2635,7 @@
   {
    "id": "N013",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "King's College London",
    "role": "Business & Benefits Analyst – Transformation Office",
    "sector": "University",
@@ -2669,7 +2669,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2698,7 +2698,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2819,7 +2819,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3375,7 +3375,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 55 days",
+   "alert": "🟡 Closes in 54 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3409,7 +3409,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3443,7 +3443,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3477,7 +3477,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3511,7 +3511,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3545,7 +3545,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 15 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3579,7 +3579,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3613,7 +3613,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3647,7 +3647,7 @@
   {
    "id": "N043",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Leeds Teaching Hospitals NHS Trust",
    "role": "Product Owner (Digital / Head of Product Ownership team)",
    "sector": "Non-university",
@@ -3681,7 +3681,7 @@
   {
    "id": "N044",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Sheffield",
    "role": "Head of Business Intelligence and Reporting",
    "sector": "University",
@@ -3715,7 +3715,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4327,7 +4327,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4361,7 +4361,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 15 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4429,7 +4429,7 @@
   {
    "id": "N066",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "NatWest Group (Mettle)",
    "role": "Product Owner – small business banking app (Mettle)",
    "sector": "Non-university",
@@ -4463,7 +4463,7 @@
   {
    "id": "N067",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "NatWest Group",
    "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
    "sector": "Non-university",
@@ -4497,7 +4497,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4633,7 +4633,7 @@
   {
    "id": "N072",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Anglian Water Services",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -4667,7 +4667,7 @@
   {
    "id": "N073",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 15 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "Coventry University Group (CU Corporate Services Ltd)",
    "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
    "sector": "University",
@@ -4701,7 +4701,7 @@
   {
    "id": "N074",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Lloyds Banking Group (Lloyds Bank)",
    "role": "Lead Product Owner – Operational Workflow",
    "sector": "Non-university",
@@ -4735,7 +4735,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 19 days",
+   "alert": "🟡 Closes in 18 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4765,6 +4765,74 @@
    ],
    "prep": [],
    "fit_reason": "7.5: SaaS implementation, Power BI/SQL MI and stakeholder/testing delivery match; gaps: occupational health domain, Civica product, fixed-term length unknown"
+  },
+  {
+   "id": "N076",
+   "stage": "To apply",
+   "alert": "🟠 Closes in 7 days",
+   "organisation": "Lancaster University",
+   "role": "Statutory Data Returns Manager (ref 1089-26)",
+   "sector": "University",
+   "location": "Lancaster (Bailrigg), hybrid",
+   "salary": "£47,389–£56,535",
+   "deadline": "2026-11-22",
+   "deadline_text": "Closes 22 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead statutory student data returns (HESA/OfS), data flows between systems, data quality/assurance, manage data team",
+   "notes": "Daily search 15 Nov 2026. jobs.ac.uk DTQ137, placed 12 Nov; Planning & Analytics; permanent, full-time, hybrid; interviews 3 Dec. Advert silent on sponsorship; Lancaster University is a licensed sponsor (as recorded on T010). SOC likely 3544/2425 — salary above £41,700 general threshold. No right-to-work or clearance restriction stated. Gaps: no direct HESA/Data Futures returns experience — HE sector knowledge is 'desirable', SQL/data quality and line management of 12 are strong evidence.",
+   "url": "https://hr-jobs.lancs.ac.uk/Vacancy.aspx?ref=1089-26",
+   "source": "jobs.ac.uk",
+   "added": "2026-11-15",
+   "legal_entity": "Lancaster University",
+   "last_verified": "15 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-15T08:58:25Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: SQL/data quality, HE student data (SITS/Banner integrations) and team leadership match; gap: no statutory HESA returns ownership"
+  },
+  {
+   "id": "N077",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟠 Closes in 7 days",
+   "organisation": "University of Northampton",
+   "role": "CRM Developer (ref UN5568)",
+   "sector": "University",
+   "location": "Northampton",
+   "salary": "£46,049–£56,535",
+   "deadline": "2026-11-22",
+   "deadline_text": "Closes 22 Nov 2026 (may close early)",
+   "sponsorship": "❔ Licence not verified",
+   "fit": "6.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Configure, integrate and support Microsoft Dynamics CRM: workflows, automations, portals, dashboards; requirements to technical solutions",
+   "notes": "Daily search 15 Nov 2026. jobs.ac.uk DTP423, placed 10 Nov; Academic Systems (Application Services); permanent, full-time; interviews w/c 30 Nov. Advert silent on sponsorship. Could not open the Home Office register from this session to match 'The University of Northampton' — verify licence before applying (watchlist only). SOC likely 2134 — salary above threshold. Gaps: developer-heavy role, Dynamics 365/Power Platform hands-on build and third-line support required.",
+   "url": "https://jobs.northampton.ac.uk/vacancy/crm-developer-622876.html",
+   "source": "jobs.ac.uk",
+   "added": "2026-11-15",
+   "legal_entity": "The University of Northampton (not matched)",
+   "last_verified": "15 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-15T08:58:25Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.0: HE CRM product ownership, integrations and workflow design transfer; gap: no Dynamics 365/Power Platform development"
   }
  ]
 }
