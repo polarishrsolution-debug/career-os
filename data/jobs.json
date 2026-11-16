@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T09:39:53Z",
+ "updated": "2026-11-16T11:40:41Z",
  "rows": [
   {
    "id": "T001",
@@ -834,8 +834,8 @@
   },
   {
    "id": "T024",
-   "stage": "Applied",
-   "alert": "🔵 Awaiting response",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "West Sussex County Council",
    "role": "Customer Experience Business Analyst",
    "sector": "Non-university",
@@ -845,7 +845,7 @@
    "deadline_text": "10 Nov 2026",
    "sponsorship": "⚠️ Licensed indicated; vacancy unconfirmed",
    "fit": "9/10",
-   "submission": "Submitted",
+   "submission": "Withdrawn",
    "interview_status": "Awaiting response",
    "interview_datetime": "",
    "jd_focus": "Customer experience BA, council services",
@@ -857,7 +857,12 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-16T10:56:13.716Z",
+     "what": "Withdrew the application"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
