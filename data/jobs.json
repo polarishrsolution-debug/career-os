@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T23:40:17Z",
+ "updated": "2026-11-16T09:39:53Z",
  "rows": [
   {
    "id": "T001",
@@ -1397,7 +1397,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1426,7 +1426,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 21 days",
+   "alert": "🟡 Closes in 20 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2606,7 +2606,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2673,7 +2673,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2702,7 +2702,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2823,7 +2823,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3379,7 +3379,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 54 days",
+   "alert": "🟡 Closes in 53 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3413,7 +3413,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3447,7 +3447,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3481,7 +3481,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3515,7 +3515,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3549,7 +3549,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 13 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3583,7 +3583,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3617,7 +3617,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3651,7 +3651,7 @@
   {
    "id": "N043",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Leeds Teaching Hospitals NHS Trust",
    "role": "Product Owner (Digital / Head of Product Ownership team)",
    "sector": "Non-university",
@@ -3685,7 +3685,7 @@
   {
    "id": "N044",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of Sheffield",
    "role": "Head of Business Intelligence and Reporting",
    "sector": "University",
@@ -3719,7 +3719,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4331,7 +4331,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4365,7 +4365,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 13 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4433,7 +4433,7 @@
   {
    "id": "N066",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "NatWest Group (Mettle)",
    "role": "Product Owner – small business banking app (Mettle)",
    "sector": "Non-university",
@@ -4467,7 +4467,7 @@
   {
    "id": "N067",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "NatWest Group",
    "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
    "sector": "Non-university",
@@ -4501,7 +4501,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4636,8 +4636,8 @@
   },
   {
    "id": "N072",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Anglian Water Services",
    "role": "Business Analyst",
    "sector": "Non-university",
@@ -4651,7 +4651,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Waterfall BA: detailed upfront requirements, traceability, BPMN 2.0 AS-IS/TO-BE, NFRs, design validation, UAT",
-   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 2 Nov, live). SALARY RISK: SOC 2431 going rate £50,200 — offer must reach it. Permanent, 37h. BCS desirable only (do not claim). Strong transferable with gaps: waterfall/BPMN, utilities.",
+   "notes": "Daily search 13 Nov 2026. huntukvisasponsors (added 2 Nov, live). SALARY RISK: SOC 2431 going rate £50,200 — offer must reach it. Permanent, 37h. BCS desirable only (do not claim). Strong transferable with gaps: waterfall/BPMN, utilities. | 16 Nov 2026: marked closed — deadline passed.",
    "url": "https://huntukvisasponsors.com/job/business-analyst-at-anglian-water-services-otwzifzwzjsx",
    "source": "huntukvisasponsors",
    "added": "2026-11-13",
@@ -4663,6 +4663,10 @@
     {
      "at": "2026-11-13T08:59:43Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-16T08:59:50Z",
+     "what": "Daily search: To apply → Closed (⚫ Deadline passed)"
     }
    ],
    "prep": [],
@@ -4671,7 +4675,7 @@
   {
    "id": "N073",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 13 days",
    "organisation": "Coventry University Group (CU Corporate Services Ltd)",
    "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
    "sector": "University",
@@ -4705,7 +4709,7 @@
   {
    "id": "N074",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Lloyds Banking Group (Lloyds Bank)",
    "role": "Lead Product Owner – Operational Workflow",
    "sector": "Non-university",
@@ -4739,7 +4743,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 18 days",
+   "alert": "🟡 Closes in 17 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4773,7 +4777,7 @@
   {
    "id": "N076",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Lancaster University",
    "role": "Statutory Data Returns Manager (ref 1089-26)",
    "sector": "University",
@@ -4807,7 +4811,7 @@
   {
    "id": "N077",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Northampton",
    "role": "CRM Developer (ref UN5568)",
    "sector": "University",
@@ -4837,6 +4841,74 @@
    ],
    "prep": [],
    "fit_reason": "6.0: HE CRM product ownership, integrations and workflow design transfer; gap: no Dynamics 365/Power Platform development"
+  },
+  {
+   "id": "N078",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 11 days",
+   "organisation": "City & Guilds",
+   "role": "Product Manager – Digital (ref 8293)",
+   "sector": "Non-university",
+   "location": "UK hybrid — near a hub: Wakefield, London, Burntwood or Warrington",
+   "salary": "£50,100 national / £55,800 London",
+   "deadline": "2026-11-27",
+   "deadline_text": "Closes 27 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.0",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own a digital-sector vocational qualifications/product portfolio: strategy, data-driven roadmap, business cases, go-to-market",
+   "notes": "Daily search 16 Nov 2026. Official advert open on apply.careers.cityandguilds.com (closes 27/11/2026), permanent, full-time. Advert silent on sponsorship. City & Guilds shown as a licensed sponsor on huntukvisasponsors (GOV.UK register CSV could not be opened from this session — confirm the employing entity, likely The City and Guilds of London Institute). SOC likely 2134/3556 product role — £50,100 should clear the general threshold but check the going rate for the exact SOC. No clearance/right-to-work restriction stated. Wakefield hub is commutable from Sheffield. Gaps: in-depth digital-sector qualifications expertise, government-funded vocational funding/regulation knowledge.",
+   "url": "https://apply.careers.cityandguilds.com/vacancy/product-manager-digital-622191.html",
+   "source": "City & Guilds careers (found via Hunt UK Visa Sponsors)",
+   "added": "2026-11-16",
+   "legal_entity": "City & Guilds (The City and Guilds of London Institute — not matched on GOV.UK CSV)",
+   "last_verified": "16 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-16T08:59:50Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.0: education-supplier product portfolio, roadmaps, business cases and data-driven decisions match SAMS/Shikho; gap: vocational qualifications funding/regulation and digital-sector qualification expertise"
+  },
+  {
+   "id": "N079",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Kato",
+   "role": "Senior Product Manager – Marketplace & Growth",
+   "sector": "Non-university",
+   "location": "London — hybrid, 3 days/week in office",
+   "salary": "£85,000–£105,000",
+   "deadline": "",
+   "deadline_text": "Open — no closing date (apply via careers@kato.app)",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "B2B proptech SaaS growth PM: funnel analytics, Marketplace-to-CRM conversion, onboarding/activation, data flow into Atlas",
+   "notes": "Daily search 16 Nov 2026. Official advert open on kato.app/jobs (no closing date). Advert silent on sponsorship; huntukvisasponsors lists Kato as a licensed sponsor (GOV.UK CSV not opened — confirm employing entity). Salary far above going rate (SOC 2134/3556). Permanent, senior IC, start ASAP. Requires 7+ years PM/related in SaaS scaleups, B2B only, 3 London office days (relocation/commute from Sheffield). Strong transferable: funnels/activation/churn work at Shikho, CRM + AI-native building. Gaps: 7+ yrs bar, proptech/CRE and two-sided marketplace experience.",
+   "url": "https://www.kato.app/jobs/senior-product-manager---marketplace-and-growth",
+   "source": "Kato careers (found via Hunt UK Visa Sponsors)",
+   "added": "2026-11-16",
+   "legal_entity": "Kato (legal entity not matched on GOV.UK CSV)",
+   "last_verified": "16 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-16T08:59:50Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: funnel/activation/retention wins (+30% completion, -29.5% churn) and B2B SaaS/CRM product lead fit; gap: 7+ yrs scaleup PM bar, proptech marketplace, London 3 days"
   }
  ]
 }
