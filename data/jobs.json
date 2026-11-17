@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T11:40:41Z",
+ "updated": "2026-11-17T09:40:18Z",
  "rows": [
   {
    "id": "T001",
@@ -368,7 +368,7 @@
   {
    "id": "T009",
    "stage": "Interview stage",
-   "alert": "🔵 Interview booked",
+   "alert": "🔴 Interview tomorrow",
    "organisation": "Cardiff Metropolitan University",
    "role": "Technical Business Analyst",
    "sector": "University",
@@ -1402,7 +1402,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1431,7 +1431,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 20 days",
+   "alert": "🟡 Closes in 19 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2611,7 +2611,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2678,7 +2678,7 @@
   {
    "id": "N014",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2707,7 +2707,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2828,7 +2828,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3384,7 +3384,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 53 days",
+   "alert": "🟡 Closes in 52 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3418,7 +3418,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3452,7 +3452,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3486,7 +3486,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3520,7 +3520,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3554,7 +3554,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3588,7 +3588,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3622,7 +3622,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3656,7 +3656,7 @@
   {
    "id": "N043",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Leeds Teaching Hospitals NHS Trust",
    "role": "Product Owner (Digital / Head of Product Ownership team)",
    "sector": "Non-university",
@@ -3689,8 +3689,8 @@
   },
   {
    "id": "N044",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Sheffield",
    "role": "Head of Business Intelligence and Reporting",
    "sector": "University",
@@ -3704,7 +3704,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Lead the University's BI & Reporting service (reporting service, BI project lifecycle, ETL/data validation per sister Data Analyst advert in Strategic Planning & Change)",
-   "notes": "Deep search 12 Nov 2026. Placed 2026-10-26. SOC 2133/3544 or 1137; salary far above threshold. Permanent assumed (not confirmed). Placed 26 Oct 2026. Advert body blocked by jobs.ac.uk bot challenge - listing data only (title/salary/dates from jobs.ac.uk Sheffield employer listing). University of Sheffield is a licensed sponsor (appears on sponsor-job aggregators e.g. huntukvisasponsors 'Product Manager at the University of Sheffield'); register not re-checked this run. Stretch application.",
+   "notes": "Deep search 12 Nov 2026. Placed 2026-10-26. SOC 2133/3544 or 1137; salary far above threshold. Permanent assumed (not confirmed). Placed 26 Oct 2026. Advert body blocked by jobs.ac.uk bot challenge - listing data only (title/salary/dates from jobs.ac.uk Sheffield employer listing). University of Sheffield is a licensed sponsor (appears on sponsor-job aggregators e.g. huntukvisasponsors 'Product Manager at the University of Sheffield'); register not re-checked this run. Stretch application. | 17 Nov 2026: marked closed — closing date passed.",
    "url": "https://www.jobs.ac.uk/job/DTK266/head-of-business-intelligence-and-reporting",
    "source": "jobs.ac.uk (University of Sheffield listing)",
    "added": "2026-11-12",
@@ -3716,6 +3716,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-17T09:00:21Z",
+     "what": "Daily search: marked closed (deadline passed)"
     }
    ],
    "prep": [],
@@ -3724,7 +3728,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4336,7 +4340,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4370,7 +4374,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4438,7 +4442,7 @@
   {
    "id": "N066",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "NatWest Group (Mettle)",
    "role": "Product Owner – small business banking app (Mettle)",
    "sector": "Non-university",
@@ -4472,7 +4476,7 @@
   {
    "id": "N067",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "NatWest Group",
    "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
    "sector": "Non-university",
@@ -4506,7 +4510,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4680,7 +4684,7 @@
   {
    "id": "N073",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "Coventry University Group (CU Corporate Services Ltd)",
    "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
    "sector": "University",
@@ -4714,7 +4718,7 @@
   {
    "id": "N074",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Lloyds Banking Group (Lloyds Bank)",
    "role": "Lead Product Owner – Operational Workflow",
    "sector": "Non-university",
@@ -4748,7 +4752,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 17 days",
+   "alert": "🟡 Closes in 16 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4782,7 +4786,7 @@
   {
    "id": "N076",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Lancaster University",
    "role": "Statutory Data Returns Manager (ref 1089-26)",
    "sector": "University",
@@ -4816,7 +4820,7 @@
   {
    "id": "N077",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Northampton",
    "role": "CRM Developer (ref UN5568)",
    "sector": "University",
@@ -4850,7 +4854,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -4914,6 +4918,108 @@
    ],
    "prep": [],
    "fit_reason": "6.5: funnel/activation/retention wins (+30% completion, -29.5% churn) and B2B SaaS/CRM product lead fit; gap: 7+ yrs scaleup PM bar, proptech marketplace, London 3 days"
+  },
+  {
+   "id": "N080",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Turnitin",
+   "role": "Product Manager, iThenticate (UK Remote)",
+   "sector": "Non-university",
+   "location": "Manchester / UK remote-first",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "8",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "EdTech/HE integrity SaaS PM: roadmap, detailed requirements, rollout, accessibility/data-privacy/LMS interoperability, agile ceremonies",
+   "notes": "Daily search 17 Nov 2026. Official SmartRecruiters advert (posted c.16 Oct 2026) shows apply buttons, no closing date or closed notice. Advert silent on sponsorship; listed under Turnitin, LLC — UK employer on register is Turnitin UK LTD (Newcastle upon Tyne, Skilled Worker, A-rated, per register mirror tarve.co.uk; GOV.UK CSV not opened) — confirm employing entity with recruiter. SOC likely 2134/3556; salary not stated — check it meets going rate. Permanent, full-time, remote-first (Manchester). Requires 3+ yrs as TBA/PO/PM, Agile/JIRA; preferred CSPO (he does not hold it) and LMS knowledge (Canvas/Moodle/Blackboard).",
+   "url": "https://jobs.smartrecruiters.com/TurnitinLLC/744000156050497",
+   "source": "Turnitin careers (SmartRecruiters), found via UK-Visa-Sponsor-Tech-Jobs list",
+   "added": "2026-11-17",
+   "legal_entity": "Turnitin UK LTD (register mirror tarve.co.uk; advert entity Turnitin, LLC)",
+   "last_verified": "17 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-17T09:00:21Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "8: HE edtech SaaS product lead + BA/PO background, requirements and rollout match exactly; gap: no CSPO, no direct LMS (Canvas/Moodle) integration experience"
+  },
+  {
+   "id": "N081",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "University of Exeter",
+   "role": "Product Manager (Digital, maternity cover FTC)",
+   "sector": "University",
+   "location": "Exeter (St Thomas) — hybrid",
+   "salary": "From £43,482 (Grade F)",
+   "deadline": "",
+   "deadline_text": "Closing date not shown on lead page — check official advert",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "8",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Develop and deliver digital applications, products and platforms for HE; balance market needs, technical strategy and agile delivery",
+   "notes": "Daily search 17 Nov 2026. Found via freehire/Adzuna lead (posted 14 Nov 2026); official jobs.exeter.ac.uk page blocks automated reading, so open status and closing date NOT verified on the official advert — check before applying. University of Exeter holds a Skilled Worker licence (A-rated, register mirror tarve.co.uk). Fixed-term maternity cover 16 Nov 2026 – 30 Nov 2027 (~12 months; CoS fine for FTC). Salary from £43,482 — check vs going rate for SOC 2134/3556 and new-entrant rules. Internal secondments also considered.",
+   "url": "https://freehire.me/jobs/product-manager-university-of-exeter-hifr7uk2",
+   "source": "freehire / Adzuna lead (official jobs.exeter.ac.uk not readable)",
+   "added": "2026-11-17",
+   "legal_entity": "University of Exeter",
+   "last_verified": "17 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-17T09:00:21Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "8: HE digital product management mirrors SAMS360 product lead work for universities; gap: Grade F salary vs going rate, official advert not yet verified"
+  },
+  {
+   "id": "N082",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Financial Times",
+   "role": "Product Manager (FT app)",
+   "sector": "Non-university",
+   "location": "London — hybrid (2–3 days onsite)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Consumer mobile app PM: app roadmap, discovery/experimentation, personalisation/notifications, acquisition-engagement-retention with subscriptions team",
+   "notes": "Daily search 17 Nov 2026. Official Greenhouse advert open (apply form live, posted c.5 Nov 2026, no closing date). Advert silent on sponsorship (form asks if you need it). The Financial Times Limited appears on register-based sponsor lists (huntukvisasponsors / UK-Visa-Sponsor-Tech-Jobs); GOV.UK CSV not opened — confirm. SOC 2134/3556; salary not stated. London 2–3 days/week (commute/relocation from Sheffield). Mandatory gaps: proven PM on consumer iOS/Android apps, app-store/IAP knowledge — Shikho app experience is the closest evidence.",
+   "url": "https://job-boards.eu.greenhouse.io/financialtimes33/jobs/5027652101",
+   "source": "FT careers (Greenhouse), found via UK-Visa-Sponsor-Tech-Jobs list",
+   "added": "2026-11-17",
+   "legal_entity": "The Financial Times Limited (via register-based aggregators)",
+   "last_verified": "17 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-17T09:00:21Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: retention/engagement and experimentation wins at Shikho (+30% completion, -29.5% churn) fit; gap: native mobile app PM depth, app-store/IAP, London hybrid"
   }
  ]
 }
