@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T09:39:55Z",
+ "updated": "2026-11-18T12:40:30Z",
  "rows": [
   {
    "id": "T001",
@@ -747,8 +747,8 @@
   },
   {
    "id": "T021",
-   "stage": "Applied",
-   "alert": "🔵 Awaiting response",
+   "stage": "Interview stage",
+   "alert": "🔵 Interview booked",
    "organisation": "Sheffield City Council",
    "role": "Information Systems Specialist Digital Access and CRM",
    "sector": "Non-university",
@@ -759,8 +759,8 @@
    "sponsorship": "✅ Confirmed",
    "fit": "9.2",
    "submission": "Submitted",
-   "interview_status": "Awaiting response",
-   "interview_datetime": "",
+   "interview_status": "Interview booked",
+   "interview_datetime": "Wed 2 Dec 2026, 09:00",
    "jd_focus": "Digital access & CRM systems for council services",
    "notes": "",
    "url": "https://ce0369li.webitrent.com/ce0369li_webrecruitment/wrd/run/ETREC179GF.open?WVID=658647Iqms",
@@ -768,9 +768,14 @@
    "added": "Before 4 Nov 2026",
    "legal_entity": "",
    "last_verified": "",
-   "applied_on": null,
+   "applied_on": "2026-11-18",
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-18T12:06:46.134Z",
+     "what": "Invited to interview · Wed 2 Dec 09:00"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
