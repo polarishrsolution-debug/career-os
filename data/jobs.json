@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T09:40:18Z",
+ "updated": "2026-11-18T09:39:55Z",
  "rows": [
   {
    "id": "T001",
@@ -368,7 +368,7 @@
   {
    "id": "T009",
    "stage": "Interview stage",
-   "alert": "🔴 Interview tomorrow",
+   "alert": "🔴 Interview today",
    "organisation": "Cardiff Metropolitan University",
    "role": "Technical Business Analyst",
    "sector": "University",
@@ -1402,7 +1402,7 @@
   {
    "id": "T041",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1431,7 +1431,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 19 days",
+   "alert": "🟡 Closes in 18 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2611,7 +2611,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2677,8 +2677,8 @@
   },
   {
    "id": "N014",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of York",
    "role": "Project Manager – IT Services",
    "sector": "University",
@@ -2692,7 +2692,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "IT project delivery in a university",
-   "notes": "York is a SAMS development partner.",
+   "notes": "York is a SAMS development partner. Daily search 18 Nov 2026: closing date 17 Nov 2026 has passed — marked closed.",
    "url": "https://www.jobs.ac.uk/job/DTN283/project-manager",
    "source": "jobs.ac.uk",
    "added": "4 Nov 2026",
@@ -2700,14 +2700,19 @@
    "last_verified": "4 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-18T09:20:00Z",
+     "what": "Daily search: deadline passed — marked closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2828,7 +2833,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3384,7 +3389,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 52 days",
+   "alert": "🟡 Closes in 51 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3418,7 +3423,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3452,7 +3457,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3486,7 +3491,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3520,7 +3525,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3554,7 +3559,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3588,7 +3593,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3622,7 +3627,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3655,8 +3660,8 @@
   },
   {
    "id": "N043",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Leeds Teaching Hospitals NHS Trust",
    "role": "Product Owner (Digital / Head of Product Ownership team)",
    "sector": "Non-university",
@@ -3670,7 +3675,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Product ownership within LTHT digital product team (reports to Head of Product Ownership, Tanya Lane)",
-   "notes": "Deep search 12 Nov 2026. Placed 2026-10-25. SOC 2134/3544-ish; Band 8a well above £41,700 threshold. Posted ~25 Oct 2026. LTHT is a long-standing Skilled Worker sponsor (its July 2026 Head of BA advert states sponsorship only for applicants meeting SW eligibility/salary criteria - this role's salary meets it). Official NHS Jobs/Trac advert could NOT be opened this run (NHS Jobs fetches failed) - verify closing date and sponsorship wording on NHS Jobs (employer code C9298) before applying.",
+   "notes": "Deep search 12 Nov 2026. Placed 2026-10-25. SOC 2134/3544-ish; Band 8a well above £41,700 threshold. Posted ~25 Oct 2026. LTHT is a long-standing Skilled Worker sponsor (its July 2026 Head of BA advert states sponsorship only for applicants meeting SW eligibility/salary criteria - this role's salary meets it). Official NHS Jobs/Trac advert could NOT be opened this run (NHS Jobs fetches failed) - verify closing date and sponsorship wording on NHS Jobs (employer code C9298) before applying. Daily search 18 Nov 2026: closing date Closing date not shown on lead page; shortlisting 18/11/2026, interviews 03/12/2026 - assume closes ~17 Nov (may close early) has passed — marked closed.",
    "url": "https://freehire.me/jobs/product-owner-leeds-teaching-hospitals-4xdwgazy",
    "source": "freehire.me + itjobswatch.co.uk (leads; official advert not verified)",
    "added": "2026-11-12",
@@ -3682,6 +3687,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-18T09:20:00Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3728,7 +3737,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4340,7 +4349,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4374,7 +4383,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4442,7 +4451,7 @@
   {
    "id": "N066",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "NatWest Group (Mettle)",
    "role": "Product Owner – small business banking app (Mettle)",
    "sector": "Non-university",
@@ -4476,7 +4485,7 @@
   {
    "id": "N067",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "NatWest Group",
    "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
    "sector": "Non-university",
@@ -4510,7 +4519,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4684,7 +4693,7 @@
   {
    "id": "N073",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "Coventry University Group (CU Corporate Services Ltd)",
    "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
    "sector": "University",
@@ -4718,7 +4727,7 @@
   {
    "id": "N074",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Lloyds Banking Group (Lloyds Bank)",
    "role": "Lead Product Owner – Operational Workflow",
    "sector": "Non-university",
@@ -4752,7 +4761,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 16 days",
+   "alert": "🟡 Closes in 15 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4786,7 +4795,7 @@
   {
    "id": "N076",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Lancaster University",
    "role": "Statutory Data Returns Manager (ref 1089-26)",
    "sector": "University",
@@ -4820,7 +4829,7 @@
   {
    "id": "N077",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Northampton",
    "role": "CRM Developer (ref UN5568)",
    "sector": "University",
@@ -4854,7 +4863,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5020,6 +5029,142 @@
    ],
    "prep": [],
    "fit_reason": "6.5: retention/engagement and experimentation wins at Shikho (+30% completion, -29.5% churn) fit; gap: native mobile app PM depth, app-store/IAP, London hybrid"
+  },
+  {
+   "id": "N083",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 11 days",
+   "organisation": "University of York",
+   "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
+   "sector": "University",
+   "location": "York (campus, some remote working)",
+   "salary": "£38,448–£46,970 (Grade 6) + £3,000 market supplement",
+   "deadline": "2026-11-29",
+   "deadline_text": "29 Nov 2026",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "8.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Develop, maintain and enhance SITS student record system and its integrations across the applicant-to-graduation journey; SQL/HTML/JS, MI reporting, project leadership",
+   "notes": "Daily search 18 Nov 2026. Official jobs.york.ac.uk advert open (posted 16 Nov 2026, closes 29 Nov 2026, interview TBC); open-ended, full-time contract. Advert silent on sponsorship; UNIVERSITY OF YORK holds an A-rated Skilled Worker licence (register via tarve.co.uk, 31 Oct 2026 data — confirm on GOV.UK CSV). Likely SOC 2133/2134 — check that top of scale + supplement (£49,970) meets the going rate/£41,700 general threshold for the point he would be appointed at; ask HR whether they will sponsor. York is commutable from Sheffield. Gaps: hands-on SITS development (STUTALK/SRL/Vision) vs SAMS's SITS integration work; HTML/JS coding.",
+   "url": "https://jobs.york.ac.uk/vacancy/senior-systems-analyst-621363.html",
+   "source": "University of York jobs (employer-first check)",
+   "added": "2026-11-18",
+   "legal_entity": "UNIVERSITY OF YORK (RC000679)",
+   "last_verified": "18 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-18T09:20:00Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "8.5: SITS integrations, SQL and the student journey from SAMS360 match closely; gap: hands-on SITS configuration/dev and salary vs going rate"
+  },
+  {
+   "id": "N084",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Anaplan",
+   "role": "Solution Implementation Manager (UKI)",
+   "sector": "Non-university",
+   "location": "London",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead end-to-end Anaplan enterprise SaaS deployments with partners: scoping, governance, budget/billing, C-suite stakeholder management, project recovery, Agile delivery",
+   "notes": "Daily search 18 Nov 2026. Official Greenhouse advert open ('New', apply form live, no closing date). Advert silent on sponsorship (form asks if you need it). Anaplan Limited, London: A-rated, Skilled Worker route (register via tarve.co.uk). SOC likely 2133/3544 (IT project/implementation) — salary not stated, confirm vs going rate. Mandatory gaps: large-enterprise programme management with partners/SIs, project recovery track record, FP&A/supply chain/workforce planning domain; no Anaplan experience.",
+   "url": "https://job-boards.greenhouse.io/anaplan/jobs/8749194002",
+   "source": "Anaplan careers (Greenhouse)",
+   "added": "2026-11-18",
+   "legal_entity": "Anaplan Limited (London) — register via tarve.co.uk",
+   "last_verified": "18 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-18T09:20:00Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: SaaS implementation, onboarding and Agile delivery from SAMS360 transfer; gap: enterprise-scale programme/partner management and FP&A domain"
+  },
+  {
+   "id": "N085",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "AutogenAI",
+   "role": "Implementation Consultant, United Kingdom",
+   "sector": "Non-university",
+   "location": "London — hybrid (2 office days/week)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "❔ Licence not verified",
+   "fit": "7",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Onboard new customers onto an AI bid-writing SaaS: project plans, platform configuration, training delivery, handover to Customer Success, feedback to Product",
+   "notes": "Daily search 18 Nov 2026. Official Greenhouse advert open (apply form live, no closing date). Advert silent on sponsorship. Could not match AutogenAI Ltd (Companies House 13907128) on the sponsor register this run — WATCHLIST: check GOV.UK register CSV before applying. SOC likely 3544/2133; salary not stated. Must be within commuting distance of London office. Gaps: bid-writing sector knowledge; customer-facing implementation was mostly to university clients.",
+   "url": "https://job-boards.greenhouse.io/autogenai/jobs/4833858008",
+   "source": "AutogenAI careers (Greenhouse)",
+   "added": "2026-11-18",
+   "legal_entity": "AutogenAI Ltd (not matched on register)",
+   "last_verified": "18 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-18T09:20:00Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7: SAMS360 onboarding questionnaires, guides and AI-tool building fit SaaS implementation; gap: licence unverified, bid-writing domain, London commute"
+  },
+  {
+   "id": "N086",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Pay.UK",
+   "role": "Product Analyst (9-month FTC)",
+   "sector": "Non-university",
+   "location": "London",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "❔ Licence not verified",
+   "fit": "6.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Analyse product/performance data for UK payment systems (fraud products), define measures, build dashboards and reports with product and delivery teams",
+   "notes": "Daily search 18 Nov 2026. Official Greenhouse advert open (no closing date). Form asks 'Are you currently on a visa or require sponsorship?' — no policy stated. Could not match Pay.UK Ltd on the register this run — WATCHLIST, verify on GOV.UK CSV. 9-month FTC (CoS possible for fixed term). Likely SOC 2133/3544 data analyst — check salary vs going rate. Gaps: financial services/fraud product knowledge; analyst rather than PM level.",
+   "url": "https://job-boards.greenhouse.io/payuk/jobs/4940095101",
+   "source": "Pay.UK careers (Greenhouse)",
+   "added": "2026-11-18",
+   "legal_entity": "Pay.UK Ltd (not matched on register)",
+   "last_verified": "18 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-18T09:20:00Z",
+     "what": "Daily search: added"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6.5: SQL/Power BI dashboards and Pay→TransferMate payments flow are relevant; gap: fraud/financial-services product knowledge, licence unverified"
   }
  ]
 }
