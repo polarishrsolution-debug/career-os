@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T12:40:30Z",
+ "updated": "2026-11-19T09:40:09Z",
  "rows": [
   {
    "id": "T001",
@@ -368,7 +368,7 @@
   {
    "id": "T009",
    "stage": "Interview stage",
-   "alert": "🔴 Interview today",
+   "alert": "🟠 Update interview outcome",
    "organisation": "Cardiff Metropolitan University",
    "role": "Technical Business Analyst",
    "sector": "University",
@@ -1406,8 +1406,8 @@
   },
   {
    "id": "T041",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Robert Walters",
    "role": "Product Manager – Solutions & Implementations Lead",
    "sector": "Non-university",
@@ -1421,7 +1421,7 @@
    "interview_status": "—",
    "interview_datetime": "",
    "jd_focus": "Solutions & implementations product lead, payments/integrations",
-   "notes": "Payments/integrations",
+   "notes": "Payments/integrations | Daily search 19 Nov 2026: closing date 2026-11-18 passed — marked closed.",
    "url": "https://www.robertwalters.co.uk/technologydigital/jobs/productmanagement/1915165-product-manager---solutions-and-implementations-lead.html",
    "source": "Your manual tracker",
    "added": "Before 4 Nov 2026",
@@ -1429,14 +1429,19 @@
    "last_verified": "",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-19T09:10:00Z",
+     "what": "Daily search: deadline passed — marked closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 18 days",
+   "alert": "🟡 Closes in 17 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2616,7 +2621,7 @@
   {
    "id": "N012",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2717,7 +2722,7 @@
   {
    "id": "N015",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2838,7 +2843,7 @@
   {
    "id": "N019",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -3394,7 +3399,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 51 days",
+   "alert": "🟡 Closes in 50 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3428,7 +3433,7 @@
   {
    "id": "N036",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3462,7 +3467,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3496,7 +3501,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3530,7 +3535,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3564,7 +3569,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3598,7 +3603,7 @@
   {
    "id": "N041",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of Warwick (IDG)",
    "role": "Head of Performance, Insights and Analytics",
    "sector": "University",
@@ -3632,7 +3637,7 @@
   {
    "id": "N042",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3742,7 +3747,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4354,7 +4359,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4388,7 +4393,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4456,7 +4461,7 @@
   {
    "id": "N066",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "NatWest Group (Mettle)",
    "role": "Product Owner – small business banking app (Mettle)",
    "sector": "Non-university",
@@ -4490,7 +4495,7 @@
   {
    "id": "N067",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "NatWest Group",
    "role": "Product Owner – Interbank Payments (Core Banking & Payments)",
    "sector": "Non-university",
@@ -4524,7 +4529,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4698,7 +4703,7 @@
   {
    "id": "N073",
    "stage": "Watchlist — verify licence",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Coventry University Group (CU Corporate Services Ltd)",
    "role": "Senior Planning and Insights Analyst (12-month maternity cover)",
    "sector": "University",
@@ -4732,7 +4737,7 @@
   {
    "id": "N074",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Lloyds Banking Group (Lloyds Bank)",
    "role": "Lead Product Owner – Operational Workflow",
    "sector": "Non-university",
@@ -4766,7 +4771,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 15 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4800,7 +4805,7 @@
   {
    "id": "N076",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Lancaster University",
    "role": "Statutory Data Returns Manager (ref 1089-26)",
    "sector": "University",
@@ -4834,7 +4839,7 @@
   {
    "id": "N077",
    "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Northampton",
    "role": "CRM Developer (ref UN5568)",
    "sector": "University",
@@ -4868,7 +4873,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5038,7 +5043,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5170,6 +5175,108 @@
    ],
    "prep": [],
    "fit_reason": "6.5: SQL/Power BI dashboards and Pay→TransferMate payments flow are relevant; gap: fraud/financial-services product knowledge, licence unverified"
+  },
+  {
+   "id": "N087",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Perlego",
+   "role": "Product Manager – Platform Experience",
+   "sector": "Non-university",
+   "location": "London (Holborn), hybrid 2 days/week",
+   "salary": "£55,000–£60,000",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7.5",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own discovery-to-delivery 'bets' for the post-sign-up experience of an edtech digital-textbook platform; habit/engagement KPIs; self-serve data/BI (no squad analyst)",
+   "notes": "Daily search 19 Nov 2026. Official Workable advert (posted 2026-10-19) live with Apply link, no closing date. Advert silent on sponsorship (mentions only 'work-from-overseas flexibility', which is not sponsorship). Employer appears on a Home Office register-matched sponsor list (exact legal-name match, list updated 13 Nov 2026); gov.uk register CSV could not be opened directly today — confirm 'Perlego Limited' on the register before applying. SOC likely 2134 (product manager); salary at/above the ~£55k going rate quoted by Hunt UK Visa Sponsors — confirm. Permanent, full time. No right-to-work or clearance restriction stated. Mandatory gaps: consumer habit-forming/engagement products at D2C subscription scale; hands-on BI self-service expected.",
+   "url": "https://apply.workable.com/perlego/jobs/view/80CA755FF9",
+   "source": "Perlego careers (Workable)",
+   "added": "2026-11-19",
+   "legal_entity": "Perlego (UK) — via register-matched sponsor list (UK-Visa-Sponsor-Tech-Jobs, 13 Nov 2026); confirm on gov.uk register",
+   "last_verified": "19 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-19T09:10:00Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7.5: edtech product ownership, engagement/churn work (+30% completion, -29.5% churn at Shikho) and SQL/Power BI match; gap: D2C subscription consumer scale"
+  },
+  {
+   "id": "N088",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Perlego",
+   "role": "Senior Product Manager – New User Experience",
+   "sector": "Non-university",
+   "location": "London, hybrid 2 days/week",
+   "salary": "£70,000–£80,000",
+   "deadline": "",
+   "deadline_text": "Open — no closing date shown",
+   "sponsorship": "⚠️ Licensed — Unconfirmed",
+   "fit": "7",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own conversion-rate optimisation across D2C growth funnels: experimentation backlog, squad KPIs, AI workflows (landing pages at scale), partner with monetisation PM and SEO lead",
+   "notes": "Daily search 19 Nov 2026. Official Workable advert (posted 2026-10-21) live with Apply link, no closing date. Advert silent on sponsorship. Same licence caveat as the Perlego Platform Experience row (register-matched list, confirm 'Perlego Limited' on gov.uk register). SOC likely 2134; salary well above going rate. Permanent, full time. Requires 4+ years PM owning work end to end with a track record improving conversion on high-volume subscription funnels. Mandatory gaps: high-volume D2C subscription CRO and SEO-led growth.",
+   "url": "https://apply.workable.com/perlego/jobs/view/B4F3F7822C",
+   "source": "Perlego careers (Workable)",
+   "added": "2026-11-19",
+   "legal_entity": "Perlego (UK) — via register-matched sponsor list (UK-Visa-Sponsor-Tech-Jobs, 13 Nov 2026); confirm on gov.uk register",
+   "last_verified": "19 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-19T09:10:00Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "7: Shikho A/B testing, funnel/drop-off analysis and AI-built tools match; gap: high-volume D2C subscription CRO track record"
+  },
+  {
+   "id": "N089",
+   "stage": "To apply",
+   "alert": "🔴 Closes in 1 day",
+   "organisation": "University of Leeds",
+   "role": "Marketing Workflow Manager (ref CSMAR1177, 12-month FTC)",
+   "sector": "University",
+   "location": "Leeds (main campus), hybrid possible",
+   "salary": "£41,064–£48,822 (Grade 7)",
+   "deadline": "2026-11-20",
+   "deadline_text": "20 Nov 2026 (may close early)",
+   "sponsorship": "✅ Confirmed — \"this post may be suitable for sponsorship under the Skilled Worker visa route\"",
+   "fit": "6",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Run workflow, planning and scheduling of projects across the Student Recruitment Marketing team; prevent bottlenecks; task-manage matrix working groups; deputise for Planning & Workflow Manager",
+   "notes": "Daily search 19 Nov 2026 (Leeds employer-first check). Official advert on jobs.leeds.ac.uk vacancy list (placed 6 Nov, closes 20 Nov; interviews expected 2 Dec — same day as the Sheffield City Council interview T021, check times). Fixed-term 12 months (cover). SOC likely 2440/3556 project/marketing management — the advert notes first-time applicants may need salary concessions; the bottom of the scale is under £41,700, so check the going rate and new-entrant rules. No line management. Mandatory gaps: marketing-operations workflow tooling and campaign delivery; this is a project/workflow role, not product.",
+   "url": "https://jobs.leeds.ac.uk/vacancy.aspx?ref=CSMAR1177",
+   "source": "jobs.leeds.ac.uk (University of Leeds official)",
+   "added": "2026-11-19",
+   "legal_entity": "University of Leeds (licensed sponsor; advert confirms the route)",
+   "last_verified": "19 Nov 2026",
+   "applied_on": null,
+   "follow_up": null,
+   "history": [
+    {
+     "at": "2026-11-19T09:10:00Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ],
+   "prep": [],
+   "fit_reason": "6: student-recruitment pipeline knowledge from SAMS CRM and delivery/team coordination transfer; gap: marketing campaign operations, not a product role"
   }
  ]
 }
