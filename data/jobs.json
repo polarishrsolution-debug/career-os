@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T09:40:33Z",
+ "updated": "2026-11-20T22:39:45Z",
  "rows": [
   {
    "id": "T001",
@@ -2620,8 +2620,8 @@
   },
   {
    "id": "N012",
-   "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "stage": "Applied",
+   "alert": "🔵 Awaiting response",
    "organisation": "University of Bath",
    "role": "Senior Business Analyst (Fixed Term)",
    "sector": "University",
@@ -2631,8 +2631,8 @@
    "deadline_text": "23 Nov 2026",
    "sponsorship": "⚠️ Licensed — unconfirmed",
    "fit": "8.5",
-   "submission": "Not started",
-   "interview_status": "—",
+   "submission": "Submitted",
+   "interview_status": "Awaiting response",
    "interview_datetime": "",
    "jd_focus": "Planning, Performance & Strategic Change: business analysis for university change",
    "notes": "Bath already uses SAMS Planner — useful context, mention carefully.",
@@ -2641,9 +2641,14 @@
    "added": "4 Nov 2026",
    "legal_entity": "",
    "last_verified": "4 Nov 2026",
-   "applied_on": null,
-   "follow_up": null,
-   "history": [],
+   "applied_on": "2026-11-20",
+   "follow_up": "2026-11-30",
+   "history": [
+    {
+     "at": "2026-11-20T22:23:04.445Z",
+     "what": "Applied · follow-up set for Mon 30 Nov"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
