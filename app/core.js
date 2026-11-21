@@ -50,7 +50,13 @@ else if (e.type === 'deadline' && e.days > 2 && e.days <= 7) out.push({rank: 5, 
 else if (e.type === 'tbc') out.push({rank: 3, tone: 'amber', title: 'Get the interview date: ' + e.org, sub: e.role + ' · ' + (e.status || 'Invited'), id: e.id, when: 'Date TBC'});
 else if (e.type === 'follow' && e.days <= 0) out.push({rank: 4, tone: 'purple', title: 'Follow up: ' + e.org, sub: e.role, id: e.id, when: e.days === 0 ? 'Due today' : 'Overdue ' + -e.days + 'd'});
 }
-for (const r of jobs) if (r.stage === 'Interview stage' && /offer/i.test(r.interview_status || '')) out.push({rank: 1, tone: 'gold', title: 'Respond to the offer: ' + r.organisation, sub: r.role, id: r.id, when: 'Offer'});
+const V = {'': 'Ask HR to start your Certificate of Sponsorship', 'CoS requested': 'Chase HR for your CoS', 'CoS assigned': 'Apply for your Skilled Worker visa', 'Visa applied': 'Wait for the visa decision', 'Visa granted': 'Confirm your start date'};
+for (const r of jobs) {
+const st = r.interview_status || '';
+if (r.stage !== 'Interview stage' || !/offer/i.test(st) || /declined/i.test(st)) continue;
+if (/accepted/i.test(st)) { const v = r.visa_step || ''; if (v !== 'Started') out.push({rank: 1, tone: 'green', title: (V[v] || V['']) + ': ' + r.organisation, sub: r.role + ' · offer accepted', id: r.id, when: v || 'Next step'}); }
+else out.push({rank: 1, tone: 'gold', title: 'Respond to the offer: ' + r.organisation, sub: r.role, id: r.id, when: 'Offer'});
+}
 return out.sort((a, b) => a.rank - b.rank);
 },
 });
@@ -58,8 +64,10 @@ dash.calc('summary', {
 inputs: ['jobs', 'events', 'conflicts', 'priorities'], title: 'Headline counts',
 description: 'Roles tracked, applications, interviews, the next seven days, clashes, follow-ups, sponsorship tiers among open roles and response rates.',
 fn: (jobs, events, conflicts, priorities) => {
-const sub = jobs.filter((r) => r.submission === 'Submitted');
-const iv = jobs.filter((r) => r.stage === 'Interview stage').length;
+const didApply = (r) => r.submission === 'Submitted' || (/^withdrawn/i.test(r.submission || '') && (!!r.applied_on || /interview|offer|awaiting|rejected|screening|no response/i.test(r.interview_status || '')));
+const reachedIv = (r) => { const st = r.interview_status || ''; if (r.stage === 'Interview stage' || /offer|after interview|^interviewed/i.test(st)) return true; if (!didApply(r)) return false; if (/[0-9]{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]* 20[0-9][0-9]/i.test(r.interview_datetime || '')) return true; return (Array.isArray(r.history) ? r.history : []).some((x) => /invited to interview|interview booked|interview done|interviewed|interview date:/i.test(x.what || '')); };
+const sub = jobs.filter(didApply);
+const iv = jobs.filter(reachedIv).length;
 const rej = jobs.filter((r) => /^rejected/i.test(r.interview_status || '')).length;
 const open = jobs.filter((r) => r.stage === 'To apply' || r.stage === 'Watchlist — verify licence');
 const k = (r) => (r.sponsorship || '').startsWith('✅') ? 'ok' : (r.sponsorship || '').startsWith('⚠') ? 'warn' : 'unk';
@@ -68,6 +76,7 @@ return [
 {metric: 'applied', n: sub.length},
 {metric: 'interviews', n: iv},
 {metric: 'iv7', n: events.filter((e) => e.type === 'interview' && e.days >= 0 && e.days <= 7).length},
+{metric: 'ivup', n: events.filter((e) => (e.type === 'interview' && e.days >= 0) || e.type === 'tbc').length},
 {metric: 'conflicts', n: conflicts.length},
 {metric: 'closing7', n: events.filter((e) => e.type === 'deadline' && e.days >= 0 && e.days <= 7).length},
 {metric: 'followups', n: events.filter((e) => e.type === 'follow' && e.days <= 0).length},
@@ -87,33 +96,44 @@ return [
 dash.calc('pipeline', {
 inputs: ['jobs'], title: 'Pipeline', description: 'Roles in each pipeline column: to apply, applied, interview, offer, rejected or closed.',
 fn: (jobs) => {
-const col = (r) => r.stage === 'Closed' ? 'closed' : /offer/i.test(r.interview_status || '') ? 'offer' : r.stage === 'Interview stage' ? 'interview' : r.stage === 'Applied' ? 'applied' : 'apply';
+const n = new Date(), t0 = Date.UTC(n.getFullYear(), n.getMonth(), n.getDate());
+const exp = (r) => (r.stage === 'To apply' || r.stage === 'Watchlist — verify licence') && r.submission !== 'Submitted' && r.deadline && Date.parse(r.deadline + 'T00:00:00Z') < t0;
+const col = (r) => r.stage === 'Closed' || exp(r) ? 'closed' : /offer/i.test(r.interview_status || '') ? 'offer' : r.stage === 'Interview stage' ? 'interview' : r.stage === 'Applied' ? 'applied' : 'apply';
 return [['apply', 'To apply'], ['applied', 'Applied'], ['interview', 'Interview'], ['offer', 'Offer'], ['closed', 'Rejected / closed']].map(([c, label]) => ({col: c, label, n: jobs.filter((r) => col(r) === c).length}));
 },
 });
 dash.calc('funnel', {
 inputs: ['jobs'], title: 'Conversion funnel', description: 'Roles tracked, applications sent, roles that reached interview and offers.',
-fn: (jobs) => [
+fn: (jobs) => {
+const didApply = (r) => r.submission === 'Submitted' || (/^withdrawn/i.test(r.submission || '') && (!!r.applied_on || /interview|offer|awaiting|rejected|screening|no response/i.test(r.interview_status || '')));
+const reachedIv = (r) => { const st = r.interview_status || ''; if (r.stage === 'Interview stage' || /offer|after interview|^interviewed/i.test(st)) return true; if (!didApply(r)) return false; if (/[0-9]{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]* 20[0-9][0-9]/i.test(r.interview_datetime || '')) return true; return (Array.isArray(r.history) ? r.history : []).some((x) => /invited to interview|interview booked|interview done|interviewed|interview date:/i.test(x.what || '')); };
+return [
 {step: 'Tracked', n: jobs.length},
-{step: 'Applied', n: jobs.filter((r) => r.submission === 'Submitted').length},
-{step: 'Interview', n: jobs.filter((r) => r.stage === 'Interview stage').length},
+{step: 'Applied', n: jobs.filter(didApply).length},
+{step: 'Interview', n: jobs.filter(reachedIv).length},
 {step: 'Offer', n: jobs.filter((r) => /offer/i.test(r.interview_status || '')).length},
-],
+];
+},
 });
 dash.calc('outcomes', {
-inputs: ['jobs'], title: 'Application outcomes', description: 'Submitted or withdrawn applications by their latest outcome.',
+inputs: ['jobs'], title: 'Application outcomes', description: 'Applications you actually sent, by their latest outcome. Roles you decided not to apply for are left out.',
 fn: (jobs) => {
-const o = (r) => /^withdrawn/i.test(r.submission || '') ? 'Withdrawn' : r.submission !== 'Submitted' ? null : /offer/i.test(r.interview_status || '') ? 'Offer' : /^rejected/i.test(r.interview_status || '') ? 'Rejected' : r.stage === 'Interview stage' ? 'Interview' : 'Awaiting response';
-return ['Awaiting response', 'Interview', 'Offer', 'Rejected', 'Withdrawn'].map((label) => ({label, n: jobs.filter((r) => o(r) === label).length}));
+const didApply = (r) => r.submission === 'Submitted' || (/^withdrawn/i.test(r.submission || '') && (!!r.applied_on || /interview|offer|awaiting|rejected|screening|no response/i.test(r.interview_status || '')));
+const reachedIv = (r) => { const st = r.interview_status || ''; if (r.stage === 'Interview stage' || /offer|after interview|^interviewed/i.test(st)) return true; if (!didApply(r)) return false; if (/[0-9]{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]* 20[0-9][0-9]/i.test(r.interview_datetime || '')) return true; return (Array.isArray(r.history) ? r.history : []).some((x) => /invited to interview|interview booked|interview done|interviewed|interview date:/i.test(x.what || '')); };
+
+const o = (r) => { if (!didApply(r)) return null; const st = r.interview_status || ''; return /^withdrawn/i.test(r.submission || '') ? 'Withdrawn' : /offer/i.test(st) ? 'Offer' : /^rejected/i.test(st) ? 'Rejected' : /^no response/i.test(st) ? 'No reply' : r.stage === 'Interview stage' ? 'Interview' : 'Awaiting reply'; };
+return ['Awaiting reply', 'Interview', 'Offer', 'Rejected', 'No reply', 'Withdrawn'].map((label) => ({label, n: jobs.filter((r) => o(r) === label).length}));
 },
 });
 dash.calc('bySector', {
 inputs: ['jobs'], title: 'Interview rate by sector', description: 'Interview-stage roles divided by applications sent, per sector.',
-fn: (jobs) => ['Non-university', 'University'].map((sector) => {
-const a = jobs.filter((r) => r.sector === sector && r.submission === 'Submitted');
-const i = a.filter((r) => r.stage === 'Interview stage');
+fn: (jobs) => { const didApply = (r) => r.submission === 'Submitted' || (/^withdrawn/i.test(r.submission || '') && (!!r.applied_on || /interview|offer|awaiting|rejected|screening|no response/i.test(r.interview_status || '')));
+const reachedIv = (r) => { const st = r.interview_status || ''; if (r.stage === 'Interview stage' || /offer|after interview|^interviewed/i.test(st)) return true; if (!didApply(r)) return false; if (/[0-9]{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]* 20[0-9][0-9]/i.test(r.interview_datetime || '')) return true; return (Array.isArray(r.history) ? r.history : []).some((x) => /invited to interview|interview booked|interview done|interviewed|interview date:/i.test(x.what || '')); };
+return ['Non-university', 'University'].map((sector) => {
+const a = jobs.filter((r) => r.sector === sector && didApply(r));
+const i = a.filter(reachedIv);
 return {sector, applied: a.length, interviews: i.length, rate: a.length ? i.length / a.length : 0};
-}),
+}); },
 });
 dash.calc('rejBy', {
 inputs: ['jobs'], title: 'Rejections by role type', description: 'Rejected applications matched to role types by words in the job title.',
@@ -179,7 +199,8 @@ CO.fitNum = (f) => { const m = String(f || '').match(/([0-9]+(?:[.][0-9]+)?)/); 
 CO.spKind = (s) => (s || '').startsWith('✅') ? 'ok' : (s || '').startsWith('⚠') ? 'warn' : 'unk';
 CO.SP = {ok: ['Confirmed in advert', 'green'], warn: ['Licensed, not confirmed', 'blue'], unk: ['Licence unknown', 'amber']};
 CO.COLS = {apply: ['To apply', 'blue'], applied: ['Applied', 'purple'], interview: ['Interview', 'green'], offer: ['Offer', 'gold'], closed: ['Closed', 'grey']};
-CO.colOf = (r) => r.stage === 'Closed' ? 'closed' : /offer/i.test(r.interview_status || '') ? 'offer' : r.stage === 'Interview stage' ? 'interview' : r.stage === 'Applied' ? 'applied' : 'apply';
+CO.expired = (r) => (r.stage === 'To apply' || r.stage === 'Watchlist — verify licence') && r.submission !== 'Submitted' && !!r.deadline && CO.daysTo(r.deadline) < 0;
+CO.colOf = (r) => r.stage === 'Closed' || CO.expired(r) ? 'closed' : /offer/i.test(r.interview_status || '') ? 'offer' : r.stage === 'Interview stage' ? 'interview' : r.stage === 'Applied' ? 'applied' : 'apply';
 CO.plain = (a) => (a || '').replace(/^[^A-Za-z0-9]+/, '');
 CO.isUrl = (u) => /^https?:[/][/]/.test(u || '');
 CO.todayUtc = () => { const n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); };
@@ -194,18 +215,45 @@ CO.initials = (s) => { const w = String(s || '').replace(/[^A-Za-z0-9 ]/g, ' ').
 CO.av = (org, cls) => { const a = CO.el('div', 'av' + (cls ? ' ' + cls : ''), CO.initials(org)); const h = CO.hue(org); a.style.background = 'linear-gradient(135deg, ' + h + ', color-mix(in srgb, ' + h + ' 65%, #0f2537))'; return a; };
 CO.fitColor = (f) => f == null ? 'var(--color-fg-muted)' : f >= 8.5 ? 'var(--acc)' : f >= 7.5 ? 'var(--c1)' : 'var(--color-warn)';
 CO.norm = (r) => {
-if (typeof r.history !== 'string' && typeof r.prep !== 'string') return r;
+if (!['history', 'prep', 'notes_log', 'steps'].some((k) => typeof r[k] === 'string')) return r;
 const o = Object.assign({}, r);
-for (const k of ['history', 'prep']) if (typeof o[k] === 'string') { try { const v = JSON.parse(o[k]); o[k] = Array.isArray(v) ? v : []; } catch (e) { o[k] = []; } }
+for (const k of ['history', 'prep', 'notes_log']) if (typeof o[k] === 'string') { try { const v = JSON.parse(o[k]); o[k] = Array.isArray(v) ? v : []; } catch (e) { o[k] = []; } }
+if (typeof o.steps === 'string') { try { const v = JSON.parse(o.steps); o.steps = v && typeof v === 'object' && !Array.isArray(v) ? v : {}; } catch (e) { o.steps = {}; } }
 return o;
+};
+CO.didApply = (r) => r.submission === 'Submitted' || (/^withdrawn/i.test(r.submission || '') && (!!r.applied_on || /interview|offer|awaiting|rejected|screening|no response/i.test(r.interview_status || '')));
+CO.reachedIv = (r) => { const st = r.interview_status || ''; if (r.stage === 'Interview stage' || /offer|after interview|^interviewed/i.test(st)) return true; if (!CO.didApply(r)) return false; if (/[0-9]{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]* 20[0-9][0-9]/i.test(r.interview_datetime || '')) return true; return (Array.isArray(r.history) ? r.history : []).some((x) => /invited to interview|interview booked|interview done|interviewed|interview date:/i.test(x.what || '')); };
+const hDate = (r, re) => { const h = (Array.isArray(r.history) ? r.history : []).find((x) => re.test(x.what || '')); return h && h.at ? String(h.at).slice(0, 10) : ''; };
+CO.when = (r, k) => {
+const s = r.steps || {};
+if (k === 'applied') { if (s.applied || r.applied_on) return {d: s.applied || r.applied_on}; const h = hDate(r, /^applied/i); if (h) return {d: h}; return r.deadline ? {d: r.deadline, est: true} : {d: ''}; }
+if (k === 'interview') { const p = CO.ivParse(r.interview_datetime); if (p) return {d: new Date(p.ms).toISOString().slice(0, 10)}; if (s.interview) return {d: s.interview}; return {d: hDate(r, /invited to interview|interview booked|interview status: interview|interview date:|interview done|interviewed/i)}; }
+if (k === 'offer') return {d: s.offer || hDate(r, /offer received/i)};
+if (k === 'rejected') return {d: s.rejected || hDate(r, /rejected/i)};
+return {d: ''};
+};
+CO.VISA = ['CoS requested', 'CoS assigned', 'Visa applied', 'Visa granted', 'Started'];
+CO.stamp = (a, b) => {
+const s = Object.assign({}, a.steps && typeof a.steps === 'object' ? a.steps : {}), d = CO.todayIso(), st = b.interview_status || '', st0 = a.interview_status || '';
+let ch = false; const set = (k, cond) => { if (cond && !s[k]) { s[k] = d; ch = true; } };
+set('applied', b.submission === 'Submitted' && a.submission !== 'Submitted');
+set('screening', /^screening/i.test(st) && st !== st0);
+set('interview', /interview (invited|booked)|^task/i.test(st) && st !== st0);
+set('offer', /offer received/i.test(st) && st !== st0);
+set('accepted', /offer accepted/i.test(st) && st !== st0);
+set('rejected', /^rejected/i.test(st) && st !== st0);
+set('noreply', /^no response/i.test(st) && st !== st0);
+set('withdrawn', /^withdrawn/i.test(b.submission || '') && !/^withdrawn/i.test(a.submission || ''));
+if (b.visa_step && b.visa_step !== a.visa_step) set(b.visa_step, true);
+return ch ? s : null;
 };
 CO.addedIso = (r) => { const a = String(r.added || ''); if (/^20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/.test(a)) return a.slice(0, 10); const p = CO.ivParse(a); return p ? new Date(p.ms).toISOString().slice(0, 10) : ''; };
 CO.sub = (r) => {
 const c = CO.colOf(r), st = r.interview_status || '', rd = Number(r.round) > 1 ? 'Round ' + r.round + ' · ' : '';
 if (c === 'interview') { const p = CO.ivParse(r.interview_datetime); return rd + (/^interviewed/i.test(st) ? 'Awaiting outcome' : /^task/i.test(st) ? 'Task stage' : p ? (Math.round((p.ms - CO.todayUtc()) / 864e5) < 0 ? 'Outcome to record' : 'Booked') : 'Invited, date TBC'); }
-if (c === 'offer') return /accepted/i.test(st) ? 'Accepted' : 'Offer received';
-if (c === 'applied') return r.follow_up && CO.daysTo(r.follow_up) <= 0 ? 'Follow-up due' : 'Awaiting reply';
-if (c === 'closed') return /^rejected/i.test(st) ? 'Rejected' : /declined/i.test(st) ? 'Offer declined' : /^withdrawn/i.test(r.submission || '') ? (r.applied_on || /interview|offer|awaiting/i.test(st) ? 'Withdrawn' : 'Not applying') : 'Deadline passed';
+if (c === 'offer') return /accepted/i.test(st) ? (r.visa_step ? 'Accepted · ' + r.visa_step : 'Accepted') : 'Offer received';
+if (c === 'applied') return /^screening/i.test(st) ? 'Screening' + (st.split('—')[1] ? ' · ' + st.split('—')[1].trim() : '') : r.follow_up && CO.daysTo(r.follow_up) <= 0 ? 'Follow-up due' : 'Awaiting reply';
+if (c === 'closed') return CO.expired(r) ? 'Deadline passed' : /^rejected/i.test(st) ? (CO.reachedIv(r) ? 'Rejected after interview' : 'Rejected at application') : /^no response/i.test(st) ? 'No reply' : /declined/i.test(st) ? 'Offer declined' : /^withdrawn/i.test(r.submission || '') ? (r.applied_on || /interview|offer|awaiting/i.test(st) ? 'Withdrawn' : 'Not applying') : 'Deadline passed';
 if ((r.sponsorship || '').startsWith('❔')) return 'Watchlist';
 return 'Not applied yet';
 };
@@ -233,23 +281,37 @@ CO.actions = (r) => {
 const c = CO.colOf(r), st = r.interview_status || '', today = CO.todayIso();
 const p = CO.ivParse(r.interview_datetime), n = p ? Math.round((p.ms - CO.todayUtc()) / 864e5) : null;
 const ivBase = Object.assign({}, CO.moveTo(r, 'interview'));
-const rej = {l: '✗ Rejected', p: {interview_status: 'Rejected'}, w: 'Rejected'};
+const rej = {l: '✗ Rejected', p: {interview_status: c === 'interview' ? 'Rejected after interview' : 'Rejected'}, w: c === 'interview' ? 'Rejected after interview' : 'Rejected'};
+const nr = {l: 'No reply — close it', p: {interview_status: 'No response'}, w: 'No reply — closed', ghost: true};
 const wd = {l: 'Withdraw', p: {submission: 'Withdrawn'}, w: 'Withdrew the application', ghost: true};
 if (c === 'apply') return [{l: '✓ I applied today', p: CO.moveTo(r, 'applied'), w: 'Applied · follow-up set for ' + CO.fmtDay(CO.addDays(today, 10)), pri: true}, {l: 'Not applying', p: {submission: 'Withdrawn'}, w: 'Not applying', ghost: true}];
-if (c === 'applied') return [{l: '📅 Got an interview invite', form: true, base: Object.assign(ivBase, {interview_status: 'Interview invited', interview_datetime: 'TBC'}), w: 'Invited to interview', pri: true}, {l: '↻ I followed up', p: {follow_up: CO.addDays(today, 7)}, w: 'Followed up · next follow-up ' + CO.fmtDay(CO.addDays(today, 7))}, rej, wd];
+const inv = {l: '📅 Got an interview invite', form: true, base: Object.assign(ivBase, {interview_status: 'Interview invited', interview_datetime: 'TBC'}), w: 'Invited to interview', pri: true};
+if (c === 'applied' && /^screening/i.test(st)) return [inv, {l: '↻ I followed up', p: {follow_up: CO.addDays(today, 7)}, w: 'Followed up · next follow-up ' + CO.fmtDay(CO.addDays(today, 7))}, rej, wd];
+if (c === 'applied') return [inv, {l: '🧪 Screening call, test or task', p: {interview_status: 'Screening'}, w: 'Screening stage'}, {l: '↻ I followed up', p: {follow_up: CO.addDays(today, 7)}, w: 'Followed up · next follow-up ' + CO.fmtDay(CO.addDays(today, 7))}, rej, nr, wd];
 if (c === 'interview') {
 if (/^interviewed/i.test(st)) return [{l: '🎉 Offer received', p: {interview_status: 'Offer received'}, w: 'Offer received', pri: true}, {l: '➜ Invited to next round', form: true, base: {interview_status: 'Interview invited', interview_datetime: 'TBC', round: (Number(r.round) || 1) + 1}, w: 'Invited to round ' + ((Number(r.round) || 1) + 1)}, rej, wd];
 const done = {l: '✓ Interview done', p: {interview_status: 'Interviewed — awaiting outcome'}, w: 'Interview done · awaiting outcome', pri: n != null && n <= 0};
 const date = {l: p ? '📅 Change date or time' : '📅 Set interview date', form: true, base: {interview_status: 'Interview booked'}, w: p ? 'Interview moved' : 'Interview booked', pri: !p};
 return n != null && n <= 0 ? [done, date, rej, wd] : [date, done, rej, wd];
 }
-if (c === 'offer') return /accepted/i.test(st) ? [{l: 'Undo acceptance', p: {interview_status: 'Offer received'}, w: 'Offer back to received', ghost: true}] : [{l: '✓ Accept the offer', p: {interview_status: 'Offer accepted'}, w: 'Offer accepted', pri: true}, {l: 'Decline the offer', p: {interview_status: 'Offer declined', submission: 'Withdrawn'}, w: 'Offer declined', ghost: true}];
-return [{l: '↺ Reopen', p: r.applied_on || /interview|offer|rejected/i.test(st) ? {submission: 'Submitted', interview_status: 'Awaiting response'} : {submission: 'Not started', interview_status: '—'}, w: 'Reopened', ghost: true}];
+if (c === 'offer' && /accepted/i.test(st)) {
+const i = CO.VISA.indexOf(r.visa_step || ''), nx = CO.VISA[i + 1];
+const L = {'CoS requested': '✓ I asked HR for my CoS', 'CoS assigned': '✓ CoS assigned (I have the number)', 'Visa applied': '✓ Visa application submitted', 'Visa granted': '🎉 Visa granted', Started: '🎉 I have started the job'};
+const out = [];
+if (nx) out.push({l: L[nx], p: {visa_step: nx}, w: nx, pri: true});
+if (i >= 0) out.push({l: 'Undo last step', p: {visa_step: CO.VISA[i - 1] || ''}, w: 'Back to ' + (CO.VISA[i - 1] || 'offer accepted'), ghost: true});
+else out.push({l: 'Undo acceptance', p: {interview_status: 'Offer received'}, w: 'Offer back to received', ghost: true});
+return out;
+}
+if (c === 'offer') return [{l: '✓ Accept the offer', p: {interview_status: 'Offer accepted'}, w: 'Offer accepted', pri: true}, {l: 'Decline the offer', p: {interview_status: 'Offer declined', submission: 'Withdrawn'}, w: 'Offer declined', ghost: true}];
+if (CO.expired(r)) return [{l: '✓ I applied before it closed', p: CO.moveTo(r, 'applied'), w: 'Applied (before the deadline)', pri: true}, {l: 'Not applying', p: {submission: 'Withdrawn'}, w: 'Not applying', ghost: true}];
+return [{l: '↺ Reopen', p: r.applied_on || /interview|offer|rejected|no response/i.test(st) ? {submission: 'Submitted', interview_status: 'Awaiting response'} : {submission: 'Not started', interview_status: '—'}, w: 'Reopened', ghost: true}];
 };
 
 CO.next = (r) => {
 const c = CO.colOf(r), st = r.interview_status || '';
-if (c === 'closed') return {t: /^rejected/i.test(st) ? 'Not taken forward' : /^withdrawn/i.test(r.submission || '') ? 'Withdrawn' : 'Closed', s: CO.plain(r.alert), u: 'grey', k: 9e6};
+if (c === 'closed') return CO.expired(r) ? {t: 'Deadline passed', s: CO.fmtDay(r.deadline), u: 'grey', k: 9e6} : {t: /^rejected/i.test(st) ? 'Not taken forward' : /^no response/i.test(st) ? 'No reply' : /^withdrawn/i.test(r.submission || '') ? 'Withdrawn' : 'Closed', s: CO.plain(r.alert), u: 'grey', k: 9e6};
+if (c === 'offer' && /accepted/i.test(st)) { const V = {'': ['Ask HR to start your CoS', 'Offer accepted · sponsorship is next'], 'CoS requested': ['Chase HR for your CoS', 'CoS requested'], 'CoS assigned': ['Apply for your visa', 'Apply within 3 months of the start date on the CoS'], 'Visa applied': ['Wait for the visa decision', 'Visa applied'], 'Visa granted': ['Confirm your start date', 'Visa granted'], Started: ['Started 🎉', 'You have started the job']}; const v = V[r.visa_step || ''] || V['']; return {t: v[0], s: v[1], u: 'green', k: -2}; }
 if (c === 'offer') return {t: 'Respond to the offer', s: st, u: 'gold', k: -1};
 if (c === 'interview') {
 const p = CO.ivParse(r.interview_datetime), where = (String(r.interview_datetime || '').split('—')[1] || '').trim();
@@ -263,6 +325,7 @@ return {t: 'Chase the outcome', s: 'Interviewed ' + CO.fmtDay(p.ms), u: 'blue', 
 if (/^interviewed/i.test(st)) return {t: 'Chase the outcome', s: st, u: 'blue', k: 20};
 return {t: 'Get the interview date', s: st || 'Invited', u: 'amber', k: 2.5};
 }
+if (c === 'applied' && /^screening/i.test(st)) return {t: 'Finish the screening step', s: st, u: 'amber', k: 2.7};
 if (c === 'applied') {
 const n = CO.daysTo(r.follow_up);
 if (n != null && n <= 0) return {t: 'Follow up now', s: n === 0 ? 'Due today' : 'Was due ' + CO.fmtDay(r.follow_up), u: 'purple', k: 3 + n / 1000};
@@ -296,18 +359,20 @@ if (/^withdrawn/i.test(r.submission || '')) a = '⚫ Withdrawn';
 else if (booked && dd != null && dd >= 0 && dd <= 1) a = dd === 0 ? '🔴 Interview today' : '🔴 Interview tomorrow';
 else if (booked && dd != null && dd < 0) a = '🟠 Update interview outcome';
 else if (/^rejected/i.test(st)) a = '⚫ Closed — rejected';
-else if (/offer accepted/i.test(st)) a = '🟢 Offer accepted';
+else if (/^no response/i.test(st)) a = '⚫ No response';
+else if (/offer accepted/i.test(st)) a = '🟢 Offer accepted' + (r.visa_step ? ' · ' + r.visa_step : '');
 else if (/offer/i.test(st)) a = '🟢 Offer — respond';
 else if (r.submission === 'Not started') {
 if (!r.deadline) a = /^closed/i.test(r.deadline_text || '') ? '⚫ Deadline passed' : '🟢 Open — no deadline';
 else { const n = CO.daysTo(r.deadline); a = n < 0 ? '⚫ Deadline passed' : n <= 2 ? '🔴 Closes in ' + n + (n === 1 ? ' day' : ' days') : n <= 7 ? '🟠 Closes in ' + n + ' days' : '🟡 Closes in ' + n + ' days'; }
 } else if (/TBC/i.test(iv) || (booked && !iv)) a = '🟠 Get interview date';
 else if (/^interviewed/i.test(st)) a = '🔵 Chase outcome';
+else if (/^screening/i.test(st)) a = '🔵 Screening';
 else if (booked) a = '🔵 Interview booked';
 else if (r.follow_up && CO.daysTo(r.follow_up) <= 0) a = '🟠 Follow up';
 else a = '🔵 Awaiting response';
 r.alert = a;
-r.stage = /^rejected/i.test(st) || /^withdrawn/i.test(r.submission || '') ? 'Closed' : /interview|offer/i.test(st) || /^task/i.test(st) ? 'Interview stage' : r.submission === 'Submitted' ? 'Applied' : a.startsWith('⚫') ? 'Closed' : (r.sponsorship || '').startsWith('❔') ? 'Watchlist — verify licence' : 'To apply';
+r.stage = /^rejected|^no response/i.test(st) || /^withdrawn/i.test(r.submission || '') ? 'Closed' : /interview|offer/i.test(st) || /^task/i.test(st) ? 'Interview stage' : r.submission === 'Submitted' ? 'Applied' : a.startsWith('⚫') ? 'Closed' : (r.sponsorship || '').startsWith('❔') ? 'Watchlist — verify licence' : 'To apply';
 return r;
 };
 CO.moveTo = (r, col, how) => {
@@ -317,7 +382,9 @@ if (col === 'apply') return {submission: 'Not started', interview_status: '—'}
 if (col === 'applied') return Object.assign(applied, {interview_status: 'Awaiting response', follow_up: r.follow_up || CO.addDays(today, 10)});
 if (col === 'interview') return Object.assign(applied, {interview_status: /interview|task/i.test(st) && !/offer/i.test(st) ? st : 'Interview invited', interview_datetime: r.interview_datetime || 'TBC'});
 if (col === 'offer') return Object.assign(applied, {interview_status: 'Offer received'});
-if (col === 'closed') return how === 'withdrawn' || r.submission !== 'Submitted' ? {submission: 'Withdrawn'} : {interview_status: 'Rejected'};
+if (col === 'screening') return Object.assign(applied, {interview_status: 'Screening'});
+if (col === 'noreply') return Object.assign(applied, {interview_status: 'No response'});
+if (col === 'closed') return how === 'withdrawn' || r.submission !== 'Submitted' ? {submission: 'Withdrawn'} : {interview_status: CO.reachedIv(r) ? 'Rejected after interview' : 'Rejected'};
 return {};
 };
 
@@ -407,13 +474,14 @@ if (Object.keys(SAVING).some((k) => SAVING[k] === 'saving')) schedule(300);
 const schedule = (ms) => { clearTimeout(timer); timer = setTimeout(flush, ms == null ? 700 : ms); };
 CO.retry = () => { Object.keys(SAVING).forEach((k) => { if (SAVING[k] === 'error') SAVING[k] = 'saving'; }); CO.status.error = ''; schedule(0); CO.redrawAll(); };
 CO.lastSave = null;
-const LABEL = {round: 'Round', submission: 'Submission', interview_status: 'Interview status', interview_datetime: 'Interview date', deadline: 'Deadline', fit: 'Fit', notes: 'Notes', applied_on: 'Applied on', follow_up: 'Follow-up', prep: 'Preparation'};
+const LABEL = {notes_log: 'Notes', visa_step: 'Sponsorship step', steps: 'Stage dates', round: 'Round', submission: 'Submission', interview_status: 'Interview status', interview_datetime: 'Interview date', deadline: 'Deadline', fit: 'Fit', notes: 'Notes', applied_on: 'Applied on', follow_up: 'Follow-up', prep: 'Preparation'};
 CO.saveRow = (r, patch, what, wait) => {
 const prev = LOCAL[r.id] || {};
 const base = Object.assign({}, r, prev);
 const changed = Object.keys(patch).filter((k) => JSON.stringify(base[k] ?? '') !== JSON.stringify(patch[k] ?? ''));
 if (!changed.length) return;
-const desc = what || changed.map((k) => k === 'notes' || k === 'prep' ? LABEL[k] + ' updated' : (LABEL[k] || k) + ': ' + (patch[k] || '—')).join(' · ');
+const stp = CO.stamp(base, Object.assign({}, base, patch)); if (stp) patch = Object.assign({}, patch, {steps: stp});
+const desc = what || changed.map((k) => k === 'notes' || k === 'prep' || k === 'notes_log' ? LABEL[k] + ' updated' : (LABEL[k] || k) + ': ' + (patch[k] || '—')).join(' · ');
 const hist = (Array.isArray(base.history) ? base.history.slice(-19) : []).concat([{at: new Date().toISOString(), what: desc}]);
 const merged = CO.recompute(Object.assign({}, base, patch));
 const undo = {}; changed.forEach((k) => { undo[k] = base[k] == null ? '' : base[k]; });
@@ -425,6 +493,8 @@ SAVING[r.id] = 'saving'; delete ERR[r.id];
 CO.redrawAll();
 schedule(wait);
 };
+CO.addNote = (r, text) => { text = String(text || '').trim(); if (!text) return; const cur = CO.ov(r); CO.saveRow(r, {notes_log: (Array.isArray(cur.notes_log) ? cur.notes_log : []).concat([{at: new Date().toISOString(), text}])}, 'Note added'); };
+CO.delNote = (r, i) => { const cur = CO.ov(r); const l = (Array.isArray(cur.notes_log) ? cur.notes_log : []).slice(); l.splice(i, 1); CO.saveRow(r, {notes_log: l}, 'Note deleted'); };
 CO.addRows = (rows) => {
 for (const r of rows) { LOCAL[r.id] = Object.assign({}, CO.recompute(Object.assign({}, r)), {__new: true}); VER[r.id] = (VER[r.id] || 0) + 1; SAVING[r.id] = 'saving'; }
 CO.redrawAll(); schedule(0);

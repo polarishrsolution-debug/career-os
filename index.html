@@ -350,6 +350,68 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 .os .hist { display: grid; gap: 6px; font-size: 12.5px; }
 .os .hist div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 8px; }
 .os .hist span:first-child { color: var(--mut); }
+
+.os .an { display: grid; gap: 16px; margin-bottom: 8px; }
+.os .aper { display: flex; flex-wrap: wrap; gap: 6px; }
+.os .achip { border: 1px solid var(--line); background: var(--card); color: var(--color-fg); border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 13px; cursor: pointer; }
+.os .achip:hover { border-color: var(--acc); }
+.os .achip.on { background: var(--acc); border-color: var(--acc); color: #fff; font-weight: 600; }
+.os .asum { margin: 0; font-size: 15px; line-height: 1.5; max-width: 62rem; }
+.os .an .kpi { cursor: default; }
+.os .an .kpi:hover { transform: none; box-shadow: none; }
+.os .kpi .dl { font-size: 11.5px; color: var(--mut); }
+.os .kpi .dl.up { color: var(--acc); } .os .kpi .dl.down { color: var(--color-warn); }
+.os .kpi.t-red .dl.up { color: var(--color-bad); } .os .kpi.t-red .dl.down { color: var(--acc); }
+.os .cgrid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); margin-top: 6px; }
+.os .ctile { --t: var(--c1); display: grid; gap: 4px; padding: 12px 14px; border-radius: 10px; background: var(--soft); border: 1px solid var(--line); }
+.os .ctile .k { font-size: 12px; color: var(--mut); }
+.os .ctile b { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; color: var(--t); }
+.os .ctile .m { font-size: 12px; color: var(--mut); min-height: 2.4em; }
+.os .ctile .btrack { height: 6px; } .os .ctile .bfill { background: var(--t); }
+.os .mt { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.os .mt th { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 650; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--soft); white-space: nowrap; }
+.os .mt td { padding: 10px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.os .mt td.num, .os .mt th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.os .mt td.num b { font-weight: 650; }
+.os .mt .mbar { display: inline-block; width: 60px; height: 6px; border-radius: 4px; background: color-mix(in srgb, var(--color-fg-muted) 14%, transparent); margin-left: 8px; vertical-align: middle; overflow: hidden; }
+.os .mt .mbar i { display: block; height: 100%; background: var(--c2); border-radius: 4px; }
+.os .mt tr.und td { color: var(--mut); font-style: italic; }
+.os .mt tr.tot td { font-weight: 650; background: var(--soft); border-bottom: 0; }
+.os .fixd summary { cursor: pointer; font-weight: 650; font-size: 14px; }
+.os .fixl { display: grid; gap: 6px; margin-top: 8px; max-height: 26rem; overflow: auto; }
+.os .fixr { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; }
+.os .fixr b { display: block; font-size: 13px; } .os .fixr span { font-size: 12px; color: var(--mut); }
+.os .fixr input { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--color-fg); }
+.os .sech { font-size: 15px; margin: 22px 0 10px; color: var(--mut); font-weight: 650; letter-spacing: .01em; }
+.os .steps6 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin: 4px 0 2px; }
+.os .steps6 .st { display: grid; justify-items: center; text-align: center; gap: 4px; position: relative; white-space: normal; font-size: 11px; line-height: 1.25; color: var(--mut); }
+.os .steps6 .st::after { content: none; }
+.os .steps6 .st::before { content: ''; position: absolute; top: 10px; left: calc(-50% + 12px); right: calc(50% + 12px); height: 2px; background: var(--line); }
+.os .steps6 .st:first-child::before { content: none; }
+.os .steps6 .st i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-style: normal; font-size: 10.5px; font-weight: 700; background: var(--card); position: relative; z-index: 1; }
+.os .steps6 .st small { font-size: 10.5px; color: var(--mut); }
+.os .steps6 .st { align-items: start; align-content: start; flex: none; }
+.os .steps6 .st span { display: block !important; }
+@container os (max-width: 560px) { .os .steps6 .st { font-size: 9.5px; padding: 0 1px; letter-spacing: -.01em; } .os .steps6 .st small { font-size: 9.5px; } }
+.os .steps6 .st.done i { background: var(--acc); border-color: var(--acc); color: #fff; } .os .steps6 .st.done::before, .os .steps6 .st.now::before, .os .steps6 .st.bad::before { background: var(--acc); }
+.os .steps6 .st.now { color: var(--color-fg); font-weight: 650; } .os .steps6 .st.now i { border-color: var(--acc); color: var(--acc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--acc) 18%, transparent); }
+.os .steps6 .st.bad { color: var(--color-bad); font-weight: 650; } .os .steps6 .st.bad i { background: var(--color-bad); border-color: var(--color-bad); color: #fff; }
+.os .steps6 .st.skip i { border-style: dashed; color: var(--mut); } .os .steps6 .st.skip { opacity: .7; } .os .steps6 .st.skip::before { background: var(--acc); }
+.os .vlist { display: grid; gap: 6px; }
+.os .vrow { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; align-items: center; gap: 10px; font-size: 13px; color: var(--mut); }
+.os .vrow i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-style: normal; font-size: 10.5px; font-weight: 700; }
+.os .vrow.done { color: var(--color-fg); } .os .vrow.done i { background: var(--acc); border-color: var(--acc); color: #fff; }
+.os .vrow.now { color: var(--color-fg); font-weight: 650; } .os .vrow.now i { border-color: var(--acc); color: var(--acc); }
+.os .vrow small { font-size: 11.5px; color: var(--mut); }
+.os .notes2 { display: grid; gap: 8px; }
+.os .notes2 textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 13px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--card); color: var(--color-fg); resize: vertical; min-height: 3.4em; }
+.os .notes2 textarea:focus { outline: 2px solid color-mix(in srgb, var(--acc) 40%, transparent); border-color: var(--acc); }
+.os .nrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 9px 10px; border-radius: 9px; background: var(--soft); border: 1px solid var(--line); }
+.os .nrow .nd { font-size: 11px; color: var(--mut); grid-column: 1; }
+.os .nrow .ntx { font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; grid-column: 1; }
+.os .nrow .xbtn { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+.os .nav { -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); }
+@container os (min-width: 1000px) { .os .nav { -webkit-mask-image: none; mask-image: none; } }
 .os .steps { display: flex; align-items: center; }
 .os .st { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mut); flex: 1; white-space: nowrap; }
 .os .st i { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-style: normal; font-size: 10px; font-weight: 700; flex: none; background: var(--card); }
@@ -380,7 +442,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 <button type='button' data-page='today' aria-current='page'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/></svg>Today<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=actions'>—</span></button>
 <button type='button' data-page='apps'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01'/></svg>Applications<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=total'>—</span></button>
 <button type='button' data-page='board'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='4' width='5' height='16' rx='1.5'/><rect x='10' y='4' width='5' height='11' rx='1.5'/><rect x='17' y='4' width='4' height='7' rx='1.5'/></svg>Pipeline</button>
-<button type='button' data-page='interviews'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='5' width='18' height='16' rx='2'/><path d='M16 3v4M8 3v4M3 10h18'/></svg>Interviews &amp; deadlines<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=iv7'>—</span></button>
+<button type='button' data-page='interviews'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='5' width='18' height='16' rx='2'/><path d='M16 3v4M8 3v4M3 10h18'/></svg>Interviews &amp; deadlines<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=ivup'>—</span></button>
 <div class='lbl'>INTELLIGENCE</div>
 <button type='button' data-page='shortlist'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z'/><path d='M9 12l2 2 4-4'/></svg>Sponsored shortlist<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=shortlist'>—</span></button>
 <button type='button' data-page='new'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1'/></svg>New roles<span class='cnt' data-draw='kpi' data-source='summary' data-field='n' data-where='metric=new'>—</span></button>
@@ -509,18 +571,17 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 </section>
 
 <section class='page' data-name='analytics' id='analytics' hidden>
-<div class='ph'><div><h1>Analytics</h1><p class='sub'>How applications convert, where responses come from and what kinds of roles you are seeing.</p></div></div>
-<div class='kpis'>
-<div class='kpi t-purple'><span class='k'>Applications sent</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=applied'>—</b></div>
-<div class='kpi t-green'><span class='k'>Response rate</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=response'>—</b></div>
-<div class='kpi'><span class='k'>Interview rate</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=rate'>—</b></div>
-<div class='kpi t-red'><span class='k'>Rejections</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=rejected'>—</b></div>
-</div>
+<div class='ph'><div><h1>Analytics</h1><p class='sub'>How your applications turn into interviews and offers, month by month. Pick a period to compare it with the one before.</p></div></div>
+<div class='an' data-draw='convo' data-source='jobs'></div>
+<h2 class='sech'>Where things stand now</h2>
 <div class='grid'>
-<div class='card'><h2>Conversion funnel</h2><p class='note'>Tracked roles to offers, with the share kept at each step.</p><div class='funnel' data-draw='funnel' data-source='funnel'></div></div>
-<div class='card'><h2>What happened to applications</h2><p class='note'>Every submitted application by its latest outcome.</p><div class='donut' data-draw='donut' data-source='outcomes'></div></div>
+<div class='card'><h2>Conversion funnel</h2><p class='note'>All roles you tracked, down to offers. Each step shows the share kept from the step before.</p><div class='funnel' data-draw='funnel' data-source='funnel'></div></div>
+<div class='card'><h2>What happened to your applications</h2><p class='note'>Only applications you actually sent, by their latest outcome.</p><div class='donut' data-draw='donut' data-source='outcomes'></div></div>
 <div class='card'><h2>Interview rate by sector</h2><p class='note'>Share of applications that reached interview.</p><div class='bars' data-draw='bars' data-source='bySector' data-key='sector' data-val='rate' data-fmt='pct'></div></div>
 <div class='card'><h2>Rejections by role type</h2><p class='note'>Where rejections have come from so far.</p><div class='bars' data-draw='bars' data-source='rejBy' data-key='label' data-val='n' data-fmt='int'></div></div>
+</div>
+<h2 class='sech'>What the search is finding</h2>
+<div class='grid'>
 <div class='card'><h2>Fit distribution</h2><p class='note'>Roles by fit score out of 10.</p><div class='cols' data-draw='colsgen' data-source='fitDist'></div></div>
 <div class='card'><h2>Salary range</h2><p class='note'>By the bottom of the advertised range.</p><div class='cols' data-draw='colsgen' data-source='salaryDist'></div></div>
 <div class='card'><h2>Roles by type</h2><p class='note'>A role can count in more than one type.</p><div class='bars' data-draw='bars' data-source='byFamily' data-key='label' data-val='n' data-fmt='int'></div></div>

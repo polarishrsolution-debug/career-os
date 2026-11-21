@@ -61,7 +61,7 @@ return data.filter((r) => pass(r)).sort(srt);
 const trow = (r) => {
 const n = CO.next(r);
 const tr = el('tr'); tr.dataset.key = r.id; tr.tabIndex = 0; if (os.sel === r.id) tr.className = 'sel';
-const c1 = el('td', 'c-role'); const rc = el('div', 'rc'); rc.append(CO.av(r.organisation)); const t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role), el('span', 'ot', CO.orgType(r)));
+const c1 = el('td', 'c-role'); const rc = el('div', 'rc'); rc.append(CO.av(r.organisation)); const t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r', r.role), el('span', 'ot', CO.orgType(r) + (Array.isArray(r.notes_log) && r.notes_log.length ? ' · 📝 ' + r.notes_log.length : '')));
 const sp = savePill(r.id); if (sp) t.append(sp);
 rc.append(t); c1.append(rc);
 const c2 = el('td', 'nw'); const sg = el('div', 'stg'); const sl = el('div'); sl.append(colPill(r)); if (r.id.startsWith('N')) { sl.append(' '); sl.append(pill(CO.addedIso(r) === CO.todayIso() ? 'New today' : 'New', 'gold')); } sg.append(sl, el('span', null, CO.sub(r))); c2.append(sg);
@@ -247,7 +247,7 @@ b.onclick = () => CO.open(r.id); h.append(b);
 });
 
 dash.draw('bcnt', (s) => { const d = CO.jobsNow(); s.textContent = d.status === 'ok' ? String(d.data.filter((r) => CO.colOf(r) === s.dataset.col).length) : '—'; });
-const MOVES = [['apply', 'To apply'], ['applied', 'Applied'], ['interview', 'Interview'], ['offer', 'Offer'], ['rejected', 'Rejected'], ['withdrawn', 'Withdrawn / not applying']];
+const MOVES = [['apply', 'To apply'], ['applied', 'Applied'], ['screening', 'Screening (call, test or task)'], ['interview', 'Interview'], ['offer', 'Offer'], ['rejected', 'Rejected'], ['noreply', 'No reply'], ['withdrawn', 'Withdrawn / not applying']];
 const moveSelect = (r, cls) => {
 const s = el('select', cls); s.setAttribute('aria-label', 'Move ' + r.organisation + ' to another stage');
 s.append(new Option('Change stage…', ''));
@@ -375,9 +375,9 @@ box.append(el('div', 'small', f.w + ': add the date if you have it.'), fm, bar);
 return box;
 }
 const c = CO.colOf(r), st = r.interview_status || '';
-const Q = {apply: 'Have you applied for this role?', applied: 'Have you heard back from the employer?', offer: 'What is your decision on the offer?', closed: 'This role is closed. Reopen it only if that was a mistake.'};
+const Q = {apply: 'Have you applied for this role?', applied: /^screening/i.test(st) ? 'How did the screening step go?' : 'Have you heard back from the employer?', offer: /accepted/i.test(st) ? 'Where are you with sponsorship and your start date?' : 'What is your decision on the offer?', closed: CO.expired(r) ? 'The closing date has passed. Did you apply before it closed?' : 'This role is closed. Reopen it only if that was a mistake.'};
 box.append(el('div', 'q', c === 'interview' ? (/^interviewed/i.test(st) ? 'What was the outcome of the interview?' : CO.ivParse(r.interview_datetime) ? 'Has the interview happened?' : 'Do you have the interview date?') : Q[c]));
-const acts = CO.actions(r), NEG = /rejected|withdraw|not applying|decline/i;
+const acts = CO.actions(r), NEG = /rejected|withdraw|not applying|decline|no reply|undo/i;
 const main = acts.filter((a) => a.pri || !NEG.test(a.l)), neg = acts.filter((a) => !main.includes(a));
 const grid = el('div', 'agrid');
 for (const a of main) {
@@ -392,17 +392,58 @@ if (neg.length) { const nr = el('div', 'neg'); nr.append(el('span', null, 'Other
 box.append(el('div', 'small', 'Each button saves straight away. A note at the top shows what changed, with Undo.'));
 return box;
 };
+const LADDER = ['Shortlist', 'Applied', 'Screening', 'Interview', 'Offer', 'Visa & start'];
+const ladderAt = (r) => {
+const c = CO.colOf(r), st = r.interview_status || '', s = r.steps || {};
+if (c === 'apply') return {at: 0};
+if (c === 'applied') return {at: /^screening/i.test(st) ? 2 : 1};
+if (c === 'interview') return {at: 3};
+if (c === 'offer') return /accepted/i.test(st) ? {at: 5, done: r.visa_step === 'Started'} : {at: 4};
+const iv = CO.reachedIv(r), ap = CO.didApply(r);
+const bad = CO.sub(r).replace(/ (at application|after interview)$/, '');
+return {at: /declined/i.test(st) ? 4 : iv ? 3 : ap ? (s.screening ? 2 : 1) : 0, bad};
+};
 const steps = (r) => {
-const c = CO.colOf(r), st = r.interview_status || '';
-const rej = /^rejected/i.test(st), wd = /^withdrawn/i.test(r.submission || '');
-const at = c === 'offer' ? 3 : rej ? 3 : c === 'interview' ? 2 : c === 'applied' ? 1 : wd ? 1 : 0;
-const box = el('div', 'steps');
-['Found', 'Applied', 'Interview', rej ? 'Rejected' : wd ? 'Withdrawn' : 'Offer'].forEach((label, i) => {
-const bad = (rej || wd) && i === 3;
-const cls = bad ? ' bad' : i < at ? ' done' : i === at ? ' now' : '';
-const s = el('div', 'st' + cls); s.append(el('i', null, bad ? '×' : i < at ? '✓' : String(i + 1)), el('span', null, label)); box.append(s);
+const L = ladderAt(r), s = r.steps || {}, scr = /^screening/i.test(r.interview_status || '') || !!s.screening;
+const box = el('div', 'steps6'); box.setAttribute('aria-label', 'Stage: ' + CO.label(r));
+LADDER.forEach((label, i) => {
+const skip = i === 2 && !scr && L.at > 2, bad = !!L.bad && i === L.at;
+const done = !bad && !skip && (i < L.at || (L.done && i === L.at));
+const cls = bad ? ' bad' : skip ? ' skip' : done ? ' done' : i === L.at && !L.bad ? ' now' : '';
+const st = el('div', 'st' + cls);
+st.append(el('i', null, bad ? '×' : skip ? '–' : done ? '✓' : String(i + 1)), el('span', null, bad ? L.bad : label));
+const dk = ['', 'applied', 'screening', 'interview', 'offer', 'accepted'][i], w = ['applied', 'interview', 'offer'].includes(dk) ? CO.when(r, dk) : {d: s[dk]}, dd = dk && !w.est && w.d;
+if (dd && (done || i === L.at)) st.append(el('small', null, CO.fmtDay(dd)));
+if (skip) st.title = 'No screening step was recorded for this role';
+box.append(st);
 });
 return box;
+};
+const visaBox = (r) => {
+const s = r.steps || {}, i = CO.VISA.indexOf(r.visa_step || ''), b = el('div', 'vlist');
+CO.VISA.forEach((v, k) => { const row = el('div', 'vrow' + (k <= i ? ' done' : k === i + 1 ? ' now' : '')); row.append(el('i', null, k <= i ? '✓' : String(k + 1)), el('span', null, v), el('small', null, s[v] ? CO.fmtDay(s[v]) : '')); b.append(row); });
+b.append(el('div', 'small', 'Your employer assigns the Certificate of Sponsorship (CoS). You can apply for the visa up to 3 months before the start date on the CoS. Keep the CoS number and HR contact in your notes below.'));
+return b;
+};
+const notesBox = (r) => {
+const b = el('div', 'notes2'), list = Array.isArray(r.notes_log) ? r.notes_log : [];
+if (CO.canEdit) {
+const ta = el('textarea'); ta.rows = 2; ta.placeholder = 'Add a note: who you spoke to, what they said, what to do next…'; ta.setAttribute('aria-label', 'New note');
+ta.value = CO.noteDraft && CO.noteDraft.id === r.id ? CO.noteDraft.v : '';
+ta.oninput = () => { CO.noteDraft = {id: r.id, v: ta.value}; };
+const go = () => { if (!ta.value.trim()) { ta.focus(); return; } const v = ta.value; CO.noteDraft = null; CO.addNote(r, v); };
+ta.onkeydown = (e) => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); go(); } };
+const bar = el('div', 'pacts'); const sb = el('button', 'btn sm pri', 'Add note'); sb.type = 'button'; sb.onclick = go;
+bar.append(sb, el('span', 'small', 'Saved with today\'s date. Ctrl + Enter also saves.'));
+b.append(ta, bar);
+}
+if (!list.length) b.append(el('div', 'small', 'No notes yet.'));
+list.map((n, i) => [n, i]).reverse().forEach(([n, i]) => {
+const row = el('div', 'nrow'); row.append(el('span', 'nd', n.at ? d3.timeFormat('%-d %b %Y · %H:%M')(new Date(n.at)) : ''), el('div', 'ntx', n.text || ''));
+if (CO.canEdit) { const x = el('button', 'xbtn sm', '×'); x.type = 'button'; x.title = 'Delete this note'; x.setAttribute('aria-label', 'Delete note'); x.onclick = () => CO.delNote(r, i); row.append(x); }
+b.append(row);
+});
+return b;
 };
 const readView = (r) => {
 const w = el('div', 'pin');
@@ -428,6 +469,9 @@ if (CO.canEdit) w.append(acts);
 if (CO.SAVING[r.id] === 'error') { const m = el('div', 'msg err'); m.append('Not saved: ' + (CO.ERR[r.id] || '') + ' '); const b = el('button', 'btn sm', 'Retry'); b.type = 'button'; b.onclick = CO.retry; m.append(b); w.append(m); }
 if (!CO.canEdit) w.append(el('div', 'msg', window.CAREER_OS_RO || ('View only here. To change this role, tell Claude in chat, for example: ' + r.organisation + ' — submitted.')));
 const sec = (title, kids) => { const s = el('div', 'sec'); s.append(el('div', 't', title)); kids.forEach((k) => k && s.append(k)); w.append(s); return s; };
+if (CO.colOf(r) === 'offer' && /accepted/i.test(r.interview_status || '')) sec('Sponsorship & start date', [visaBox(r)]);
+const nl = Array.isArray(r.notes_log) ? r.notes_log.length : 0;
+sec('Your notes' + (nl ? ' · ' + nl : ''), [notesBox(r)]);
 const k = CO.spKind(r.sponsorship);
 const sb = el('div', 'box'); const sh = el('div', 'tags'); sh.append(pill(CO.SP[k][0], CO.SP[k][1])); sb.append(sh, el('div', null, CO.plain(r.sponsorship) || 'No evidence recorded yet.'));
 const meta = [r.legal_entity ? 'Legal entity: ' + r.legal_entity : '', r.last_verified ? 'Last verified ' + r.last_verified : ''].filter(Boolean).join(' · ');
@@ -446,13 +490,13 @@ add('Deadline', r.deadline ? CO.fmtDay(r.deadline) : r.deadline_text); add('Appl
 add('Interview status', r.interview_status); add('Interview', r.interview_datetime); add('Sector', r.sector); add('Found via', r.source); add('Added', r.added);
 sec('Key facts', [kv]);
 if (r.jd_focus) sec('Job focus', [el('div', null, r.jd_focus)]);
-if (r.notes) sec('Notes', [el('div', 'small', r.notes)]);
+if (r.notes) sec('Notes from the search', [el('div', 'small', r.notes)]);
 if (['interview', 'offer'].includes(CO.colOf(r))) sec('Interview preparation', [prepBox(r)]);
 if (Array.isArray(r.history) && r.history.length) { const hi = el('div', 'hist'); r.history.slice().reverse().slice(0, 8).forEach((x) => { const row = el('div'); row.append(el('span', null, x.at ? d3.timeFormat('%-d %b %H:%M')(new Date(x.at)) : ''), el('span', null, x.what || '')); hi.append(row); }); sec('Activity', [hi]); }
 return w;
 };
 const SUB_OPTS = ['Not started', 'Submitted', 'Withdrawn'];
-const IV_OPTS = ['—', 'Awaiting response', 'Interview invited', 'Interview booked', 'Interview booked (2nd stage)', 'Interview booked (final)', 'Task submitted, interview TBC', 'Interviewed — awaiting outcome', 'Offer received', 'Rejected'];
+const IV_OPTS = ['—', 'Awaiting response', 'Interview invited', 'Interview booked', 'Interview booked (2nd stage)', 'Interview booked (final)', 'Task submitted, interview TBC', 'Interviewed — awaiting outcome', 'Screening', 'Offer received', 'Offer accepted', 'Offer declined', 'Rejected', 'Rejected after interview', 'No response'];
 CO.startEdit = (id) => {
 const r = CO.find(id); if (!r) return;
 const p = CO.ivParse(r.interview_datetime), raw = r.interview_datetime || '';
@@ -563,6 +607,85 @@ h.append(os.edit && os.draft && os.draft.id === r.id ? editView(r) : readView(r)
 
 const chartFail = (h, d) => { if (d.status === 'error') CO.failBox(h); return d.status !== 'ok'; };
 const palette = () => ['var(--acc)', 'var(--c1)', 'var(--c2)', 'var(--gold)', 'color-mix(in srgb, var(--color-fg-muted) 60%, transparent)', 'var(--color-bad)'];
+
+const ym = (iso) => (iso ? String(iso).slice(0, 7) : '');
+const ymAdd = (k, n) => { const [y, m] = k.split('-').map(Number); return new Date(Date.UTC(y, m - 1 + n, 1)).toISOString().slice(0, 7); };
+const ymLab = (k, f) => d3.utcFormat(f || '%B %Y')(new Date(k + '-01T00:00:00Z'));
+CO.facts = (rows) => rows.filter(CO.didApply).map((r) => {
+const a = CO.when(r, 'applied'), iv = CO.reachedIv(r), st = r.interview_status || '', off = /offer/i.test(st), rej = /^rejected/i.test(st);
+return {r, ap: a.d, est: !!a.est, iv, ivd: iv ? CO.when(r, 'interview').d : '', off, offd: off ? CO.when(r, 'offer').d : '', rej, rejd: rej ? CO.when(r, 'rejected').d : '', noreply: /^no response/i.test(st), wd: /^withdrawn/i.test(r.submission || '')};
+});
+os.aper = os.aper || 'month';
+const pctTxt = (a, b) => (b ? Math.round(a / b * 100) + '%' : '—');
+dash.draw('convo', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow(); if (d.status === 'error') { CO.failBox(h); return; } if (d.status !== 'ok') return;
+const F = CO.facts(d.data), cur = CO.todayIso().slice(0, 7);
+const P = {month: [[cur], [ymAdd(cur, -1)], 'This month', ymLab(cur, '%B')], last: [[ymAdd(cur, -1)], [ymAdd(cur, -2)], 'Last month', ymLab(ymAdd(cur, -1), '%B')], q: [[ymAdd(cur, -2), ymAdd(cur, -1), cur], [ymAdd(cur, -5), ymAdd(cur, -4), ymAdd(cur, -3)], 'Last 3 months', 'the last 3 months'], all: [null, null, 'All time', 'all time']};
+const [ks, pks, , plabel] = P[os.aper] || P.month;
+const inP = (x, k) => !k || (!!x && k.includes(ym(x)));
+const cnt = (k) => ({apps: F.filter((f) => inP(f.ap, k)).length, ivs: F.filter((f) => f.iv && inP(f.ivd, k)).length, offers: F.filter((f) => f.off && inP(f.offd, k)).length, rejs: F.filter((f) => f.rej && inP(f.rejd, k)).length});
+const now = cnt(ks), prev = pks ? cnt(pks) : null, prevLab = os.aper === 'month' ? ymLab(ymAdd(cur, -1), '%B') : os.aper === 'last' ? ymLab(ymAdd(cur, -2), '%B') : 'the 3 months before';
+const bar = el('div', 'aper'); bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Time period');
+for (const k of ['month', 'last', 'q', 'all']) { const b = el('button', 'achip' + (os.aper === k ? ' on' : ''), P[k][2]); b.type = 'button'; b.setAttribute('aria-pressed', String(os.aper === k)); b.onclick = () => { os.aper = k; dash.draw('convo'); }; bar.append(b); }
+h.append(bar);
+const pl = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
+let sum = (os.aper === 'all' ? 'So far' : 'In ' + plabel) + ' you sent ' + pl(now.apps, 'application') + ', had ' + pl(now.ivs, 'interview') + ', received ' + pl(now.offers, 'offer') + ' and ' + pl(now.rejs, 'rejection') + '.';
+if (prev) { const dlt = now.apps - prev.apps; sum += dlt === 0 ? ' The same number of applications as ' + prevLab + '.' : ' That is ' + Math.abs(dlt) + (dlt > 0 ? ' more' : ' fewer') + ' application' + (Math.abs(dlt) === 1 ? '' : 's') + ' than ' + prevLab + '.'; }
+h.append(el('p', 'asum', sum));
+const kp = el('div', 'kpis');
+[['Applications sent', 'apps', 't-purple'], ['Interviews', 'ivs', 't-green'], ['Offers', 'offers', 't-gold'], ['Rejections', 'rejs', 't-red']].forEach(([lab, k, tone]) => {
+const c = el('div', 'kpi ' + tone); c.append(el('span', 'k', lab), el('b', null, String(now[k])));
+if (prev) { const x = now[k] - prev[k]; c.append(el('span', 'dl' + (x > 0 ? ' up' : x < 0 ? ' down' : ''), (x > 0 ? '▲ ' + x : x < 0 ? '▼ ' + -x : 'Same') + ' vs ' + prevLab)); }
+kp.append(c);
+});
+h.append(kp);
+const coh = F.filter((f) => inP(f.ap, ks)), ci = coh.filter((f) => f.iv), co = coh.filter((f) => f.off), wait = coh.filter((f) => !f.iv && !f.rej && !f.off && !f.noreply && !f.wd);
+const cc = el('div', 'card'); cc.append(el('h2', null, 'Conversion'), el('p', 'note', coh.length ? 'What happened to the ' + pl(coh.length, 'application') + ' you sent ' + (os.aper === 'all' ? 'so far' : 'in ' + plabel) + '.' : 'No applications in this period yet.'));
+const cg = el('div', 'cgrid');
+const tile = (lab, a, b, line, tone) => { const t = el('div', 'ctile ' + tone); t.append(el('span', 'k', lab), el('b', null, pctTxt(a, b)), el('span', 'm', line)); const tr = el('div', 'btrack'); const f = el('div', 'bfill'); f.style.width = (b ? Math.max(2, a / b * 100) : 0) + '%'; tr.append(f); t.append(tr); cg.append(t); };
+tile('Application → interview', ci.length, coh.length, ci.length + ' of ' + coh.length + ' got an interview' + (ci.length ? ' · about 1 in ' + Math.round(coh.length / ci.length) : ''), 't-green');
+tile('Interview → offer', co.length, ci.length, co.length + ' of ' + ci.length + ' interviews led to an offer', 't-gold');
+tile('Application → offer', co.length, coh.length, co.length + ' of ' + coh.length + ' applications became an offer', 't-purple');
+tile('Heard back', coh.length - wait.length, coh.length, wait.length + ' still waiting for a reply', '');
+cc.append(cg); h.append(cc);
+const dated = F.flatMap((f) => [f.ap, f.ivd, f.offd, f.rejd]).filter(Boolean).map(ym).filter((k) => k <= cur).sort();
+const months = []; if (dated.length) { let k = dated[0]; while (k <= cur) { months.push(k); k = ymAdd(k, 1); } }
+const show = months.slice(-6).reverse();
+const tc = el('div', 'card flush'); const hd = el('div', 'ch pad'); const hx = el('div'); hx.append(el('h2', null, 'Month by month'), el('p', 'note', 'Each event counts in the month it happened. Interview rate is the share of that month\'s applications that have reached interview so far.')); hd.append(hx); tc.append(hd);
+const tw = el('div', 'tw'); const tb = el('table', 'mt'); const th = el('tr'); ['Month', 'Applications', 'Interviews', 'Offers', 'Rejections', 'Interview rate', 'Still waiting'].forEach((x) => th.append(el('th', null, x))); const thead = el('thead'); thead.append(th); tb.append(thead);
+const body = el('tbody'); const maxA = Math.max(1, ...show.map((k) => cnt([k]).apps));
+const rowFor = (label, c, cohort, cls) => {
+const tr = el('tr', cls || ''); tr.append(el('td', null, label));
+const ta = el('td', 'num'); const bw = el('span', 'mbar'); const bi = el('i'); bi.style.width = (cls ? 0 : c.apps / maxA * 100) + '%'; bw.append(bi); ta.append(el('b', null, String(c.apps)), bw); tr.append(ta);
+[c.ivs, c.offers, c.rejs].forEach((v) => tr.append(el('td', 'num', String(v))));
+const ri = cohort.filter((f) => f.iv).length; tr.append(el('td', 'num', pctTxt(ri, cohort.length)));
+tr.append(el('td', 'num', String(cohort.filter((f) => !f.iv && !f.rej && !f.off && !f.noreply && !f.wd).length)));
+body.append(tr);
+};
+for (const k of show) rowFor(ymLab(k) + (k === cur ? ' (so far)' : ''), cnt([k]), F.filter((f) => ym(f.ap) === k), k === cur ? '' : '');
+const und = {apps: F.filter((f) => !f.ap).length, ivs: F.filter((f) => f.iv && !f.ivd).length, offers: F.filter((f) => f.off && !f.offd).length, rejs: F.filter((f) => f.rej && !f.rejd).length};
+if (und.apps + und.ivs + und.offers + und.rejs) rowFor('Date not recorded', und, F.filter((f) => !f.ap), 'und');
+rowFor('All time', cnt(null), F, 'tot');
+tb.append(body); tw.append(tb); tc.append(tw);
+const nEst = F.filter((f) => f.est).length;
+tc.append(el('div', 'tnote', nEst ? nEst + ' applications have no exact applied date, so the closing date is used as an estimate. Add the real dates below to make these numbers exact.' : 'All applied dates are exact.'));
+h.append(tc);
+const fix = F.filter((f) => f.est || !f.ap).sort((a, b) => String(b.ap).localeCompare(String(a.ap)));
+if (fix.length && CO.canEdit) {
+const det = el('details', 'card fixd'); if (CO.fixOpen) det.open = true; det.ontoggle = () => { CO.fixOpen = det.open; };
+det.append(el('summary', null, 'Add missing applied dates · ' + fix.length));
+det.append(el('p', 'note', 'Pick the day you sent each application. Each one saves as soon as you choose a date.'));
+const lst = el('div', 'fixl');
+for (const f of fix) {
+const row = el('div', 'fixr'); const t = el('div'); t.append(el('b', null, f.r.organisation), el('span', null, f.r.role + (f.ap ? ' · estimated ' + CO.fmtDay(f.ap) : '')));
+const i = el('input'); i.type = 'date'; i.max = CO.todayIso(); i.setAttribute('aria-label', 'Applied date for ' + f.r.organisation);
+i.onchange = () => { if (i.value) CO.saveRow(f.r, {applied_on: i.value}, 'Applied on: ' + CO.fmtDay(i.value)); };
+row.append(t, i); lst.append(row);
+}
+det.append(lst); h.append(det);
+}
+});
 dash.draw('funnel', (h) => {
 h.replaceChildren();
 const d = dash.data('funnel'); if (chartFail(h, d)) return;
@@ -577,7 +700,7 @@ tipOn(h, row, r.step + ': ' + r.n + (i ? ' (' + CO.pct(r.n / max) + ' of tracked
 dash.draw('donut', (h) => {
 h.replaceChildren();
 const d = dash.data(h.dataset.source); if (chartFail(h, d)) return;
-const colors = ['var(--c2)', 'var(--acc)', 'var(--gold)', 'var(--color-bad)', 'color-mix(in srgb, var(--color-fg-muted) 60%, transparent)'];
+const colors = ['var(--c2)', 'var(--acc)', 'var(--gold)', 'var(--color-bad)', 'color-mix(in srgb, var(--color-warn) 70%, transparent)', 'color-mix(in srgb, var(--color-fg-muted) 60%, transparent)'];
 const total = d3.sum(d.data, (r) => r.n);
 const size = 140, svg = svgEl('svg', {viewBox: '0 0 ' + size + ' ' + size, width: size, height: size, role: 'img', 'aria-label': 'Outcomes of ' + total + ' applications'});
 const g = svgEl('g', {transform: 'translate(' + size / 2 + ',' + size / 2 + ')'}); svg.append(g);
@@ -623,7 +746,7 @@ const tones = ['t-green', '', 't-purple', 't-amber'];
 d.data.filter((r) => r.group === 'Headline').forEach((r, i) => { const c = el('div', 'kpi ' + tones[i % 4]); c.append(el('span', 'k', r.label), el('b', 'big2', r.value)); h.append(c); });
 });
 dash.draw('critlist', (h) => { h.replaceChildren(); const rows = critRows(h); if (!rows) { if (dash.data('criteria').status === 'error') CO.failBox(h); return; } for (const r of rows) h.append(el('div', null, r.label ? r.label + ': ' + r.value : r.value)); });
-dash.draw('critrows', (h) => { h.replaceChildren(); const rows = critRows(h); if (!rows) { if (dash.data('criteria').status === 'error') CO.failBox(h); return; } for (const r of rows) { const c = el('div', 'crow'); c.append(el('b', null, r.label || r.group), el('span', null, r.value)); h.append(c); } });
+dash.draw('critrows', (h) => { h.replaceChildren(); const rows = critRows(h); if (!rows) { if (dash.data('criteria').status === 'error') CO.failBox(h); return; } for (const r of rows) { const c = el('div', 'crow'); c.append(el('b', null, r.label || r.group), el('span', null, /daily search time/i.test(r.label || '') ? '08:52 Europe/London' : r.value)); h.append(c); } });
 
 CO.dataMsg = ''; CO.dataErr = false; CO.importPlan = null; CO.backups = null; CO.confirmId = '';
 dash.draw('dataMsg', (h) => { h.className = 'msg' + (CO.dataErr ? ' err' : ''); h.textContent = CO.dataMsg; });
@@ -655,7 +778,7 @@ h.append(row);
 }
 });
 
-const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
+const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
 CO.redrawAll = () => ALL.forEach((n) => dash.draw(n));
 const syncPanel = () => {
 document.querySelectorAll('.os .ws').forEach((w) => w.classList.toggle('sel', !!os.sel));
@@ -694,6 +817,8 @@ CO.go = (page, opts) => {
 os.page = page;
 if (page === 'apps' && opts) { Object.assign(os, {stage: opts.stage || '', quick: opts.quick || ''}); syncFilters(); }
 showPage();
+const nv = document.querySelector('.os .nav'), cur = nv && nv.querySelector('[aria-current=page]');
+if (cur && nv.scrollWidth > nv.clientWidth + 4) nv.scrollTo({left: Math.max(0, cur.offsetLeft - 70), behavior: 'smooth'});
 };
 document.querySelectorAll('.os .nav button').forEach((b) => b.addEventListener('click', () => CO.go(b.dataset.page)));
 document.querySelectorAll('.os-go').forEach((b) => b.addEventListener('click', () => CO.go(b.dataset.go, b.dataset.go === 'apps' ? {stage: b.dataset.stage || '', quick: b.dataset.quick || ''} : null)));
