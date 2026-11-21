@@ -194,7 +194,8 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 .os .jt .dd.red b { color: var(--color-bad); } .os .jt .dd.amber b { color: var(--color-warn); }
 .os .jt .dim { color: var(--mut); }
 .os .jt .c-sal { max-width: 11rem; }
-.os .jt .c-loc { max-width: 11rem; }
+.os .jt .c-loc { min-width: 10rem; max-width: 14rem; overflow-wrap: anywhere; }
+.os .jt td.erow .empty { position: sticky; left: 0; display: inline-block; text-align: left; padding: 16px; }
 .os .notices:empty { display: none; }
 .os .notice { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 12px 14px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); background: color-mix(in srgb, var(--acc) 9%, var(--card)); box-shadow: 0 8px 22px -18px rgba(15,37,55,.5); }
 .os .notice.wait { border-color: color-mix(in srgb, var(--color-warn) 40%, transparent); background: color-mix(in srgb, var(--color-warn) 8%, var(--card)); }
@@ -412,7 +413,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 <button type='button' class='kpi t-gold os-go' data-go='new'><span class='k'>New today</span><b data-draw='kpi' data-source='summary' data-field='n' data-where='metric=today_new'>—</b><span class='m'>From the 08:52 search</span></button>
 </div>
 <div class='alerts' style='margin-top: 16px' data-draw='conflicts' data-source='conflicts'></div>
-<div class='card flush' style='margin-top: 16px'><div class='ch pad'><div><h2>New from today&#39;s search · <span data-draw='kpi' data-source='summary' data-field='n' data-where='metric=today_new'>—</span></h2><p class='note'>Roles Claude found and verified this morning. Click one to see why it fits and to apply.</p></div><button type='button' class='linkbtn os-go' data-go='new'>All new roles</button></div><div class='tw'>
+<div class='card flush' style='margin-top: 16px'><div class='ch pad'><div><h2>New from today&#39;s search · <span data-draw='kpi' data-source='summary' data-field='n' data-where='metric=today_new'>—</span></h2><p class='note' data-draw='todayNote' data-source='jobs'>Roles Claude found and verified this morning. Click one to see why it fits and to apply.</p></div><button type='button' class='linkbtn os-go' data-go='new'>All new roles</button></div><div class='tw'>
 <table class='jt' data-source='jobs'>
 <thead><tr><th data-sort='deadline'>Deadline</th><th data-sort='org'>Role</th><th data-sort='stage'>Stage</th><th data-sort='next'>Next action</th><th data-sort='fit'>Fit</th><th data-sort='spons' class='opt'>Sponsorship</th><th data-sort='applied'>Applied</th><th data-sort='interview'>Interview</th><th data-sort='salary' class='opt'>Salary</th><th data-sort='loc'>Location</th></tr></thead>
 <tbody data-draw='jtable' data-view='today'></tbody>

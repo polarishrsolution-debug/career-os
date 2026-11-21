@@ -91,7 +91,7 @@ const emptyRow = (fill) => { const tr = el('tr'); const td = el('td', 'erow'); t
 if (d.status === 'error') { emptyRow(CO.failBox); return; }
 if (d.status !== 'ok') return;
 let rows = rowsFor(tb.dataset.view, d.data);
-if (tb.dataset.view === 'today' && !rows.length) { emptyRow((td) => td.append(el('div', 'empty', 'No new roles from today' + String.fromCharCode(39) + 's search yet (it runs at 08:52). Newest roles below.'))); rows = d.data.filter((r) => r.id.startsWith('N')).sort(SORTS.added).slice(0, 5); }
+if (tb.dataset.view === 'today' && !rows.length) rows = d.data.filter((r) => r.id.startsWith('N')).sort(SORTS.added).slice(0, 5);
 if (!rows.length) { emptyRow((td) => td.append(el('div', 'empty', tb.dataset.view === 'all' ? 'No roles match these filters. Try Clear all.' : 'Nothing here yet.'))); return; }
 const grouped = os.group === 'type' && ['all', 'new', 'shortlist'].includes(tb.dataset.view);
 if (!grouped) { for (const r of rows) tb.append(trow(r)); return; }
@@ -122,6 +122,11 @@ const row = d.data.find((r) => r.metric === m);
 b.textContent = !row ? '—' : (m === 'rate' || m === 'response') ? CO.pct(row.n) : d3.format(',')(row.n);
 });
 dash.draw('today', (s) => { s.textContent = d3.timeFormat('%A, %-d %B %Y')(new Date()).toUpperCase(); });
+dash.draw('todayNote', (p) => {
+const d = CO.jobsNow(); if (d.status !== 'ok') return;
+const n = rowsFor('today', d.data).length;
+p.textContent = n ? 'Roles Claude found and verified this morning. Click one to see why it fits and to apply.' : 'Nothing new from today' + String.fromCharCode(39) + 's 08:52 search yet, so these are the 5 most recently added roles. Click one to see why it fits and to apply.';
+});
 dash.draw('todayLong', (s) => { s.textContent = 'Your daily career briefing · ' + d3.timeFormat('%A %-d %B')(new Date()); });
 dash.draw('greet', (s) => { const h = new Date().getHours(); s.textContent = (h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening') + ', Adnan.'; });
 const when = (iso) => iso ? d3.timeFormat('%-d %b, %H:%M')(new Date(iso)) : '';
@@ -650,7 +655,7 @@ h.append(row);
 }
 });
 
-const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
+const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
 CO.redrawAll = () => ALL.forEach((n) => dash.draw(n));
 const syncPanel = () => {
 document.querySelectorAll('.os .ws').forEach((w) => w.classList.toggle('sel', !!os.sel));
