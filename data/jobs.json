@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T22:39:45Z",
+ "updated": "2026-11-21T23:39:46Z",
  "rows": [
   {
    "id": "T001",
@@ -367,8 +367,8 @@
   },
   {
    "id": "T009",
-   "stage": "Interview stage",
-   "alert": "🟠 Update interview outcome",
+   "stage": "Closed",
+   "alert": "⚫ Withdrawn",
    "organisation": "Cardiff Metropolitan University",
    "role": "Technical Business Analyst",
    "sector": "University",
@@ -378,7 +378,7 @@
    "deadline_text": "22 Oct 2026",
    "sponsorship": "⚠️ Licensed — vacancy unconfirmed",
    "fit": "9/10",
-   "submission": "Submitted",
+   "submission": "Withdrawn",
    "interview_status": "Interview booked",
    "interview_datetime": "Wed 18 Nov 2026, 14:00 — Online",
    "jd_focus": "Technical BA for SRS programme, student systems",
@@ -394,6 +394,10 @@
     {
      "at": "2026-11-05T21:28:07.418Z",
      "what": "Interview booked · Wed 18 Nov 14:00"
+    },
+    {
+     "at": "2026-11-21T23:01:33.898Z",
+     "what": "Withdrew the application"
     }
    ],
    "prep": [],
