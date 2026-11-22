@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T23:39:46Z",
+ "updated": "2026-11-22T09:40:02Z",
  "rows": [
   {
    "id": "T001",
@@ -1445,7 +1445,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 16 days",
+   "alert": "🟡 Closes in 14 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -2730,8 +2730,8 @@
   },
   {
    "id": "N015",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Oxford",
    "role": "Product Manager – Nuffield Dept of Primary Care Health Sciences",
    "sector": "University",
@@ -2753,7 +2753,12 @@
    "last_verified": "4 Nov 2026",
    "applied_on": null,
    "follow_up": null,
-   "history": [],
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: deadline passed — marked closed"
+    }
+   ],
    "prep": [],
    "fit_reason": null
   },
@@ -2851,8 +2856,8 @@
   },
   {
    "id": "N019",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Experian",
    "role": "Product Owner (Eligibility & Decisioning)",
    "sector": "Non-university",
@@ -2878,6 +2883,10 @@
     {
      "at": "2026-11-05T08:57:20Z",
      "what": "Daily search: added (official advert verified open)"
+    },
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3408,7 +3417,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 49 days",
+   "alert": "🟡 Closes in 47 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3476,7 +3485,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3510,7 +3519,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3544,7 +3553,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3578,7 +3587,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3649,8 +3658,8 @@
   },
   {
    "id": "N042",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Ulster University",
    "role": "Technology Project Manager in AI – Health Frontiers, Technology Innovation Centre",
    "sector": "University",
@@ -3676,6 +3685,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3760,7 +3773,7 @@
   {
    "id": "N045",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -4372,7 +4385,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4406,7 +4419,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4550,7 +4563,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4757,8 +4770,8 @@
   },
   {
    "id": "N074",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Lloyds Banking Group (Lloyds Bank)",
    "role": "Lead Product Owner – Operational Workflow",
    "sector": "Non-university",
@@ -4784,6 +4797,10 @@
     {
      "at": "2026-11-14T08:58:19Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -4792,7 +4809,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4826,7 +4843,7 @@
   {
    "id": "N076",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Lancaster University",
    "role": "Statutory Data Returns Manager (ref 1089-26)",
    "sector": "University",
@@ -4894,7 +4911,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5064,7 +5081,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5267,8 +5284,8 @@
   },
   {
    "id": "N089",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Leeds",
    "role": "Marketing Workflow Manager (ref CSMAR1177, 12-month FTC)",
    "sector": "University",
@@ -5294,6 +5311,10 @@
     {
      "at": "2026-11-19T09:10:00Z",
      "what": "Daily search: added (official advert verified open)"
+    },
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -5302,7 +5323,7 @@
   {
    "id": "N090",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Senior Business Analyst (Grade 7)",
    "sector": "Non-university",
@@ -5336,7 +5357,7 @@
   {
    "id": "N091",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Product Manager (Grade 7, Data & Analytics)",
    "sector": "Non-university",
@@ -5366,6 +5387,285 @@
    ],
    "prep": [],
    "fit_reason": "8: SAMS360 product roadmap ownership plus MSc Data Science and Power BI match a data-product role; gap: no enterprise data-platform product experience in government"
+  },
+  {
+   "id": "N092",
+   "stage": "To apply",
+   "alert": "🟠 Closes in 4 days",
+   "organisation": "University of Cambridge (Cambridge Centre for Alternative Finance, Judge Business School)",
+   "role": "Product Manager, CCAF (Fixed Term, 12 months)",
+   "sector": "University",
+   "location": "Cambridge — hybrid",
+   "salary": "£36,320–£46,970",
+   "deadline": "2026-11-26",
+   "deadline_text": "26 Nov 2026",
+   "sponsorship": "⚠️ Licensed — unconfirmed: The Chancellor, Masters, and Scholars of the University of Cambridge on the register, advert silent",
+   "fit": "7",
+   "fit_reason": "7: end-to-end digital learning product ownership (roadmap, delivery, UAT, learner metrics) matches the SAMS360 and Shikho edtech product work",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead CCAF's digital learning products end to end — requirements, roadmap, development, testing and rollout with developers, IT and suppliers; Agile prioritisation, QA/UAT and learner-feedback metrics",
+   "notes": "Daily search 22 Nov 2026. Listed open on cam.ac.uk/jobs (closes 26 Nov); job page itself could not be loaded, so duties come from a mirror — re-check the advert before applying. 12-month fixed term. The bottom of the salary range is below the £41,700 general Skilled Worker threshold, so the offer must be about £41.7k or more. Gaps: fintech/alternative-finance subject area; short contract. Register status from a sponsor-register mirror, not GOV.UK directly.",
+   "url": "https://www.cam.ac.uk/jobs/product-manager-cambridge-centre-for-alternative-finance-fixed-term-ns51592",
+   "source": "University of Cambridge jobs (cam.ac.uk)",
+   "added": "2026-11-22",
+   "legal_entity": "The Chancellor, Masters, and Scholars of the University of Cambridge",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N093",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 8 days",
+   "organisation": "University of Westminster (Digital & Technology Services)",
+   "role": "Head of Applications (ref 50075973)",
+   "sector": "University",
+   "location": "Central London (W1B) — permanent, 35 hrs",
+   "salary": "£68,582–£76,466",
+   "deadline": "2026-11-30",
+   "deadline_text": "30 Nov 2026, 23:59 — interviews likely 10/11 Dec",
+   "sponsorship": "⚠️ Licensed — unconfirmed: The University of Westminster on the register, advert silent",
+   "fit": "6",
+   "fit_reason": "6: roadmap, prioritisation and team-lead experience transfers to owning a university application estate (Salesforce CRM, student systems)",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Set strategy and lifecycle roadmap for the university application estate (SaaS/cloud, integration); demand management and prioritisation; upgrades and change; suppliers, licences and budget; lead the applications team",
+   "notes": "Daily search 22 Nov 2026. Read on vacancies.westminster.ac.uk. Recruitment is run by Hays — the advert says to apply directly only if internal, so external candidates should go through Hays. Gaps: significant applications-estate leadership in a large organisation; supplier, contract and licence management. Register status from a sponsor-register mirror.",
+   "url": "https://vacancies.westminster.ac.uk/vacancies/428/head-of-applications-50075973.html",
+   "source": "University of Westminster vacancies",
+   "added": "2026-11-22",
+   "legal_entity": "The University of Westminster",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N094",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "London College of Contemporary Arts (Global University Systems)",
+   "role": "Senior BI Analyst",
+   "sector": "Non-university",
+   "location": "London EC3N (Sceptre Court) — hybrid",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date (published 18 Nov 2026)",
+   "sponsorship": "❔ Unknown — London College of Contemporary Arts Ltd not confirmed on the Worker register (found only as a Student-route sponsor); advert silent",
+   "fit": "6",
+   "fit_reason": "6: Power BI/SQL and MSc Data Science applied to student-lifecycle (applications to awards) data, the SAMS360 domain",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Power BI (DAX, Power Query) dashboards and SQL validation for student-lifecycle analytics; KPI/MI for senior leaders; support HESA/OfS/B3 regulatory reporting",
+   "notes": "Daily search 22 Nov 2026. Live Teamtailor advert with Apply button. Individual-contributor analyst role, a step down from product lead. Salary not stated — must reach £41,700. Gaps: HESA returns experience. Verify the Worker licence before applying.",
+   "url": "https://gusglobaluniversitysystems-london-college-of-contemporary-arts.teamtailor.com/jobs/8759896-senior-bi-analyst",
+   "source": "Employer careers site (Teamtailor)",
+   "added": "2026-11-22",
+   "legal_entity": "London College of Contemporary Arts Ltd (Companies House 07889724)",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N095",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Bottomline",
+   "role": "Senior Product Manager (AP Automation)",
+   "sector": "Non-university",
+   "location": "Theale (Reading)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date (posted c. 5 Nov 2026)",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Bottomline Technologies Limited on the register (Skilled Worker), advert silent; the form asks whether you need sponsorship",
+   "fit": "7",
+   "fit_reason": "7: asks for 2+ years PM/PO with PRDs, user stories and ML/data work — fits a BA-turned-product-lead with an MSc Data Science and payments experience",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own the roadmap for front-end invoice processing — data capture, data quality/validation and ML auto-coding; write PRDs, user stories and acceptance criteria; run the backlog with Engineering, UX and data science",
+   "notes": "Daily search 22 Nov 2026. Found via Hunt UK Visa Sponsors; live Greenhouse advert with application form. Gaps: no accounts-payable / invoice-automation domain; Reading commute; wants hands-on GenAI product practice. Register status from a sponsor-register mirror.",
+   "url": "https://job-boards.greenhouse.io/bottomlinetechnologies/jobs/8919418002",
+   "source": "Hunt UK Visa Sponsors → Greenhouse",
+   "added": "2026-11-22",
+   "legal_entity": "Bottomline Technologies Limited (Co. 08098450)",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N096",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "GoCardless",
+   "role": "Product Manager – Billing & Revenue (Merchant Operations)",
+   "sector": "Non-university",
+   "location": "London — hybrid",
+   "salary": "£60,000–£90,000 + equity",
+   "deadline": "",
+   "deadline_text": "No closing date",
+   "sponsorship": "⚠️ Licensed — unconfirmed: GoCardless Ltd on the register (Skilled Worker, A-rated), advert silent",
+   "fit": "7",
+   "fit_reason": "7: billing, fee models and financial reporting map directly onto running SAMS360's payments and fees product",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Drive billing, pricing/fee-model and financial-reporting capabilities with engineering, billing, pricing strategy and finance, from MVP experiments to full features",
+   "notes": "Daily search 22 Nov 2026. Live Greenhouse advert. Posting date unknown — the low job ID suggests an older, still-open advert. Different role from the GoCardless Senior PM row (N060). Gaps: B2B direct debit / fintech-scale experience. Register status from a sponsor-register mirror.",
+   "url": "https://job-boards.greenhouse.io/gocardless/jobs/7182272",
+   "source": "GoCardless careers (Greenhouse)",
+   "added": "2026-11-22",
+   "legal_entity": "GoCardless Ltd",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N097",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Zopa Bank",
+   "role": "Product Manager – Operational Improvement",
+   "sector": "Non-university",
+   "location": "London — hybrid",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Zopa Bank Limited on the register, advert silent",
+   "fit": "6",
+   "fit_reason": "6: process improvement, KPI ownership and leading a small team suit the BA background plus Power BI/SQL",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead a small team that finds and delivers operational improvements; own UK operations and outsourcer KPIs and digital contact channels",
+   "notes": "Daily search 22 Nov 2026. Live Lever advert. Posting date unknown. Gaps: banking operations and outsourcer management. Licence route and rating not shown on the mirror checked.",
+   "url": "https://jobs.lever.co/zopa/d590d2f2-f52f-49f3-80d4-6990d828df32",
+   "source": "Zopa careers (Lever)",
+   "added": "2026-11-22",
+   "legal_entity": "Zopa Bank Limited",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N098",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Zopa Bank",
+   "role": "Senior Product Manager – Operations (Service Solutions)",
+   "sector": "Non-university",
+   "location": "London Bridge — hybrid",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Zopa Bank Limited on the register, advert silent",
+   "fit": "6",
+   "fit_reason": "6: internal-tooling product roadmap with data science and leadership of PMs matches the 12-person team lead and data-science profile",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own the roadmap for service and operations products; user research; multivariate tests with data scientists; operational risk; lead PMs and engineering leads",
+   "notes": "Daily search 22 Nov 2026. Live Lever advert. Posting date unknown. Gaps: regulated-bank operations and experimentation at scale.",
+   "url": "https://jobs.lever.co/zopa/29bf9eae-916d-4e59-9931-9bf45e66e9ed",
+   "source": "Zopa careers (Lever)",
+   "added": "2026-11-22",
+   "legal_entity": "Zopa Bank Limited",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N099",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Monzo",
+   "role": "Senior Product Manager, Payments",
+   "sector": "Non-university",
+   "location": "London / Cardiff / UK remote",
+   "salary": "£105,000–£135,000 + incentives",
+   "deadline": "",
+   "deadline_text": "Closes once enough applications are received",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Monzo Bank Ltd on the register (Skilled Worker), advert silent; form says sponsorship depends on whether the role can be sponsored",
+   "fit": "6",
+   "fit_reason": "6: payments product ownership and data-driven decisions overlap with SAMS360 payments",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead a payments squad growing domestic and cross-border payments adoption, including partner negotiations and cross-border P&L",
+   "notes": "Daily search 22 Nov 2026. Live Greenhouse advert tagged 'New'. Gaps: FX/cross-border, partner negotiation and P&L experience; very senior, competitive band. Whether this role is sponsorable is unconfirmed.",
+   "url": "https://job-boards.greenhouse.io/monzo/jobs/7857701",
+   "source": "Monzo careers (Greenhouse)",
+   "added": "2026-11-22",
+   "legal_entity": "Monzo Bank Ltd",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N100",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Revolut",
+   "role": "Product Owner (Technical)",
+   "sector": "Non-university",
+   "location": "London office",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "Rolling",
+   "sponsorship": "❔ Unknown — Revolut Ltd seen on a register mirror under the GBM Senior/Specialist route only; Skilled Worker route not confirmed; advert silent",
+   "fit": "6",
+   "fit_reason": "6: asks for 2+ years on technical or data products plus people management, both of which he has",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own technical platform, data-science or ML products end to end and directly manage engineering, operations and design staff",
+   "notes": "Daily search 22 Nov 2026. Live advert on revolut.com/careers. Probably an evergreen advert. Gaps: high-growth fintech experience; very demanding interviews. Check the Skilled Worker route on the register before applying.",
+   "url": "https://www.revolut.com/careers/position/5beb1f80-446c-41b8-b59c-c34bd557bc7b",
+   "source": "Revolut careers",
+   "added": "2026-11-22",
+   "legal_entity": "Revolut Ltd",
+   "last_verified": "22 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
   }
  ]
 }
