@@ -864,7 +864,7 @@ const n = CO.next(r), c = CO.colOf(r);
 if (CO.lastSave && CO.lastSave.id === r.id && (Date.now() - CO.lastSave.at < 25000 || CO.SAVING[r.id])) w.append(noticeBox(CO.lastSave, true));
 const hero = el('div', 'phero');
 const top = el('div', 'pid'); const t = el('div', 'pt');
-t.append(el('div', 'po', r.organisation + ' · ' + CO.orgType(r)), el('h2', null, r.role));
+const ot = CO.orgType(r); t.append(el('div', 'po', r.organisation + (r.organisation.toLowerCase().includes(ot.split(' ')[0].toLowerCase()) ? '' : ' · ' + ot)), el('h2', null, r.role));
 top.append(CO.av(r.organisation), t); hero.append(top);
 const meta = el('div', 'mchips');
 const mc = (ic, txt, cls) => { if (!txt) return; const x = el('span', 'mchip' + (cls ? ' ' + cls : '')); x.append(el('i', null, ic), txt); meta.append(x); };
