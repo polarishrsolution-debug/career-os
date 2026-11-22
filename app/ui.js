@@ -1200,6 +1200,69 @@ const fb = el('div', 'fitbar'); const fi = el('i'); fi.style.width = (f == null 
 cols.append(L, R); w.append(cols);
 return w;
 };
+/* ---------- Career intelligence: insights, segments, waiting time, pace, benchmarks ---------- */
+os.seg = os.seg || 'type';
+const daysSince = (iso) => (iso ? Math.round((CO.todayUtc() - Date.parse(iso + 'T00:00:00Z')) / 864e5) : null);
+const pctN = (a, b) => (b ? Math.round(a / b * 100) : 0);
+dash.draw('intel', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow(); if (d.status !== 'ok') return;
+const F = CO.facts(d.data), ids = (l) => l.map((f) => f.r.id);
+const waitL = F.filter((f) => !f.iv && !f.rej && !f.off && !f.noreply && !f.wd);
+const ivR = pctN(F.filter((f) => f.iv).length, F.length), ivs = F.filter((f) => f.iv), offR = pctN(F.filter((f) => f.off).length, ivs.length);
+const old = waitL.filter((f) => !f.est && daysSince(f.ap) > 14);
+const wk = (n) => F.filter((f) => !f.est && f.ap && daysSince(f.ap) >= n * 7 && daysSince(f.ap) < (n + 1) * 7);
+const segBy = (key) => { const m = {}; F.forEach((f) => { const k = key(f); (m[k] = m[k] || []).push(f); }); return Object.entries(m).map(([k, l]) => ({k, l, iv: l.filter((f) => f.iv), rej: l.filter((f) => f.rej), wait: l.filter((f) => waitL.includes(f))})).sort((a, b) => b.l.length - a.l.length); };
+const FAMS = [['Business / Systems Analyst', /analyst|business architect/i], ['Product Manager', /product manager|head of product|product lead/i], ['Product Owner', /product owner/i], ['Project / Delivery / Change', /project|programme|delivery|change|transformation|scrum/i], ['Data / BI / AI', /data|insight|intelligence|analytics/i], ['Implementation / CRM', /implementation|crm|salesforce|consultant|specialist/i]];
+const SEG = {type: ['Employer type', (f) => CO.orgType(f.r)], role: ['Role type', (f) => (FAMS.find((x) => x[1].test(f.r.role)) || ['Other'])[0]], spons: ['Sponsorship', (f) => CO.SP[CO.spKind(f.r.sponsorship)][0]], fit: ['Fit score', (f) => { const v = CO.fitNum(f.r.fit); return v == null ? 'No score' : v >= 9 ? '9 and above' : v >= 8 ? '8 to 8.9' : v >= 7 ? '7 to 7.9' : 'Below 7'; }]};
+// insights
+const ins = [];
+const best = segBy(SEG.type[1]).filter((s) => s.l.length >= 3).sort((a, b) => b.iv.length / b.l.length - a.iv.length / a.l.length)[0];
+ins.push(['📈', 'Your interview rate is ' + ivR + '%', ivR >= 10 ? 'That is above the 2–10% most job seekers see, so your targeting is working. Keep the same focus.' : ivR >= 4 ? 'That is within the typical 2–10% range. Tailoring each application more closely to the advert is the usual way to lift it.' : 'That is below the typical 2–10% range. Apply to fewer, closer-fit roles and tailor each CV.', null]);
+if (best) ins.push(['🏆', 'Strongest segment: ' + best.k, pctN(best.iv.length, best.l.length) + '% of your ' + best.l.length + ' applications here reached interview. Lean into roles like these.', best.iv]);
+if (old.length) ins.push(['⏳', old.length + ' application' + (old.length === 1 ? ' has' : 's have') + ' waited over 14 days', 'Most employers reply within one to two weeks. Send a short follow-up, or mark them as No reply to keep your pipeline honest.', old]);
+const hi = F.filter((f) => (CO.fitNum(f.r.fit) || 0) >= 8.5), lo = F.filter((f) => { const v = CO.fitNum(f.r.fit); return v != null && v < 8.5; });
+if (hi.length >= 3 && lo.length >= 3) { const a = pctN(hi.filter((f) => f.iv).length, hi.length), b = pctN(lo.filter((f) => f.iv).length, lo.length); ins.push(['🎯', a >= b ? 'Higher fit scores do pay off' : 'Fit score is not predicting interviews yet', 'Fit 8.5+ roles reached interview ' + a + '% of the time, against ' + b + '% for lower scores.' + (a >= b ? ' Prioritise 8.5+ roles when time is short.' : ' Check whether the scoring reflects what employers value.'), hi.filter((f) => f.iv)]); }
+const active = waitL.length + F.filter((f) => f.iv && !f.rej && !f.off).length;
+ins.push(['🧭', active + ' live applications in play', active < 6 ? 'Research on 260,000 job seekers found 6–15 live applications converts best. Add a few strong-fit roles this week.' : active <= 15 ? 'You are in the 6–15 range that converts best in large studies. Good balance.' : 'More than 15 live at once can thin out tailoring. Focus on the strongest fits.', waitL]);
+const card1 = el('div', 'card'); card1.append(el('h2', null, 'Key insights'), el('p', 'note', 'Worked out from your own tracker, compared with published job-search research.'));
+const il = el('div', 'ins'); ins.forEach(([ic, t, s, l]) => { const row = el('div', 'insr'); row.append(el('span', 'ii', ic)); const tx = el('div'); tx.append(el('b', null, t), el('span', null, s)); row.append(tx); if (l && l.length) { const b = el('button', 'lk', 'See ' + l.length + ' →'); b.type = 'button'; b.onclick = () => CO.drill(t, ids(l), 'analytics'); row.append(b); } il.append(row); });
+card1.append(il); h.append(card1);
+// segments
+const card2 = el('div', 'card'); const hd = el('div', 'dhead'); const hx = el('div'); hx.append(el('h2', null, 'Where you win'), el('p', 'note', 'Interview rate for each group of applications you sent. Click a row to see those roles.'));
+const sg = el('div', 'seg2'); Object.entries(SEG).forEach(([k, [lab]]) => { const b = el('button', os.seg === k ? 'on' : '', lab); b.type = 'button'; b.onclick = () => { os.seg = k; dash.draw('intel'); }; sg.append(b); });
+hd.append(hx, sg); card2.append(hd);
+const tb = el('div', 'segt'); const th = el('div', 'sgr sgh'); ['Group', 'Applied', 'Interview rate', 'Interviews', 'Rejected', 'Waiting'].forEach((x) => th.append(el('span', null, x))); tb.append(th);
+const rows = segBy(SEG[os.seg][1]); const maxR = Math.max(1, ...rows.map((s) => pctN(s.iv.length, s.l.length)));
+rows.forEach((s) => { const r = el('div', 'sgr'); const rate = pctN(s.iv.length, s.l.length); const bar = el('span', 'sgb'); const tr = el('i'); const fl = el('b'); fl.style.width = (rate / maxR * 100) + '%'; tr.append(fl); bar.append(tr, el('em', null, rate + '%')); r.append(el('span', 'sgk', s.k), el('span', null, String(s.l.length)), bar, el('span', null, String(s.iv.length)), el('span', null, String(s.rej.length)), el('span', null, String(s.wait.length))); CO.clk(r, SEG[os.seg][0] + ': ' + s.k, ids(s.l)); tb.append(r); });
+card2.append(tb); h.append(card2);
+// waiting + pace
+const g = el('div', 'grid g2r');
+const c3 = el('div', 'card'); c3.append(el('h2', null, 'How long you have been waiting'), el('p', 'note', 'Applications with no reply yet, by days since you applied. Most replies arrive within about a week.'));
+const B = [['0–7 days', 0, 7, 'var(--acc)'], ['8–14 days', 8, 14, 'var(--brand)'], ['15–30 days', 15, 30, '#d9842e'], ['Over 30 days', 31, 1e4, '#d25358']];
+const dated = waitL.filter((f) => !f.est && f.ap), mx = Math.max(1, ...B.map(([, a, b]) => dated.filter((f) => daysSince(f.ap) >= a && daysSince(f.ap) <= b).length));
+B.forEach(([lab, a, b, col]) => { const l = dated.filter((f) => daysSince(f.ap) >= a && daysSince(f.ap) <= b); const row = el('div', 'brow'); const tr = el('div', 'btrack'); const fl = el('div', 'bfill'); fl.style.width = Math.max(2, l.length / mx * 100) + '%'; fl.style.background = col; tr.append(fl); row.append(el('span', null, lab), tr, el('span', 'bval', String(l.length))); c3.append(CO.clk(row, 'Waiting ' + lab, ids(l))); });
+const und = waitL.length - dated.length; if (und) c3.append(el('p', 'small', und + ' waiting applications have no exact applied date, so they are left out. Add dates in the card above.'));
+g.append(c3);
+let tgt = 10; try { tgt = Number(localStorage.getItem('careeros-target')) || 10; } catch (e) {}
+const c4 = el('div', 'card'); const h4 = el('div', 'chh'); const x4 = el('div'); x4.append(el('h2', null, 'Weekly pace'), el('p', 'note', 'Applications sent in each of the last 8 weeks, against your weekly target.'));
+const sel = el('select', 'tgt'); [5, 10, 15, 20].forEach((n) => { const o = new Option('Target ' + n + ' / week', String(n)); if (n === tgt) o.selected = true; sel.append(o); }); sel.onchange = () => { try { localStorage.setItem('careeros-target', sel.value); } catch (e) {} dash.draw('intel'); };
+h4.append(x4, sel); c4.append(h4);
+const W = [7, 6, 5, 4, 3, 2, 1, 0].map((n) => ({n, l: wk(n)})), wm = Math.max(tgt, ...W.map((x) => x.l.length));
+const cols = el('div', 'pace'); const line = el('i', 'tline'); line.style.bottom = 'calc(20px + ' + (tgt / wm).toFixed(3) + ' * (100% - 44px))'; cols.append(line);
+W.forEach(({n, l}) => { const c = el('div', 'pc'); const bar = el('i'); bar.style.height = 'calc(' + Math.max(0.02, l.length / wm).toFixed(3) + ' * (170px - 44px))'; bar.style.background = l.length >= tgt ? 'var(--acc)' : 'var(--brand)'; c.append(el('b', null, String(l.length)), bar, el('span', null, n === 0 ? 'This wk' : n + 'w ago')); CO.clk(c, 'Applied ' + (n === 0 ? 'in the last 7 days' : n + ' weeks ago'), ids(l)); cols.append(c); });
+c4.append(cols);
+const thisWk = W[7].l.length; c4.append(el('p', 'small', thisWk >= tgt ? 'Target met for the last 7 days. Quality now matters more than more volume.' : (tgt - thisWk) + ' more to reach this week\'s target. Research suggests around 10–15 well-tailored applications a week works better than mass applying.'));
+g.append(c4); h.append(g);
+// benchmarks
+const c5 = el('div', 'card'); c5.append(el('h2', null, 'How you compare'), el('p', 'note', 'Your numbers next to published job-search benchmarks. Benchmarks vary a lot by field and seniority, so treat them as a rough guide.'));
+const bm = el('div', 'bmg');
+const bmk = (lab, you, lo, hiV, unit, src) => { const t = el('div', 'bm'); const pos = Math.min(100, you / (hiV * 1.6) * 100); const bar = el('div', 'bmb'); const band = el('i', 'band'); band.style.left = (lo / (hiV * 1.6) * 100) + '%'; band.style.width = ((hiV - lo) / (hiV * 1.6) * 100) + '%'; const dot = el('i', 'dot'); dot.style.left = pos + '%'; bar.append(band, dot); t.append(el('span', 'k', lab), el('b', null, you + unit), bar, el('span', 'small', 'Typical ' + lo + '–' + hiV + unit + ' · ' + src)); bm.append(t); };
+bmk('Application → interview', ivR, 2, 10, '%', '30–50 applications per interview is common');
+bmk('Interview → offer', offR, 20, 33, '%', 'about 3–5 interviews per offer');
+bmk('Heard back at all', pctN(F.length - waitL.length, F.length), 45, 55, '%', 'about half of applicants were ignored in 2025');
+c5.append(bm); h.append(c5);
+});
 /* ---------- Interviews page ---------- */
 dash.draw('ivcards', (h) => {
 h.replaceChildren();
@@ -1328,7 +1391,7 @@ h.append(row);
 }
 });
 
-const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'reports', 'idsBar', 'crumb', 'nextMove', 'highfit', 'weekcal', 'sponsor', 'discover', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
+const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'reports', 'idsBar', 'intel', 'crumb', 'nextMove', 'highfit', 'weekcal', 'sponsor', 'discover', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
 CO.redrawAll = () => ALL.forEach((n) => dash.draw(n));
 const syncPanel = () => {
 document.querySelectorAll('.os .ws').forEach((w) => w.classList.toggle('sel', !!os.sel));
