@@ -82,6 +82,7 @@ return [
 {metric: 'followups', n: events.filter((e) => e.type === 'follow' && e.days <= 0).length},
 {metric: 'actions', n: priorities.length},
 {metric: 'new', n: jobs.filter((r) => r.id.startsWith('N')).length},
+{metric: 'new14', n: jobs.filter((r) => { const a = String(r.added || ''), t = Date.parse(/^20[0-9][0-9]-/.test(a) ? a.slice(0, 10) + 'T00:00:00Z' : a); return t && Date.now() - t <= 14 * 864e5; }).length},
 {metric: 'shortlist', n: jobs.filter((r) => r.stage === 'To apply' && k(r) !== 'unk').length},
 {metric: 'sp_ok', n: open.filter((r) => k(r) === 'ok').length},
 {metric: 'sp_warn', n: open.filter((r) => k(r) === 'warn').length},

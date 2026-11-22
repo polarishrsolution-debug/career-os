@@ -965,7 +965,7 @@ const ICONS = {pin: ['M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z', 'M12 
 CO.icon = (k) => { const s = svgEl('svg', {viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true', class: 'ico'}); (ICONS[k] || []).forEach((d) => s.append(svgEl('path', {d}))); return s; };
 /* ---------- Role details panel ---------- */
 os.ptab = os.ptab || 'overview';
-const readView = (r) => {
+const readView2 = (r) => {
 const w = el('div', 'pin pin2');
 const n = CO.next(r), c = CO.colOf(r);
 if (CO.lastSave && CO.lastSave.id === r.id && (Date.now() - CO.lastSave.at < 25000 || CO.SAVING[r.id])) w.append(noticeBox(CO.lastSave, true));
@@ -1022,6 +1022,184 @@ w.append(body);
 return w;
 };
 
+/* ---------- careerOS brand: shell, command centre, calendar, sponsorship, discovery, job page ---------- */
+ICONS.brief = ['M4 8h16v12H4z', 'M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2', 'M4 13h16'];
+const CRUMB = {today: ['My day', 'Command centre'], apps: ['Workspace', 'Job explorer'], board: ['Workspace', 'Application pipeline'], interviews: ['Workspace', 'Interviews & calendar'], sponsor: ['Intelligence', 'Sponsorship centre'], discover: ['Intelligence', 'Discovery inbox'], analytics: ['Intelligence', 'Career intelligence'], criteria: ['Preferences', 'Search strategy'], data: ['Preferences', 'Data & settings'], shortlist: ['Intelligence', 'Sponsored shortlist'], new: ['Intelligence', 'New roles']};
+dash.draw('crumb', (h) => {
+h.replaceChildren();
+const c = CRUMB[os.page] || ['Workspace', ''], r = os.sel && os.sel !== '__new' ? CO.find(os.sel) : null;
+h.append(el('span', 'cg', 'Career workspace / ' + (r ? 'Job explorer' : c[0])), el('b', null, r ? r.organisation : os.sel === '__new' ? 'Add a role' : c[1]));
+});
+const sqav = (org) => el('div', 'sqav', CO.initials(org));
+dash.draw('nextMove', (h) => {
+h.replaceChildren();
+const d = dash.data('priorities'); if (d.status !== 'ok') return;
+const p = d.data[0], box = el('div', 'nmove');
+box.append(el('div', 'eyebrow', 'Suggested next move'));
+if (!p) { box.append(el('h2', null, 'You are all caught up'), el('p', null, 'No deadlines, interviews or follow-ups need you right now. A good moment to review new roles in the Discovery inbox.')); const a = el('div', 'acts'); const b = el('button', 'btn', 'Open Discovery inbox'); b.type = 'button'; b.onclick = () => CO.go('discover'); a.append(b); box.append(a); h.append(box); return; }
+const t = p.title.split(': ');
+box.append(el('h2', null, t[0]), el('p', null, (t[1] ? t[1] + ' · ' : '') + p.sub), el('span', 'when', p.when));
+const a = el('div', 'acts'); const b1 = el('button', 'btn', 'Open this role'); b1.type = 'button'; b1.onclick = () => CO.open(p.id);
+const b2 = el('button', 'btn ghost2', 'See all ' + d.data.length + ' actions'); b2.type = 'button'; b2.onclick = () => { CO.go('today'); setTimeout(() => { const x = document.querySelector('.os [data-draw=priorities]'); if (x && x.scrollIntoView) x.scrollIntoView({block: 'start', behavior: 'smooth'}); }, 60); };
+a.append(b1, b2); box.append(a); h.append(box);
+});
+dash.draw('highfit', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow(); if (d.status !== 'ok') return;
+const rows = d.data.filter((r) => CO.colOf(r) === 'apply' && CO.fitNum(r.fit) != null).sort((a, b) => CO.fitNum(b.fit) - CO.fitNum(a.fit) || String(a.deadline || '9').localeCompare(String(b.deadline || '9'))).slice(0, 5);
+const hd = el('div', 'chh'); const hx = el('div'); hx.append(el('h2', null, 'High-fit opportunities'), el('p', 'note', 'Ready-to-apply roles worth reviewing'));
+const lk = el('button', 'lk', 'All roles →'); lk.type = 'button'; lk.onclick = () => { os.sort = 'fit'; os.dir = 1; os.stage = 'apply'; syncFilters(); CO.go('apps'); };
+hd.append(hx, lk); h.append(hd);
+const l = el('div', 'hfl');
+for (const r of rows) { const row = el('div', 'hfr'); const t = el('div'); t.append(el('b', 't', r.role), el('span', null, r.organisation + (r.location ? ' · ' + r.location : ''))); const sc = el('div', 'sc'); sc.append(el('b', null, String(CO.fitNum(r.fit))), el('small', null, 'match')); row.append(sqav(r.organisation), t, sc); row.onclick = () => CO.open(r.id); row.tabIndex = 0; row.onkeydown = (e) => { if (e.key === 'Enter') CO.open(r.id); }; l.append(row); }
+if (!rows.length) l.append(el('div', 'empty', 'No open roles with a fit score yet.'));
+h.append(l);
+});
+os.wk = os.wk || 0;
+dash.draw('weekcal', (h) => {
+h.replaceChildren();
+const d = dash.data('events'), jd = CO.jobsNow(); if (d.status !== 'ok' || jd.status !== 'ok') return;
+const t0 = CO.todayUtc(), dow = (new Date(t0).getUTCDay() + 6) % 7, mon = t0 - dow * 864e5 + os.wk * 7 * 864e5;
+const days = [0, 1, 2, 3, 4, 5, 6].map((i) => new Date(mon + i * 864e5).toISOString().slice(0, 10));
+const ev = d.data.filter((e) => e.date && days.includes(e.date)).map((e) => ({date: e.date, id: e.id, k: e.type === 'interview' ? 'interview' : e.type === 'deadline' ? 'deadline' : 'follow', lab: e.type === 'interview' ? 'Interview' + (e.time ? ' · ' + e.time : '') : e.type === 'deadline' ? 'Deadline' : 'Follow up', who: e.org}));
+jd.data.forEach((r) => { if (r.plan_on && days.includes(r.plan_on) && CO.colOf(r) === 'apply') ev.push({date: r.plan_on, id: r.id, k: 'plan', lab: 'Planned apply', who: r.organisation}); });
+const hd = el('div', 'wkh'); const hx = el('div'); const f = d3.utcFormat('%-d %b %Y');
+hx.append(el('h2', null, f(new Date(mon)) + ' – ' + f(new Date(mon + 6 * 864e5))), el('p', 'note', ev.length + ' event' + (ev.length === 1 ? '' : 's') + ' this week · click one to open the role'));
+const nav = el('div', 'pacts'); const mk = (t, fn) => { const b = el('button', 'btn sm', t); b.type = 'button'; b.onclick = fn; nav.append(b); };
+mk('←', () => { os.wk--; dash.draw('weekcal'); }); if (os.wk) mk('This week', () => { os.wk = 0; dash.draw('weekcal'); }); mk('→', () => { os.wk++; dash.draw('weekcal'); });
+hd.append(hx, nav); h.append(hd);
+const g = el('div', 'wk'), today = CO.todayIso();
+days.forEach((iso) => {
+const col = el('div', 'wkd' + (iso === today ? ' today' : '')); const dh = el('div', 'dh'); const dt = new Date(iso + 'T00:00:00Z');
+dh.append(el('span', null, d3.utcFormat('%a')(dt).toUpperCase()), el('b', null, d3.utcFormat('%-d')(dt))); col.append(dh);
+ev.filter((e) => e.date === iso).forEach((e) => { const b = el('button', 'ev ' + e.k); b.type = 'button'; b.append(el('b', null, e.lab), el('span', null, e.who)); b.onclick = () => CO.open(e.id); col.append(b); });
+g.append(col);
+});
+h.append(g);
+const lg = el('div', 'lg2'); [['Interview', 'var(--brand)'], ['Deadline', '#d9842e'], ['Follow-up', '#7c5cd6'], ['Planned apply', '#13876f']].forEach(([t, c]) => { const x = el('span'); const i = el('i'); i.style.background = c; x.append(i, t); lg.append(x); }); h.append(lg);
+});
+os.spt = os.spt || 'warn';
+dash.draw('sponsor', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow(); if (d.status !== 'ok') return;
+const act = d.data.filter((r) => !['closed'].includes(CO.colOf(r)));
+const ban = el('div', 'card spban'); const bx = el('div'); const h2 = el('h2'); h2.append(CO.icon('shield'), 'Sponsorship needs two checks'); bx.append(h2, el('p', null, '1. The employing legal entity must be on the Home Office register of licensed sponsors. 2. The vacancy itself must be one they will sponsor. A licence alone does not guarantee sponsorship for a particular job.'));
+const reg = el('a', 'btn'); reg.append('Official UK register ', CO.icon('ext')); reg.href = 'https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers'; reg.target = '_blank'; reg.rel = 'noopener noreferrer';
+ban.append(bx, reg); h.append(ban);
+const T = [['ok', 'Vacancy-level evidence', 'The advert says sponsorship is available'], ['warn', 'Licensed / unconfirmed', 'Employer holds a licence; the advert is silent'], ['unk', 'Unknown / verify', 'Licence or vacancy status still to check']];
+const tg = el('div', 'tiers');
+for (const [k, lab, desc] of T) { const l = act.filter((r) => CO.spKind(r.sponsorship) === k); const c = el('button', 'card tier ' + k + (os.spt === k ? ' on' : '')); c.type = 'button'; c.append(el('b', null, String(l.length)), el('h2', null, lab), el('p', null, desc), el('span', 'badge ' + (k === 'ok' ? 'green' : k === 'warn' ? 'amber' : ''), os.spt === k ? 'Showing below' : 'View roles →')); c.onclick = () => { os.spt = k; dash.draw('sponsor'); }; tg.append(c); }
+h.append(tg);
+const sel = act.filter((r) => CO.spKind(r.sponsorship) === os.spt).sort((a, b) => (CO.fitNum(b.fit) || 0) - (CO.fitNum(a.fit) || 0));
+const lc = el('div', 'card'); const hd = el('div', 'chh'); const hx = el('div'); const TT = {ok: 'Sponsorship stated in the advert', warn: 'Needs vacancy-level confirmation', unk: 'Still to verify'};
+hx.append(el('h2', null, TT[os.spt]), el('p', 'note', sel.length + ' active roles, highest fit first. For licensed roles, ask HR or check the advert before applying.'));
+const lk = el('button', 'lk', 'Open in Job explorer →'); lk.type = 'button'; lk.onclick = () => CO.drill(T.find((x) => x[0] === os.spt)[1], sel.map((r) => r.id), 'sponsor'); hd.append(hx, lk); lc.append(hd);
+const g = el('div', 'sgrid');
+sel.slice(0, 30).forEach((r) => { const row = el('div', 'srow'); const t = el('div'); t.append(el('b', null, r.role), el('span', null, r.organisation), el('small', null, CO.plain(r.sponsorship))); row.append(sqav(r.organisation), t, el('span', 'fs2', CO.fitNum(r.fit) == null ? '—' : String(CO.fitNum(r.fit)))); row.onclick = () => CO.open(r.id); g.append(row); });
+if (!sel.length) g.append(el('div', 'empty', 'Nothing in this group.'));
+lc.append(g); h.append(lc);
+});
+os.dsf = os.dsf || 'recent'; os.dmax = os.dmax || 24;
+dash.draw('discover', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow(); if (d.status !== 'ok') return;
+const today = CO.todayIso(), since = CO.addDays(today, -14);
+const dated = d.data.filter((r) => CO.addedIso(r)), recent = dated.filter((r) => CO.addedIso(r) >= since);
+const hi = recent.filter((r) => (CO.fitNum(r.fit) || 0) >= 8), toRev = d.data.filter((r) => CO.colOf(r) === 'apply' && !(r.notes_log || []).length && !(r.aprep || []).length);
+const kp = el('div', 'kpis k4');
+[['Added in last 14 days', recent, 'i-brief', 'From the daily search and you'], ['Fit 8 or above', hi, 't-green i-send', 'Strong matches added recently'], ['To review', toRev, 't-amber i-clock', 'Open roles with no notes or checklist yet'], ['Closing in 7 days', d.data.filter((r) => CO.colOf(r) === 'apply' && r.deadline && CO.daysTo(r.deadline) <= 7 && CO.daysTo(r.deadline) >= 0), 't-red i-check', 'Apply first']].forEach(([lab, l, cls, desc]) => { const c = el('div', 'kpi ' + cls); c.append(el('span', 'k', lab), el('b', null, String(l.length)), el('span', 'm', desc)); CO.clk(c, lab, l.map((r) => r.id), 'discover'); kp.append(c); });
+h.append(kp);
+const card = el('div', 'card'); const hd = el('div', 'dhead'); const hx = el('div');
+const last = dated.map(CO.addedIso).sort().pop();
+hx.append(el('h2', null, 'Opportunity feed'), el('p', 'note', 'Latest addition: ' + (last ? CO.fmtDay(last) : '—') + ' · newest first'));
+const seg = el('div', 'seg2'); [['recent', 'Last 14 days'], ['high', 'High fit'], ['review', 'To review'], ['all', 'All dated']].forEach(([k, t]) => { const b = el('button', os.dsf === k ? 'on' : '', t); b.type = 'button'; b.onclick = () => { os.dsf = k; os.dmax = 24; dash.draw('discover'); }; seg.append(b); });
+hd.append(hx, seg); card.append(hd);
+let list = os.dsf === 'recent' ? recent : os.dsf === 'high' ? d.data.filter((r) => (CO.fitNum(r.fit) || 0) >= 8 && CO.colOf(r) === 'apply') : os.dsf === 'review' ? toRev : dated;
+list = list.slice().sort((a, b) => String(CO.addedIso(b)).localeCompare(String(CO.addedIso(a))) || (CO.fitNum(b.fit) || 0) - (CO.fitNum(a.fit) || 0));
+const g = el('div', 'dgrid');
+list.slice(0, os.dmax).forEach((r) => {
+const c = el('div', 'dcard'); const tp = el('div', 'top2'); const tx = el('div'); tx.append(el('b', null, r.organisation), el('span', null, CO.addedIso(r) ? 'Added ' + CO.fmtDay(CO.addedIso(r)) : 'Date not recorded')); tp.append(sqav(r.organisation), tx);
+const f = CO.fitNum(r.fit); const fit = el('span', 'fitn'); fit.append(f == null ? '—' : String(f), el('small', null, ' /10 fit'));
+const k = CO.spKind(r.sponsorship); const r1 = el('div', 'row'); r1.append(fit, el('span', 'badge ' + (k === 'ok' ? 'green' : k === 'warn' ? 'amber' : ''), CO.SP[k][0]));
+const r2 = el('div', 'row'); const rv = el('button', 'btn sm', 'Review →'); rv.type = 'button'; rv.onclick = (e) => { e.stopPropagation(); CO.open(r.id); }; r2.append(colPill(r), rv);
+c.append(tp, el('h3', null, r.role), el('div', 'loc', [r.location, CO.orgType(r)].filter(Boolean).join(' · ')), r1, r2);
+c.onclick = () => CO.open(r.id); g.append(c);
+});
+if (!list.length) g.append(el('div', 'empty', 'Nothing here yet.'));
+card.append(g);
+if (list.length > os.dmax) { const more = el('div', 'pacts'); more.style.marginTop = '16px'; const b = el('button', 'btn', 'Show more (' + (list.length - os.dmax) + ' left)'); b.type = 'button'; b.onclick = () => { os.dmax += 24; dash.draw('discover'); }; more.append(b); card.append(more); }
+h.append(card);
+});
+ICONS.shield = ['M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z', 'M9 12l2 2 4-4'];
+const JDESC = ['Role tracked', 'Submission recorded', 'Call, test or task', 'Interview process', 'Offer outcome', 'CoS, visa and start'];
+const journey = (r) => {
+const L = ladderAt(r), s = r.steps || {}, scr = /^screening/i.test(r.interview_status || '') || !!s.screening;
+const box = el('div', 'jny');
+LADDER.forEach((label, i) => {
+const skip = i === 2 && !scr && L.at > 2, bad = !!L.bad && i === L.at;
+const done = !bad && !skip && (i < L.at || (L.done && i === L.at));
+const cls = bad ? ' bad' : skip ? ' skip' : done ? ' done' : i === L.at && !L.bad ? ' now' : '';
+const dk = ['', 'applied', 'screening', 'interview', 'offer', 'accepted'][i], w2 = ['applied', 'interview', 'offer'].includes(dk) ? CO.when(r, dk) : {d: s[dk]}, dd = dk && !w2.est && w2.d;
+const st = el('div', 'js' + cls); st.append(el('b', null, (done ? '✓ ' : i === L.at && !bad ? '● ' : bad ? '✕ ' : '') + (bad ? L.bad : label)), el('span', null, dd && (done || i === L.at) ? CO.fmtDay(dd) : skip ? 'Skipped' : JDESC[i]));
+box.append(st);
+});
+return box;
+};
+const readView = (r) => {
+const c = CO.colOf(r), f = CO.fitNum(r.fit), st = r.interview_status || '';
+const w = el('div', 'jd');
+if (CO.lastSave && CO.lastSave.id === r.id && (Date.now() - CO.lastSave.at < 25000 || CO.SAVING[r.id])) w.append(noticeBox(CO.lastSave, true));
+const cr = el('div', 'jcrumb'); const bk = el('button', 'lk', '← All jobs'); bk.type = 'button'; bk.onclick = () => CO.close(); cr.append(bk, el('span', null, '/'), el('span', null, r.organisation), el('span', null, '/'), el('b', null, r.id)); w.append(cr);
+const hc = el('div', 'jhead'); const L0 = el('div', 'jh-l'); const tx = el('div');
+tx.append(el('div', 'jorg', r.organisation), el('h1', null, r.role));
+const chips = el('div', 'jchips'); const chip = (ic, t, cls) => { if (!t) return; const x = el('span', 'jchip' + (cls ? ' ' + cls : '')); x.append(CO.icon(ic), t); chips.append(x); };
+const loc = String(r.location || '').trim(), dl = CO.daysTo(r.deadline);
+chip('brief', CO.orgType(r)); chip('pin', loc ? loc.split(/[;—]/)[0].trim().replace(/\s*\/\s*/g, ', ') : ''); chip('cal', r.deadline ? CO.fmtDay(r.deadline) + (dl != null && dl >= 0 && c === 'apply' ? ' · ' + (dl === 0 ? 'closes today' : dl + (dl === 1 ? ' day left' : ' days left')) : '') : r.deadline_text, dl != null && dl >= 0 && dl <= 3 && c === 'apply' ? 'hot' : ''); chip('pound', r.salary && !/not stated/i.test(r.salary) ? r.salary : '');
+tx.append(chips); L0.append(el('div', 'jav', CO.initials(r.organisation)), tx);
+const R0 = el('div', 'jh-r'); const sc = el('div', 'jscore'); sc.append(el('b', null, f == null ? '—' : String(f)), el('span', null, '/ 10 match'));
+const bt = el('div', 'jbtns'); if (CO.canEdit) { const e2 = el('button', 'btn'); e2.type = 'button'; e2.append(CO.icon('edit'), 'Edit'); e2.onclick = () => CO.startEdit(r.id); bt.append(e2); }
+if (CO.isUrl(r.url)) { const a = el('a', 'btn pri'); a.append('Job advert ', CO.icon('ext')); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; bt.append(a); }
+R0.append(sc, bt); hc.append(L0, R0); w.append(hc);
+const jc = el('div', 'card'); const jh = el('div', 'chh'); const jx = el('div'); jx.append(el('h2', null, 'Application journey'), el('p', 'note', 'Each step records the day it happened. Sponsorship is checked separately.')); const tg = el('div', 'tags'); tg.append(colPill(r)); const sp = savePill(r.id); if (sp) tg.append(sp); jh.append(jx, tg); jc.append(jh, journey(r)); w.append(jc);
+const cols = el('div', 'jcols'), L = el('div', 'jl'), R = el('div', 'jr');
+const nl = Array.isArray(r.notes_log) ? r.notes_log.length : 0, hl = Array.isArray(r.history) ? r.history.length : 0, hasPrep = ['interview', 'offer'].includes(c);
+const TABS = [['overview', 'Overview'], ['notes', 'Notes' + (nl ? ' · ' + nl : '')]].concat(hasPrep ? [['prep', 'Interview prep']] : []).concat([['activity', 'Activity' + (hl ? ' · ' + hl : '')]]);
+let tab = os.ptab; if (!TABS.some((x) => x[0] === tab)) tab = 'overview';
+const tb = el('div', 'jtabs'); tb.setAttribute('role', 'tablist');
+for (const [k, lab] of TABS) { const b = el('button', tab === k ? 'on' : '', lab); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', String(tab === k)); b.onclick = () => { os.ptab = k; dash.draw('panel'); }; tb.append(b); }
+L.append(tb);
+const card = (title, kids, badge) => { const s = el('div', 'card'); if (title) { const hh = el('div', 'chh'); hh.append(el('h2', null, title)); if (badge) hh.append(badge); s.append(hh); } kids.forEach((k) => k && s.append(k)); L.append(s); return s; };
+const tiles = (pairs) => { const g = el('div', 'tiles'); pairs.forEach(([a, b]) => { if (!b || b === '—') return; const t = el('div', 'tile'); t.append(el('span', null, a), el('b', null, b)); g.append(t); }); return g; };
+if (tab === 'overview') {
+if (c === 'offer' && /accepted/i.test(st)) card('Sponsorship & start date', [visaBox(r)]);
+const why = CO.fitWhy(r), kids = [];
+if (why.reason || r.jd_focus) kids.push(el('div', 'prose', why.reason || r.jd_focus));
+if (why.reason && r.jd_focus) kids.push(el('div', 'callout', r.jd_focus));
+if (why.hits.length) { const tg2 = el('div', 'tags'); tg2.style.marginTop = '10px'; why.hits.forEach((x) => tg2.append(pill(x, 'green'))); kids.push(tg2); }
+why.gaps.forEach((g2) => kids.push(el('div', 'callout warn', 'Gap to address: ' + g2)));
+kids.push(tiles([['Organisation', r.organisation], ['Employer type', CO.orgType(r)], ['Location', loc], ['Salary', r.salary], ['Closing date', r.deadline ? CO.fmtDay(r.deadline) : r.deadline_text], ['Application status', CO.sub(r)]]));
+card('Opportunity summary', kids, el('span', 'badge blue', (f == null ? '—' : f) + ' / 10 fit'));
+const k = CO.spKind(r.sponsorship);
+const sk = [el('div', 'callout' + (k === 'ok' ? ' ok' : ''), CO.plain(r.sponsorship) || 'No evidence recorded yet.')];
+if (k === 'warn') sk.push(el('div', 'callout warn', 'A sponsor licence does not guarantee sponsorship for this vacancy. Confirm with the employer before you invest time in the application.'));
+if (r.legal_entity) sk.push(tiles([['Legal entity', r.legal_entity], ['Last verified', r.last_verified]]));
+card('Sponsorship & right-to-work evidence', sk, el('span', 'badge ' + (k === 'ok' ? 'green' : k === 'warn' ? 'amber' : ''), CO.SP[k][0]));
+const src = [tiles([['Source', r.source], ['Added', r.added], ['Last verified', r.last_verified], ['Reference', r.id]])];
+if (r.notes) src.push(el('div', 'callout', r.notes));
+card('Source & traceability', src);
+if (CO.canEdit) { const det = el('details', 'more2'); det.append(el('summary', null, 'Fix the stage by hand')); det.append(el('div', 'small', 'Only to correct a mistake. For normal progress use Next best action.')); const ml = el('label', 'msel'); ml.append(el('span', null, 'Set the stage'), moveSelect(r)); det.append(ml); L.append(det); }
+} else if (tab === 'notes') card('Your notes', [notesBox(r)]);
+else if (tab === 'prep') card('Interview preparation', [prepBox(r)]);
+else { const hi = el('div', 'tl'); (r.history || []).slice().reverse().forEach((x) => { const row = el('div'); row.append(el('i'), el('span', 'tt', x.at ? d3.timeFormat('%-d %b %Y · %H:%M')(new Date(x.at)) : ''), el('span', null, x.what || '')); hi.append(row); }); if (!hl) hi.append(el('div', 'small', 'No activity yet.')); card('Activity', [hi]); }
+if (CO.SAVING[r.id] === 'error') { const m = el('div', 'msg err'); m.append('Not saved: ' + (CO.ERR[r.id] || '') + ' '); const b = el('button', 'btn sm', 'Retry'); b.type = 'button'; b.onclick = CO.retry; m.append(b); R.append(m); }
+const ac = actionCard(r); R.append(ac);
+if (!CO.canEdit) R.append(el('div', 'msg', window.CAREER_OS_RO || 'View only here.'));
+const kf = el('div', 'card'); kf.append(el('h2', null, 'Key facts'));
+kf.append(tiles([['Match', f == null ? '—' : f + '/10'], ['Deadline', r.deadline ? CO.fmtDay(r.deadline) : (r.deadline_text || '—')], ['Stage', CO.COLS[c][0]], ['Interview', CO.ivParse(r.interview_datetime) ? CO.fmtDay(CO.ivParse(r.interview_datetime).ms) : 'Not set'], ['Applied', r.applied_on ? CO.fmtDay(r.applied_on) : ''], ['Follow up', r.follow_up ? CO.fmtDay(r.follow_up) : '']]));
+const fb = el('div', 'fitbar'); const fi = el('i'); fi.style.width = (f == null ? 0 : f * 10) + '%'; fb.append(fi); kf.append(fb); R.append(kf);
+cols.append(L, R); w.append(cols);
+return w;
+};
 /* ---------- Interviews page ---------- */
 dash.draw('ivcards', (h) => {
 h.replaceChildren();
@@ -1150,13 +1328,13 @@ h.append(row);
 }
 });
 
-const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'reports', 'idsBar', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
+const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'reports', 'idsBar', 'crumb', 'nextMove', 'highfit', 'weekcal', 'sponsor', 'discover', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
 CO.redrawAll = () => ALL.forEach((n) => dash.draw(n));
 const syncPanel = () => {
 document.querySelectorAll('.os .ws').forEach((w) => w.classList.toggle('sel', !!os.sel));
 document.querySelectorAll('.os .panel').forEach((p) => { p.hidden = !os.sel; });
 };
-const narrow = () => { const m = document.querySelector('.os .main'); return !!m && getComputedStyle(m).display === 'none'; };
+const narrow = () => true;
 CO.open = (id) => {
 const was = os.sel; os.sel = id; if (was !== id) { os.edit = false; os.draft = null; os.ivForm = null; }
 syncPanel(); CO.redrawAll();
@@ -1166,7 +1344,7 @@ CO.close = () => {
 const id = os.sel; os.sel = ''; os.edit = false; os.draft = null; os.ivForm = null; os.add = null; syncPanel(); CO.redrawAll();
 setTimeout(() => { const tr = document.querySelector('.os .page:not([hidden]) [data-key=' + JSON.stringify(id) + ']'); if (tr && tr.scrollIntoView) { tr.scrollIntoView({block: 'nearest'}); if (tr.focus) tr.focus({preventScroll: true}); } }, 40);
 };
-const PAGES = {today: 'today', applications: 'apps', pipeline: 'board', interviews: 'interviews', shortlist: 'shortlist', 'new-roles': 'new', analytics: 'analytics', criteria: 'criteria', data: 'data'};
+const PAGES = {sponsorship: 'sponsor', discovery: 'discover', today: 'today', applications: 'apps', pipeline: 'board', interviews: 'interviews', shortlist: 'shortlist', 'new-roles': 'new', analytics: 'analytics', criteria: 'criteria', data: 'data'};
 const showPage = () => {
 document.querySelectorAll('.os .page').forEach((p) => { p.hidden = p.dataset.name !== os.page; });
 document.querySelectorAll('.os .nav button').forEach((b) => { if (b.dataset.page === os.page) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
@@ -1198,6 +1376,7 @@ document.querySelectorAll('.os .tabs button').forEach((b) => b.addEventListener(
 document.querySelectorAll('.os-quick').forEach((b) => b.addEventListener('click', () => { os.quick = os.quick === b.dataset.quick ? '' : b.dataset.quick; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-f').forEach((x) => x.addEventListener('change', () => { os[x.dataset.key] = x.value; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-q').forEach((i) => i.addEventListener('input', () => { os.q = i.value; CO.redrawAll(); }));
+document.querySelectorAll('.os-gq').forEach((i) => { i.addEventListener('input', () => { os.q = i.value; document.querySelectorAll('.os-q').forEach((x) => { x.value = i.value; }); if (os.sel) CO.close(); if (os.page !== 'apps') CO.go('apps'); else CO.redrawAll(); }); i.addEventListener('keydown', (e) => { if (e.key === 'Escape') { i.value = ''; os.q = ''; document.querySelectorAll('.os-q').forEach((x) => { x.value = ''; }); CO.redrawAll(); } }); });
 document.querySelectorAll('.os-clear').forEach((b) => b.addEventListener('click', () => { Object.assign(os, {stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', orgtype: '', quick: '', ids: null, idsLabel: '', sort: 'deadline', dir: 1}); syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os .jt th[data-sort]').forEach((th) => th.addEventListener('click', () => { const k = th.dataset.sort; if (os.sort === k) os.dir = -os.dir; else { os.sort = k; os.dir = 1; } syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-sort').forEach((x) => x.addEventListener('change', () => { os.sort = x.value; os.dir = 1; syncFilters(); CO.redrawAll(); }));
