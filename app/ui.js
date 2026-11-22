@@ -26,6 +26,7 @@ fit8: (r) => (CO.fitNum(r.fit) ?? 0) >= 8,
 new: (r) => r.id.startsWith('N'),
 };
 const pass = (r, noStage) => {
+if (os.ids && !os.ids.includes(r.id)) return false;
 if (!noStage && os.stage && CO.colOf(r) !== os.stage) return false;
 if (os.quick && QUICK[os.quick] && !QUICK[os.quick](r)) return false;
 if (os.sector && r.sector !== os.sector) return false;
@@ -295,7 +296,7 @@ l.append(cb, el('span', null, label)); ck.append(l);
 w.append(pr, ck);
 return w;
 };
-dash.draw('ivcards', (h) => {
+dash.draw('ivcardsOld', (h) => {
 h.replaceChildren();
 const d = CO.jobsNow();
 if (d.status === 'error') { CO.failBox(h); return; }
@@ -445,7 +446,7 @@ b.append(row);
 });
 return b;
 };
-const readView = (r) => {
+const readViewOld = (r) => {
 const w = el('div', 'pin');
 const n = CO.next(r);
 const id = el('div', 'pid'); const t = el('div'); t.append(el('h2', null, r.role), el('div', 'o', r.organisation), el('div', 'm', [r.location, r.salary && !/not stated/i.test(r.salary) ? r.salary : ''].filter(Boolean).join(' · ')));
@@ -686,6 +687,267 @@ row.append(t, i); lst.append(row);
 det.append(lst); h.append(det);
 }
 });
+
+/* ---------- drill-down: any number opens the roles behind it ---------- */
+CO.drill = (label, ids, back) => { os.ids = Array.from(new Set(ids)); os.idsLabel = label; os.idsBack = back || os.page; Object.assign(os, {stage: '', quick: '', q: ''}); os.sel = ''; syncFilters(); CO.go('apps'); CO.redrawAll(); window.scrollTo(0, 0); };
+CO.clk = (node, label, ids, back) => {
+if (!ids || !ids.length) return node;
+node.classList.add('clk'); node.tabIndex = 0; node.setAttribute('role', 'button'); node.title = 'Show these ' + ids.length + ' roles';
+const go = () => CO.drill(label, ids, back || 'analytics');
+node.onclick = (e) => { e.stopPropagation(); go(); };
+node.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+return node;
+};
+const lowPay = (s) => { s = String(s || ''); if (/day|hour|hr/i.test(s)) return null; const m = s.replace(/,/g, '').match(/£ ?([0-9]+(?:[.][0-9]+)?) ?(k)?/i); if (!m) return null; let v = Number(m[1]); if (m[2] || v < 1000) v *= 1000; return v; };
+const DRILL = {
+byFamily: [['Business / Systems Analyst', /analyst|business architect/i], ['Product Manager', /product manager|head of product|product lead|product and service owner/i], ['Product Owner', /product owner/i], ['Project / Delivery / Change', /project|programme|delivery|change|transformation|scrum/i], ['Data / BI / AI', /data|insight|intelligence|[^a-z]bi[^a-z]|[^a-z]ai[^a-z]|automation|analytics/i], ['Implementation / CRM', /implementation|deployment|crm|salesforce|consultant|systems specialist/i]],
+byRegion: [['London', /london|farringdon|waterloo|docklands|canary wharf/i], ['North & Yorkshire', /sheffield|leeds|manchester|york|bradford|hull|durham|lancaster|preston|chester|newcastle|liverpool|northallerton|knutsford|blackpool|barnsley|rotherham|salford|horsforth/i], ['Midlands', /birmingham|nottingham|leicester|lutterworth|northampton|milton keynes|coventry|derby/i], ['South & East', /oxford|bath|bristol|reading|bognor|swindon|gloucester|watford|cambridge|hove|woking|norwich|egham|uxbridge/i], ['Scotland', /glasgow|edinburgh|st andrews|scotland|dundee|aberdeen/i], ['Wales', /cardiff|swansea|wales|llandaff/i], ['Remote / multi-site', /remote|multi-location|united kingdom|^uk( |$)|uk [/]/i]],
+rejBy: [['Business / Systems Analyst', /analyst/i], ['Product Manager / Owner', /product/i], ['Project / Delivery / Change', /project|programme|delivery|change|transformation/i], ['Data / BI / AI', /data|insight|intelligence|automation|analytics/i], ['Implementation / CRM', /implementation|crm|salesforce|consultant/i]],
+};
+CO.drillRow = (node, src, label) => {
+const d = CO.jobsNow(); if (d.status !== 'ok') return;
+let f = null;
+const hit = (k) => (DRILL[k].find((x) => x[0] === label) || [])[1];
+if (src === 'byFamily') { const re = hit(src); if (re) f = (r) => re.test(' ' + r.role + ' '); }
+else if (src === 'byRegion') { const re = hit(src); if (re) f = (r) => re.test(r.location || ''); }
+else if (src === 'rejBy') { const re = hit(src); if (re) f = (r) => /^rejected/i.test(r.interview_status || '') && re.test(r.role); }
+else if (src === 'bySector') f = (r) => r.sector === label && CO.didApply(r);
+else if (src === 'fitDist') { const B = {'Under 7': [0, 7], '7–7.9': [7, 8], '8–8.4': [8, 8.5], '8.5–8.9': [8.5, 9], '9+': [9, 11]}[label]; if (B) f = (r) => { const v = CO.fitNum(r.fit); return v != null && v >= B[0] && v < B[1]; }; }
+else if (src === 'salaryDist') { const B = {'<£45k': [0, 45000], '£45–55k': [45000, 55000], '£55–65k': [55000, 65000], '£65k+': [65000, 1e9]}[label]; f = B ? (r) => { const v = lowPay(r.salary); return v != null && v >= B[0] && v < B[1]; } : (r) => lowPay(r.salary) == null; }
+if (!f) return;
+const names = {byFamily: 'Role type', byRegion: 'Region', rejBy: 'Rejected · role type', bySector: 'Applied · sector', fitDist: 'Fit', salaryDist: 'Salary'};
+CO.clk(node, names[src] + ': ' + label, d.data.filter(f).map((r) => r.id));
+};
+dash.draw('idsBar', (h) => {
+h.replaceChildren();
+if (!os.ids) return;
+const b = el('div', 'idsbar'); b.append(el('span', 'ic', '🔎'));
+const t = el('div'); t.append(el('b', null, os.idsLabel || 'Selected roles'), el('span', null, os.ids.length + ' role' + (os.ids.length === 1 ? '' : 's') + ' · other filters still apply'));
+b.append(t);
+const acts = el('div', 'pacts');
+if (os.idsBack && os.idsBack !== 'apps') { const bk = el('button', 'btn sm', '← Back to ' + ({analytics: 'Analytics', today: 'Today', interviews: 'Interviews'}[os.idsBack] || 'previous page')); bk.type = 'button'; bk.onclick = () => { const p = os.idsBack; os.ids = null; os.idsLabel = ''; CO.go(p); CO.redrawAll(); }; acts.append(bk); }
+const x = el('button', 'btn sm', 'Show all roles'); x.type = 'button'; x.onclick = () => { os.ids = null; os.idsLabel = ''; CO.redrawAll(); }; acts.append(x);
+b.append(acts); h.append(b);
+});
+
+/* ---------- Reports ---------- */
+const STATUS = [['Awaiting reply', 'var(--c2)'], ['Screening', 'var(--c1)'], ['Interview', 'var(--acc)'], ['Offer', 'var(--gold)'], ['Rejected', 'var(--color-bad)'], ['No reply', 'color-mix(in srgb, var(--color-warn) 75%, transparent)'], ['Withdrawn', 'color-mix(in srgb, var(--color-fg-muted) 55%, transparent)']];
+const statusOf = (f) => { const st = f.r.interview_status || ''; return f.wd ? 'Withdrawn' : f.off ? 'Offer' : f.rej ? 'Rejected' : f.noreply ? 'No reply' : CO.colOf(f.r) === 'interview' ? 'Interview' : /^screening/i.test(st) ? 'Screening' : 'Awaiting reply'; };
+dash.draw('reports', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow(); if (d.status === 'error') { CO.failBox(h); return; } if (d.status !== 'ok') return;
+const F = CO.facts(d.data), cur = CO.todayIso().slice(0, 7), ids = (l) => l.map((f) => f.r.id);
+const P = {month: [[cur], [ymAdd(cur, -1)], 'This month', ymLab(cur, '%B'), ymLab(ymAdd(cur, -1), '%B')], last: [[ymAdd(cur, -1)], [ymAdd(cur, -2)], 'Last month', ymLab(ymAdd(cur, -1), '%B'), ymLab(ymAdd(cur, -2), '%B')], q: [[ymAdd(cur, -2), ymAdd(cur, -1), cur], [ymAdd(cur, -5), ymAdd(cur, -4), ymAdd(cur, -3)], 'Last 3 months', 'the last 3 months', 'the 3 months before'], all: [null, null, 'All time', 'all time', '']};
+const [ks, pks, , plabel, prevLab] = P[os.aper] || P.month;
+const inP = (x, k) => !k || (!!x && k.includes(ym(x)));
+const lists = (k) => ({apps: F.filter((f) => inP(f.ap, k)), ivs: F.filter((f) => f.iv && inP(f.ivd, k)), offers: F.filter((f) => f.off && inP(f.offd, k)), rejs: F.filter((f) => f.rej && inP(f.rejd, k))});
+const now = lists(ks), prev = pks ? lists(pks) : null, per = os.aper === 'all' ? 'so far' : 'in ' + plabel;
+const pl = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
+// header
+const hd = el('div', 'rhead'); const ht = el('div'); ht.append(el('h2', null, os.aper === 'all' ? 'Your job search so far' : 'Your job search ' + (os.aper === 'q' ? 'over the last 3 months' : 'in ' + plabel)), el('p', 'note', 'Click any number to see the roles behind it.'));
+const seg = el('div', 'seg'); seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'Time period');
+for (const k of ['month', 'last', 'q', 'all']) { const b = el('button', os.aper === k ? 'on' : '', P[k][2]); b.type = 'button'; b.setAttribute('aria-pressed', String(os.aper === k)); b.onclick = () => { os.aper = k; dash.draw('reports'); }; seg.append(b); }
+hd.append(ht, seg); h.append(hd);
+// story
+const story = el('div', 'card rhero');
+const s = el('p', 'story');
+const num = (n, w, l, lab) => CO.clk(el('span', 'num', pl(n, w)), lab, ids(l));
+s.append((os.aper === 'all' ? 'So far you have sent ' : (os.aper === 'q' ? 'Over the last 3 months' : 'In ' + plabel) + ' you sent '), num(now.apps.length, 'application', now.apps, 'Applications sent ' + per), ', got ', num(now.ivs.length, 'interview', now.ivs, 'Interviews ' + per), ', ', num(now.offers.length, 'offer', now.offers, 'Offers ' + per), ' and ', num(now.rejs.length, 'rejection', now.rejs, 'Rejections ' + per), '.');
+if (prev) { const dl = now.apps.length - prev.apps.length; s.append(' ' + (dl === 0 ? 'The same number of applications as ' + prevLab + '.' : 'That is ' + Math.abs(dl) + (dl > 0 ? ' more' : ' fewer') + ' application' + (Math.abs(dl) === 1 ? '' : 's') + ' than ' + prevLab + '.')); }
+story.append(s); h.append(story);
+// kpis
+const kp = el('div', 'kpis rk');
+[['Applications sent', 'apps', 't-purple'], ['Interviews', 'ivs', 't-green'], ['Offers', 'offers', 't-gold'], ['Rejections', 'rejs', 't-red']].forEach(([lab, k, tone]) => {
+const c = el('div', 'kpi ' + tone); c.append(el('span', 'k', lab), el('b', null, String(now[k].length)));
+if (prev) { const x = now[k].length - prev[k].length; c.append(el('span', 'dl' + (x > 0 ? ' up' : x < 0 ? ' down' : ''), (x > 0 ? '▲ ' + x : x < 0 ? '▼ ' + -x : 'Same') + ' vs ' + prevLab)); } else c.append(el('span', 'dl', 'All time'));
+c.append(el('span', 'go', now[k].length ? 'View roles →' : 'Nothing yet'));
+CO.clk(c, lab + ' ' + per, ids(now[k])); kp.append(c);
+});
+h.append(kp);
+// flow
+const coh = now.apps, ci = coh.filter((f) => f.iv), co = coh.filter((f) => f.off), cr = coh.filter((f) => f.rej), cn = coh.filter((f) => f.noreply), wait = coh.filter((f) => !f.iv && !f.rej && !f.off && !f.noreply && !f.wd);
+const fc = el('div', 'card'); const fh = el('div', 'ch'); const fx = el('div'); fx.append(el('h2', null, 'From application to offer'), el('p', 'note', coh.length ? 'What happened to the ' + pl(coh.length, 'application') + ' you sent ' + per + '.' : 'No applications ' + per + ' yet.')); fh.append(fx); fc.append(fh);
+const flow = el('div', 'flow');
+const node = (lab, l, tone, lbl) => { const n = el('div', 'fnode ' + tone); n.append(el('b', null, String(l.length)), el('span', null, lab)); return CO.clk(n, lbl, ids(l)); };
+const arrow = (a, b, txt) => { const x = el('div', 'farrow'); x.append(el('b', null, pctTxt(a, b)), el('i'), el('span', null, txt)); return x; };
+flow.append(node('Applied', coh, 't-purple', 'Applications sent ' + per), arrow(ci.length, coh.length, ci.length ? 'about 1 in ' + Math.round(coh.length / ci.length) + ' got an interview' : 'got an interview'), node('Interview', ci, 't-green', 'Reached interview · applied ' + per), arrow(co.length, ci.length, 'of interviews became offers'), node('Offer', co, 't-gold', 'Offers · applied ' + per));
+fc.append(flow);
+const chips = el('div', 'fchips');
+const chip = (lab, val, l, tone, lbl) => { const c = el('div', 'fchip ' + tone); c.append(el('b', null, val), el('span', null, lab)); chips.append(CO.clk(c, lbl, ids(l))); };
+chip('heard back', pctTxt(coh.length - wait.length, coh.length), coh.filter((f) => !wait.includes(f)), '', 'Heard back · applied ' + per);
+chip('still waiting', String(wait.length), wait, 't-purple', 'Still waiting · applied ' + per);
+chip('rejected', String(cr.length), cr, 't-red', 'Rejected · applied ' + per);
+chip('no reply', String(cn.length), cn, 't-amber', 'No reply · applied ' + per);
+chip('application → offer', pctTxt(co.length, coh.length), co, 't-gold', 'Offers · applied ' + per);
+fc.append(chips); h.append(fc);
+// trend
+const dated = F.flatMap((f) => [f.ap, f.ivd, f.offd, f.rejd]).filter(Boolean).map(ym).filter((k) => k <= cur).sort();
+const months = []; if (dated.length) { let k = dated[0]; while (k <= cur) { months.push(k); k = ymAdd(k, 1); } }
+const show = months.slice(-6);
+const tc = el('div', 'card'); const th0 = el('div', 'ch'); const tx = el('div'); tx.append(el('h2', null, 'Month by month'), el('p', 'note', 'Each event counts in the month it happened. Click a bar or a number to see those roles.')); th0.append(tx); tc.append(th0);
+const SER = [['apps', 'Applications', 'var(--c2)'], ['ivs', 'Interviews', 'var(--acc)'], ['offers', 'Offers', 'var(--gold)'], ['rejs', 'Rejections', 'var(--color-bad)']];
+const lg = el('div', 'lg2'); SER.forEach(([, lab, col]) => { const x = el('span'); const sw = el('i'); sw.style.background = col; x.append(sw, lab); lg.append(x); }); tc.append(lg);
+if (show.length) {
+const M = show.map((k) => lists([k])), max = Math.max(1, ...M.flatMap((m) => SER.map(([k]) => m[k].length)));
+const W = 640, H = 210, padL = 8, padB = 28, gw = (W - padL) / show.length, bw = Math.min(22, (gw - 18) / 4);
+const svg = svgEl('svg', {viewBox: '0 0 ' + W + ' ' + H, class: 'gbars', role: 'img', 'aria-label': 'Applications, interviews, offers and rejections by month'});
+for (let i = 0; i <= 4; i++) { const y = 10 + (H - padB - 10) * i / 4; svg.append(svgEl('line', {x1: 0, x2: W, y1: y, y2: y, class: 'grid'})); }
+show.forEach((k, i) => {
+const x0 = padL + i * gw + (gw - bw * 4 - 6) / 2;
+SER.forEach(([key, lab, col], j) => {
+const v = M[i][key].length, bh = v / max * (H - padB - 14), x = x0 + j * (bw + 2), y = H - padB - bh;
+const r = svgEl('rect', {x, y: v ? y : H - padB - 1, width: bw, height: v ? bh : 1, rx: 3}); r.style.fill = col;
+const g = svgEl('g', {}); g.append(r);
+if (v) { const t = svgEl('text', {x: x + bw / 2, y: y - 4, 'text-anchor': 'middle', class: 'v'}); t.textContent = v; g.append(t); }
+if (v) { g.classList.add('clk'); g.onclick = () => CO.drill(lab + ' · ' + ymLab(k), ids(M[i][key]), 'analytics'); const tt = svgEl('title', {}); tt.textContent = lab + ' in ' + ymLab(k) + ': ' + v + ' — click to see them'; g.append(tt); }
+svg.append(g);
+});
+const t = svgEl('text', {x: padL + i * gw + gw / 2, y: H - 8, 'text-anchor': 'middle', class: 'm'}); t.textContent = ymLab(k, '%b %Y') + (k === cur ? ' *' : ''); svg.append(t);
+});
+tc.append(svg);
+}
+const tw = el('div', 'tw'); const tb = el('table', 'mt'); const trh = el('tr'); ['Month', 'Applications', 'Interviews', 'Offers', 'Rejections', 'Interview rate', 'Still waiting'].forEach((x) => trh.append(el('th', null, x))); const thead = el('thead'); thead.append(trh); tb.append(thead);
+const body = el('tbody');
+const rowFor = (label, L, cohort, cls) => {
+const tr = el('tr', cls || ''); tr.append(el('td', null, label));
+[['apps', 'Applications'], ['ivs', 'Interviews'], ['offers', 'Offers'], ['rejs', 'Rejections']].forEach(([k, lab]) => { const td = el('td', 'num'); const sp = el('span', null, String(L[k].length)); td.append(CO.clk(sp, lab + ' · ' + label, ids(L[k]))); tr.append(td); });
+const ri = cohort.filter((f) => f.iv); const tdr = el('td', 'num'); tdr.append(CO.clk(el('span', null, pctTxt(ri.length, cohort.length)), 'Reached interview · applied ' + label, ids(ri))); tr.append(tdr);
+const w = cohort.filter((f) => !f.iv && !f.rej && !f.off && !f.noreply && !f.wd); const tdw = el('td', 'num'); tdw.append(CO.clk(el('span', null, String(w.length)), 'Still waiting · applied ' + label, ids(w))); tr.append(tdw);
+body.append(tr);
+};
+for (const k of show.slice().reverse()) rowFor(ymLab(k) + (k === cur ? ' (so far)' : ''), lists([k]), F.filter((f) => ym(f.ap) === k));
+const und = {apps: F.filter((f) => !f.ap), ivs: F.filter((f) => f.iv && !f.ivd), offers: F.filter((f) => f.off && !f.offd), rejs: F.filter((f) => f.rej && !f.rejd)};
+if (und.apps.length + und.ivs.length + und.offers.length + und.rejs.length) rowFor('Date not recorded', und, und.apps, 'und');
+rowFor('All time', lists(null), F, 'tot');
+tb.append(body); tw.append(tb); tc.append(tw);
+const nEst = F.filter((f) => f.est).length;
+if (nEst) tc.append(el('div', 'small', '* ' + nEst + ' applications have no exact applied date, so their closing date is used as an estimate. Add the real dates below to make the monthly numbers exact.'));
+h.append(tc);
+// missing dates
+const fix = F.filter((f) => f.est || !f.ap).sort((a, b) => String(b.ap).localeCompare(String(a.ap)));
+if (fix.length && CO.canEdit) {
+const det = el('details', 'card fixd'); if (CO.fixOpen) det.open = true; det.ontoggle = () => { CO.fixOpen = det.open; };
+const sm = el('summary'); sm.append(el('b', null, 'Add missing applied dates'), el('span', 'pill amber', String(fix.length))); det.append(sm);
+det.append(el('p', 'note', 'Pick the day you sent each application. It saves as soon as you choose a date.'));
+const lst = el('div', 'fixl');
+for (const f of fix) {
+const row = el('div', 'fixr'); const t = el('div'); t.append(el('b', null, f.r.organisation), el('span', null, f.r.role + (f.ap ? ' · estimated ' + CO.fmtDay(f.ap) : '')));
+const i = el('input'); i.type = 'date'; i.max = CO.todayIso(); i.setAttribute('aria-label', 'Applied date for ' + f.r.organisation);
+i.onchange = () => { if (i.value) CO.saveRow(f.r, {applied_on: i.value}, 'Applied on: ' + CO.fmtDay(i.value)); };
+row.append(t, i); lst.append(row);
+}
+det.append(lst); h.append(det);
+}
+// where things stand
+h.append(el('h2', 'sech', 'Where your applications stand now'));
+const g = el('div', 'grid g2r');
+const sc = el('div', 'card'); sc.append(el('h2', null, 'Status of all ' + pl(F.length, 'application')), el('p', 'note', 'Every application you sent, by its latest outcome.'));
+const groups = STATUS.map(([lab, col]) => [lab, col, F.filter((f) => statusOf(f) === lab)]).filter((x) => x[2].length);
+const sb = el('div', 'stbar'); groups.forEach(([lab, col, l]) => { const seg2 = el('i'); seg2.style.background = col; seg2.style.flex = String(l.length); seg2.title = lab + ': ' + l.length; sb.append(CO.clk(seg2, 'Status: ' + lab, ids(l))); }); sc.append(sb);
+const lg3 = el('div', 'lg3'); groups.forEach(([lab, col, l]) => { const row = el('div'); const sw = el('i'); sw.style.background = col; row.append(sw, el('span', null, lab), el('b', null, String(l.length)), el('span', 'p', pctTxt(l.length, F.length))); lg3.append(CO.clk(row, 'Status: ' + lab, ids(l))); }); sc.append(lg3);
+g.append(sc);
+const rc = el('div', 'card'); rc.append(el('h2', null, 'Where rejections happen'), el('p', 'note', 'At the application stage or after an interview.'));
+const rA = F.filter((f) => f.rej && !f.iv), rI = F.filter((f) => f.rej && f.iv), mx = Math.max(1, rA.length, rI.length);
+[['At application', rA, 'var(--color-warn)'], ['After interview', rI, 'var(--color-bad)']].forEach(([lab, l, col]) => { const row = el('div', 'brow'); const tr = el('div', 'btrack'); const fl = el('div', 'bfill'); fl.style.width = Math.max(2, l.length / mx * 100) + '%'; fl.style.background = col; tr.append(fl); row.append(el('span', null, lab), tr, el('span', 'bval', String(l.length))); rc.append(CO.clk(row, 'Rejected ' + lab.toLowerCase(), ids(l))); });
+const sec2 = ['Non-university', 'University'].map((s2) => { const a = F.filter((f) => f.r.sector === s2), i = a.filter((f) => f.iv); return [s2, a, i]; });
+rc.append(el('h2', 'h2b', 'Interview rate by sector'));
+sec2.forEach(([lab, a, i]) => { const row = el('div', 'brow'); const tr = el('div', 'btrack'); const fl = el('div', 'bfill'); fl.style.width = (a.length ? Math.max(2, i.length / a.length * 100) : 0) + '%'; fl.style.background = 'var(--acc)'; tr.append(fl); row.append(el('span', null, lab + ' · ' + i.length + ' of ' + a.length), tr, el('span', 'bval', pctTxt(i.length, a.length))); rc.append(CO.clk(row, 'Reached interview · ' + lab, ids(i))); });
+g.append(rc);
+h.append(g);
+});
+
+/* ---------- Role details panel ---------- */
+os.ptab = os.ptab || 'overview';
+const readView = (r) => {
+const w = el('div', 'pin pin2');
+const n = CO.next(r), c = CO.colOf(r);
+if (CO.lastSave && CO.lastSave.id === r.id && (Date.now() - CO.lastSave.at < 25000 || CO.SAVING[r.id])) w.append(noticeBox(CO.lastSave, true));
+const hero = el('div', 'phero');
+const top = el('div', 'pid'); const t = el('div', 'pt');
+t.append(el('div', 'po', r.organisation + ' · ' + CO.orgType(r)), el('h2', null, r.role));
+top.append(CO.av(r.organisation), t); hero.append(top);
+const meta = el('div', 'mchips');
+const mc = (ic, txt, cls) => { if (!txt) return; const x = el('span', 'mchip' + (cls ? ' ' + cls : '')); x.append(el('i', null, ic), txt); meta.append(x); };
+mc('📍', r.location);
+mc('💷', r.salary && !/not stated/i.test(r.salary) ? r.salary : '');
+const dl = CO.daysTo(r.deadline);
+mc('⏳', r.deadline ? CO.fmtDay(r.deadline) + (dl != null && dl >= 0 && c === 'apply' ? ' · ' + (dl === 0 ? 'closes today' : dl + (dl === 1 ? ' day left' : ' days left')) : '') : r.deadline_text || '', dl != null && dl >= 0 && dl <= 3 && c === 'apply' ? 'hot' : '');
+hero.append(meta);
+const tags = el('div', 'tags'); tags.append(colPill(r), spPill(r)); if (r.id.startsWith('N')) tags.append(pill('Found by Claude', 'gold')); if (r.id.startsWith('M')) tags.append(pill('Added by you', 'blue')); const sp = savePill(r.id); if (sp) tags.append(sp);
+const links = el('div', 'plinks');
+if (CO.isUrl(r.url)) { const a = el('a', 'btn sm pri', 'Open the advert ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; links.append(a); }
+if (CO.canEdit) { const e = el('button', 'btn sm', '✎ Edit details'); e.type = 'button'; e.onclick = () => CO.startEdit(r.id); links.append(e); }
+hero.append(tags, links);
+w.append(hero, steps(r));
+const nb = el('div', 'nextbox u-' + n.u); nb.append(el('span', null, 'Next action'), el('b', null, n.t), el('div', 'small', n.s)); w.append(nb);
+if (CO.canEdit) w.append(progressBox(r));
+if (CO.SAVING[r.id] === 'error') { const m = el('div', 'msg err'); m.append('Not saved: ' + (CO.ERR[r.id] || '') + ' '); const b = el('button', 'btn sm', 'Retry'); b.type = 'button'; b.onclick = CO.retry; m.append(b); w.append(m); }
+if (!CO.canEdit) w.append(el('div', 'msg', window.CAREER_OS_RO || ('View only here. To change this role, tell Claude in chat, for example: ' + r.organisation + ' — submitted.')));
+const nl = Array.isArray(r.notes_log) ? r.notes_log.length : 0, hl = Array.isArray(r.history) ? r.history.length : 0, hasPrep = ['interview', 'offer'].includes(c);
+const TABS = [['overview', 'Overview'], ['notes', 'Notes' + (nl ? ' · ' + nl : '')]].concat(hasPrep ? [['prep', 'Interview prep']] : []).concat([['activity', 'Activity' + (hl ? ' · ' + hl : '')]]);
+let tab = os.ptab; if (!TABS.some((x) => x[0] === tab)) tab = 'overview';
+const tb = el('div', 'ptabs'); tb.setAttribute('role', 'tablist');
+for (const [k, lab] of TABS) { const b = el('button', tab === k ? 'on' : '', lab); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', String(tab === k)); b.onclick = () => { os.ptab = k; dash.draw('panel'); }; tb.append(b); }
+w.append(tb);
+const body = el('div', 'tabbody');
+const card = (title, kids, cls) => { const s = el('div', 'pcard' + (cls ? ' ' + cls : '')); if (title) s.append(el('div', 't', title)); kids.forEach((k) => k && s.append(k)); body.append(s); return s; };
+if (tab === 'overview') {
+if (c === 'offer' && /accepted/i.test(r.interview_status || '')) card('Sponsorship & start date', [visaBox(r)]);
+const f = CO.fitNum(r.fit), why = CO.fitWhy(r);
+const fb = el('div', 'fitrow'); const ring = el('div', 'fitring'); ring.style.setProperty('--p', String(f == null ? 0 : f * 10)); ring.style.setProperty('--fc', CO.fitColor(f)); ring.append(el('b', null, f == null ? '—' : String(f)), el('span', null, '/10'));
+const fw = el('div'); if (why.reason) fw.append(el('div', null, why.reason)); if (why.hits.length) { const tg = el('div', 'tags'); why.hits.forEach((x) => tg.append(pill(x, 'green'))); fw.append(tg); } why.gaps.forEach((g2) => fw.append(el('div', 'gap', 'Gap: ' + g2))); if (!why.hits.length && !why.reason) fw.append(el('div', 'small', 'No reasons recorded for this score yet.'));
+fb.append(ring, fw); card('Why it fits', [fb]);
+const k = CO.spKind(r.sponsorship); const sb = el('div', 'spbox ' + k); sb.append(el('b', null, CO.SP[k][0]), el('div', null, CO.plain(r.sponsorship) || 'No evidence recorded yet.'));
+const meta2 = [r.legal_entity ? 'Legal entity: ' + r.legal_entity : '', r.last_verified ? 'Last verified ' + r.last_verified : ''].filter(Boolean).join(' · '); if (meta2) sb.append(el('div', 'small', meta2));
+card('Sponsorship', [sb]);
+const kv = el('div', 'kv2'); const add = (a, v) => { if (!v || v === '—') return; const x = el('div'); x.append(el('span', null, a), el('b', null, v)); kv.append(x); };
+add('Applied on', r.applied_on ? CO.fmtDay(r.applied_on) : ''); add('Follow up', r.follow_up ? CO.fmtDay(r.follow_up) : ''); add('Interview', r.interview_datetime); add('Interview status', r.interview_status); add('Sector', r.sector); add('Found via', r.source); add('Added', r.added);
+if (kv.childNodes.length) card('Key facts', [kv]);
+if (r.jd_focus) card('What the job involves', [el('div', 'prose', r.jd_focus)]);
+if (r.notes) card('Notes from the search', [el('div', 'prose small', r.notes)]);
+if (CO.canEdit) { const det = el('details', 'more2'); det.append(el('summary', null, 'Fix the stage by hand')); det.append(el('div', 'small', 'Only to correct a mistake. For normal progress use the buttons above.')); const ml = el('label', 'msel'); ml.append(el('span', null, 'Set the stage'), moveSelect(r)); det.append(ml); body.append(det); }
+} else if (tab === 'notes') card('', [notesBox(r)]);
+else if (tab === 'prep') card('', [prepBox(r)]);
+else { const hi = el('div', 'tl'); (r.history || []).slice().reverse().forEach((x) => { const row = el('div'); row.append(el('i'), el('span', 'tt', x.at ? d3.timeFormat('%-d %b %Y · %H:%M')(new Date(x.at)) : ''), el('span', null, x.what || '')); hi.append(row); }); if (!hl) hi.append(el('div', 'small', 'No activity yet.')); card('', [hi]); }
+w.append(body);
+return w;
+};
+
+/* ---------- Interviews page ---------- */
+dash.draw('ivcards', (h) => {
+h.replaceChildren();
+const d = CO.jobsNow();
+if (d.status === 'error') { CO.failBox(h); return; }
+if (d.status !== 'ok') return;
+const rows = d.data.filter((r) => ['interview', 'offer'].includes(CO.colOf(r))).sort(SORTS.next);
+if (!rows.length) { h.append(el('div', 'card empty', 'No interviews yet. They appear here as soon as a role moves to Interview.')); return; }
+const up = [], wait = [], off = [];
+for (const r of rows) { if (CO.colOf(r) === 'offer') { off.push(r); continue; } const p = CO.ivParse(r.interview_datetime), st = r.interview_status || ''; if (/^interviewed/i.test(st) || (p && Math.round((p.ms - CO.todayUtc()) / 864e5) < 0)) wait.push(r); else up.push(r); }
+const head = (t2, sub, n2) => { const x = el('div', 'ivh'); x.append(el('h2', null, t2), el('span', 'pill', String(n2)), el('span', 'small', sub)); h.append(x); };
+const big = (r) => {
+const n = CO.next(r), p = CO.ivParse(r.interview_datetime);
+const c = el('div', 'card ivc u-' + n.u);
+const hd = el('div', 'rc'); const t = el('div'); t.append(el('span', 'o', r.organisation), el('span', 'r small', r.role)); hd.append(CO.av(r.organisation), t);
+const dd = p ? Math.round((p.ms - CO.todayUtc()) / 864e5) : null;
+const wh = el('div', 'ivwhen'); const cal = el('div', 'cal'); cal.append(el('b', null, p ? d3.utcFormat('%-d')(new Date(p.ms)) : '?'), el('span', null, p ? d3.utcFormat('%b')(new Date(p.ms)) : 'TBC'));
+const wt = el('div'); wt.append(el('b', null, p ? d3.utcFormat('%A')(new Date(p.ms)) + (p.time ? ' · ' + p.time : '') : 'Date to confirm'), el('span', 'small', [p ? (String(r.interview_datetime || '').split('—')[1] || '').trim() : '', dd != null ? (dd === 0 ? 'today' : dd === 1 ? 'tomorrow' : 'in ' + dd + ' days') : ''].filter(Boolean).join(' · ')));
+wh.append(cal, wt);
+const acts = el('div', 'pacts'); const b1 = el('button', 'btn sm', 'Details'); b1.type = 'button'; b1.onclick = () => CO.open(r.id); acts.append(b1);
+if (CO.canEdit) { const a0 = CO.actions(r).find((a) => a.pri) || CO.actions(r)[0]; if (a0) { const b2 = el('button', 'btn sm blue', a0.l); b2.type = 'button'; b2.onclick = () => runAction(r, a0); acts.append(b2); } }
+c.append(hd, wh, prepBox(r), acts); return c;
+};
+const small = (r) => {
+const n = CO.next(r);
+const c = el('div', 'ivrow u-' + n.u); const t = el('div'); t.append(el('b', null, r.organisation), el('span', 'small', r.role));
+const st = el('div', 'ivst'); st.append(el('b', null, n.t), el('span', 'small', n.s));
+const acts = el('div', 'pacts');
+if (CO.canEdit) { const a0 = CO.actions(r).find((a) => a.pri) || CO.actions(r)[0]; if (a0) { const b2 = el('button', 'btn sm blue', a0.l); b2.type = 'button'; b2.onclick = (e) => { e.stopPropagation(); runAction(r, a0); }; acts.append(b2); } }
+c.append(CO.av(r.organisation), t, st, acts); c.onclick = () => CO.open(r.id); c.tabIndex = 0; c.onkeydown = (e) => { if (e.key === 'Enter') CO.open(r.id); }; return c;
+};
+if (up.length) { head('Coming up', 'Prepare with the checklist; ticks save to the role.', up.length); const g = el('div', 'ivg2'); up.forEach((r) => g.append(big(r))); h.append(g); }
+if (wait.length) { head('Waiting for the outcome', 'Interviews that have happened. Record the result when you hear back.', wait.length); const l = el('div', 'card flush ivlist'); wait.forEach((r) => l.append(small(r))); h.append(l); }
+if (off.length) { head('Offers', 'Respond, then track sponsorship and your start date.', off.length); const l = el('div', 'card flush ivlist'); off.forEach((r) => l.append(small(r))); h.append(l); }
+});
 dash.draw('funnel', (h) => {
 h.replaceChildren();
 const d = dash.data('funnel'); if (chartFail(h, d)) return;
@@ -723,6 +985,7 @@ const row = el('div', 'brow'); const tr = el('div', 'btrack'); const f = el('div
 f.style.width = Math.max(2, r[val] / max * 100) + '%'; f.style.background = col[i % 4];
 tr.append(f); row.append(el('span', null, r[key]), tr, el('span', 'bval', isPct ? CO.pct(r[val]) : String(r[val])));
 tipOn(h, row, r[key] + ': ' + (isPct ? CO.pct(r[val]) + (r.applied != null ? ' (' + r.interviews + ' of ' + r.applied + ')' : '') : r[val] + ' roles'));
+CO.drillRow(row, h.dataset.source, r[key]);
 h.append(row);
 });
 });
@@ -735,7 +998,7 @@ const c = el('div', 'cbar'); const bar = el('i');
 bar.style.height = Math.max(4, r.n / max * 120) + 'px'; bar.style.background = r.label === 'Not stated' ? 'color-mix(in srgb, var(--color-fg-muted) 45%, transparent)' : 'var(--acc)';
 if (r.label !== 'Not stated') bar.style.opacity = String(0.5 + 0.5 * (i + 1) / d.data.length);
 c.append(el('b', null, String(r.n)), bar, el('span', null, r.label));
-tipOn(h, c, r.label + ': ' + r.n + ' roles'); h.append(c);
+tipOn(h, c, r.label + ': ' + r.n + ' roles'); CO.drillRow(c, h.dataset.source, r.label); h.append(c);
 });
 });
 const critRows = (h) => { const d = dash.data('criteria'); if (d.status !== 'ok') return null; const groups = (h.dataset.group || '').split('|'); return d.data.filter((r) => groups.includes(r.group)); };
@@ -778,7 +1041,7 @@ h.append(row);
 }
 });
 
-const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
+const ALL = ['notice', 'addBtn', 'kpi', 'today', 'todayNote', 'todayLong', 'greet', 'fresh', 'saveState', 'freshDetail', 'conflicts', 'priorities', 'agenda', 'pipe', 'latest', 'jtable', 'convo', 'reports', 'idsBar', 'count', 'tabcnt', 'bcnt', 'bcol', 'ivcards', 'panel', 'funnel', 'donut', 'bars', 'colsgen', 'critkpis', 'critlist', 'critrows', 'dataMsg', 'importPrev', 'backups'];
 CO.redrawAll = () => ALL.forEach((n) => dash.draw(n));
 const syncPanel = () => {
 document.querySelectorAll('.os .ws').forEach((w) => w.classList.toggle('sel', !!os.sel));
@@ -826,7 +1089,7 @@ document.querySelectorAll('.os .tabs button').forEach((b) => b.addEventListener(
 document.querySelectorAll('.os-quick').forEach((b) => b.addEventListener('click', () => { os.quick = os.quick === b.dataset.quick ? '' : b.dataset.quick; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-f').forEach((x) => x.addEventListener('change', () => { os[x.dataset.key] = x.value; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-q').forEach((i) => i.addEventListener('input', () => { os.q = i.value; CO.redrawAll(); }));
-document.querySelectorAll('.os-clear').forEach((b) => b.addEventListener('click', () => { Object.assign(os, {stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', orgtype: '', quick: '', sort: 'deadline', dir: 1}); syncFilters(); CO.redrawAll(); }));
+document.querySelectorAll('.os-clear').forEach((b) => b.addEventListener('click', () => { Object.assign(os, {stage: '', q: '', sector: '', spons: '', fit: '', region: '', family: '', orgtype: '', quick: '', ids: null, idsLabel: '', sort: 'deadline', dir: 1}); syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os .jt th[data-sort]').forEach((th) => th.addEventListener('click', () => { const k = th.dataset.sort; if (os.sort === k) os.dir = -os.dir; else { os.sort = k; os.dir = 1; } syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-sort').forEach((x) => x.addEventListener('change', () => { os.sort = x.value; os.dir = 1; syncFilters(); CO.redrawAll(); }));
 document.querySelectorAll('.os-group').forEach((x) => x.addEventListener('change', () => { os.group = x.value; syncFilters(); CO.redrawAll(); }));

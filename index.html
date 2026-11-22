@@ -412,6 +412,105 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 .os .nrow .xbtn { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
 .os .nav { -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); }
 @container os (min-width: 1000px) { .os .nav { -webkit-mask-image: none; mask-image: none; } }
+
+.os .clk { cursor: pointer; }
+.os .clk:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.os .idsbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 16px; margin-bottom: 14px; border-radius: 12px; background: color-mix(in srgb, var(--acc) 9%, var(--card)); border: 1px solid color-mix(in srgb, var(--acc) 35%, transparent); }
+.os .idsbar .ic { font-size: 18px; } .os .idsbar > div:nth-child(2) { flex: 1; min-width: 12rem; display: grid; } .os .idsbar b { font-size: 14px; } .os .idsbar span { font-size: 12px; color: var(--mut); }
+.os .rhead { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; flex-wrap: wrap; }
+.os .rhead h2 { font-size: 19px; }
+.os .seg { display: inline-flex; padding: 3px; border-radius: 11px; background: color-mix(in srgb, var(--color-fg-muted) 12%, transparent); gap: 2px; flex-wrap: wrap; }
+.os .seg button { border: 0; background: transparent; color: var(--mut); font: inherit; font-size: 13px; padding: 7px 13px; border-radius: 8px; cursor: pointer; font-weight: 550; }
+.os .seg button.on { background: var(--card); color: var(--color-fg); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.os .rhero { background: linear-gradient(135deg, var(--nav), var(--nav2)); color: #e7eef4; border: 0; }
+.os .rhero .story { margin: 0; font-size: 18px; line-height: 1.6; max-width: 60rem; }
+.os .rhero .num { font-weight: 700; color: #fff; border-bottom: 2px solid #19b89f; padding: 0 1px; }
+.os .rhero .num.clk:hover { background: rgba(25,184,159,.25); border-radius: 4px; }
+.os .rk .kpi { position: relative; }
+.os .rk .kpi .go { font-size: 11.5px; color: var(--t); font-weight: 600; opacity: .8; margin-top: 4px; }
+.os .rk .kpi.clk:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,37,55,.1); }
+.os .rk .kpi:not(.clk) { cursor: default; }
+.os .flow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(5.5rem, .8fr) minmax(0, 1fr) minmax(5.5rem, .8fr) minmax(0, 1fr); align-items: center; gap: 6px; margin: 10px 0 6px; }
+.os .fnode { --t: var(--c1); display: grid; justify-items: center; gap: 2px; padding: 16px 8px; border-radius: 14px; background: color-mix(in srgb, var(--t) 9%, var(--card)); border: 1px solid color-mix(in srgb, var(--t) 30%, transparent); }
+.os .fnode b { font-size: 30px; font-weight: 700; color: var(--t); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.os .fnode span { font-size: 12.5px; color: var(--mut); font-weight: 600; }
+.os .fnode.clk:hover { box-shadow: 0 0 0 2px var(--t) inset; }
+.os .farrow { display: grid; justify-items: center; gap: 3px; text-align: center; }
+.os .farrow b { font-size: 17px; font-weight: 700; }
+.os .farrow i { width: 100%; height: 2px; background: var(--line); position: relative; }
+.os .farrow i::after { content: ''; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 7px solid var(--line); border-right: 0; }
+.os .farrow span { font-size: 11px; color: var(--mut); line-height: 1.3; }
+.os .fchips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.os .fchip { --t: var(--mut); display: inline-flex; align-items: baseline; gap: 6px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--soft); font-size: 12.5px; }
+.os .fchip b { color: var(--t); font-size: 14px; } .os .fchip.t-purple { --t: var(--c2); } .os .fchip.t-red { --t: var(--color-bad); } .os .fchip.t-amber { --t: var(--color-warn); } .os .fchip.t-gold { --t: var(--gold); }
+.os .fchip.clk:hover { border-color: var(--t); }
+.os .lg2 { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--mut); margin: 2px 0 8px; }
+.os .lg2 span { display: inline-flex; align-items: center; gap: 6px; } .os .lg2 i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.os .gbars { width: 100%; height: auto; display: block; margin-bottom: 10px; }
+.os .gbars line.grid { stroke: var(--line); stroke-width: 1; }
+.os .gbars text.v { font-size: 10px; fill: currentColor; opacity: .75; font-weight: 600; }
+.os .gbars text.m { font-size: 11px; fill: currentColor; opacity: .6; }
+.os .gbars g.clk:hover rect { opacity: .8; }
+.os .mt td.num span.clk { color: var(--c1); font-weight: 600; border-bottom: 1px dashed color-mix(in srgb, var(--c1) 50%, transparent); }
+.os .mt td.num span.clk:hover { color: var(--acc); border-bottom-style: solid; }
+.os .fixd summary { display: flex; align-items: center; gap: 8px; }
+.os .g2r { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
+.os .stbar { display: flex; height: 16px; border-radius: 8px; overflow: hidden; gap: 2px; margin: 8px 0 12px; }
+.os .stbar i { display: block; min-width: 6px; }
+.os .stbar i.clk:hover { filter: brightness(1.1); }
+.os .lg3 { display: grid; gap: 2px; }
+.os .lg3 > div { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto 3rem; gap: 10px; align-items: center; padding: 6px 8px; border-radius: 8px; font-size: 13px; }
+.os .lg3 > div.clk:hover { background: var(--soft); }
+.os .lg3 i { width: 12px; height: 12px; border-radius: 3px; display: block; } .os .lg3 b { font-variant-numeric: tabular-nums; } .os .lg3 .p { color: var(--mut); font-size: 12px; text-align: right; }
+.os .brow.clk { border-radius: 8px; } .os .brow.clk:hover { background: var(--soft); }
+.os .cbar.clk:hover i { filter: brightness(1.12); }
+.os .h2b { font-size: 14px; margin-top: 16px; }
+.os .sechn { margin: -6px 0 10px; }
+.os .pin2 { gap: 14px; }
+.os .phero { display: grid; gap: 10px; padding-bottom: 4px; }
+.os .phero .pid .av { width: 52px; height: 52px; border-radius: 14px; font-size: 16px; }
+.os .phero .po { font-size: 12.5px; color: var(--mut); font-weight: 600; }
+.os .phero h2 { font-size: 19px; line-height: 1.3; margin-top: 2px; }
+.os .mchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.os .mchip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 4px 10px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); max-width: 100%; }
+.os .mchip i { font-style: normal; } .os .mchip.hot { color: var(--color-bad); border-color: color-mix(in srgb, var(--color-bad) 40%, transparent); background: color-mix(in srgb, var(--color-bad) 7%, var(--card)); font-weight: 600; }
+.os .plinks { display: flex; flex-wrap: wrap; gap: 8px; }
+.os .ptabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-top: 4px; overflow-x: auto; scrollbar-width: none; }
+.os .ptabs button { border: 0; background: none; font: inherit; font-size: 13px; color: var(--mut); padding: 9px 12px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; font-weight: 550; }
+.os .ptabs button.on { color: var(--color-fg); border-bottom-color: var(--acc); font-weight: 650; }
+.os .tabbody { display: grid; gap: 12px; }
+.os .pcard { display: grid; gap: 8px; padding: 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); }
+.os .pcard > .t { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--mut); font-weight: 650; }
+.os .fitrow { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; align-items: center; font-size: 13px; }
+.os .fitring { width: 64px; height: 64px; border-radius: 50%; display: grid; place-content: center; text-align: center; background: radial-gradient(var(--card) 58%, transparent 59%), conic-gradient(var(--fc) calc(var(--p) * 1%), color-mix(in srgb, var(--color-fg-muted) 15%, transparent) 0); }
+.os .fitring b { font-size: 19px; line-height: 1; } .os .fitring span { font-size: 10px; color: var(--mut); }
+.os .fitrow > div:last-child { display: grid; gap: 6px; }
+.os .spbox { display: grid; gap: 4px; padding: 10px 12px; border-radius: 10px; font-size: 13px; border-left: 3px solid var(--c1); background: color-mix(in srgb, var(--c1) 6%, var(--card)); }
+.os .spbox.ok { border-left-color: var(--acc); background: color-mix(in srgb, var(--acc) 7%, var(--card)); } .os .spbox.unk { border-left-color: var(--color-warn); background: color-mix(in srgb, var(--color-warn) 7%, var(--card)); }
+.os .kv2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 12px; }
+.os .kv2 div { display: grid; gap: 2px; } .os .kv2 span { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .05em; } .os .kv2 b { font-size: 13px; font-weight: 600; overflow-wrap: anywhere; }
+.os .prose { font-size: 13.5px; line-height: 1.55; white-space: pre-line; }
+.os .tl { display: grid; gap: 0; }
+.os .tl > div { display: grid; grid-template-columns: 12px 8.5rem minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 6px 0; font-size: 12.5px; position: relative; }
+.os .tl > div i { width: 8px; height: 8px; border-radius: 50%; background: var(--acc); display: block; }
+.os .tl .tt { color: var(--mut); font-size: 11.5px; }
+.os .ivwrap { display: grid; gap: 12px; }
+.os .ivh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.os .ivh h2 { font-size: 16px; }
+.os .ivg2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); }
+.os .ivwhen { display: flex; gap: 12px; align-items: center; }
+.os .cal { width: 52px; border-radius: 10px; overflow: hidden; text-align: center; border: 1px solid var(--line); flex: none; }
+.os .cal b { display: block; font-size: 20px; padding: 4px 0 2px; color: var(--u, var(--acc)); }
+.os .cal span { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; background: var(--u, var(--acc)); color: #fff; padding: 2px 0; font-weight: 650; }
+.os .ivwhen > div:last-child { display: grid; } .os .ivwhen > div:last-child b { font-size: 15px; }
+.os .ivlist { display: grid; }
+.os .ivrow { display: grid; grid-template-columns: 36px minmax(0, 1.3fr) minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); cursor: pointer; border-left: 3px solid var(--u, var(--acc)); }
+.os .ivrow:last-child { border-bottom: 0; } .os .ivrow:hover { background: var(--soft); }
+.os .ivrow .av { width: 34px; height: 34px; border-radius: 9px; font-size: 11px; }
+.os .ivrow > div { display: grid; min-width: 0; } .os .ivrow .ivst b { color: var(--u, var(--color-fg)); font-size: 13px; }
+@container os (max-width: 640px) { .os .ivrow { grid-template-columns: 36px minmax(0, 1fr); } .os .ivrow .ivst, .os .ivrow .pacts { grid-column: 2; } .os .flow { grid-template-columns: 1fr; } .os .farrow i { width: 2px; height: 18px; } .os .farrow i::after { display: none; } .os .rhero .story { font-size: 16px; } }
+.os [data-name=criteria] .grid { display: block; columns: 3 20rem; column-gap: 16px; }
+.os [data-name=criteria] .grid > .card { break-inside: avoid; margin-bottom: 16px; display: block; }
 .os .steps { display: flex; align-items: center; }
 .os .st { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mut); flex: 1; white-space: nowrap; }
 .os .st i { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-style: normal; font-size: 10px; font-weight: 700; flex: none; background: var(--card); }
@@ -491,6 +590,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 </section>
 
 <section class='page' data-name='apps' id='applications' hidden>
+<div data-draw='idsBar' data-source='jobs'></div>
 <div class='ph'><div><h1>Applications</h1><p class='sub'>Every role from first look to outcome. Click a row to see the full details, edit the status or open the advert.</p></div><div class='phr'><span data-draw='addBtn'></span><label class='sortby'><span>Group by</span><select class='os-group' aria-label='Group the list'><option value='type'>Employer type</option><option value=''>No grouping</option></select></label><label class='sortby'><span>Sort by</span><select class='os-sort' aria-label='Sort the list'><option value='deadline'>Deadline · soonest first</option><option value='next'>Next action · most urgent</option><option value='fit'>Fit · highest first</option><option value='added'>Newest added</option><option value='interview'>Interview date</option><option value='applied'>Applied date · latest</option><option value='salary'>Salary · highest</option><option value='org'>Company A–Z</option></select></label><span class='chip'><span data-draw='count' data-source='jobs'>—</span> shown</span></div></div>
 <div class='card toolbar'>
 <div class='tabs'>
@@ -541,7 +641,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 <section class='page' data-name='interviews' id='interviews' hidden>
 <div class='ph'><div><h1>Interviews &amp; deadlines</h1><p class='sub'>Every interview, deadline and follow-up in one schedule, with clashes flagged and a preparation checklist for each interview.</p></div></div>
 <div class='alerts' data-draw='conflicts' data-source='conflicts'></div>
-<div><div class='ch'><h2>Interviews</h2></div><p class='note'>Tick the checklist as you prepare; progress is saved to the role.</p><div class='ivg' data-draw='ivcards' data-source='jobs'></div></div>
+<div class='ivwrap' data-draw='ivcards' data-source='jobs'></div>
 <div class='card'><div class='ch'><h2>Schedule</h2></div><p class='note'>Today, tomorrow, this week and later. Dates still to confirm are listed last.</p><div class='agenda' data-draw='agenda' data-range='90' data-source='events'></div></div>
 </section>
 
@@ -572,19 +672,13 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 
 <section class='page' data-name='analytics' id='analytics' hidden>
 <div class='ph'><div><h1>Analytics</h1><p class='sub'>How your applications turn into interviews and offers, month by month. Pick a period to compare it with the one before.</p></div></div>
-<div class='an' data-draw='convo' data-source='jobs'></div>
-<h2 class='sech'>Where things stand now</h2>
-<div class='grid'>
-<div class='card'><h2>Conversion funnel</h2><p class='note'>All roles you tracked, down to offers. Each step shows the share kept from the step before.</p><div class='funnel' data-draw='funnel' data-source='funnel'></div></div>
-<div class='card'><h2>What happened to your applications</h2><p class='note'>Only applications you actually sent, by their latest outcome.</p><div class='donut' data-draw='donut' data-source='outcomes'></div></div>
-<div class='card'><h2>Interview rate by sector</h2><p class='note'>Share of applications that reached interview.</p><div class='bars' data-draw='bars' data-source='bySector' data-key='sector' data-val='rate' data-fmt='pct'></div></div>
-<div class='card'><h2>Rejections by role type</h2><p class='note'>Where rejections have come from so far.</p><div class='bars' data-draw='bars' data-source='rejBy' data-key='label' data-val='n' data-fmt='int'></div></div>
-</div>
-<h2 class='sech'>What the search is finding</h2>
+<div class='an' data-draw='reports' data-source='jobs'></div>
+<h2 class='sech'>What the search is finding</h2><p class='note sechn'>Every role Claude found or you added, applied or not. Click a bar to see them.</p>
 <div class='grid'>
 <div class='card'><h2>Fit distribution</h2><p class='note'>Roles by fit score out of 10.</p><div class='cols' data-draw='colsgen' data-source='fitDist'></div></div>
 <div class='card'><h2>Salary range</h2><p class='note'>By the bottom of the advertised range.</p><div class='cols' data-draw='colsgen' data-source='salaryDist'></div></div>
 <div class='card'><h2>Roles by type</h2><p class='note'>A role can count in more than one type.</p><div class='bars' data-draw='bars' data-source='byFamily' data-key='label' data-val='n' data-fmt='int'></div></div>
+<div class='card'><h2>Rejections by role type</h2><p class='note'>Where rejections have come from so far.</p><div class='bars' data-draw='bars' data-source='rejBy' data-key='label' data-val='n' data-fmt='int'></div></div>
 <div class='card'><h2>Roles by region</h2><p class='note'>From the advert location.</p><div class='bars' data-draw='bars' data-source='byRegion' data-key='label' data-val='n' data-fmt='int'></div></div>
 </div>
 </section>
