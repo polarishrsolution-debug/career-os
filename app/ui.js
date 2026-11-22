@@ -961,29 +961,34 @@ if (r.not_reason && c === 'closed') body.append(el('div', 'small', 'Reason: ' + 
 return box;
 };
 
+const ICONS = {pin: ['M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z', 'M12 10m-2.5 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0'], pound: ['M16 7.5a3.5 3.5 0 0 0-6.5 1.8V18', 'M7 12.5h6', 'M7 18h10'], cal: ['M4 6h16v14H4z', 'M4 10h16', 'M8 3v4', 'M16 3v4'], ext: ['M14 4h6v6', 'M20 4l-9 9', 'M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'], edit: ['M4 20h4L19 9l-4-4L4 16z', 'M13.5 6.5l4 4']};
+CO.icon = (k) => { const s = svgEl('svg', {viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true', class: 'ico'}); (ICONS[k] || []).forEach((d) => s.append(svgEl('path', {d}))); return s; };
 /* ---------- Role details panel ---------- */
 os.ptab = os.ptab || 'overview';
 const readView = (r) => {
 const w = el('div', 'pin pin2');
 const n = CO.next(r), c = CO.colOf(r);
 if (CO.lastSave && CO.lastSave.id === r.id && (Date.now() - CO.lastSave.at < 25000 || CO.SAVING[r.id])) w.append(noticeBox(CO.lastSave, true));
-const hero = el('div', 'phero');
-const top = el('div', 'pid'); const t = el('div', 'pt');
-const ot = CO.orgType(r); t.append(el('div', 'po', r.organisation + (r.organisation.toLowerCase().includes(ot.split(' ')[0].toLowerCase()) ? '' : ' · ' + ot)), el('h2', null, r.role));
-top.append(CO.av(r.organisation), t); hero.append(top);
-const meta = el('div', 'mchips');
-const mc = (ic, txt, cls) => { if (!txt) return; const x = el('span', 'mchip' + (cls ? ' ' + cls : '')); x.append(el('i', null, ic), txt); meta.append(x); };
-mc('📍', r.location);
-mc('💷', r.salary && !/not stated/i.test(r.salary) ? r.salary : '');
-const dl = CO.daysTo(r.deadline);
-mc('⏳', r.deadline ? CO.fmtDay(r.deadline) + (dl != null && dl >= 0 && c === 'apply' ? ' · ' + (dl === 0 ? 'closes today' : dl + (dl === 1 ? ' day left' : ' days left')) : '') : r.deadline_text || '', dl != null && dl >= 0 && dl <= 3 && c === 'apply' ? 'hot' : '');
-hero.append(meta);
-const tags = el('div', 'tags'); tags.append(colPill(r), spPill(r)); if (r.id.startsWith('N')) tags.append(pill('Found by Claude', 'gold')); if (r.id.startsWith('M')) tags.append(pill('Added by you', 'blue')); const sp = savePill(r.id); if (sp) tags.append(sp);
+const hero = el('div', 'ph2'); hero.style.setProperty('--h', CO.hue(r.organisation));
+const top = el('div', 'ph2t'); const av = CO.av(r.organisation, 'av2'); const t = el('div', 'pt');
+const ot = CO.orgType(r), og = el('div', 'po2'); og.append(el('span', null, r.organisation)); if (!r.organisation.toLowerCase().includes(ot.split(' ')[0].toLowerCase())) og.append(el('span', 'otag', ot));
+t.append(og, el('h2', null, r.role)); top.append(av, t); hero.append(top);
+const tags = el('div', 'tags htags'); tags.append(colPill(r), spPill(r)); if (r.id.startsWith('N')) tags.append(pill('Found by Claude', 'gold')); if (r.id.startsWith('M')) tags.append(pill('Added by you', 'blue')); const sp = savePill(r.id); if (sp) tags.append(sp);
 const links = el('div', 'plinks');
-if (CO.isUrl(r.url)) { const a = el('a', 'btn sm pri', 'Open the advert ↗'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; links.append(a); }
-if (CO.canEdit) { const e = el('button', 'btn sm', '✎ Edit details'); e.type = 'button'; e.onclick = () => CO.startEdit(r.id); links.append(e); }
+if (CO.isUrl(r.url)) { const a = el('a', 'hbtn pri'); a.append(CO.icon('ext'), 'Open the advert'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; links.append(a); }
+if (CO.canEdit) { const e2 = el('button', 'hbtn'); e2.type = 'button'; e2.append(CO.icon('edit'), 'Edit details'); e2.onclick = () => CO.startEdit(r.id); links.append(e2); }
 hero.append(tags, links);
-w.append(hero, steps(r));
+const facts = el('div', 'facts');
+const fact = (ic, label, val, sub, cls) => { const f = el('div', 'fact' + (cls ? ' ' + cls : '')); const ii = el('span', 'fi'); ii.append(CO.icon(ic)); const tx = el('div'); tx.append(el('span', 'fl', label), el('b', null, val)); if (sub) tx.append(el('span', 'fs', sub)); f.append(ii, tx); f.title = label + ': ' + val; facts.append(f); };
+const loc = String(r.location || '').trim();
+const loc1 = loc.split(/[;—]/)[0].trim().replace(/\s*\/\s*/g, ' / '), more = loc.length > loc1.length + 2, open = CO.locOpen === r.id;
+fact('pin', 'Location', loc ? (open ? loc.replace(/\s*\/\s*/g, ' / ') : loc1) : 'Not stated', more ? (open ? 'Show less' : 'Show all details') : '', open ? 'open' : '');
+if (more) { const lf = facts.lastChild; lf.classList.add('clk'); lf.tabIndex = 0; lf.title = 'Location: ' + loc; lf.onclick = () => { CO.locOpen = open ? '' : r.id; dash.draw('panel'); }; }
+fact('pound', 'Salary', r.salary && !/not stated/i.test(r.salary) ? r.salary : 'Not stated', '');
+const dl = CO.daysTo(r.deadline);
+fact('cal', 'Closing date', r.deadline ? CO.fmtDay(r.deadline) : (r.deadline_text || 'Not stated'), r.deadline && dl != null ? (dl < 0 ? 'Closed' : dl === 0 ? 'Closes today' : dl + (dl === 1 ? ' day left' : ' days left')) : '', dl != null && dl >= 0 && dl <= 3 && c === 'apply' ? 'hot' : '');
+const stc = el('div', 'stcard'); stc.append(el('div', 'stt', 'Progress'), steps(r));
+w.append(hero, facts, stc);
 w.append(actionCard(r));
 if (CO.SAVING[r.id] === 'error') { const m = el('div', 'msg err'); m.append('Not saved: ' + (CO.ERR[r.id] || '') + ' '); const b = el('button', 'btn sm', 'Retry'); b.type = 'button'; b.onclick = CO.retry; m.append(b); w.append(m); }
 if (!CO.canEdit) w.append(el('div', 'msg', window.CAREER_OS_RO || ('View only here. To change this role, tell Claude in chat, for example: ' + r.organisation + ' — submitted.')));
