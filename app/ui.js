@@ -856,6 +856,111 @@ g.append(rc);
 h.append(g);
 });
 
+/* ---------- Next-action card ---------- */
+const next0 = CO.next;
+CO.next = (r) => {
+const n = next0(r);
+if (CO.colOf(r) === 'apply' && r.plan_on) { const p = CO.daysTo(r.plan_on), dl = CO.daysTo(r.deadline); if (p != null && (dl == null || dl >= 0)) return {t: p < 0 ? 'You planned to apply ' + CO.fmtDay(r.plan_on) : p === 0 ? 'Apply today — as planned' : 'Planned: apply ' + CO.fmtDay(r.plan_on), s: dl == null ? 'No closing date' : dl === 0 ? 'Closes today' : 'Closes ' + CO.fmtDay(r.deadline), u: p <= 0 || (dl != null && dl <= 2) ? 'red' : 'blue', k: Math.min(p, dl == null ? 99 : dl)}; }
+return n;
+};
+const when0 = CO.when;
+CO.when = (r, k) => (k === 'applied' && r.applied_on ? {d: r.applied_on} : when0(r, k));
+CO.APREP = ['Read the advert and person specification', 'Tailor your CV to this job', 'Write the cover letter or supporting statement', 'Check sponsorship with HR if it is unclear', 'Submit and save a copy of what you sent'];
+const aprepBox = (r) => {
+const done = Array.isArray(r.aprep) ? r.aprep : [];
+const w = el('div', 'apck');
+const pr = el('div', 'prog'); const tr = el('div', 'tr'); const i = el('i'); i.style.width = Math.round(done.length / CO.APREP.length * 100) + '%'; tr.append(i); pr.append(el('span', null, 'Application checklist ' + done.length + '/' + CO.APREP.length), tr);
+const ck = el('div', 'ck');
+CO.APREP.forEach((label, idx) => {
+const l = el('label', done.includes(idx) ? 'done' : null); const cb = el('input'); cb.type = 'checkbox'; cb.checked = done.includes(idx); cb.disabled = !CO.canEdit;
+cb.onchange = () => { const cur = new Set(Array.isArray(CO.find(r.id).aprep) ? CO.find(r.id).aprep : []); if (cb.checked) cur.add(idx); else cur.delete(idx); CO.saveRow(CO.find(r.id), {aprep: [...cur].sort((a, b) => a - b)}, 'Checklist: ' + label + (cb.checked ? ' done' : ' not done'), 1500); };
+l.append(cb, el('span', null, label)); ck.append(l);
+});
+w.append(pr, ck);
+return w;
+};
+const askText = (r, kind) => {
+const L = [kind === 'cv' ? 'Tailor my CV and write a short cover letter for this role, using my standard CV rules.' : 'Help me prepare for this interview: likely questions, my best SAMS and Shikho examples, and questions to ask the panel.', '', 'Role: ' + r.role, 'Employer: ' + r.organisation];
+if (r.location) L.push('Location: ' + r.location); if (r.salary) L.push('Salary: ' + r.salary);
+if (kind === 'cv' && r.deadline) L.push('Closing date: ' + CO.fmtDay(r.deadline));
+if (kind === 'iv' && r.interview_datetime) L.push('Interview: ' + r.interview_datetime);
+if (CO.isUrl(r.url)) L.push('Advert: ' + r.url);
+if (r.jd_focus) L.push('', 'What the job involves: ' + r.jd_focus);
+if (r.fit_reason) L.push('Why it fits: ' + r.fit_reason);
+if (r.notes) L.push('Notes: ' + r.notes);
+return L.join('\n');
+};
+const copyAsk = async (r, kind) => {
+const txt = askText(r, kind);
+try { await navigator.clipboard.writeText(txt); CO.copied = r.id + kind; os.miniForm = null; setTimeout(() => { CO.copied = ''; dash.draw('panel'); }, 4000); }
+catch (e) { os.miniForm = {id: r.id, kind: 'copy', text: txt}; }
+dash.draw('panel');
+};
+const REASONS = ['Not a good fit', 'No sponsorship', 'Salary too low', 'Location or travel', 'Not enough time before the deadline', 'Other'];
+const miniForm = (r, mf) => {
+const w = el('div', 'mform');
+const bar = el('div', 'pacts');
+const cancel = el('button', 'btn sm', 'Cancel'); cancel.type = 'button'; cancel.onclick = () => { os.miniForm = null; dash.draw('panel'); };
+const date = (label, val, min, max) => { const l = el('label'); const i = el('input'); i.type = 'date'; i.value = val || ''; if (min) i.min = min; if (max) i.max = max; l.append(el('span', null, label), i); w.append(l); return i; };
+if (mf.kind === 'appliedOn') {
+w.append(el('b', null, 'When did you apply?'));
+const i = date('Applied on', CO.addDays(CO.todayIso(), -1), '', CO.todayIso());
+const sv = el('button', 'btn sm pri', 'Save'); sv.type = 'button'; sv.onclick = () => { if (!i.value) return; os.miniForm = null; CO.saveRow(r, Object.assign(CO.moveTo(r, 'applied'), {applied_on: i.value, follow_up: CO.addDays(i.value, 10)}), 'Applied on ' + CO.fmtDay(i.value)); };
+bar.append(sv, cancel);
+} else if (mf.kind === 'plan') {
+w.append(el('b', null, 'When will you apply?'), el('span', 'small', 'It becomes the next action for this role, so you can see it in the list.'));
+const i = date('Apply on', r.plan_on || CO.todayIso(), CO.todayIso(), r.deadline || '');
+const sv = el('button', 'btn sm pri', 'Save plan'); sv.type = 'button'; sv.onclick = () => { if (!i.value) return; os.miniForm = null; CO.saveRow(r, {plan_on: i.value}, 'Planned to apply ' + CO.fmtDay(i.value)); };
+bar.append(sv);
+if (r.plan_on) { const cl = el('button', 'btn sm', 'Remove plan'); cl.type = 'button'; cl.onclick = () => { os.miniForm = null; CO.saveRow(r, {plan_on: ''}, 'Plan removed'); }; bar.append(cl); }
+bar.append(cancel);
+} else if (mf.kind === 'notApplying') {
+w.append(el('b', null, 'Why are you not applying?'), el('span', 'small', 'Saved with the role, so you can see later why you skipped it.'));
+const rs = el('div', 'rsn'); let pick = '';
+REASONS.forEach((x) => { const b = el('button', 'rchip', x); b.type = 'button'; b.onclick = () => { pick = x; rs.querySelectorAll('.rchip').forEach((y) => y.classList.toggle('on', y === b)); sv.disabled = false; }; rs.append(b); });
+w.append(rs);
+const sv = el('button', 'btn sm danger', 'Not applying'); sv.type = 'button'; sv.disabled = true; sv.onclick = () => { os.miniForm = null; CO.saveRow(r, {submission: 'Withdrawn', not_reason: pick}, 'Not applying · ' + pick); };
+bar.append(sv, cancel);
+} else if (mf.kind === 'copy') {
+w.append(el('b', null, 'Copy this and paste it into a chat with Claude'));
+const ta = el('textarea'); ta.readOnly = true; ta.rows = 8; ta.value = mf.text; w.append(ta); setTimeout(() => { ta.focus(); ta.select(); }, 0);
+bar.append(cancel);
+}
+w.append(bar);
+return w;
+};
+const actionCard = (r) => {
+const n = CO.next(r), c = CO.colOf(r), st = r.interview_status || '';
+const box = el('div', 'actc u-' + n.u);
+const hd = el('div', 'ah'); const ht = el('div', 'aht'); ht.append(el('span', 'lab', 'Next action'), el('b', null, n.t), el('span', 'sub', n.s)); hd.append(ht);
+let days = null, unit = '';
+if (c === 'apply' && r.deadline) { days = CO.daysTo(r.deadline); unit = 'left to apply'; }
+else if (c === 'interview') { const p = CO.ivParse(r.interview_datetime); if (p) { days = Math.round((p.ms - CO.todayUtc()) / 864e5); unit = 'to the interview'; } }
+else if (c === 'applied' && r.follow_up) { days = CO.daysTo(r.follow_up); unit = 'to follow up'; }
+if (days != null && days >= 0) { const bd = el('div', 'cd'); bd.append(el('b', null, days === 0 ? 'Today' : String(days)), el('span', null, days === 0 ? (c === 'apply' ? 'last day' : c === 'interview' ? 'interview day' : 'follow up') : (days === 1 ? 'day ' : 'days ') + unit)); hd.append(bd); }
+box.append(hd);
+if (!CO.canEdit) return box;
+const body = el('div', 'ab'); box.append(body);
+if (os.ivForm && os.ivForm.id === r.id) { const pb = progressBox(r); pb.classList.add('bare'); body.append(pb); return box; }
+if (os.miniForm && os.miniForm.id === r.id) { body.append(miniForm(r, os.miniForm)); return box; }
+const Q = {apply: 'Have you applied for this role?', applied: /^screening/i.test(st) ? 'How did the screening step go?' : 'Have you heard back from the employer?', offer: /accepted/i.test(st) ? 'Where are you with sponsorship and your start date?' : 'What is your decision on the offer?', closed: CO.expired(r) ? 'The closing date has passed. Did you apply before it closed?' : 'This role is closed. Reopen it only if that was a mistake.'};
+body.append(el('div', 'q', c === 'interview' ? (/^interviewed/i.test(st) ? 'What was the outcome of the interview?' : CO.ivParse(r.interview_datetime) ? 'Has the interview happened?' : 'Do you have the interview date?') : Q[c]));
+const acts = CO.actions(r), NEG = /rejected|withdraw|not applying|decline|no reply|undo/i;
+const pri = acts.filter((a) => a.pri), sec = acts.filter((a) => !a.pri && !NEG.test(a.l)), neg = acts.filter((a) => !a.pri && NEG.test(a.l));
+for (const a of pri) { const b = el('button', 'abig'); b.type = 'button'; let hint = 'Opens a short form'; if (!a.form) { const m = CO.recompute(Object.assign({}, r, a.p)); hint = 'Moves to ' + CO.label(m); } b.append(el('b', null, a.l), el('span', null, hint)); b.onclick = () => runAction(r, a); body.append(b); }
+const row = el('div', 'arow');
+const chipBtn = (label, fn, cls) => { const b = el('button', 'achip2' + (cls ? ' ' + cls : ''), label); b.type = 'button'; b.onclick = fn; row.append(b); };
+for (const a of sec) chipBtn(a.l, () => runAction(r, a));
+if (c === 'apply') { chipBtn('📅 Applied on another day', () => { os.miniForm = {id: r.id, kind: 'appliedOn'}; dash.draw('panel'); }); chipBtn(r.plan_on ? '🗓 Planned ' + CO.fmtDay(r.plan_on) : '🗓 Plan when to apply', () => { os.miniForm = {id: r.id, kind: 'plan'}; dash.draw('panel'); }); }
+if (['apply', 'applied'].includes(c)) chipBtn(CO.copied === r.id + 'cv' ? '✓ Copied — paste it into Claude' : '📋 Ask Claude for a tailored CV', () => copyAsk(r, 'cv'), CO.copied === r.id + 'cv' ? 'ok' : 'ai');
+if (c === 'interview') chipBtn(CO.copied === r.id + 'iv' ? '✓ Copied — paste it into Claude' : '📋 Ask Claude to prep me', () => copyAsk(r, 'iv'), CO.copied === r.id + 'iv' ? 'ok' : 'ai');
+if (row.childNodes.length) body.append(row);
+if (c === 'apply') body.append(aprepBox(r));
+if (neg.length) { const nr = el('div', 'neg'); nr.append(el('span', null, 'Other outcome:')); for (const a of neg) { const b = el('button', 'linkbtn danger', a.l.replace(/^[^A-Za-z]+/, '')); b.type = 'button'; b.onclick = () => { if (c === 'apply' && /not applying/i.test(a.l)) { os.miniForm = {id: r.id, kind: 'notApplying'}; dash.draw('panel'); } else runAction(r, a); }; nr.append(b); } body.append(nr); }
+if (r.not_reason && c === 'closed') body.append(el('div', 'small', 'Reason: ' + r.not_reason));
+return box;
+};
+
 /* ---------- Role details panel ---------- */
 os.ptab = os.ptab || 'overview';
 const readView = (r) => {
@@ -879,8 +984,7 @@ if (CO.isUrl(r.url)) { const a = el('a', 'btn sm pri', 'Open the advert ↗'); a
 if (CO.canEdit) { const e = el('button', 'btn sm', '✎ Edit details'); e.type = 'button'; e.onclick = () => CO.startEdit(r.id); links.append(e); }
 hero.append(tags, links);
 w.append(hero, steps(r));
-const nb = el('div', 'nextbox u-' + n.u); nb.append(el('span', null, 'Next action'), el('b', null, n.t), el('div', 'small', n.s)); w.append(nb);
-if (CO.canEdit) w.append(progressBox(r));
+w.append(actionCard(r));
 if (CO.SAVING[r.id] === 'error') { const m = el('div', 'msg err'); m.append('Not saved: ' + (CO.ERR[r.id] || '') + ' '); const b = el('button', 'btn sm', 'Retry'); b.type = 'button'; b.onclick = CO.retry; m.append(b); w.append(m); }
 if (!CO.canEdit) w.append(el('div', 'msg', window.CAREER_OS_RO || ('View only here. To change this role, tell Claude in chat, for example: ' + r.organisation + ' — submitted.')));
 const nl = Array.isArray(r.notes_log) ? r.notes_log.length : 0, hl = Array.isArray(r.history) ? r.history.length : 0, hasPrep = ['interview', 'offer'].includes(c);

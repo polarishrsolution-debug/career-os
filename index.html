@@ -512,6 +512,38 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); }
 @container os (max-width: 640px) { .os .ivrow { grid-template-columns: 36px minmax(0, 1fr); } .os .ivrow .ivst, .os .ivrow .pacts { grid-column: 2; } .os .flow { grid-template-columns: 1fr; } .os .farrow i { width: 2px; height: 18px; } .os .farrow i::after { display: none; } .os .rhero .story { font-size: 16px; } }
 .os [data-name=criteria] .grid { display: block; columns: 3 20rem; column-gap: 16px; }
 .os [data-name=criteria] .grid > .card { break-inside: avoid; margin-bottom: 16px; display: block; }
+
+.os .actc { --u: var(--c1); border-radius: 14px; border: 1px solid color-mix(in srgb, var(--u) 35%, var(--line)); background: var(--card); overflow: hidden; box-shadow: 0 8px 24px -20px rgba(15,37,55,.5); }
+.os .actc .ah { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, color-mix(in srgb, var(--u) 14%, var(--card)), color-mix(in srgb, var(--u) 4%, var(--card))); border-bottom: 1px solid color-mix(in srgb, var(--u) 20%, var(--line)); }
+.os .actc .aht { display: grid; gap: 2px; min-width: 0; }
+.os .actc .lab { font-size: 10.5px; text-transform: uppercase; letter-spacing: .12em; color: var(--mut); font-weight: 700; }
+.os .actc .aht b { font-size: 18px; color: var(--u); line-height: 1.25; }
+.os .actc .sub { font-size: 12.5px; color: var(--mut); }
+.os .actc .cd { flex: none; display: grid; justify-items: center; min-width: 74px; padding: 8px 10px; border-radius: 12px; background: var(--u); color: #fff; text-align: center; }
+.os .actc .cd b { font-size: 22px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.os .actc .cd span { font-size: 10.5px; opacity: .92; line-height: 1.2; max-width: 5.5rem; }
+.os .actc .ab { display: grid; gap: 12px; padding: 14px 16px 16px; }
+.os .actc .q { font-size: 14.5px; font-weight: 650; }
+.os .abig { display: grid; gap: 2px; text-align: left; padding: 13px 16px; border-radius: 11px; border: 0; background: var(--acc); color: #fff; cursor: pointer; font: inherit; box-shadow: 0 6px 16px -10px color-mix(in srgb, var(--acc) 80%, transparent); }
+.os .abig b { font-size: 15px; } .os .abig span { font-size: 12px; opacity: .88; }
+.os .abig:hover { filter: brightness(1.05); }
+.os .arow { display: flex; flex-wrap: wrap; gap: 8px; }
+.os .achip2 { border: 1px solid var(--line); background: var(--card); color: var(--color-fg); border-radius: 999px; padding: 7px 13px; font: inherit; font-size: 12.5px; cursor: pointer; font-weight: 550; }
+.os .achip2:hover { border-color: var(--acc); color: var(--acc); }
+.os .achip2.ai { border-color: color-mix(in srgb, var(--c2) 45%, var(--line)); color: var(--c2); background: color-mix(in srgb, var(--c2) 6%, var(--card)); }
+.os .achip2.ok { border-color: var(--acc); color: #fff; background: var(--acc); }
+.os .apck { display: grid; gap: 8px; padding: 12px; border-radius: 10px; background: var(--soft); border: 1px solid var(--line); }
+.os .actc .neg { padding-top: 10px; border-top: 1px dashed var(--line); }
+.os .prog2.bare { border: 0; padding: 0; background: none; }
+.os .prog2.bare > .t { display: none; }
+.os .mform { display: grid; gap: 10px; }
+.os .mform label { display: grid; gap: 4px; font-size: 12px; color: var(--mut); max-width: 16rem; }
+.os .mform input, .os .mform textarea { font: inherit; font-size: 13px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--card); color: var(--color-fg); }
+.os .mform textarea { width: 100%; box-sizing: border-box; resize: vertical; }
+.os .rsn { display: flex; flex-wrap: wrap; gap: 6px; }
+.os .rchip { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 12.5px; cursor: pointer; color: var(--color-fg); }
+.os .rchip.on { background: var(--color-bad); border-color: var(--color-bad); color: #fff; }
+.os .btn.danger { background: var(--color-bad); border-color: var(--color-bad); color: #fff; } .os .btn.danger:disabled { opacity: .45; cursor: not-allowed; }
 .os .steps { display: flex; align-items: center; }
 .os .st { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--mut); flex: 1; white-space: nowrap; }
 .os .st i { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-style: normal; font-size: 10px; font-weight: 700; flex: none; background: var(--card); }
