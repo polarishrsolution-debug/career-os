@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T09:40:02Z",
+ "updated": "2026-11-23T09:40:09Z",
  "rows": [
   {
    "id": "T001",
@@ -1445,7 +1445,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 14 days",
+   "alert": "🟡 Closes in 13 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -3417,7 +3417,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 47 days",
+   "alert": "🟡 Closes in 46 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3485,7 +3485,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3519,7 +3519,7 @@
   {
    "id": "N038",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3553,7 +3553,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3587,7 +3587,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -3772,8 +3772,8 @@
   },
   {
    "id": "N045",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Sheffield Hallam University",
    "role": "Project Manager",
    "sector": "University",
@@ -3799,6 +3799,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -4385,7 +4389,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4419,7 +4423,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4563,7 +4567,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4809,7 +4813,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4842,8 +4846,8 @@
   },
   {
    "id": "N076",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Lancaster University",
    "role": "Statutory Data Returns Manager (ref 1089-26)",
    "sector": "University",
@@ -4869,6 +4873,10 @@
     {
      "at": "2026-11-15T08:58:25Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -4876,8 +4884,8 @@
   },
   {
    "id": "N077",
-   "stage": "Watchlist — verify licence",
-   "alert": "🔴 Closes in 2 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Northampton",
    "role": "CRM Developer (ref UN5568)",
    "sector": "University",
@@ -4903,6 +4911,10 @@
     {
      "at": "2026-11-15T08:58:25Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -4911,7 +4923,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5081,7 +5093,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5323,7 +5335,7 @@
   {
    "id": "N090",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Senior Business Analyst (Grade 7)",
    "sector": "Non-university",
@@ -5357,7 +5369,7 @@
   {
    "id": "N091",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Product Manager (Grade 7, Data & Analytics)",
    "sector": "Non-university",
@@ -5391,7 +5403,7 @@
   {
    "id": "N092",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of Cambridge (Cambridge Centre for Alternative Finance, Judge Business School)",
    "role": "Product Manager, CCAF (Fixed Term, 12 months)",
    "sector": "University",
@@ -5422,7 +5434,7 @@
   {
    "id": "N093",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Westminster (Digital & Technology Services)",
    "role": "Head of Applications (ref 50075973)",
    "sector": "University",
@@ -5663,6 +5675,254 @@
    "history": [
     {
      "at": "2026-11-22T09:27:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N101",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟡 Closes in 11 days",
+   "organisation": "Kaplan Professional UK (KP UK)",
+   "role": "IT Senior Business Analyst – Non Manager (FTC to 31 Dec 2027)",
+   "sector": "Non-university",
+   "location": "London (hybrid where possible)",
+   "salary": "Up to £67,200",
+   "deadline": "2026-12-04",
+   "deadline_text": "11pm Fri 4 Dec 2026; may close early",
+   "sponsorship": "❔ Unknown — employing entity not named in advert (probably Kaplan Financial Limited); register entry not confirmed; advert silent, form offers 'No - I would require sponsorship'",
+   "fit": "7",
+   "fit_reason": "7: senior BA in an education/professional-training business with requirements workshops, software evaluation and IT roadmap work matches his BA and edtech product background",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Contribute to IT roadmaps and prioritisation; set analysis/change standards; run requirements workshops; software evaluation/RFPs; coordinate delivery across IT and business units",
+   "notes": "Daily search 23 Nov 2026. Live HireHive advert. Gaps: ITIL and data governance frameworks; fixed-term; possible travel to Asia/South Africa offices. Verify legal entity and licence on GOV.UK register before applying.",
+   "url": "https://kp-uk.hirehive.com/it-senior-business-analyst-non-manager-london-0THWR1",
+   "source": "Kaplan Professional HireHive careers board",
+   "added": "2026-11-23",
+   "legal_entity": "Not stated — probably Kaplan Financial Limited (unconfirmed)",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N102",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Apadmi",
+   "role": "Product Manager",
+   "sector": "Non-university",
+   "location": "Manchester",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date; apply form live",
+   "sponsorship": "❔ Unknown — no register entry found for Apadmi Ltd; advert silent, form asks 'Will you require sponsorship in the future?'",
+   "fit": "7",
+   "fit_reason": "7: senior product role owning strategy, business cases, discovery, roadmaps and line-managing product owners fits his SAMS360 product leadership of a 12-person team",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own product strategy and outcomes for client digital products from discovery to optimisation; business cases; outcome roadmaps; guide and line-manage Product Owners; lead launches and AI opportunities",
+   "notes": "Daily search 23 Nov 2026. Live Greenhouse advert. Gaps: agency/consultancy client-facing background; mobile consumer launches; sponsor licence not verified.",
+   "url": "https://job-boards.eu.greenhouse.io/apadmi/jobs/4966779101",
+   "source": "Hunt UK Visa Sponsors → Greenhouse",
+   "added": "2026-11-23",
+   "legal_entity": "Apadmi Ltd (presumed, not confirmed)",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N103",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Apadmi",
+   "role": "Product Owner",
+   "sector": "Non-university",
+   "location": "Manchester",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date (posted c. 22 Oct 2026); apply form live",
+   "sponsorship": "❔ Unknown — no register entry found for Apadmi Ltd; advert silent, form asks 'Will you require sponsorship in the future?'",
+   "fit": "7",
+   "fit_reason": "7: hands-on PO role covering backlog, discovery, KPIs and workshops fits his Agile/Jira BA-to-product experience",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own roadmap and backlog for a product or value stream; run discovery and requirements workshops; define and track KPIs; align delivery with PM, Design and Engineering",
+   "notes": "Daily search 23 Nov 2026. Live Greenhouse advert. Gaps: consultancy/mobile product experience; salary not stated (check it meets Skilled Worker threshold); sponsor licence not verified.",
+   "url": "https://job-boards.eu.greenhouse.io/apadmi/jobs/4965703101",
+   "source": "Hunt UK Visa Sponsors → Greenhouse",
+   "added": "2026-11-23",
+   "legal_entity": "Apadmi Ltd (presumed, not confirmed)",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N104",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Wise",
+   "role": "Senior Product Manager – Payment integrations",
+   "sector": "Non-university",
+   "location": "London",
+   "salary": "£93,000 – £120,000",
+   "deadline": "",
+   "deadline_text": "No closing date; apply live (vacancy 4549)",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Wise Payments Limited on the register (Skilled Worker, A rating, per register mirror), advert silent",
+   "fit": "6",
+   "fit_reason": "6: his payments-module product ownership and SQL/API skills transfer, but the role is heavy on payments infrastructure and platform engineering",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own platform roadmap to cut payout integration effort across regions; standardise integrations and migrations; build compliance and auditability in; data-led prioritisation",
+   "notes": "Daily search 23 Nov 2026. Live wise.jobs advert. Gaps: deep payments-infrastructure/partner-integration experience; regulatory payment controls; platform PM at scale. Register status from a mirror.",
+   "url": "https://wise.jobs/job/senior-product-manager-payment-integrations-in-london-jid-4549",
+   "source": "Wise careers",
+   "added": "2026-11-23",
+   "legal_entity": "Wise Payments Limited",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N105",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Matillion",
+   "role": "Senior Product Manager (Maia AI agent)",
+   "sector": "Non-university",
+   "location": "Manchester / Remote (UK)",
+   "salary": "£76,000 – £114,000",
+   "deadline": "",
+   "deadline_text": "No closing date; apply live on Lever",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Matillion Limited on the register (Skilled Worker, A rating, per register mirror), advert silent",
+   "fit": "6",
+   "fit_reason": "6: MSc Data Science and B2B product ownership help, but it calls for hands-on agentic-AI product depth",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own a core area of the Maia AI agent; build agent-quality evals; user research on data-engineering workflows; work with Engineering on models, context and MCP tools; present roadmaps",
+   "notes": "Daily search 23 Nov 2026. Live Lever advert. Gaps: AI-agent product experience (evals, MCP); data warehousing (Snowflake/Databricks); data-tooling domain. Register status from a mirror.",
+   "url": "https://jobs.lever.co/matillion/1ea93b8c-0fdb-42a5-a2a7-d83155883d97",
+   "source": "Matillion careers (Lever)",
+   "added": "2026-11-23",
+   "legal_entity": "Matillion Limited",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N106",
+   "stage": "To apply",
+   "alert": "🟡 Closes in 10 days",
+   "organisation": "University of Surrey",
+   "role": "Technical Integration Analyst (ref 057126)",
+   "sector": "University",
+   "location": "Guildford, hybrid (2 days on campus)",
+   "salary": "£38,448 – £57,666",
+   "deadline": "2026-12-03",
+   "deadline_text": "Closes 3 Dec 2026",
+   "sponsorship": "⚠️ Licensed — unconfirmed: University of Surrey on the register (Skilled Worker, A rating, per register mirror), advert silent",
+   "fit": "6",
+   "fit_reason": "6: strong BA match on requirements, specs, user stories and API/SQL data tracing, but an individual-contributor integration role below his product-lead level",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead integration requirements sessions; analyse REST/SOAP API and data flows; write interface specs, data mappings, user stories and acceptance criteria; support SIT/UAT",
+   "notes": "Daily search 23 Nov 2026. Open on official Surrey vacancies list. Gaps: hands-on Azure Integration Services/ADF/SSIS essential; lower end of band may be under the SOC 2133 going rate (~£54,900).",
+   "url": "https://jobs.surrey.ac.uk/vacancy.aspx?ref=057126",
+   "source": "University of Surrey vacancies",
+   "added": "2026-11-23",
+   "legal_entity": "University of Surrey",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N107",
+   "stage": "To apply",
+   "alert": "🔴 Closes in 0 days",
+   "organisation": "University of Bath",
+   "role": "Change Manager (ref CC14078) – Planning, Performance & Strategic Change",
+   "sector": "University",
+   "location": "Bath (Claverton Down)",
+   "salary": "£48,337 – £57,666",
+   "deadline": "2026-11-23",
+   "deadline_text": "Closes Mon 23 Nov 2026 (today)",
+   "sponsorship": "⚠️ Licensed — unconfirmed: University of Bath on the register (Skilled Worker, A rating, per register mirror), advert silent",
+   "fit": "6",
+   "fit_reason": "6: his delivery of change across HE recruitment, payments and planning fits embedding strategic change at a university, though he has no formal change-management credentials",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Embed strategic change under University Strategy 2036 in the new PPSC function; shape change and project approaches; stakeholder engagement and adoption",
+   "notes": "Daily search 23 Nov 2026. Listed open on official Bath vacancies page today — closes today. 2 posts. Gaps: no Prosci/APMG or people-side change record; full person spec not read.",
+   "url": "https://www.bath.ac.uk/jobs/Vacancy.aspx?ref=CC14078",
+   "source": "University of Bath vacancies",
+   "added": "2026-11-23",
+   "legal_entity": "University of Bath",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N108",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟡 Closes in 8 days",
+   "organisation": "University of Cambridge (University Change Support Office)",
+   "role": "Lead: Portfolio Performance (Business Planning) (ref YV51605)",
+   "sector": "University",
+   "location": "Cambridge",
+   "salary": "£64,878 – £68,817",
+   "deadline": "2026-12-01",
+   "deadline_text": "Closes 1 Dec 2026; interviews mid-December",
+   "sponsorship": "❔ Unknown — register mirror shows The University of Cambridge on the GAE route only; Skilled Worker entry not found; advert silent",
+   "fit": "6",
+   "fit_reason": "6: MSc Data Science, planning-module product work, team leadership and Power BI reporting map onto portfolio MI and planning leadership, though he lacks a formal PMO track record",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Set standards for portfolio planning, sequencing, reporting and MI; visibility of delivery, risks, costs and benefits; chair the Sequencing Steering Group; manage the planning team",
+   "notes": "Daily search 23 Nov 2026. Open on official cam.ac.uk list. Gaps: substantial PMO/portfolio planning experience expected; formal programme-management expertise. Check Skilled Worker licence entry on GOV.UK register.",
+   "url": "https://www.cam.ac.uk/jobs/lead-porfolio-performance-business-planning-yv51605",
+   "source": "University of Cambridge jobs",
+   "added": "2026-11-23",
+   "legal_entity": "The Chancellor, Masters and Scholars of the University of Cambridge",
+   "last_verified": "23 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-23T09:26:01Z",
      "what": "Daily search: added (official advert verified open)"
     }
    ]
