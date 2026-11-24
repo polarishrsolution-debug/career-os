@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T09:40:09Z",
+ "updated": "2026-11-24T09:40:49Z",
  "rows": [
   {
    "id": "T001",
@@ -1445,7 +1445,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 13 days",
+   "alert": "🟡 Closes in 12 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -3417,7 +3417,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 46 days",
+   "alert": "🟡 Closes in 45 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3450,8 +3450,8 @@
   },
   {
    "id": "N036",
-   "stage": "Watchlist — verify licence",
-   "alert": "🟠 Closes in 3 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "PACT Solutions",
    "role": "Student Finance Implementation Consultant",
    "sector": "Non-university",
@@ -3477,6 +3477,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3485,7 +3489,7 @@
   {
    "id": "N037",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3518,8 +3522,8 @@
   },
   {
    "id": "N038",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Southampton",
    "role": "Banner Business Change Manager",
    "sector": "University",
@@ -3545,6 +3549,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3553,7 +3561,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3587,7 +3595,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -4389,7 +4397,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4423,7 +4431,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4567,7 +4575,7 @@
   {
    "id": "N068",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4813,7 +4821,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4923,7 +4931,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5093,7 +5101,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5335,7 +5343,7 @@
   {
    "id": "N090",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Senior Business Analyst (Grade 7)",
    "sector": "Non-university",
@@ -5369,7 +5377,7 @@
   {
    "id": "N091",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Product Manager (Grade 7, Data & Analytics)",
    "sector": "Non-university",
@@ -5403,7 +5411,7 @@
   {
    "id": "N092",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Cambridge (Cambridge Centre for Alternative Finance, Judge Business School)",
    "role": "Product Manager, CCAF (Fixed Term, 12 months)",
    "sector": "University",
@@ -5434,7 +5442,7 @@
   {
    "id": "N093",
    "stage": "To apply",
-   "alert": "🟠 Closes in 7 days",
+   "alert": "🟠 Closes in 6 days",
    "organisation": "University of Westminster (Digital & Technology Services)",
    "role": "Head of Applications (ref 50075973)",
    "sector": "University",
@@ -5837,7 +5845,7 @@
   {
    "id": "N106",
    "stage": "To apply",
-   "alert": "🟡 Closes in 10 days",
+   "alert": "🟡 Closes in 9 days",
    "organisation": "University of Surrey",
    "role": "Technical Integration Analyst (ref 057126)",
    "sector": "University",
@@ -5867,8 +5875,8 @@
   },
   {
    "id": "N107",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Bath",
    "role": "Change Manager (ref CC14078) – Planning, Performance & Strategic Change",
    "sector": "University",
@@ -5893,6 +5901,10 @@
     {
      "at": "2026-11-23T09:26:01Z",
      "what": "Daily search: added (official advert verified open)"
+    },
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ]
   },
@@ -5923,6 +5935,161 @@
    "history": [
     {
      "at": "2026-11-23T09:26:01Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N109",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Redgate Software",
+   "role": "Senior Product Manager",
+   "sector": "Non-university",
+   "location": "Cambridge (flexible hybrid, roughly weekly office visit)",
+   "salary": "£80,000–£90,000 DOE",
+   "deadline": "",
+   "deadline_text": "No closing date stated; apply button live on official page",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Red Gate Software Ltd on the register (Skilled Worker, A-rated, per register mirror synced 20 Nov 2026), advert silent",
+   "fit": "6",
+   "fit_reason": "6: Senior B2B SaaS product role owning strategy, roadmap and commercial outcomes matches his product leadership, though database-DevOps tooling and pricing/GTM ownership are a stretch from HE software.",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own product strategy and lifecycle for a product area; roadmap with Tech Lead and Designer; positioning, pricing and GTM with Product Marketing; market/competitor research; mentor junior PMs",
+   "notes": "Daily search 24 Nov 2026. Gaps: no developer-tools/database domain; less commercial and pricing ownership. Posted c. 3 Nov 2026 (per Hunt UK Visa Sponsors). Needs relocation near Cambridge.",
+   "url": "https://www.red-gate.com/our-company/careers/current-opportunities/senior-product-manager-3",
+   "source": "Hunt UK Visa Sponsors → Redgate careers",
+   "added": "2026-11-24",
+   "legal_entity": "Red Gate Software Ltd",
+   "last_verified": "24 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N110",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "CreateFuture (formerly xDesign)",
+   "role": "Senior Technical Business Analyst",
+   "sector": "Non-university",
+   "location": "Edinburgh / Leeds / London / Manchester or Remote UK",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date; Greenhouse page marked New with live Apply button",
+   "sponsorship": "❔ Unknown — advert silent; application form asks about sponsorship need; employing entity (believed XSOLUTIONS365 LTD t/a CreateFuture) not found on register mirrors checked",
+   "fit": "7",
+   "fit_reason": "7: Technical BA work on user stories, API contracts, data mapping, SQL analysis and backlog ownership closely matches his BA, SQL/API and automation background.",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Assess business processes and propose system solutions; user stories, acceptance criteria, process flows, API contracts, data mappings; query system data; manage backlogs across discovery-build-run; lead client discovery workshops",
+   "notes": "Daily search 24 Nov 2026. Gaps: client-facing consultancy experience expected; step down from senior product lead. A BuiltIn copy was removed 13 Nov but the official Greenhouse page is live. Confirm licence and sponsorship with recruiter before applying.",
+   "url": "https://job-boards.eu.greenhouse.io/xdesign/jobs/4995151101",
+   "source": "CreateFuture Greenhouse board",
+   "added": "2026-11-24",
+   "legal_entity": "XSOLUTIONS365 LTD t/a CreateFuture (unverified on register)",
+   "last_verified": "24 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N111",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "PACT Solutions",
+   "role": "Senior Technical Consultant – Student Systems and Digital Transformation",
+   "sector": "Non-university",
+   "location": "Bristol or Manchester (hybrid), UK & Ireland travel",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date; apply link live on Workable",
+   "sponsorship": "❔ Unknown — advert silent; PACT Solutions not found on register mirrors checked",
+   "fit": "6",
+   "fit_reason": "6: HE student-systems transformation work (SITS/Banner/Unit4, student lifecycle, integration, migration) maps onto his SAMS360 HE product experience, but leans heavily on technical architecture and cutover leadership.",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead technical architecture and delivery on student systems programmes; integration, migration, testing, cutover; data models and integration patterns (REST/SOAP/middleware); supplier assurance; proposals",
+   "notes": "Daily search 24 Nov 2026. Gaps: no named SITS/Banner/Unit4 experience; solution-architect depth expected. Different role from N036 (PACT Student Finance Implementation Consultant). Check salary meets Skilled Worker threshold.",
+   "url": "https://jobs.workable.com/jobs/60175a8f-3e54-4fb1-ac35-248ae98d8146",
+   "source": "PACT Solutions Workable",
+   "added": "2026-11-24",
+   "legal_entity": "PACT Solutions (unverified on register)",
+   "last_verified": "24 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N112",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟠 Closes in 7 days",
+   "organisation": "ASCL (Association of School and College Leaders)",
+   "role": "Business Analyst / Product Manager (CRM refresh, 6-month FTC)",
+   "sector": "Non-university",
+   "location": "Leicester (hybrid, 2+ days at HQ)",
+   "salary": "£62,997 pro rata",
+   "deadline": "2026-12-01",
+   "deadline_text": "4pm Tue 1 Dec 2026; interviews 10 Dec; start 11 Jan 2027",
+   "sponsorship": "❔ Unknown — advert and careers page silent on right to work; ASCL not found on register mirrors checked",
+   "fit": "6",
+   "fit_reason": "6: Leading discovery and a delivery-ready backlog for a Dynamics 365 membership/events CRM in education is a near-exact content match, but a 6-month fixed term with unknown sponsorship is weak for a Skilled Worker visa.",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead discovery and requirements for Dynamics 365 CRM refresh (membership, events, comms, member services); stakeholder workshops; current-state process mapping; functional/non-functional requirements; prioritised backlog; RAID log",
+   "notes": "Daily search 24 Nov 2026. Gaps: no hands-on Dynamics 365. Only 6 months — ask ASCL about sponsorship before applying. Leicester ~1h from Sheffield. Applications via Networx Recruitment.",
+   "url": "https://ascl.current-vacancies.com/Jobs/Advert/4383041?cid=1522",
+   "source": "ASCL careers page",
+   "added": "2026-11-24",
+   "legal_entity": "Association of School and College Leaders (unverified on register)",
+   "last_verified": "24 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N113",
+   "stage": "Watchlist — verify licence",
+   "alert": "🟡 Closes in 9 days",
+   "organisation": "UCAS (Universities and Colleges Admissions Service)",
+   "role": "Technical Programme Manager (ref 002382)",
+   "sector": "Non-university",
+   "location": "Cheltenham (hybrid)",
+   "salary": "Up to £65,000",
+   "deadline": "2026-12-03",
+   "deadline_text": "Closing date 3 Dec 2026",
+   "sponsorship": "❔ Unknown — advert silent on sponsorship; UCAS register entry not checked (lookup blocked this run)",
+   "fit": "6",
+   "fit_reason": "6: Leading a technology programme at the HE admissions body suits his experience running a 12-person team on HE recruitment software, though it is programme delivery rather than product ownership.",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Lead a technology programme supporting UCAS strategy; coordinate project managers; business cases, schedules, budgets, dependencies, supplier management; coach team; influence up to Director level",
+   "notes": "Daily search 24 Nov 2026. Gaps: PRINCE2, budget and supplier management desired; programme-management track record. Cheltenham is a long way from Sheffield. Check UCAS on the GOV.UK sponsor register.",
+   "url": "https://ucas-career.talent-soft.com/job/job-technical-programme-manager_930.aspx",
+   "source": "UCAS careers (Talentsoft)",
+   "added": "2026-11-24",
+   "legal_entity": "Universities and Colleges Admissions Service (unverified on register)",
+   "last_verified": "24 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-24T09:28:22Z",
      "what": "Daily search: added (official advert verified open)"
     }
    ]
