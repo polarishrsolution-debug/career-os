@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T09:40:49Z",
+ "updated": "2026-11-25T09:40:05Z",
  "rows": [
   {
    "id": "T001",
@@ -1445,7 +1445,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 12 days",
+   "alert": "🟡 Closes in 11 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -3417,7 +3417,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 45 days",
+   "alert": "🟡 Closes in 44 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3488,8 +3488,8 @@
   },
   {
    "id": "N037",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Salford",
    "role": "Delivery Manager – Digital IT",
    "sector": "University",
@@ -3515,6 +3515,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-25T08:58:34Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3561,7 +3565,7 @@
   {
    "id": "N039",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3595,7 +3599,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -4397,7 +4401,7 @@
   {
    "id": "N063",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4431,7 +4435,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4574,8 +4578,8 @@
   },
   {
    "id": "N068",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Allianz UK",
    "role": "Senior Business Analyst",
    "sector": "Non-university",
@@ -4601,6 +4605,10 @@
     {
      "at": "2026-11-13T08:59:43Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-25T08:58:34Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -4821,7 +4829,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4931,7 +4939,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5101,7 +5109,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5343,7 +5351,7 @@
   {
    "id": "N090",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Senior Business Analyst (Grade 7)",
    "sector": "Non-university",
@@ -5377,7 +5385,7 @@
   {
    "id": "N091",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Product Manager (Grade 7, Data & Analytics)",
    "sector": "Non-university",
@@ -5411,7 +5419,7 @@
   {
    "id": "N092",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of Cambridge (Cambridge Centre for Alternative Finance, Judge Business School)",
    "role": "Product Manager, CCAF (Fixed Term, 12 months)",
    "sector": "University",
@@ -5442,7 +5450,7 @@
   {
    "id": "N093",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Westminster (Digital & Technology Services)",
    "role": "Head of Applications (ref 50075973)",
    "sector": "University",
@@ -5845,7 +5853,7 @@
   {
    "id": "N106",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "University of Surrey",
    "role": "Technical Integration Analyst (ref 057126)",
    "sector": "University",
@@ -6090,6 +6098,37 @@
    "history": [
     {
      "at": "2026-11-24T09:28:22Z",
+     "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N114",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Multiverse",
+   "role": "Lead Product Manager (Prescribe)",
+   "sector": "Non-university",
+   "location": "London (hybrid, 3 days a week in office)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date on advert (posted 1 Oct 2026); Tarve lists an apply-by of 30 Nov 2026, so apply this week",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Multiverse Group Limited on the register (Skilled Worker, per Tarve register mirror checked 25 Nov 2026), advert silent",
+   "fit": "8",
+   "fit_reason": "8: Owning the prospect-to-committed-learner funnel, eligibility/levy logic and conversion experiments at an edtech closely mirrors his SAMS360 student-recruitment/CRM product lead work and Shikho edtech background.",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "jd_focus": "Own the Prescribe product (matching learners to programmes and converting prospects into committed learners); build AI-native product experiences; own eligibility and apprenticeship-levy logic; set conversion metrics and run experimentation; reports to the Diagnose & Prescribe lead, no direct reports",
+   "notes": "Daily search 25 Nov 2026. Gaps: UK apprenticeship-levy/funding rules are new to him; lead-level IC role with AI-native product expectations. Advert read via Multiverse's General Catalyst portfolio job board (Ashby feed) — open the Multiverse careers/Ashby page to apply and confirm it's still live. Salary not stated; check it meets the Skilled Worker going rate. Basic DBS check required.",
+   "url": "https://jobs.generalcatalyst.com/companies/multiverse/jobs/95370211-lead-product-manager",
+   "source": "Tarve → Multiverse job board (General Catalyst portfolio / Ashby)",
+   "added": "2026-11-25",
+   "legal_entity": "Multiverse Group Limited",
+   "last_verified": "25 Nov 2026",
+   "history": [
+    {
+     "at": "2026-11-25T08:58:34Z",
      "what": "Daily search: added (official advert verified open)"
     }
    ]
