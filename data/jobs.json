@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T09:40:05Z",
+ "updated": "2026-11-26T09:40:25Z",
  "rows": [
   {
    "id": "T001",
@@ -1445,7 +1445,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 11 days",
+   "alert": "🟡 Closes in 10 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -3417,7 +3417,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 44 days",
+   "alert": "🟡 Closes in 43 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3564,8 +3564,8 @@
   },
   {
    "id": "N039",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "University of Bath (KTP)",
    "role": "KTP Associate: Data Product Analyst",
    "sector": "University",
@@ -3591,6 +3591,10 @@
     {
      "at": "2026-11-12T13:46:23Z",
      "what": "Deep search (on Adnan's request): added"
+    },
+    {
+     "at": "2026-11-26T08:57:02Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -3599,7 +3603,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -4400,8 +4404,8 @@
   },
   {
    "id": "N063",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "Imperial College London",
    "role": "Principal Product Manager – AI (central AI capability, ICT)",
    "sector": "University",
@@ -4427,6 +4431,10 @@
     {
      "at": "2026-11-13T08:59:43Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-26T08:57:02Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -4435,7 +4443,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4829,7 +4837,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4939,7 +4947,7 @@
   {
    "id": "N078",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -5109,7 +5117,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🟠 Closes in 4 days",
+   "alert": "🟠 Closes in 3 days",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5351,7 +5359,7 @@
   {
    "id": "N090",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Senior Business Analyst (Grade 7)",
    "sector": "Non-university",
@@ -5385,7 +5393,7 @@
   {
    "id": "N091",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Product Manager (Grade 7, Data & Analytics)",
    "sector": "Non-university",
@@ -5419,7 +5427,7 @@
   {
    "id": "N092",
    "stage": "To apply",
-   "alert": "🔴 Closes in 1 day",
+   "alert": "🔴 Closes in 0 days",
    "organisation": "University of Cambridge (Cambridge Centre for Alternative Finance, Judge Business School)",
    "role": "Product Manager, CCAF (Fixed Term, 12 months)",
    "sector": "University",
@@ -5450,7 +5458,7 @@
   {
    "id": "N093",
    "stage": "To apply",
-   "alert": "🟠 Closes in 5 days",
+   "alert": "🟠 Closes in 4 days",
    "organisation": "University of Westminster (Digital & Technology Services)",
    "role": "Head of Applications (ref 50075973)",
    "sector": "University",
@@ -5853,7 +5861,7 @@
   {
    "id": "N106",
    "stage": "To apply",
-   "alert": "🟡 Closes in 8 days",
+   "alert": "🟠 Closes in 7 days",
    "organisation": "University of Surrey",
    "role": "Technical Integration Analyst (ref 057126)",
    "sector": "University",
