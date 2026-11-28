@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T09:40:40Z",
+ "updated": "2026-11-28T09:40:08Z",
  "rows": [
   {
    "id": "T001",
@@ -1445,7 +1445,7 @@
   {
    "id": "T042",
    "stage": "To apply",
-   "alert": "🟡 Closes in 9 days",
+   "alert": "🟡 Closes in 8 days",
    "organisation": "Investigo",
    "role": "Product Owner – Insurance",
    "sector": "Non-university",
@@ -3417,7 +3417,7 @@
   {
    "id": "N035",
    "stage": "To apply",
-   "alert": "🟡 Closes in 42 days",
+   "alert": "🟡 Closes in 41 days",
    "organisation": "University of Sheffield (IT Services)",
    "role": "Product Manager – Research & Innovation (Research Skills & Research Practice)",
    "sector": "University",
@@ -3603,7 +3603,7 @@
   {
    "id": "N040",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Newcastle University",
    "role": "Transformation Programme/Project Manager",
    "sector": "University",
@@ -4443,7 +4443,7 @@
   {
    "id": "N064",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "Swansea University",
    "role": "Project Manager (Online Learning)",
    "sector": "University",
@@ -4837,7 +4837,7 @@
   {
    "id": "N075",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "UCL",
    "role": "Business Systems and Data Manager – Workplace Health (ref B30-00300)",
    "sector": "University",
@@ -4946,8 +4946,8 @@
   },
   {
    "id": "N078",
-   "stage": "To apply",
-   "alert": "🔴 Closes in 0 days",
+   "stage": "Closed",
+   "alert": "⚫ Deadline passed",
    "organisation": "City & Guilds",
    "role": "Product Manager – Digital (ref 8293)",
    "sector": "Non-university",
@@ -4973,6 +4973,10 @@
     {
      "at": "2026-11-16T08:59:50Z",
      "what": "Daily search: added"
+    },
+    {
+     "at": "2026-11-28T08:53:00Z",
+     "what": "Daily search: deadline passed — marked closed"
     }
    ],
    "prep": [],
@@ -5117,7 +5121,7 @@
   {
    "id": "N083",
    "stage": "To apply",
-   "alert": "🔴 Closes in 2 days",
+   "alert": "🔴 Closes in 1 day",
    "organisation": "University of York",
    "role": "Senior Systems Analyst (Student Systems / SITS) — ref 15430",
    "sector": "University",
@@ -5397,7 +5401,7 @@
   {
    "id": "N091",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "Department for Work and Pensions (DWP Digital)",
    "role": "Product Manager (Grade 7, Data & Analytics)",
    "sector": "Non-university",
@@ -5466,7 +5470,7 @@
   {
    "id": "N093",
    "stage": "To apply",
-   "alert": "🟠 Closes in 3 days",
+   "alert": "🔴 Closes in 2 days",
    "organisation": "University of Westminster (Digital & Technology Services)",
    "role": "Head of Applications (ref 50075973)",
    "sector": "University",
@@ -5869,7 +5873,7 @@
   {
    "id": "N106",
    "stage": "To apply",
-   "alert": "🟠 Closes in 6 days",
+   "alert": "🟠 Closes in 5 days",
    "organisation": "University of Surrey",
    "role": "Technical Integration Analyst (ref 057126)",
    "sector": "University",
@@ -6239,6 +6243,99 @@
     {
      "at": "2026-11-27T09:02:21Z",
      "what": "Daily search: added (official advert verified open)"
+    }
+   ]
+  },
+  {
+   "id": "N118",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "source": "Hunt UK Visa Sponsors",
+   "added": "2026-11-28",
+   "last_verified": "28 Nov 2026",
+   "sector": "Non-university",
+   "stage": "To apply",
+   "alert": "🔴 Closes in 2 days",
+   "organisation": "Coursera",
+   "role": "Enterprise Implementation Manager",
+   "location": "London (hybrid)",
+   "salary": "Not stated (zone-based pay)",
+   "deadline": "2026-11-30",
+   "deadline_text": "Anticipated application window closes 30 Nov 2026 (may close earlier or stay open); posted 11 Nov 2026",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Coursera UK Limited shown as a sponsor-licence holder (per Hunt UK Visa Sponsors register mirror, checked 28 Nov 2026), advert silent",
+   "fit": "7",
+   "fit_reason": "7: Leading enterprise onboarding/implementation for an edtech SaaS platform draws directly on his SAMS360 HE-software product lead and Shikho edtech experience.",
+   "jd_focus": "Lead 8–12 week onboarding engagements for enterprise customers from configuration to handover to Customer Success; manage senior client stakeholders and several engagements at once",
+   "notes": "Daily search 28 Nov 2026. Closes in ~2 days — apply quickly. Gaps: role wants 4+ years customer-facing SaaS onboarding/consulting (his is product-side). Only available for hire in the UK. Listing read on Hunt UK Visa Sponsors; confirm on Coursera's careers page (Coursera + Udemy) that it is still live, and check salary meets the Skilled Worker going rate. GOV.UK register lookup blocked this run.",
+   "url": "https://huntukvisasponsors.com/job/enterprise-implementation-manager-at-coursera-kqmyr6kruz3a",
+   "legal_entity": "Coursera UK Limited (per register mirror; confirm)",
+   "history": [
+    {
+     "at": "2026-11-28T08:55:29Z",
+     "what": "Daily search: added (listing verified live on Hunt UK Visa Sponsors; official employer advert not opened this run)"
+    }
+   ]
+  },
+  {
+   "id": "N119",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "source": "Hunt UK Visa Sponsors",
+   "added": "2026-11-28",
+   "last_verified": "28 Nov 2026",
+   "sector": "Non-university",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Thomson Reuters (Legal Market Solutions Ltd)",
+   "role": "Product Manager, UK Practice Software",
+   "location": "London (hybrid)",
+   "salary": "Not stated",
+   "deadline": "",
+   "deadline_text": "No closing date shown; added 20 Nov 2026",
+   "sponsorship": "⚠️ Licensed — unconfirmed: LEGAL MARKET SOLUTIONS LTD shown as a sponsor-licence holder (per Hunt UK Visa Sponsors register mirror, checked 28 Nov 2026), advert silent",
+   "fit": "6",
+   "fit_reason": "6: Owning the roadmap for B2B practice-management software with API and AI-tooling work matches his SAMS360 product lead experience, though the accountancy domain is new.",
+   "jd_focus": "Own the product roadmap for UK accountancy practice software; platform/API and AI-tool work; hands-on use of Claude Code or similar AI tools",
+   "notes": "Daily search 28 Nov 2026. Gaps: accountancy/tax practice domain new to him; wants 5+ years PM/PO in software and hands-on AI coding tools. Advert names Thomson Reuters but Hunt lists the employer as LEGAL MARKET SOLUTIONS LTD — confirm the employing entity on the official Thomson Reuters careers page and the GOV.UK register (lookup blocked this run). Salary not stated; check going rate (SOC 2134).",
+   "url": "https://huntukvisasponsors.com/job/product-manager-uk-practice-software-elurqeb31vzd",
+   "legal_entity": "Legal Market Solutions Ltd (per register mirror; confirm)",
+   "history": [
+    {
+     "at": "2026-11-28T08:55:29Z",
+     "what": "Daily search: added (listing verified live on Hunt UK Visa Sponsors; official employer advert not opened this run)"
+    }
+   ]
+  },
+  {
+   "id": "N120",
+   "submission": "Not started",
+   "interview_status": "—",
+   "interview_datetime": "",
+   "source": "Hunt UK Visa Sponsors",
+   "added": "2026-11-28",
+   "last_verified": "28 Nov 2026",
+   "sector": "Non-university",
+   "stage": "To apply",
+   "alert": "🟢 Open — no deadline",
+   "organisation": "Leidos Innovations UK Ltd",
+   "role": "Business Analyst",
+   "location": "UK (remote/hybrid)",
+   "salary": "£44,700 – £57,300",
+   "deadline": "",
+   "deadline_text": "No closing date stated (US-style 'no earlier than 3 days after posting'); posted 27 Nov 2026",
+   "sponsorship": "⚠️ Licensed — unconfirmed: Leidos Innovations UK Ltd shown as a sponsor-licence holder (per Hunt UK Visa Sponsors register mirror, checked 28 Nov 2026), advert silent",
+   "fit": "6",
+   "fit_reason": "6: Core BA work — requirements elicitation, user stories, BPMN process modelling and workshops in agile delivery — fits his business analysis background.",
+   "jd_focus": "Elicit requirements, write user stories and produce BPMN process models for ESCS capabilities; facilitate workshops; work in agile delivery",
+   "notes": "Daily search 28 Nov 2026. Gaps: defence/government programme context; BPSS screening required (check whether any later clearance is needed — this can be a blocker for visa holders). Listing read on Hunt UK Visa Sponsors; open the official Leidos careers advert to confirm it is live. Salary range looks above typical BA going rate (SOC 2133) but confirm.",
+   "url": "https://huntukvisasponsors.com/job/business-analyst-6531c7ygbvso",
+   "legal_entity": "Leidos Innovations UK Ltd (per register mirror; confirm)",
+   "history": [
+    {
+     "at": "2026-11-28T08:55:29Z",
+     "what": "Daily search: added (listing verified live on Hunt UK Visa Sponsors; official employer advert not opened this run)"
     }
    ]
   }
